@@ -1,67 +1,135 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 
-<title>Book Your Website</title>
-
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>KnowMore | Book Website</title>
 
 <style>
 
-body{
+/* GLOBAL */
+
+*{
 margin:0;
+padding:0;
+box-sizing:border-box;
 font-family:Arial, Helvetica, sans-serif;
-background:linear-gradient(135deg,#f5f5f5,#cfcfcf,#f0f0f0);
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
 }
 
-.container{
-width:90%;
-max-width:500px;
-background:rgba(255,255,255,0.4);
-backdrop-filter:blur(18px);
-padding:40px;
-border-radius:15px;
-box-shadow:0 10px 30px rgba(0,0,0,0.2);
+body{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+background:linear-gradient(135deg,#f5f5f5,#cfcfcf,#ededed);
 }
+
+/* GLASS CARD */
+
+.container{
+
+width:90%;
+max-width:520px;
+
+padding:40px;
+
+border-radius:18px;
+
+background:rgba(255,255,255,0.35);
+backdrop-filter:blur(20px);
+
+border:1px solid rgba(255,255,255,0.4);
+
+box-shadow:0 20px 50px rgba(0,0,0,0.2);
+
+}
+
+/* TITLE */
 
 h1{
 text-align:center;
 margin-bottom:30px;
 }
 
+/* LABEL */
+
 label{
+display:block;
+margin-top:15px;
+margin-bottom:6px;
 font-weight:bold;
 }
 
+/* INPUTS */
+
 select{
+
 width:100%;
 padding:12px;
-margin-top:8px;
-margin-bottom:20px;
-border:none;
+
 border-radius:8px;
+
+border:none;
+
 font-size:15px;
+
+margin-bottom:10px;
+
 }
 
+/* CHECKBOX GROUP */
+
+.features{
+margin-top:10px;
+}
+
+.features label{
+font-weight:normal;
+display:block;
+margin:6px 0;
+}
+
+/* BUTTON */
+
 button{
+
+margin-top:25px;
+
 width:100%;
+
 padding:15px;
-font-size:16px;
-background:black;
-color:white;
+
 border:none;
+
 border-radius:10px;
+
+font-size:16px;
+
+background:black;
+
+color:white;
+
 cursor:pointer;
+
 transition:0.3s;
+
 }
 
 button:hover{
 background:#333;
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+.container{
+padding:30px;
+}
+
 }
 
 </style>
@@ -75,35 +143,49 @@ background:#333;
 <h1>Book Your Website</h1>
 
 <label>Select Plan</label>
+
 <select id="plan">
 <option>Basic - ₹2999</option>
 <option>Standard - ₹4999</option>
 <option>Premium - ₹5999</option>
 </select>
 
+
 <label>Select Industry</label>
+
 <select id="industry">
 <option>Restaurant / Cafe</option>
 <option>Salon / Spa</option>
 <option>Gym / Fitness</option>
 <option>Clothing Store</option>
 <option>Real Estate</option>
+<option>Medical / Clinic</option>
 <option>Other</option>
 </select>
 
-<label>Extra Needs</label>
-<select id="needs">
-<option>Photo Gallery</option>
-<option>Online Booking</option>
-<option>Menu Section</option>
-<option>Google Maps</option>
-<option>WhatsApp Button</option>
-<option>SEO Setup</option>
-</select>
+
+<label>Select Features Needed</label>
+
+<div class="features">
+
+<label><input type="checkbox" value="Photo Gallery"> Photo Gallery</label>
+
+<label><input type="checkbox" value="Online Booking"> Online Booking</label>
+
+<label><input type="checkbox" value="Menu Section"> Menu Section</label>
+
+<label><input type="checkbox" value="Google Maps"> Google Maps</label>
+
+<label><input type="checkbox" value="WhatsApp Button"> WhatsApp Button</label>
+
+<label><input type="checkbox" value="SEO Setup"> SEO Setup</label>
+
+</div>
 
 <button onclick="sendWhatsApp()">Book via WhatsApp</button>
 
 </div>
+
 
 <script>
 
@@ -111,18 +193,24 @@ function sendWhatsApp(){
 
 let plan = document.getElementById("plan").value
 let industry = document.getElementById("industry").value
-let needs = document.getElementById("needs").value
+
+let features = []
+
+document.querySelectorAll('input[type="checkbox"]:checked')
+.forEach(el => features.push(el.value))
+
+let featureList = features.join(", ")
 
 let message =
-"Hello KnowBrand!%0A%0A" +
-"I want to book a website.%0A%0A" +
-"Plan: " + plan + "%0A" +
-"Industry: " + industry + "%0A" +
-"Needs: " + needs
+"Hello KnowMore!%0A%0A"+
+"I want to book a website.%0A%0A"+
+"Plan: "+plan+"%0A"+
+"Industry: "+industry+"%0A"+
+"Features: "+featureList
 
-let phone = "919999999999" // PUT YOUR WHATSAPP NUMBER
+let phone = "919167878131"
 
-let url = "https://wa.me/" + phone + "?text=" + message
+let url = "https://wa.me/"+phone+"?text="+message
 
 window.open(url)
 
