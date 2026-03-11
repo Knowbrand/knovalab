@@ -197,30 +197,6 @@ cursor:pointer;
 font-size:15px;
 }
 
-/* PROCESS */
-
-.process-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:30px;
-margin-top:50px;
-}
-
-.step{
-background:rgba(255,255,255,0.5);
-padding:30px;
-border-radius:15px;
-}
-
-/* TESTIMONIAL */
-
-.testimonial{
-max-width:650px;
-margin:auto;
-margin-top:40px;
-font-style:italic;
-}
-
 /* FAQ */
 
 .faq{
@@ -270,6 +246,7 @@ height:100%;
 background:rgba(0,0,0,0.55);
 justify-content:center;
 align-items:center;
+z-index:2000;
 }
 
 .modal-box{
@@ -326,13 +303,71 @@ margin-top:40px;
 opacity:0.6;
 }
 
+/* CHATBOT */
+
+.chat-button{
+position:fixed;
+bottom:20px;
+right:20px;
+background:black;
+color:white;
+padding:14px 18px;
+border-radius:40px;
+cursor:pointer;
+z-index:3000;
+}
+
+.chatbox{
+position:fixed;
+bottom:80px;
+right:20px;
+width:300px;
+background:white;
+border-radius:15px;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+display:none;
+flex-direction:column;
+z-index:3000;
+}
+
+.chat-header{
+background:black;
+color:white;
+padding:12px;
+border-radius:15px 15px 0 0;
+font-size:14px;
+}
+
+.chat-messages{
+padding:15px;
+height:220px;
+overflow-y:auto;
+}
+
+.bot{
+background:#f1f1f1;
+padding:10px;
+border-radius:10px;
+margin-bottom:10px;
+font-size:14px;
+}
+
+.options button{
+width:100%;
+margin:4px 0;
+padding:8px;
+border:none;
+background:black;
+color:white;
+border-radius:8px;
+cursor:pointer;
+}
+
 </style>
 
 </head>
 
 <body>
-
-<!-- NAV -->
 
 <nav>
 
@@ -350,8 +385,6 @@ opacity:0.6;
 
 </nav>
 
-<!-- HERO -->
-
 <section class="hero">
 
 <h1>KnowMore</h1>
@@ -360,8 +393,6 @@ opacity:0.6;
 <button onclick="openOrder()">Start My Website</button>
 
 </section>
-
-<!-- SERVICES -->
 
 <section id="services">
 
@@ -377,8 +408,6 @@ opacity:0.6;
 </div>
 
 </section>
-
-<!-- PORTFOLIO -->
 
 <section id="portfolio">
 
@@ -403,8 +432,6 @@ opacity:0.6;
 </div>
 
 </section>
-
-<!-- PRICING -->
 
 <section id="pricing">
 
@@ -458,8 +485,6 @@ opacity:0.6;
 
 </section>
 
-<!-- FAQ -->
-
 <section id="faq">
 
 <h2>FAQ</h2>
@@ -480,8 +505,6 @@ opacity:0.6;
 
 </section>
 
-<!-- CONTACT -->
-
 <section id="contact" class="contact">
 
 <h2>Contact</h2>
@@ -491,8 +514,6 @@ opacity:0.6;
 <a href="https://wa.me/919167878131">Chat on WhatsApp</a>
 
 </section>
-
-<!-- FOOTER -->
 
 <footer>
 
@@ -524,8 +545,6 @@ opacity:0.6;
 
 </footer>
 
-<!-- ORDER MODAL -->
-
 <div class="modal" id="orderModal">
 
 <div class="modal-box">
@@ -542,6 +561,13 @@ opacity:0.6;
 
 </div>
 
+</div>
+
+<div class="chat-button" onclick="toggleChat()">💬 Ask Plans</div>
+
+<div class="chatbox" id="chatbox">
+<div class="chat-header">KnowMore Assistant</div>
+<div class="chat-messages" id="chatMessages"></div>
 </div>
 
 <script>
@@ -564,15 +590,11 @@ window.open(url)
 
 }
 
-/* CLICK OUTSIDE CLOSE */
-
 window.onclick=function(event){
 if(event.target==modal){
 modal.style.display="none"
 }
 }
-
-/* ESC CLOSE */
 
 document.addEventListener("keydown",function(e){
 if(e.key==="Escape"){
@@ -583,6 +605,75 @@ modal.style.display="none"
 function toggleFAQ(el){
 let p=el.nextElementSibling
 p.style.display=p.style.display==="block"?"none":"block"
+}
+
+/* CHATBOT */
+
+const chatbox=document.getElementById("chatbox")
+const chatMessages=document.getElementById("chatMessages")
+
+function toggleChat(){
+
+chatbox.style.display=
+chatbox.style.display==="flex"?"none":"flex"
+
+chatbox.style.flexDirection="column"
+
+if(chatMessages.innerHTML===""){
+startChat()
+}
+
+}
+
+function startChat(){
+
+chatMessages.innerHTML+=`<div class="bot">Hi 👋 What type of business do you run?</div>
+
+<div class="options">
+<button onclick="chooseBusiness('Restaurant')">Restaurant</button>
+<button onclick="chooseBusiness('Clothing Store')">Clothing Store</button>
+<button onclick="chooseBusiness('Salon')">Salon</button>
+<button onclick="chooseBusiness('Other')">Other</button>
+</div>`
+}
+
+let business=""
+let pages=""
+
+function chooseBusiness(type){
+
+business=type
+
+chatMessages.innerHTML=`<div class="bot">How big should your website be?</div>
+
+<div class="options">
+<button onclick="choosePages('1 Page')">1 Page Website</button>
+<button onclick="choosePages('Multi Page')">Multi Page Website</button>
+</div>`
+}
+
+function choosePages(p){
+
+pages=p
+
+let plan = pages==="1 Page" ? "Basic ₹2999" : "Standard ₹4999"
+
+chatMessages.innerHTML=`<div class="bot">For a ${business}, I recommend the ${plan} plan.</div>
+
+<div class="options">
+<button onclick="bookChat('${plan}')">Book via WhatsApp</button>
+</div>`
+}
+
+function bookChat(plan){
+
+let message=`Hello KnowMore,
+Business: ${business}
+Website: ${pages}
+Recommended Plan: ${plan}`
+
+window.open("https://wa.me/919167878131?text="+encodeURIComponent(message))
+
 }
 
 </script>
