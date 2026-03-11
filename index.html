@@ -24,52 +24,51 @@ scroll-behavior:smooth;
 }
 
 body{
-background:linear-gradient(135deg,#f5f5f5,#cfcfcf,#ededed);
+background:linear-gradient(135deg,#f5f5f5,#dcdcdc,#eeeeee);
 color:black;
 overflow-x:hidden;
 }
 
-/* BACKGROUND SHAPES */
+/* BACKGROUND */
 
-.bg-shapes{
+.bg{
 position:fixed;
 top:0;
 left:0;
 width:100%;
 height:100%;
 z-index:-1;
-overflow:hidden;
 }
 
-.shape{
+.circle{
 position:absolute;
 border-radius:50%;
 filter:blur(120px);
 opacity:0.5;
 }
 
-.shape1{
+.c1{
 width:500px;
 height:500px;
-background:#bdbdbd;
+background:#cfcfcf;
 top:-120px;
 left:-120px;
 }
 
-.shape2{
+.c2{
 width:400px;
 height:400px;
-background:#d0d0d0;
-bottom:-150px;
+background:#bdbdbd;
+bottom:-120px;
 right:-120px;
 }
 
-.shape3{
+.c3{
 width:300px;
 height:300px;
-background:#a8a8a8;
-top:50%;
-left:40%;
+background:#dcdcdc;
+top:45%;
+left:50%;
 transform:translate(-50%,-50%);
 }
 
@@ -79,10 +78,10 @@ nav{
 position:fixed;
 top:0;
 width:100%;
+padding:20px 10%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:20px 10%;
 background:rgba(255,255,255,0.4);
 backdrop-filter:blur(10px);
 z-index:1000;
@@ -94,13 +93,12 @@ font-weight:bold;
 letter-spacing:2px;
 }
 
-.buy-btn{
+.buy{
 background:black;
 color:white;
 padding:10px 22px;
 border-radius:30px;
 text-decoration:none;
-font-weight:bold;
 }
 
 /* HERO */
@@ -121,21 +119,19 @@ margin-bottom:20px;
 }
 
 .hero p{
-font-size:18px;
-opacity:0.8;
+opacity:0.7;
 margin-bottom:30px;
 }
 
-.hero-btn{
+.hero a{
 background:black;
 color:white;
 padding:15px 30px;
 border-radius:30px;
 text-decoration:none;
-font-weight:bold;
 }
 
-/* WORK SECTION */
+/* WORK */
 
 #work{
 padding:120px 10%;
@@ -143,44 +139,61 @@ text-align:center;
 }
 
 .work-container{
-margin-top:50px;
+margin-top:60px;
 display:flex;
-gap:30px;
+gap:40px;
 justify-content:center;
 flex-wrap:wrap;
 }
 
 .work-card{
 
-width:320px;
+width:340px;
 padding:20px;
 
-border-radius:20px;
+border-radius:18px;
 
 background:rgba(255,255,255,0.35);
 backdrop-filter:blur(20px);
 
 border:1px solid rgba(255,255,255,0.4);
 
-box-shadow:0 15px 40px rgba(0,0,0,0.15);
+box-shadow:0 20px 50px rgba(0,0,0,0.15);
 
 }
 
-.work-card img{
+/* WEBSITE PREVIEW */
+
+.preview{
 width:100%;
+height:200px;
+overflow:hidden;
 border-radius:10px;
+margin-bottom:15px;
+}
+
+.preview iframe{
+
+width:1200px;
+height:800px;
+
+transform:scale(0.27);
+transform-origin:top left;
+
+border:none;
+
+pointer-events:none;
+
 }
 
 .work-card h3{
-margin-top:15px;
+margin-bottom:10px;
 }
 
 .work-card a{
-display:inline-block;
-margin-top:10px;
 text-decoration:none;
-color:black;
 border-bottom:1px solid black;
+color:black;
 }
 
 /* PRICING */
@@ -190,7 +203,7 @@ padding:120px 10%;
 text-align:center;
 }
 
-.pricing-container{
+.pricing{
 margin-top:60px;
 display:flex;
 gap:30px;
@@ -212,16 +225,9 @@ border:1px solid rgba(255,255,255,0.4);
 
 box-shadow:0 20px 50px rgba(0,0,0,0.15);
 
-transition:0.3s;
-
-}
-
-.card:hover{
-transform:translateY(-12px) scale(1.03);
 }
 
 .card h3{
-font-size:26px;
 margin-bottom:20px;
 }
 
@@ -231,38 +237,40 @@ text-align:left;
 }
 
 .card ul li{
-margin:10px 0;
+margin:8px 0;
 }
 
 .price{
-font-size:32px;
-margin-top:20px;
+font-size:28px;
+margin:20px 0;
 font-weight:bold;
 }
 
-.popular{
-border:2px solid black;
+.card a{
+background:black;
+color:white;
+padding:10px 20px;
+border-radius:20px;
+text-decoration:none;
 }
 
 /* CTA */
 
 .cta{
-padding:140px 20px;
+padding:120px 20px;
 text-align:center;
 }
 
 .cta h2{
-font-size:36px;
 margin-bottom:40px;
 }
 
-.cta-btn{
+.cta a{
 background:black;
 color:white;
-padding:16px 34px;
+padding:15px 30px;
 border-radius:30px;
 text-decoration:none;
-font-weight:bold;
 }
 
 /* FOOTER */
@@ -273,23 +281,18 @@ backdrop-filter:blur(10px);
 padding:80px 10%;
 }
 
-.footer-container{
+.footer{
 display:flex;
 justify-content:space-between;
 flex-wrap:wrap;
 gap:40px;
 }
 
-.footer-column h3{
-margin-bottom:15px;
+.footer h3{
+margin-bottom:10px;
 }
 
-.footer-column p{
-margin:5px 0;
-opacity:0.8;
-}
-
-.copyright{
+.copy{
 text-align:center;
 margin-top:40px;
 opacity:0.6;
@@ -303,10 +306,6 @@ opacity:0.6;
 font-size:40px;
 }
 
-nav{
-padding:20px;
-}
-
 }
 
 </style>
@@ -315,11 +314,11 @@ padding:20px;
 
 <body>
 
-<div class="bg-shapes">
+<div class="bg">
 
-<div class="shape shape1"></div>
-<div class="shape shape2"></div>
-<div class="shape shape3"></div>
+<div class="circle c1"></div>
+<div class="circle c2"></div>
+<div class="circle c3"></div>
 
 </div>
 
@@ -329,10 +328,9 @@ padding:20px;
 
 <div class="logo">KnowMore</div>
 
-<a href="order.html" target="_blank" class="buy-btn">BUY NOW</a>
+<a href="order.html" target="_blank" class="buy">BUY NOW</a>
 
 </nav>
-
 
 <!-- HERO -->
 
@@ -340,14 +338,13 @@ padding:20px;
 
 <h1>KnowMore</h1>
 
-<p>Modern websites for local businesses.</p>
+<p>Modern websites for local businesses</p>
 
-<a href="#pricing" class="hero-btn">VIEW PRICING</a>
+<a href="#pricing">VIEW PRICING</a>
 
 </section>
 
-
-<!-- OUR WORK -->
+<!-- WORK -->
 
 <section id="work">
 
@@ -357,29 +354,31 @@ padding:20px;
 
 <div class="work-card">
 
-<img src="demo1.jpg">
+<div class="preview">
+<iframe src="https://knowbrand.github.io"></iframe>
+</div>
 
-<h3>Restaurant Website</h3>
+<h3>Clothing Store Website</h3>
 
 <a href="https://knowbrand.github.io" target="_blank">View Demo</a>
 
 </div>
 
-
 <div class="work-card">
 
-<img src="demo2.jpg">
+<div class="preview">
+<iframe src="https://knowbrand.github.io"></iframe>
+</div>
 
-<h3>Salon Website</h3>
+<h3>Business Website Demo</h3>
 
-<a href="#">View Demo</a>
+<a href="https://knowbrand.github.io" target="_blank">View Demo</a>
 
 </div>
 
 </div>
 
 </section>
-
 
 <!-- PRICING -->
 
@@ -387,77 +386,62 @@ padding:20px;
 
 <h2>Pricing</h2>
 
-<div class="pricing-container">
+<div class="pricing">
 
 <div class="card">
 
-<h3>BASIC</h3>
+<h3>Basic</h3>
 
 <ul>
-<li>✔ 1 Page Website</li>
-<li>✔ Shop Information</li>
-<li>✔ Google Map Location</li>
-<li>✔ WhatsApp Booking</li>
-<li>✔ Mobile Responsive</li>
-<li>✔ Extra Changes</li>
+<li>1 Page Website</li>
+<li>Business Info</li>
+<li>Google Maps</li>
+<li>Mobile Friendly</li>
 </ul>
 
-<div class="price">2,999/-</div>
+<div class="price">₹2999</div>
 
-<br>
-
-<a href="order.html" target="_blank" class="hero-btn">BUY NOW</a>
+<a href="order.html" target="_blank">BUY NOW</a>
 
 </div>
-
-
-<div class="card popular">
-
-<h3>STANDARD</h3>
-
-<ul>
-<li>✔ All from Basic</li>
-<li>✔ Better Designs</li>
-<li>✔ Photo Gallery</li>
-<li>✔ Menu Section</li>
-<li>✔ Domain Connection</li>
-<li>✔ Basic SEO</li>
-</ul>
-
-<div class="price">4,999/-</div>
-
-<br>
-
-<a href="order.html" target="_blank" class="hero-btn">BUY NOW</a>
-
-</div>
-
 
 <div class="card">
 
-<h3>PREMIUM</h3>
+<h3>Standard</h3>
 
 <ul>
-<li>✔ All from Standard</li>
-<li>✔ 3-4 Page Website</li>
-<li>✔ Faster Loading</li>
-<li>✔ Minute Changes</li>
-<li>✔ Better Setup</li>
-<li>✔ 3 Month Resolve</li>
+<li>All Basic Features</li>
+<li>Better Design</li>
+<li>Photo Gallery</li>
+<li>Menu Section</li>
 </ul>
 
-<div class="price">5,999/-</div>
+<div class="price">₹4999</div>
 
-<br>
+<a href="order.html" target="_blank">BUY NOW</a>
 
-<a href="order.html" target="_blank" class="hero-btn">BUY NOW</a>
+</div>
+
+<div class="card">
+
+<h3>Premium</h3>
+
+<ul>
+<li>All Standard Features</li>
+<li>3-4 Pages</li>
+<li>Faster Loading</li>
+<li>Priority Changes</li>
+</ul>
+
+<div class="price">₹5999</div>
+
+<a href="order.html" target="_blank">BUY NOW</a>
 
 </div>
 
 </div>
 
 </section>
-
 
 <!-- CTA -->
 
@@ -465,51 +449,47 @@ padding:20px;
 
 <h2>Ready To Get Your Business Online?</h2>
 
-<a href="order.html" target="_blank" class="cta-btn">BOOK NOW</a>
+<a href="order.html" target="_blank">BOOK NOW</a>
 
 </section>
-
 
 <!-- FOOTER -->
 
 <footer>
 
-<div class="footer-container">
+<div class="footer">
 
-<div class="footer-column">
+<div>
 
 <h3>About</h3>
 
-<p>KnowMore builds modern websites for local businesses at affordable prices.</p>
+<p>KnowMore builds modern websites for local businesses.</p>
 
 </div>
 
-
-<div class="footer-column">
+<div>
 
 <h3>Founders</h3>
 
 <p>Sidharth Gaikwad</p>
+<p>Mohammed Kaif</p>
+<p>Rishi Suryawanshi</p>
 
 </div>
 
-
-<div class="footer-column">
+<div>
 
 <h3>Contact</h3>
 
+<p>Phone: +91 9167878131</p>
 <p>Email: contact@knowmore.in</p>
 
-<p>Phone: +91 9167878131</p>
-
 </div>
 
 </div>
 
-<p class="copyright">
-
-© 2026 KnowMore. All Rights Reserved
-
+<p class="copy">
+© 2026 KnowMore
 </p>
 
 </footer>
