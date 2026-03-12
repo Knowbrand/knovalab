@@ -106,20 +106,20 @@ padding:110px 10%;
 text-align:center;
 }
 
-/* SERVICES GRID */
+/* SERVICES */
 
 .services-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:30px;
-margin-top:50px;
+margin-top:40px;
 }
 
 .service-card{
 padding:30px;
-background:rgba(255,255,255,0.55);
-border-radius:16px;
-backdrop-filter:blur(12px);
+background:rgba(255,255,255,0.5);
+border-radius:15px;
+backdrop-filter:blur(15px);
 }
 
 /* PORTFOLIO */
@@ -429,21 +429,6 @@ width:90%;
 <div class="service-card">Salon Websites</div>
 <div class="service-card">Clothing Store Sites</div>
 
-<div class="service-card">Landing Pages</div>
-<div class="service-card">Portfolio Websites</div>
-<div class="service-card">Startup Websites</div>
-<div class="service-card">Local Business Websites</div>
-
-<div class="service-card">Mobile Responsive Design</div>
-<div class="service-card">SEO Optimized Websites</div>
-<div class="service-card">Google Maps Integration</div>
-<div class="service-card">WhatsApp Contact Integration</div>
-
-<div class="service-card">Photo Gallery Pages</div>
-<div class="service-card">Menu / Services Layout</div>
-<div class="service-card">Fast Performance Optimization</div>
-<div class="service-card">Custom UI Design</div>
-
 </div>
 
 </section>
@@ -472,7 +457,161 @@ width:90%;
 
 </section>
 
-<!-- rest of your sections remain exactly the same (pricing, faq, contact, footer, chatbot, modal, script) -->
+<section id="pricing">
+
+<h2>Pricing</h2>
+
+<div class="pricing-grid">
+
+<div class="price-card">
+
+<h3>Basic</h3>
+
+<ul>
+<li>1 Page Website</li>
+<li>Mobile Friendly Design</li>
+<li>Business Information Section</li>
+<li>Google Maps Integration</li>
+<li>WhatsApp Contact Button</li>
+<li>Basic SEO Setup</li>
+<li>Fast Loading</li>
+<li>Delivery in 2-3 Days</li>
+</ul>
+
+<button onclick="openOrder()">₹2999</button>
+
+</div>
+
+<div class="price-card">
+
+<h3>Standard</h3>
+
+<ul>
+<li>Everything in Basic</li>
+<li>Up to 4 Sections</li>
+<li>Photo Gallery</li>
+<li>Menu / Services Section</li>
+<li>Better UI Design</li>
+<li>Extra Animations</li>
+<li>Priority Support</li>
+<li>Delivery in 3-4 Days</li>
+</ul>
+
+<button onclick="openOrder()">₹4999</button>
+
+</div>
+
+<div class="price-card">
+
+<h3>Premium</h3>
+
+<ul>
+<li>Everything in Standard</li>
+<li>Multi Page Website</li>
+<li>Custom Layout</li>
+<li>Advanced Design</li>
+<li>Unlimited Sections</li>
+<li>Priority Changes</li>
+<li>Complete Setup Help</li>
+<li>Delivery in 4-5 Days</li>
+</ul>
+
+<button onclick="openOrder()">₹5999</button>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="faq">
+
+<h2>FAQ</h2>
+
+<div class="faq">
+
+<div class="faq-item">
+<h4 onclick="toggleFAQ(this)">How long does it take?</h4>
+<p>Usually 2-5 days depending on features.</p>
+</div>
+
+<div class="faq-item">
+<h4 onclick="toggleFAQ(this)">Do you host the site?</h4>
+<p>Yes, or we can give you the full code.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="contact" class="contact">
+
+<h2>Contact</h2>
+
+<p>Phone: +91 9167878131</p>
+
+<a href="https://wa.me/919167878131">Chat on WhatsApp</a>
+
+</section>
+
+<footer>
+
+<div class="footer-grid">
+
+<div>
+<h4>KnowMore</h4>
+<p>Modern websites for local businesses.</p>
+</div>
+
+<div>
+<h4>Founders</h4>
+<p>Sidharth Gaikwad</p>
+<p>Mohammed Kaif</p>
+<p>Rishi Suryawanshi</p>
+</div>
+
+<div>
+<h4>Contact</h4>
+<p>Phone: +91 9167878131</p>
+<p>WhatsApp Available</p>
+</div>
+
+</div>
+
+<div class="copyright">
+© 2026 KnowMore
+</div>
+
+</footer>
+
+<!-- ORDER MODAL -->
+
+<div class="modal" id="orderModal">
+
+<div class="modal-box">
+
+<h3>Select Plan</h3>
+
+<select id="plan">
+<option>Basic</option>
+<option>Standard</option>
+<option>Premium</option>
+</select>
+
+<button onclick="send()">Book via WhatsApp</button>
+
+</div>
+
+</div>
+
+<!-- CHATBOT -->
+
+<div class="chat-button" onclick="toggleChat()">💬 Ask Plans</div>
+
+<div class="chatbox" id="chatbox">
+<div class="chat-header">KnowMore Assistant</div>
+<div class="chat-messages" id="chatMessages"></div>
+</div>
 
 <script>
 
@@ -505,6 +644,82 @@ if(e.key==="Escape"){
 modal.style.display="none"
 }
 })
+
+/* FAQ */
+
+function toggleFAQ(el){
+let p=el.nextElementSibling
+p.style.display=p.style.display==="block"?"none":"block"
+}
+
+/* CHATBOT */
+
+const chatbox=document.getElementById("chatbox")
+const chatMessages=document.getElementById("chatMessages")
+
+function toggleChat(){
+
+chatbox.style.display=
+chatbox.style.display==="flex"?"none":"flex"
+
+chatbox.style.flexDirection="column"
+
+if(chatMessages.innerHTML===""){
+startChat()
+}
+
+}
+
+function startChat(){
+
+chatMessages.innerHTML+=`<div class="bot">Hi 👋 What type of business do you run?</div>
+
+<div class="options">
+<button onclick="chooseBusiness('Restaurant')">Restaurant</button>
+<button onclick="chooseBusiness('Clothing Store')">Clothing Store</button>
+<button onclick="chooseBusiness('Salon')">Salon</button>
+<button onclick="chooseBusiness('Other')">Other</button>
+</div>`
+}
+
+let business=""
+let pages=""
+
+function chooseBusiness(type){
+
+business=type
+
+chatMessages.innerHTML=`<div class="bot">How big should your website be?</div>
+
+<div class="options">
+<button onclick="choosePages('1 Page')">1 Page Website</button>
+<button onclick="choosePages('Multi Page')">Multi Page Website</button>
+</div>`
+}
+
+function choosePages(p){
+
+pages=p
+
+let plan = pages==="1 Page" ? "Basic ₹2999" : "Standard ₹4999"
+
+chatMessages.innerHTML=`<div class="bot">For a ${business}, I recommend the ${plan} plan.</div>
+
+<div class="options">
+<button onclick="bookChat('${plan}')">Book via WhatsApp</button>
+</div>`
+}
+
+function bookChat(plan){
+
+let message=`Hello KnowMore,
+Business: ${business}
+Website: ${pages}
+Recommended Plan: ${plan}`
+
+window.open("https://wa.me/919167878131?text="+encodeURIComponent(message))
+
+}
 
 </script>
 
