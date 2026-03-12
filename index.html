@@ -9,21 +9,6 @@
 <title>KnowMore</title>
 
 <style>
-  
-  .scroll-arrow{
-display:block;
-margin-top:40px;
-font-size:40px;
-text-decoration:none;
-color:black;
-animation:bounce 2s infinite;
-}
-
-@keyframes bounce{
-0%{transform:translateY(0);}
-50%{transform:translateY(10px);}
-100%{transform:translateY(0);}
-}
 
 /* GLOBAL */
 
@@ -39,7 +24,7 @@ scroll-behavior:smooth;
 }
 
 body{
-background:linear-gradient(135deg,#f3f3f3,#e8e8e8,#fafafa);
+background:#f5f5f5;
 color:#111;
 }
 
@@ -61,7 +46,6 @@ z-index:1000;
 .logo{
 font-size:22px;
 font-weight:bold;
-color:black;
 }
 
 .nav-links{
@@ -82,11 +66,6 @@ padding:10px 20px;
 border-radius:30px;
 text-decoration:none;
 font-size:14px;
-transition:0.3s;
-}
-
-.demo-btn:hover{
-opacity:0.8;
 }
 
 /* HERO */
@@ -99,26 +78,84 @@ justify-content:center;
 align-items:center;
 text-align:center;
 padding:20px;
+color:white;
+
+background:linear-gradient(135deg,#4c5cff,#6a5cff,#3f4bd8);
+position:relative;
+overflow:hidden;
+}
+
+.hero::before{
+content:"";
+position:absolute;
+width:500px;
+height:500px;
+background:rgba(255,255,255,0.1);
+border-radius:50%;
+top:-200px;
+left:-200px;
+}
+
+.hero::after{
+content:"";
+position:absolute;
+width:400px;
+height:400px;
+background:rgba(255,255,255,0.1);
+border-radius:50%;
+bottom:-150px;
+right:-150px;
 }
 
 .hero h1{
-font-size:60px;
+font-size:64px;
 margin-bottom:20px;
+z-index:2;
 }
 
 .hero p{
-opacity:0.7;
+opacity:0.9;
 margin-bottom:30px;
+z-index:2;
 }
 
-.hero button{
+.hero-buttons{
+display:flex;
+gap:15px;
+z-index:2;
+}
+
+.hero-buttons a{
 padding:16px 35px;
-border:none;
+border-radius:30px;
+text-decoration:none;
+font-size:16px;
+}
+
+.primary-btn{
+background:white;
+color:black;
+}
+
+.secondary-btn{
 background:black;
 color:white;
-border-radius:30px;
-cursor:pointer;
-font-size:16px;
+}
+
+.scroll-arrow{
+display:block;
+margin-top:50px;
+font-size:40px;
+text-decoration:none;
+color:white;
+animation:bounce 2s infinite;
+z-index:2;
+}
+
+@keyframes bounce{
+0%{transform:translateY(0);}
+50%{transform:translateY(10px);}
+100%{transform:translateY(0);}
 }
 
 /* SECTION */
@@ -139,10 +176,9 @@ margin-top:50px;
 
 .service-card{
 padding:25px;
-background:rgba(255,255,255,0.6);
+background:rgba(255,255,255,0.7);
 border-radius:15px;
 backdrop-filter:blur(10px);
-font-weight:500;
 }
 
 /* PORTFOLIO */
@@ -158,7 +194,7 @@ margin-top:50px;
 .port-card{
 width:360px;
 padding:20px;
-background:rgba(255,255,255,0.5);
+background:white;
 border-radius:15px;
 }
 
@@ -176,50 +212,6 @@ transform:scale(0.26);
 transform-origin:top left;
 pointer-events:none;
 border:none;
-}
-
-/* PRICING */
-
-.pricing-grid{
-display:flex;
-gap:40px;
-justify-content:center;
-flex-wrap:wrap;
-margin-top:50px;
-}
-
-.price-card{
-width:340px;
-padding:45px;
-background:rgba(255,255,255,0.55);
-border-radius:18px;
-backdrop-filter:blur(15px);
-}
-
-.price-card h3{
-font-size:24px;
-margin-bottom:10px;
-}
-
-.price-card ul{
-list-style:none;
-margin:20px 0;
-padding:0;
-}
-
-.price-card li{
-margin:10px 0;
-}
-
-.price-card button{
-margin-top:15px;
-padding:12px 25px;
-background:black;
-color:white;
-border:none;
-border-radius:25px;
-cursor:pointer;
-font-size:15px;
 }
 
 /* FAQ */
@@ -257,44 +249,6 @@ color:white;
 padding:14px 28px;
 border-radius:25px;
 text-decoration:none;
-}
-
-/* MODAL */
-
-.modal{
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.55);
-justify-content:center;
-align-items:center;
-z-index:2000;
-}
-
-.modal-box{
-background:white;
-padding:40px;
-border-radius:12px;
-width:320px;
-text-align:center;
-}
-
-.modal select{
-width:100%;
-padding:10px;
-margin:15px 0;
-}
-
-.modal button{
-padding:10px 22px;
-background:black;
-color:white;
-border:none;
-border-radius:20px;
-cursor:pointer;
 }
 
 /* FOOTER */
@@ -360,7 +314,6 @@ background:black;
 color:white;
 padding:12px;
 border-radius:15px 15px 0 0;
-font-size:14px;
 }
 
 .chat-messages{
@@ -393,15 +346,15 @@ cursor:pointer;
 @media(max-width:768px){
 
 .hero h1{
-font-size:40px;
+font-size:42px;
+}
+
+.hero-buttons{
+flex-direction:column;
 }
 
 .nav-links{
 display:none;
-}
-
-.price-card{
-width:90%;
 }
 
 .port-card{
@@ -422,7 +375,7 @@ width:90%;
 
 <div class="nav-links">
 <a href="#services">Services</a>
-<a href="#work">Work</a>
+<a href="#portfolio">Work</a>
 <a href="pricing.html">Pricing</a>
 <a href="faq.html">FAQ</a>
 <a href="contact.html">Contact</a>
@@ -437,9 +390,10 @@ width:90%;
 <h1>KnowMore</h1>
 <p>Modern websites for local businesses.</p>
 
-<button onclick="window.location.href='pricing.html'">
-View Pricing
-</button>
+<div class="hero-buttons">
+<a href="pricing.html" class="primary-btn">View Pricing</a>
+<a href="demo.html" class="secondary-btn">Book Demo</a>
+</div>
 
 <a href="#services" class="scroll-arrow">↓</a>
 
@@ -455,21 +409,10 @@ View Pricing
 <div class="service-card">Restaurant Websites</div>
 <div class="service-card">Salon Websites</div>
 <div class="service-card">Clothing Store Sites</div>
-
 <div class="service-card">Landing Pages</div>
 <div class="service-card">Portfolio Websites</div>
 <div class="service-card">Startup Websites</div>
 <div class="service-card">Local Business Websites</div>
-
-<div class="service-card">Mobile Responsive Design</div>
-<div class="service-card">SEO Optimized Websites</div>
-<div class="service-card">Google Maps Integration</div>
-<div class="service-card">WhatsApp Contact Integration</div>
-
-<div class="service-card">Photo Gallery Pages</div>
-<div class="service-card">Menu / Services Layout</div>
-<div class="service-card">Fast Performance Optimization</div>
-<div class="service-card">Custom UI Design</div>
 
 </div>
 
@@ -499,73 +442,6 @@ View Pricing
 
 </section>
 
-<section id="pricing">
-
-<h2>Pricing</h2>
-
-<div class="pricing-grid">
-
-<div class="price-card">
-
-<h3>Basic</h3>
-
-<ul>
-<li>1 Page Website</li>
-<li>Mobile Friendly Design</li>
-<li>Business Information Section</li>
-<li>Google Maps Integration</li>
-<li>WhatsApp Contact Button</li>
-<li>Basic SEO Setup</li>
-<li>Fast Loading</li>
-<li>Delivery in 2-3 Days</li>
-</ul>
-
-<button onclick="openOrder()">₹2999</button>
-
-</div>
-
-<div class="price-card">
-
-<h3>Standard</h3>
-
-<ul>
-<li>Everything in Basic</li>
-<li>Up to 4 Sections</li>
-<li>Photo Gallery</li>
-<li>Menu / Services Section</li>
-<li>Better UI Design</li>
-<li>Extra Animations</li>
-<li>Priority Support</li>
-<li>Delivery in 3-4 Days</li>
-</ul>
-
-<button onclick="openOrder()">₹4999</button>
-
-</div>
-
-<div class="price-card">
-
-<h3>Premium</h3>
-
-<ul>
-<li>Everything in Standard</li>
-<li>Multi Page Website</li>
-<li>Custom Layout</li>
-<li>Advanced Design</li>
-<li>Unlimited Sections</li>
-<li>Priority Changes</li>
-<li>Complete Setup Help</li>
-<li>Delivery in 4-5 Days</li>
-</ul>
-
-<button onclick="openOrder()">₹5999</button>
-
-</div>
-
-</div>
-
-</section>
-
 <section id="faq">
 
 <h2>FAQ</h2>
@@ -574,52 +450,12 @@ View Pricing
 
 <div class="faq-item">
 <h4 onclick="toggleFAQ(this)">How long does it take to build my website?</h4>
-<p>Most websites are delivered within 2-5 days depending on the features and number of pages.</p>
+<p>Most websites are delivered within 2-5 days.</p>
 </div>
 
 <div class="faq-item">
 <h4 onclick="toggleFAQ(this)">Do I own the website?</h4>
-<p>Yes. You receive the full code and control of your website so you can host it anywhere or scale it later.</p>
-</div>
-
-<div class="faq-item">
-<h4 onclick="toggleFAQ(this)">Will my website work on mobile phones?</h4>
-<p>Yes. Every website we build is fully mobile responsive so it works perfectly on phones, tablets, and desktops.</p>
-</div>
-
-<div class="faq-item">
-<h4 onclick="toggleFAQ(this)">Can customers contact me directly from the website?</h4>
-<p>Yes. We integrate WhatsApp buttons, contact forms, and call buttons so customers can reach you instantly.</p>
-</div>
-
-<div class="faq-item">
-<h4 onclick="toggleFAQ(this)">Do you include Google Maps for my business?</h4>
-<p>Yes. We can embed Google Maps so customers can easily find your shop or office location.</p>
-</div>
-
-<div class="faq-item">
-<h4 onclick="toggleFAQ(this)">Can I request changes after the website is finished?</h4>
-<p>Yes. Small adjustments are usually included and we also offer updates if you want to add more sections later.</p>
-</div>
-
-<div class="faq-item">
-<h4 onclick="toggleFAQ(this)">Do I need to buy hosting?</h4>
-<p>For most small business sites we can host them using GitHub Pages for free, or we can help you move to a paid hosting provider if needed.</p>
-</div>
-
-<div class="faq-item">
-<h4 onclick="toggleFAQ(this)">Can you build websites for any industry?</h4>
-<p>Yes. We build websites for restaurants, clothing stores, salons, gyms, startups, local shops, and many other businesses.</p>
-</div>
-
-<div class="faq-item">
-<h4 onclick="toggleFAQ(this)">Will my website appear on Google?</h4>
-<p>We add basic SEO setup so your website can be indexed by Google. Full SEO marketing can be added later if needed.</p>
-</div>
-
-<div class="faq-item">
-<h4 onclick="toggleFAQ(this)">How do I place an order?</h4>
-<p>You can click the Buy Now button, choose your plan, and send the order directly through WhatsApp.</p>
+<p>Yes. You receive the full code and control.</p>
 </div>
 
 </div>
@@ -666,28 +502,6 @@ View Pricing
 
 </footer>
 
-<!-- ORDER MODAL -->
-
-<div class="modal" id="orderModal">
-
-<div class="modal-box">
-
-<h3>Select Plan</h3>
-
-<select id="plan">
-<option>Basic</option>
-<option>Standard</option>
-<option>Premium</option>
-</select>
-
-<button onclick="send()">Book via WhatsApp</button>
-
-</div>
-
-</div>
-
-<!-- CHATBOT -->
-
 <div class="chat-button" onclick="toggleChat()">💬 Ask Plans</div>
 
 <div class="chatbox" id="chatbox">
@@ -697,110 +511,16 @@ View Pricing
 
 <script>
 
-/* MODAL */
-
-const modal = document.getElementById("orderModal")
-
-function openOrder(){
-modal.style.display="flex"
-}
-
-function send(){
-
-let plan=document.getElementById("plan").value
-let msg="Hello KnowMore, I want the "+plan+" website plan."
-let url="https://wa.me/919167878131?text="+encodeURIComponent(msg)
-
-window.open(url)
-
-}
-
-window.onclick=function(event){
-if(event.target==modal){
-modal.style.display="none"
-}
-}
-
-document.addEventListener("keydown",function(e){
-if(e.key==="Escape"){
-modal.style.display="none"
-}
-})
-
-/* FAQ */
-
 function toggleFAQ(el){
 let p=el.nextElementSibling
 p.style.display=p.style.display==="block"?"none":"block"
 }
 
-/* CHATBOT */
-
 const chatbox=document.getElementById("chatbox")
-const chatMessages=document.getElementById("chatMessages")
 
 function toggleChat(){
-
-chatbox.style.display=
-chatbox.style.display==="flex"?"none":"flex"
-
+chatbox.style.display=chatbox.style.display==="flex"?"none":"flex"
 chatbox.style.flexDirection="column"
-
-if(chatMessages.innerHTML===""){
-startChat()
-}
-
-}
-
-function startChat(){
-
-chatMessages.innerHTML+=`<div class="bot">Hi 👋 What type of business do you run?</div>
-
-<div class="options">
-<button onclick="chooseBusiness('Restaurant')">Restaurant</button>
-<button onclick="chooseBusiness('Clothing Store')">Clothing Store</button>
-<button onclick="chooseBusiness('Salon')">Salon</button>
-<button onclick="chooseBusiness('Other')">Other</button>
-</div>`
-}
-
-let business=""
-let pages=""
-
-function chooseBusiness(type){
-
-business=type
-
-chatMessages.innerHTML=`<div class="bot">How big should your website be?</div>
-
-<div class="options">
-<button onclick="choosePages('1 Page')">1 Page Website</button>
-<button onclick="choosePages('Multi Page')">Multi Page Website</button>
-</div>`
-}
-
-function choosePages(p){
-
-pages=p
-
-let plan = pages==="1 Page" ? "Basic ₹2999" : "Standard ₹4999"
-
-chatMessages.innerHTML=`<div class="bot">For a ${business}, I recommend the ${plan} plan.</div>
-
-<div class="options">
-<button onclick="bookChat('${plan}')">Book via WhatsApp</button>
-</div>`
-}
-
-function bookChat(plan){
-
-let message=`Hello KnowMore,
-Business: ${business}
-Website: ${pages}
-Recommended Plan: ${plan}`
-
-window.open("https://wa.me/919167878131?text="+encodeURIComponent(message))
-
 }
 
 </script>
