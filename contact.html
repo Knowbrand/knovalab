@@ -42,11 +42,12 @@ z-index:1000;
 .logo{
 font-size:22px;
 font-weight:bold;
+color:black;
 }
 
 .nav-links{
 display:flex;
-gap:25px;
+gap:22px;
 }
 
 .nav-links a{
@@ -55,7 +56,7 @@ color:black;
 font-weight:500;
 }
 
-.demo-btn{
+.buy-btn{
 background:black;
 color:white;
 padding:10px 22px;
@@ -63,53 +64,95 @@ border-radius:25px;
 text-decoration:none;
 }
 
-/* PAGE */
+/* HERO */
 
-.container{
-margin-top:140px;
-padding:60px 10%;
+.hero{
+height:300px;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
 text-align:center;
+margin-top:90px;
 }
 
-/* CONTACT CARD */
-
-.contact-card{
-max-width:600px;
-margin:auto;
-background:rgba(255,255,255,0.6);
-backdrop-filter:blur(10px);
-padding:40px;
-border-radius:16px;
+.hero h1{
+font-size:48px;
+margin-bottom:10px;
 }
 
-.contact-card h2{
-margin-bottom:25px;
+.hero p{
+opacity:0.6;
+}
+
+/* CONTACT SECTION */
+
+.contact-section{
+padding:80px 10%;
+display:flex;
+gap:60px;
+flex-wrap:wrap;
+justify-content:center;
 }
 
 /* FORM */
 
-input, textarea{
+.contact-form{
+flex:1;
+min-width:320px;
+background:white;
+padding:40px;
+border-radius:15px;
+box-shadow:0 10px 30px rgba(0,0,0,0.05);
+}
+
+.contact-form h2{
+margin-bottom:25px;
+}
+
+.contact-form input,
+.contact-form textarea{
 width:100%;
 padding:12px;
+margin:10px 0;
 border-radius:8px;
 border:1px solid #ddd;
-margin-bottom:15px;
 font-size:14px;
 }
 
-textarea{
+.contact-form textarea{
 height:120px;
 resize:none;
 }
 
-button{
+.contact-form button{
+margin-top:10px;
 background:black;
 color:white;
-padding:12px 30px;
+padding:12px;
 border:none;
 border-radius:25px;
+width:100%;
 cursor:pointer;
-font-size:14px;
+}
+
+/* CONTACT INFO */
+
+.contact-info{
+flex:1;
+min-width:280px;
+}
+
+.info-box{
+margin-bottom:30px;
+}
+
+.info-box h3{
+margin-bottom:8px;
+}
+
+.info-box p{
+opacity:0.7;
 }
 
 /* FOOTER */
@@ -129,12 +172,12 @@ gap:40px;
 }
 
 footer h4{
-margin-bottom:12px;
+margin-bottom:15px;
 }
 
 footer p{
 opacity:0.7;
-margin:5px 0;
+margin:6px 0;
 }
 
 .copyright{
@@ -147,12 +190,8 @@ opacity:0.6;
 
 @media(max-width:768px){
 
-.nav-links{
-display:none;
-}
-
-.container{
-padding:40px 8%;
+.contact-section{
+flex-direction:column;
 }
 
 }
@@ -163,35 +202,59 @@ padding:40px 8%;
 
 <body>
 
+<!-- NAVBAR -->
+
 <nav>
 
 <div class="logo">KnowMore</div>
 
 <div class="nav-links">
+<a href="index.html">Home</a>
 <a href="index.html#services">Services</a>
-<a href="index.html#portfolio">Work</a>
 <a href="pricing.html">Pricing</a>
 <a href="faq.html">FAQ</a>
 <a href="contact.html">Contact</a>
 </div>
 
-<a href="demo.html" class="demo-btn">Book Free Demo</a>
+<a href="demo.html" class="buy-btn">Book Free Demo</a>
 
 </nav>
 
-<div class="container">
 
-<div class="contact-card">
+<!-- HERO -->
 
-<h2>Contact Us</h2>
+<section class="hero">
 
-<form>
+<h1>Contact Us</h1>
+<p>Let's build your website</p>
 
-<input type="text" placeholder="Your Name" required>
+</section>
 
-<input type="email" placeholder="Your Email" required>
 
-<textarea placeholder="Your Message"></textarea>
+<!-- CONTACT SECTION -->
+
+<section class="contact-section">
+
+
+<!-- CONTACT FORM -->
+
+<div class="contact-form">
+
+<h2>Get In Touch</h2>
+
+<form action="https://formsubmit.co/YOUR-EMAIL@gmail.com" method="POST">
+
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_subject" value="New KnowMore Contact Message">
+<input type="hidden" name="_template" value="table">
+
+<input type="text" name="name" placeholder="Your Name" required>
+
+<input type="email" name="email" placeholder="Email Address" required>
+
+<input type="text" name="subject" placeholder="Subject">
+
+<textarea name="message" placeholder="Message"></textarea>
 
 <button type="submit">Send Message</button>
 
@@ -199,7 +262,37 @@ padding:40px 8%;
 
 </div>
 
+
+<!-- CONTACT INFO -->
+
+<div class="contact-info">
+
+<div class="info-box">
+<h3>Phone</h3>
+<p>+91 9167878131</p>
 </div>
+
+<div class="info-box">
+<h3>Email</h3>
+<p>contact@knowmore.in</p>
+</div>
+
+<div class="info-box">
+<h3>WhatsApp</h3>
+<p>Message us for quick replies</p>
+</div>
+
+<div class="info-box">
+<h3>Location</h3>
+<p>Mumbai, India</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
 
 <footer>
 
