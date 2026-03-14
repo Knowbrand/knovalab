@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pricing | KnowMore</title>
+
+<style>
+
+/* RESET */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+/* PAGE */
+
+body{
+background:#f3f3f3;
+display:flex;
+flex-direction:column;
+align-items:center;
+min-height:100vh;
+color:#111;
+}
+
+/* NAVBAR */
+
+nav{
+width:100%;
+padding:20px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:white;
+border-bottom:1px solid #eee;
+}
+
+.logo{
+font-size:20px;
+font-weight:bold;
+}
+
+.back{
+text-decoration:none;
+background:black;
+color:white;
+padding:10px 18px;
+border-radius:20px;
+font-size:14px;
+}
+
+/* HEADER */
+
+.header{
+margin-top:70px;
+text-align:center;
+}
+
+.header h1{
+font-size:34px;
+margin-bottom:18px;
+}
+
+/* TOGGLE */
+
+.toggle{
+display:inline-flex;
+background:white;
+border-radius:20px;
+padding:6px;
+box-shadow:0 4px 15px rgba(0,0,0,0.05);
+}
+
+.toggle span{
+padding:6px 14px;
+font-size:13px;
+border-radius:15px;
+cursor:pointer;
+}
+
+.toggle span:first-child{
+background:#ececec;
+}
+
+/* PRICING CONTAINER */
+
+.pricing{
+margin-top:50px;
+display:flex;
+gap:35px;
+flex-wrap:wrap;
+justify-content:center;
+padding-bottom:80px;
+}
+
+/* CARD */
+
+.card{
+background:white;
+width:300px;
+padding:30px;
+border-radius:18px;
+box-shadow:0 15px 40px rgba(0,0,0,0.08);
+text-align:center;
+transition:all 0.35s ease;
+}
+
+/* HOVER ANIMATION */
+
+.card:hover{
+transform:translateY(-12px);
+box-shadow:0 25px 60px rgba(0,0,0,0.15);
+}
+
+/* DESCRIPTION */
+
+.desc{
+font-size:13px;
+opacity:0.7;
+margin-top:6px;
+}
+
+/* PRICE BOX */
+
+.price-box{
+margin-top:22px;
+border:1px solid #eee;
+padding:16px;
+border-radius:10px;
+}
+
+.price{
+font-size:32px;
+font-weight:bold;
+}
+
+/* BUTTON */
+
+.btn{
+display:block;
+margin-top:12px;
+background:#eaeaea;
+padding:10px;
+border-radius:8px;
+text-decoration:none;
+color:#111;
+font-size:14px;
+transition:0.2s;
+}
+
+.btn:hover{
+background:#dcdcdc;
+}
+
+/* FEATURES */
+
+ul{
+margin-top:20px;
+list-style:none;
+text-align:left;
+}
+
+li{
+margin:10px 0;
+font-size:14px;
+}
+
+/* MIDDLE CARD */
+
+.highlight{
+padding:0;
+overflow:hidden;
+transform:scale(1.05);
+}
+
+/* DARK TOP */
+
+.highlight-top{
+background:#1b1b1b;
+color:white;
+padding:25px;
+}
+
+.highlight-body{
+padding:30px;
+}
+
+/* MIDDLE BUTTON */
+
+.highlight .btn{
+background:black;
+color:white;
+}
+
+.highlight .btn:hover{
+background:#333;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.pricing{
+flex-direction:column;
+align-items:center;
+}
+
+.highlight{
+transform:none;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">KnowMore</div>
+
+<a href="index.html" class="back">Back</a>
+
+</nav>
+
+<div class="header">
+
+<h1>Choose your plan</h1>
+
+<div class="toggle">
+<span>Pay monthly</span>
+<span>Pay yearly</span>
+</div>
+
+</div>
+
+<section class="pricing">
+
+<!-- BASIC -->
+
+<div class="card">
+
+<h3>Basic</h3>
+
+<p class="desc">
+Perfect for small businesses starting online.
+</p>
+
+<div class="price-box">
+
+<div class="price">₹2999</div>
+
+<a href="demo.html" class="btn">
+Book Free Demo
+</a>
+
+</div>
+
+<ul>
+<li>✔ 1 Page Website</li>
+<li>✔ Mobile Responsive</li>
+<li>✔ Business Information</li>
+<li>✔ Google Maps Integration</li>
+<li>✔ WhatsApp Contact Button</li>
+</ul>
+
+</div>
+
+<!-- STANDARD -->
+
+<div class="card highlight">
+
+<div class="highlight-top">
+
+<h3>Standard</h3>
+
+<p class="desc">
+Best for growing businesses
+</p>
+
+</div>
+
+<div class="highlight-body">
+
+<div class="price-box">
+
+<div class="price">₹4999</div>
+
+<a href="demo.html" class="btn">
+Book Free Demo
+</a>
+
+</div>
+
+<ul>
+<li>✔ Everything in Basic</li>
+<li>✔ Up to 4 Website Sections</li>
+<li>✔ Photo Gallery</li>
+<li>✔ Animations</li>
+<li>✔ Improved Design Layout</li>
+</ul>
+
+</div>
+
+</div>
+
+<!-- PREMIUM -->
+
+<div class="card">
+
+<h3>Premium</h3>
+
+<p class="desc">
+Full custom website solution
+</p>
+
+<div class="price-box">
+
+<div class="price">₹5999</div>
+
+<a href="demo.html" class="btn">
+Book Free Demo
+</a>
+
+</div>
+
+<ul>
+<li>✔ Everything in Standard</li>
+<li>✔ Multi Page Website</li>
+<li>✔ Advanced Custom Design</li>
+<li>✔ Unlimited Sections</li>
+<li>✔ Priority Changes</li>
+</ul>
+
+</div>
+
+</section>
+
+</body>
+</html>
