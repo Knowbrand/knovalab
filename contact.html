@@ -203,7 +203,21 @@ flex-direction:column;
 
 <body>
 
-<div id="navbar"></div>
+<nav>
+
+<div class="logo">Knovalab</div>
+
+<div class="nav-links">
+<a href="index.html#services">Services</a>
+<a href="index.html#portfolio">Work</a>
+<a href="pricing.html">Pricing</a>
+<a href="faq.html">FAQ</a>
+<a href="contact.html">Contact</a>
+</div>
+
+<a href="demo.html" class="demo-btn">Book Free Demo</a>
+
+</nav>
 
 <section class="hero">
 
@@ -293,14 +307,6 @@ flex-direction:column;
 </div>
 
 </footer>
-
-<script>
-fetch('navbar.html')
-.then(res => res.text())
-.then(data => {
-document.getElementById('navbar').innerHTML = data;
-});
-</script>
 
 </body>
 </html>
