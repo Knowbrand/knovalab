@@ -23,13 +23,6 @@ html{
 scroll-behavior:smooth;
 }
 
-body{
-background:none;
-color:#111;
-position:relative;
-z-index:0;
-}
-
 body::before{
 content:"";
 position:fixed;
@@ -38,7 +31,11 @@ left:0;
 width:100%;
 height:100%;
 
-background: url('https://chatgpt.com/backend-api/estuary/content?id=file_00000000faa07208b6ee3fe2540430b2&ts=492737&p=fs&cid=1&sig=10ea1845f223b7c56be0033ac8aab4528c83ad89e4fcad1a2b5543c1219c7659&v=0') center/cover no-repeat;
+background: url('bg.jpg') center/cover no-repeat;
+
+opacity:0.5;
+z-index:-2;
+}
 
 opacity:0.5;
 
