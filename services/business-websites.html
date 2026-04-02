@@ -389,18 +389,6 @@ Fast turnaround. Clean design. Real results.
 </footer>
 
 <script>
-fetch('../navbar.html')
-.then(res => res.text())
-.then(data => {
-document.getElementById('navbar').innerHTML = data;
-});
-
-function toggleFAQ(element){
-let answer = element.querySelector('.faq-answer');
-answer.style.display = answer.style.display === "block" ? "none" : "block";
-}
-
-<script>
 fetch('/navbar.html')
 .then(res => res.text())
 .then(data => {
@@ -412,6 +400,9 @@ function toggleFAQ(element){
   answer.style.display = answer.style.display === "block" ? "none" : "block";
 }
 </script>
+
+</body>
+</html>
 
 </body>
 </html>
