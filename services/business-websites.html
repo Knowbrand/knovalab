@@ -399,18 +399,18 @@ Fast turnaround. Clean design. Real results.
 fetch('../navbar.html')
 .then(res => res.text())
 .then(data => {
-document.getElementById('navbar').innerHTML = data;
+  document.getElementById('navbar').innerHTML = data;
 });
 
 fetch('../footer.html')
 .then(res => res.text())
 .then(data => {
-document.getElementById('footer').innerHTML = data;
+  document.getElementById('footer').innerHTML = data;
 });
 
 function toggleFAQ(element){
-let answer = element.querySelector('.faq-answer');
-answer.style.display = answer.style.display === "block" ? "none" : "block";
+  let answer = element.querySelector('.faq-answer');
+  answer.style.display = answer.style.display === "block" ? "none" : "block";
 }
 </script>
 
