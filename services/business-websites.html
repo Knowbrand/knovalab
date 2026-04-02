@@ -6,6 +6,8 @@
 <title>Business Websites | Knovalab</title>
 
 <style>
+
+/* ================= RESET ================= */
 *{
 margin:0;
 padding:0;
@@ -13,57 +15,19 @@ box-sizing:border-box;
 font-family:Arial, Helvetica, sans-serif;
 }
 
+html{
+scroll-behavior:smooth;
+}
+
 body{
 background:#f8f8f8;
 color:#111;
 }
 
-nav{
-position:fixed;
-top:0;
-width:100%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:18px 8%;
-background:rgba(0,0,0,0.9);
-z-index:1000;
-}
-
-.logo{
-color:white;
-font-size:22px;
-font-weight:bold;
-text-decoration:none;
-}
-
-.nav-links{
-display:flex;
-gap:25px;
-}
-
-.nav-links a{
-color:white;
-text-decoration:none;
-font-size:14px;
-opacity:0.85;
-}
-
-.nav-links a:hover{
-opacity:1;
-}
-
-.demo-btn{
-background:white;
-color:black;
-padding:8px 18px;
-border-radius:30px;
-text-decoration:none;
-font-size:14px;
-}
-
+/* ================= SECTION BASE ================= */
 section{
-padding:120px 10%;
+padding:110px 10%;
+position:relative;
 text-align:center;
 }
 
@@ -72,27 +36,27 @@ font-size:42px;
 margin-bottom:20px;
 }
 
+h2{
+font-size:32px;
+margin-bottom:20px;
+}
+
 p{
-opacity:0.7;
-max-width:700px;
+max-width:750px;
 margin:auto;
-margin-bottom:30px;
+opacity:0.7;
 line-height:1.6;
+margin-bottom:25px;
 }
 
-.hero-buttons{
-margin-top:30px;
-display:flex;
-gap:15px;
-justify-content:center;
-flex-wrap:wrap;
-}
-
+/* ================= BUTTONS ================= */
 .btn{
-padding:14px 28px;
+padding:14px 30px;
 border-radius:30px;
 text-decoration:none;
 font-size:14px;
+display:inline-block;
+transition:0.3s;
 }
 
 .primary{
@@ -100,72 +64,355 @@ background:black;
 color:white;
 }
 
+.primary:hover{
+background:#333;
+}
+
 .secondary{
-border:1px solid #ddd;
+border:1px solid #ccc;
 color:black;
 }
 
-footer{
+.secondary:hover{
+background:#eee;
+}
+
+/* ================= HERO ================= */
+.hero{
+background:white;
+padding-top:150px;
+}
+
+.hero-buttons{
+margin-top:25px;
+display:flex;
+gap:15px;
+justify-content:center;
+flex-wrap:wrap;
+}
+
+/* ================= TRUST STRIP ================= */
+.trust-strip{
 background:#111;
 color:white;
-padding:60px 10%;
-text-align:center;
+padding:40px 10%;
+display:flex;
+justify-content:center;
+gap:60px;
+flex-wrap:wrap;
+font-size:14px;
 }
 
-footer p{
-opacity:0.6;
-margin-top:10px;
+/* ================= GRID CARDS ================= */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+margin-top:50px;
 }
 
-@media(max-width:768px){
-.nav-links{
+.card{
+background:white;
+padding:30px;
+border-radius:16px;
+box-shadow:0 10px 30px rgba(0,0,0,0.05);
+transition:0.3s;
+text-align:left;
+}
+
+.card:hover{
+transform:translateY(-8px);
+box-shadow:0 15px 40px rgba(0,0,0,0.1);
+}
+
+.card h3{
+margin-bottom:10px;
+}
+
+/* ================= PROCESS ================= */
+.process{
+display:flex;
+flex-wrap:wrap;
+gap:30px;
+justify-content:center;
+margin-top:40px;
+}
+
+.step{
+background:white;
+padding:25px;
+width:240px;
+border-radius:14px;
+box-shadow:0 10px 25px rgba(0,0,0,0.05);
+}
+
+/* ================= PRICING ================= */
+.pricing-card{
+border:2px solid #eee;
+}
+
+.pricing-card.featured{
+border:2px solid black;
+transform:scale(1.05);
+}
+
+.price{
+font-size:24px;
+font-weight:bold;
+margin:10px 0;
+}
+
+/* ================= WHY US ================= */
+.dark-section{
+background:#111;
+color:white;
+}
+
+.dark-section p{
+opacity:0.8;
+}
+
+/* ================= FAQ ================= */
+.faq-item{
+background:white;
+margin-bottom:15px;
+padding:20px;
+border-radius:12px;
+cursor:pointer;
+text-align:left;
+}
+
+.faq-answer{
 display:none;
+margin-top:10px;
+opacity:0.7;
 }
+
+/* ================= CTA ================= */
+.cta{
+background:black;
+color:white;
+}
+
+.cta .btn{
+background:white;
+color:black;
+margin-top:20px;
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:768px){
+
 h1{
 font-size:30px;
 }
+
+h2{
+font-size:24px;
 }
+
+.pricing-card.featured{
+transform:none;
+}
+
+}
+
 </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<nav>
-<a href="../index.html" class="logo">Knovalab</a>
-
-<div class="nav-links">
-<a href="../index.html">Home</a>
-<a href="../index.html#services">Services</a>
-<a href="../pricing.html">Pricing</a>
-<a href="../index.html#contact">Contact</a>
-</div>
-
-<a href="../demo.html" class="demo-btn">Book Demo</a>
-</nav>
+<!-- SHARED NAVBAR -->
+<div id="navbar"></div>
 
 <!-- HERO -->
-<section>
-
+<section class="hero">
 <h1>Professional Business Websites That Build Trust & Generate Leads</h1>
-
 <p>
-We design high-converting business websites that establish credibility,
-attract customers, and help you grow your brand online.
+We design conversion-focused websites that help businesses establish credibility,
+attract customers, and grow consistently online.
 </p>
 
 <div class="hero-buttons">
-<a href="../demo.html" class="btn primary">Book Free Consultation</a>
-<a href="../index.html#portfolio" class="btn secondary">See Our Work</a>
+<a href="../demo/" class="btn primary">Book Free Consultation</a>
+<a href="#pricing" class="btn secondary">View Pricing</a>
+</div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+<span>⚡ Delivered in 2–5 Days</span>
+<span>📱 Fully Mobile Responsive</span>
+<span>🚀 Optimized for Performance</span>
+<span>🔍 SEO Ready Structure</span>
+</div>
+
+<!-- WHO IT'S FOR -->
+<section>
+<h2>Who Is This For?</h2>
+<p>Perfect for businesses ready to build a strong digital presence.</p>
+
+<div class="grid">
+<div class="card">
+<h3>Local Businesses</h3>
+<p>Shops, clinics, service providers wanting more walk-ins and calls.</p>
+</div>
+
+<div class="card">
+<h3>Startups</h3>
+<p>Launch your brand professionally from day one.</p>
+</div>
+
+<div class="card">
+<h3>Consultants</h3>
+<p>Personal brand websites that convert visitors into inquiries.</p>
+</div>
+
+<div class="card">
+<h3>SMEs</h3>
+<p>Growing companies ready to scale their digital presence.</p>
+</div>
+</div>
+</section>
+
+<!-- FEATURES -->
+<section>
+<h2>What Your Website Includes</h2>
+
+<div class="grid">
+<div class="card"><h3>Modern UI Design</h3><p>Clean layout built for professionalism.</p></div>
+<div class="card"><h3>Mobile Optimization</h3><p>Looks perfect on every screen size.</p></div>
+<div class="card"><h3>WhatsApp Integration</h3><p>Direct chat button for instant leads.</p></div>
+<div class="card"><h3>Contact Forms</h3><p>Capture inquiries automatically.</p></div>
+<div class="card"><h3>Google Maps</h3><p>Embedded business location.</p></div>
+<div class="card"><h3>Basic SEO Setup</h3><p>Structured properly for Google indexing.</p></div>
+</div>
+</section>
+
+<!-- BENEFITS -->
+<section>
+<h2>What You Actually Get</h2>
+
+<div class="grid">
+<div class="card"><h3>More Leads</h3><p>Your website works 24/7 for you.</p></div>
+<div class="card"><h3>Higher Trust</h3><p>Customers take you seriously.</p></div>
+<div class="card"><h3>Brand Authority</h3><p>Position ahead of competitors.</p></div>
+<div class="card"><h3>Better Visibility</h3><p>Appear when customers search online.</p></div>
+</div>
+</section>
+
+<!-- PROCESS -->
+<section>
+<h2>Our Process</h2>
+
+<div class="process">
+<div class="step"><h3>1. Consultation</h3><p>Understanding your goals.</p></div>
+<div class="step"><h3>2. Design</h3><p>Custom layout for your brand.</p></div>
+<div class="step"><h3>3. Development</h3><p>Optimized & responsive build.</p></div>
+<div class="step"><h3>4. Launch</h3><p>Go live within days.</p></div>
+</div>
+</section>
+
+<!-- PORTFOLIO PREVIEW -->
+<section>
+<h2>What Your Website Could Include</h2>
+
+<div class="grid">
+<div class="card"><h3>Hero Section</h3><p>Strong headline + CTA.</p></div>
+<div class="card"><h3>Services Section</h3><p>Clear explanation of offerings.</p></div>
+<div class="card"><h3>Testimonials</h3><p>Social proof & trust signals.</p></div>
+<div class="card"><h3>Contact Section</h3><p>Form + WhatsApp + call buttons.</p></div>
+</div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+<h2>Starting Investment</h2>
+
+<div class="grid">
+
+<div class="card pricing-card">
+<h3>Starter</h3>
+<p class="price">₹7,999</p>
+<p>3 Pages • Mobile Responsive • Contact Form</p>
+<a href="../demo/" class="btn secondary">Get Started</a>
+</div>
+
+<div class="card pricing-card featured">
+<h3>Business</h3>
+<p class="price">₹14,999</p>
+<p>5 Pages • SEO Setup • WhatsApp Integration</p>
+<a href="../demo/" class="btn primary">Most Popular</a>
+</div>
+
+<div class="card pricing-card">
+<h3>Custom</h3>
+<p class="price">Custom Quote</p>
+<p>Advanced Features & Scaling Support</p>
+<a href="../demo/" class="btn secondary">Contact Us</a>
+</div>
+
+</div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="dark-section">
+<h2>Why Choose Knovalab?</h2>
+<p>
+We don’t just build websites — we build digital assets designed to grow your business.
+Fast turnaround. Clean design. Real results.
+</p>
+</section>
+
+<!-- FAQ -->
+<section>
+<h2>Frequently Asked Questions</h2>
+
+<div class="faq-item" onclick="toggleFAQ(this)">
+<h3>How long does it take?</h3>
+<div class="faq-answer">Most websites are delivered within 2–5 working days.</div>
+</div>
+
+<div class="faq-item" onclick="toggleFAQ(this)">
+<h3>Do you provide hosting?</h3>
+<div class="faq-answer">Yes, we can guide you with hosting and domain setup.</div>
+</div>
+
+<div class="faq-item" onclick="toggleFAQ(this)">
+<h3>Can I edit my website later?</h3>
+<div class="faq-answer">Yes. We can provide editable versions or manage updates for you.</div>
 </div>
 
 </section>
 
-<footer>
-<h3>Knovalab</h3>
-<p>Modern websites for growing businesses.</p>
-<p>© 2026 Knovalab</p>
-</footer>
+<!-- FINAL CTA -->
+<section class="cta">
+<h2>Ready to Take Your Business Online?</h2>
+<p>Let’s build a website that converts visitors into customers.</p>
+<a href="../demo/" class="btn">Book Free Demo</a>
+</section>
+
+<!-- SHARED FOOTER -->
+<div id="footer"></div>
+
+<script>
+fetch('../navbar.html')
+.then(res => res.text())
+.then(data => {
+document.getElementById('navbar').innerHTML = data;
+});
+
+fetch('../footer.html')
+.then(res => res.text())
+.then(data => {
+document.getElementById('footer').innerHTML = data;
+});
+
+function toggleFAQ(element){
+let answer = element.querySelector('.faq-answer');
+answer.style.display = answer.style.display === "block" ? "none" : "block";
+}
+</script>
 
 </body>
 </html>
