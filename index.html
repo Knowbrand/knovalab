@@ -541,6 +541,29 @@ for Modern Businesses
 </div>
 </footer>
 
+</footer>
+
+<!-- CHATBOT HTML HERE -->
+<div class="chat-button" onclick="toggleChat()">Chat</div>
+
+<div class="chatbox" id="chatbox">
+  <div class="chat-header">Knovalab Assistant</div>
+
+  <div class="chat-messages" id="chatMessages">
+    <div class="bot">
+      Hi 👋 I can help you with pricing, timelines, or booking a demo.
+    </div>
+  </div>
+
+  <div class="chat-input">
+    <input type="text" id="userInput" placeholder="Type your message...">
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
+
+<script>
+fetch('/navbar.html')
+
 <script>
 fetch('/navbar.html')
 .then(res => res.text())
@@ -558,6 +581,64 @@ p.style.display=p.style.display==="block"?"none":"block"
 function toggleMenu(){
 document.querySelector(".nav-links").classList.toggle("active")
 }
+</script>
+
+<script>
+
+function toggleChat(){
+  const box = document.getElementById("chatbox");
+  box.style.display = box.style.display === "flex" ? "none" : "flex";
+}
+
+function sendMessage(){
+  const input = document.getElementById("userInput");
+  const messages = document.getElementById("chatMessages");
+  const text = input.value.trim().toLowerCase();
+
+  if(!text) return;
+
+  const userMsg = document.createElement("div");
+  userMsg.className = "user";
+  userMsg.innerText = input.value;
+  messages.appendChild(userMsg);
+
+  input.value = "";
+
+  const typing = document.createElement("div");
+  typing.className = "typing";
+  typing.innerText = "Typing...";
+  messages.appendChild(typing);
+
+  messages.scrollTop = messages.scrollHeight;
+
+  setTimeout(() => {
+    typing.remove();
+
+    const botMsg = document.createElement("div");
+    botMsg.className = "bot";
+
+    if(text.includes("price")){
+      botMsg.innerText = "Our pricing starts at ₹2999. Would you like to book a free demo?";
+    }
+    else if(text.includes("time") || text.includes("how long")){
+      botMsg.innerText = "Most websites are delivered within 2–5 days.";
+    }
+    else if(text.includes("own")){
+      botMsg.innerText = "Yes. You receive full ownership of the website.";
+    }
+    else if(text.includes("mobile")){
+      botMsg.innerText = "Yes. Every website is fully responsive.";
+    }
+    else{
+      botMsg.innerHTML = "I’d love to help! You can also chat with us on WhatsApp.<br><br><a href='https://wa.me/919167878131' target='_blank'>Open WhatsApp</a>";
+    }
+
+    messages.appendChild(botMsg);
+    messages.scrollTop = messages.scrollHeight;
+
+  }, 800);
+}
+
 </script>
 
 </body>
