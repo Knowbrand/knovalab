@@ -6,8 +6,6 @@
 <title>Business Websites | Knovalab</title>
 
 <style>
-
-/* RESET */
 *{
 margin:0;
 padding:0;
@@ -15,21 +13,57 @@ box-sizing:border-box;
 font-family:Arial, Helvetica, sans-serif;
 }
 
-html{
-scroll-behavior:smooth;
-}
-
 body{
 background:#f8f8f8;
 color:#111;
 }
 
-/* SECTIONS */
+nav{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 8%;
+background:rgba(0,0,0,0.9);
+z-index:1000;
+}
+
+.logo{
+color:white;
+font-size:22px;
+font-weight:bold;
+text-decoration:none;
+}
+
+.nav-links{
+display:flex;
+gap:25px;
+}
+
+.nav-links a{
+color:white;
+text-decoration:none;
+font-size:14px;
+opacity:0.85;
+}
+
+.nav-links a:hover{
+opacity:1;
+}
+
+.demo-btn{
+background:white;
+color:black;
+padding:8px 18px;
+border-radius:30px;
+text-decoration:none;
+font-size:14px;
+}
 
 section{
 padding:120px 10%;
-position:relative;
-overflow:hidden;
 text-align:center;
 }
 
@@ -38,23 +72,12 @@ font-size:42px;
 margin-bottom:20px;
 }
 
-h2{
-font-size:32px;
-margin-bottom:40px;
-}
-
 p{
 opacity:0.7;
 max-width:700px;
 margin:auto;
 margin-bottom:30px;
 line-height:1.6;
-}
-
-/* HERO */
-
-.hero{
-background:white;
 }
 
 .hero-buttons{
@@ -82,120 +105,47 @@ border:1px solid #ddd;
 color:black;
 }
 
-/* FEATURES */
-
-.features{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:30px;
-margin-top:50px;
-}
-
-.feature-card{
-background:white;
-padding:25px;
-border-radius:15px;
-box-shadow:0 10px 30px rgba(0,0,0,0.05);
-text-align:left;
-transition:0.3s;
-}
-
-.feature-card:hover{
-transform:translateY(-6px);
-box-shadow:0 15px 40px rgba(0,0,0,0.1);
-}
-
-/* PROCESS */
-
-.process{
-display:flex;
-flex-wrap:wrap;
-gap:40px;
-justify-content:center;
-margin-top:50px;
-}
-
-.step{
-width:250px;
-background:white;
-padding:25px;
-border-radius:15px;
-box-shadow:0 10px 25px rgba(0,0,0,0.05);
-}
-
-/* CTA */
-
-.cta{
+footer{
 background:#111;
 color:white;
+padding:60px 10%;
+text-align:center;
 }
 
-.cta p{
-opacity:0.8;
+footer p{
+opacity:0.6;
+margin-top:10px;
 }
-
-.cta .btn{
-background:white;
-color:black;
-margin-top:20px;
-}
-
-/* BACKGROUND DIAGRAMS */
-
-.bg-diagram{
-position:absolute;
-width:500px;
-height:500px;
-opacity:0.04;
-pointer-events:none;
-z-index:0;
-}
-
-.bg-top{
-top:-150px;
-right:-150px;
-}
-
-.bg-bottom{
-bottom:-200px;
-left:-200px;
-}
-
-section > *{
-position:relative;
-z-index:2;
-}
-
-/* MOBILE */
 
 @media(max-width:768px){
-
+.nav-links{
+display:none;
+}
 h1{
-font-size:32px;
+font-size:30px;
 }
-
-h2{
-font-size:24px;
 }
-
-}
-
 </style>
 </head>
 
 <body>
 
-<!-- SHARED NAVBAR -->
-<div id="navbar"></div>
+<!-- NAVBAR -->
+<nav>
+<a href="../index.html" class="logo">Knovalab</a>
+
+<div class="nav-links">
+<a href="../index.html">Home</a>
+<a href="../index.html#services">Services</a>
+<a href="../pricing.html">Pricing</a>
+<a href="../index.html#contact">Contact</a>
+</div>
+
+<a href="../demo.html" class="demo-btn">Book Demo</a>
+</nav>
 
 <!-- HERO -->
-<section class="hero">
-
-<svg class="bg-diagram bg-top" viewBox="0 0 500 500">
-<circle cx="250" cy="250" r="200" stroke="black" fill="none" stroke-width="2"/>
-<rect x="100" y="100" width="300" height="300" stroke="black" fill="none" stroke-width="2"/>
-<line x1="0" y1="250" x2="500" y2="250" stroke="black" stroke-width="2"/>
-</svg>
+<section>
 
 <h1>Professional Business Websites That Build Trust & Generate Leads</h1>
 
@@ -205,119 +155,17 @@ attract customers, and help you grow your brand online.
 </p>
 
 <div class="hero-buttons">
-<a href="../demo/" class="btn primary">Book Free Consultation</a>
-<a href="#features" class="btn secondary">See Features</a>
+<a href="../demo.html" class="btn primary">Book Free Consultation</a>
+<a href="../index.html#portfolio" class="btn secondary">See Our Work</a>
 </div>
 
 </section>
 
-<!-- FEATURES -->
-<section id="features">
-
-<svg class="bg-diagram bg-bottom" viewBox="0 0 500 500">
-<circle cx="250" cy="250" r="180" stroke="black" fill="none" stroke-width="2"/>
-<circle cx="250" cy="250" r="120" stroke="black" fill="none" stroke-width="2"/>
-<line x1="100" y1="100" x2="400" y2="400" stroke="black" stroke-width="2"/>
-</svg>
-
-<h2>What Your Website Includes</h2>
-
-<div class="features">
-
-<div class="feature-card">
-<h3>Mobile Responsive</h3>
-<p>Perfectly optimized for phones, tablets, and desktops.</p>
-</div>
-
-<div class="feature-card">
-<h3>Modern Design</h3>
-<p>Clean layout built to reflect professionalism and trust.</p>
-</div>
-
-<div class="feature-card">
-<h3>Contact Integration</h3>
-<p>WhatsApp, call buttons, and lead capture forms.</p>
-</div>
-
-<div class="feature-card">
-<h3>Google Maps</h3>
-<p>Embedded location for local customer discovery.</p>
-</div>
-
-<div class="feature-card">
-<h3>Basic SEO Setup</h3>
-<p>Structured properly so Google can index your website.</p>
-</div>
-
-<div class="feature-card">
-<h3>Fast Loading</h3>
-<p>Optimized for performance and smooth experience.</p>
-</div>
-
-</div>
-
-</section>
-
-<!-- PROCESS -->
-<section>
-
-<h2>Our Process</h2>
-
-<div class="process">
-
-<div class="step">
-<h3>1. Consultation</h3>
-<p>We understand your business and goals.</p>
-</div>
-
-<div class="step">
-<h3>2. Design</h3>
-<p>We create a modern layout tailored to your brand.</p>
-</div>
-
-<div class="step">
-<h3>3. Development</h3>
-<p>Your website is built and optimized.</p>
-</div>
-
-<div class="step">
-<h3>4. Delivery</h3>
-<p>Website delivered within 2–5 days.</p>
-</div>
-
-</div>
-
-</section>
-
-<!-- CTA -->
-<section class="cta">
-
-<h2>Ready to Take Your Business Online?</h2>
-
-<p>
-Let’s build a website that converts visitors into customers.
-</p>
-
-<a href="../demo/" class="btn">Book Free Demo</a>
-
-</section>
-
-<!-- SHARED FOOTER -->
-<div id="footer"></div>
-
-<script>
-fetch('../navbar.html')
-.then(res => res.text())
-.then(data => {
-  document.getElementById('navbar').innerHTML = data;
-});
-
-fetch('../footer.html')
-.then(res => res.text())
-.then(data => {
-  document.getElementById('footer').innerHTML = data;
-});
-</script>
+<footer>
+<h3>Knovalab</h3>
+<p>Modern websites for growing businesses.</p>
+<p>© 2026 Knovalab</p>
+</footer>
 
 </body>
 </html>
