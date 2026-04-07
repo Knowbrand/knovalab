@@ -3,16 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Knovalab</title>
+<title>Knovalab | Premium Business Websites</title>
 
 <style>
 
-/* GLOBAL */
+/* ================= GLOBAL ================= */
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial, Helvetica, sans-serif;
+font-family: 'Segoe UI', sans-serif;
 }
 
 html{
@@ -20,85 +21,41 @@ scroll-behavior:smooth;
 }
 
 body{
-background:linear-gradient(135deg,#f3f3f3,#e8e8e8,#fafafa);
-color:#111;
-}
-
-.hero-btn{
-background:black;
+background:#0f0f0f;
 color:white;
-padding:12px 24px;
-border-radius:30px;
-text-decoration:none;
-display:inline-block;
-transition:0.2s;
+line-height:1.6;
 }
 
-.hero-btn:hover{
-background:#333;
+section{
+padding:110px 10%;
 }
 
-/* NAVBAR */
+h1,h2,h3{
+font-weight:700;
+letter-spacing:-0.5px;
+}
 
-nav{
-position:fixed;
-top:0;
-width:100%;
+p{
+opacity:0.75;
+}
+
+/* Accent Color */
+:root{
+--accent:#ff6a00;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+min-height:100vh;
 display:flex;
 align-items:center;
 justify-content:space-between;
-padding:20px 8%;
-background:rgba(0,0,0,0.85);
-backdrop-filter:blur(12px);
-z-index:1000;
+gap:60px;
 }
 
-.logo{
-font-size:22px;
-font-weight:bold;
-color:white;
-text-decoration:none;
-}
-
-.nav-links{
-display:flex;
-gap:22px;
-}
-
-.nav-links a{
-text-decoration:none;
-color:white;
-font-weight:500;
-transition:0.2s;
-}
-
-.nav-links a:hover{
-opacity:0.7;
-}
-
-.demo-btn{
-background:black;
-color:white;
-padding:10px 20px;
-border-radius:30px;
-text-decoration:none;
-font-size:14px;
-}
-
-.back-btn:hover{
-opacity:0.8;
-}
-
-/* HERO */
-
-.hero{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:20px;
+.hero-left{
+flex:1;
 }
 
 .hero h1{
@@ -107,117 +64,144 @@ margin-bottom:20px;
 }
 
 .hero p{
-opacity:0.7;
-margin-bottom:30px;
+font-size:18px;
+margin-bottom:35px;
+max-width:500px;
 }
 
 .hero-buttons{
 display:flex;
 gap:15px;
+flex-wrap:wrap;
 }
 
-.hero-buttons a{
-padding:16px 35px;
-border-radius:30px;
-text-decoration:none;
-font-size:16px;
-}
-
-.primary-btn{
-background:black;
+.btn-primary{
+background:var(--accent);
 color:white;
-}
-
-.secondary-btn{
-background:white;
-color:black;
-border:1px solid #ddd;
-}
-
-/* SCROLL ARROW */
-
-.scroll-arrow{
-display:block;
-margin-top:50px;
-font-size:40px;
+padding:15px 30px;
+border-radius:40px;
 text-decoration:none;
-color:black;
-animation:bounce 2s infinite;
+font-weight:600;
+transition:0.3s;
 }
 
-@keyframes bounce{
-0%{transform:translateY(0);}
-50%{transform:translateY(10px);}
-100%{transform:translateY(0);}
+.btn-primary:hover{
+transform:translateY(-3px);
 }
 
-/* SECTION */
+.btn-secondary{
+border:1px solid #333;
+color:white;
+padding:15px 30px;
+border-radius:40px;
+text-decoration:none;
+transition:0.3s;
+}
 
-section{
-padding:110px 10%;
+.btn-secondary:hover{
+background:#1a1a1a;
+}
+
+.hero-right{
+flex:1;
+}
+
+.hero-right img{
+width:100%;
+border-radius:20px;
+box-shadow:0 20px 60px rgba(0,0,0,0.5);
+}
+
+/* ================= SERVICES ================= */
+
+.services{
+background:#141414;
+}
+
+.section-title{
 text-align:center;
+margin-bottom:60px;
+font-size:40px;
 }
-
-/* SERVICES */
 
 .services-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:30px;
-margin-top:50px;
 }
 
 .service-card{
-padding:25px;
-background:rgba(255,255,255,0.6);
-border-radius:15px;
-backdrop-filter:blur(10px);
-}
-
-.service-link{
-text-decoration:none;
-color:inherit;
-display:block;
-}
-
-.service-card{
-padding:25px;
-background:rgba(255,255,255,0.6);
-border-radius:15px;
-backdrop-filter:blur(10px);
-text-decoration:none;
-color:black;
-display:block;
+background:#1a1a1a;
+padding:30px;
+border-radius:20px;
 transition:0.3s;
+border:1px solid #222;
 }
 
 .service-card:hover{
 transform:translateY(-6px);
-box-shadow:0 15px 35px rgba(0,0,0,0.08);
+border-color:var(--accent);
 }
 
-/* PORTFOLIO */
+.service-card h3{
+margin-bottom:12px;
+}
+
+/* ================= STATS ================= */
+
+.stats{
+background:#0f0f0f;
+text-align:center;
+}
+
+.stats-grid{
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
+gap:40px;
+}
+
+.stat h3{
+font-size:45px;
+color:var(--accent);
+}
+
+.stat p{
+opacity:0.7;
+}
+
+/* ================= PORTFOLIO ================= */
+
+.portfolio{
+background:#141414;
+}
 
 .portfolio-grid{
 display:flex;
 gap:40px;
-justify-content:center;
 flex-wrap:wrap;
-margin-top:50px;
+justify-content:center;
 }
 
 .port-card{
-width:360px;
+background:#1a1a1a;
 padding:20px;
-background:rgba(255,255,255,0.5);
-border-radius:15px;
+border-radius:20px;
+width:360px;
+border:1px solid #222;
+transition:0.3s;
+}
+
+.port-card:hover{
+transform:translateY(-5px);
 }
 
 .preview{
 width:100%;
 height:210px;
 overflow:hidden;
-border-radius:10px;
+border-radius:12px;
+margin-bottom:15px;
 }
 
 .preview iframe{
@@ -229,13 +213,15 @@ pointer-events:none;
 border:none;
 }
 
-/* FAQ */
+/* ================= FAQ ================= */
+
+.faq-section{
+background:#0f0f0f;
+}
 
 .faq{
-max-width:750px;
+max-width:800px;
 margin:auto;
-margin-top:40px;
-text-align:left;
 }
 
 .faq-item{
@@ -244,7 +230,7 @@ margin-bottom:15px;
 
 .faq-item h4{
 cursor:pointer;
-background:white;
+background:#1a1a1a;
 padding:15px;
 border-radius:10px;
 }
@@ -252,28 +238,31 @@ border-radius:10px;
 .faq-item p{
 display:none;
 padding:12px;
-opacity:0.8;
+opacity:0.7;
 }
 
-/* CONTACT */
+/* ================= CONTACT ================= */
+
+.contact{
+text-align:center;
+background:#141414;
+}
 
 .contact a{
 display:inline-block;
-margin-top:20px;
-background:black;
+margin-top:25px;
+background:var(--accent);
 color:white;
-padding:14px 28px;
-border-radius:25px;
+padding:15px 30px;
+border-radius:30px;
 text-decoration:none;
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
 
 footer{
-background:#111;
-color:white;
-padding:60px 10%;
-margin-top:80px;
+background:#0b0b0b;
+padding:70px 10%;
 }
 
 .footer-grid{
@@ -288,23 +277,23 @@ margin-bottom:15px;
 }
 
 footer p{
-opacity:0.7;
+opacity:0.6;
 margin:6px 0;
 }
 
 .copyright{
 text-align:center;
 margin-top:40px;
-opacity:0.6;
+opacity:0.5;
 }
 
-/* CHATBOT */
+/* ================= CHATBOT ================= */
 
 .chat-button{
 position:fixed;
 bottom:20px;
 right:20px;
-background:black;
+background:var(--accent);
 color:white;
 padding:14px 18px;
 border-radius:40px;
@@ -317,17 +306,17 @@ position:fixed;
 bottom:80px;
 right:20px;
 width:300px;
-background:white;
+background:#1a1a1a;
 border-radius:15px;
-box-shadow:0 10px 30px rgba(0,0,0,0.2);
+box-shadow:0 10px 30px rgba(0,0,0,0.5);
 display:none;
 flex-direction:column;
 z-index:3000;
+color:white;
 }
 
 .chat-header{
-background:black;
-color:white;
+background:var(--accent);
 padding:12px;
 border-radius:15px 15px 0 0;
 }
@@ -339,79 +328,32 @@ overflow-y:auto;
 }
 
 .bot{
-background:#f1f1f1;
+background:#222;
 padding:10px;
 border-radius:10px;
 margin-bottom:10px;
 font-size:14px;
 }
 
-.options button{
-width:100%;
-margin:4px 0;
-padding:8px;
-border:none;
-background:black;
-color:white;
-border-radius:8px;
-cursor:pointer;
+/* ================= MOBILE ================= */
+
+@media(max-width:900px){
+
+.hero{
+flex-direction:column;
+text-align:center;
 }
-
-.menu-toggle{
-display:none;
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
 
 .hero h1{
 font-size:40px;
 }
 
-.hero-buttons{
+.stats-grid{
 flex-direction:column;
-}
-
-nav{
-padding:18px 6%;
-}
-
-.logo{
-font-size:20px;
-}
-
-.nav-links{
-display:none;
-position:absolute;
-top:70px;
-left:0;
-width:100%;
-background:white;
-flex-direction:column;
-align-items:center;
-gap:18px;
-padding:25px 0;
-box-shadow:0 10px 20px rgba(0,0,0,0.08);
-}
-
-.nav-links.active{
-display:flex;
-}
-
-.menu-toggle{
-display:block;
-font-size:26px;
-cursor:pointer;
-}
-
-.demo-btn{
-padding:8px 16px;
-font-size:13px;
 }
 
 .port-card{
-width:90%;
+width:100%;
 }
 
 }
@@ -423,73 +365,99 @@ width:90%;
 
 <div id="navbar"></div>
 
+<!-- HERO -->
 <section class="hero">
+<div class="hero-left">
 <h1>
-Modern Websites<br>
-for Modern Businesses
+Websites Designed<br>
+To Turn Visitors<br>
+Into Customers.
 </h1>
 
-<p>By Knovalab</p>
+<p>
+We build fast, premium, mobile-first websites for businesses that want to grow.
+</p>
 
 <div class="hero-buttons">
-<a href="/pricing" class="hero-btn">View Pricing</a>
-<a href="/demo/" class="demo-btn">Book Demo</a>
+<a href="#portfolio" class="btn-primary">View Our Work</a>
+<a href="/demo/" class="btn-secondary">Book Free Consultation</a>
+</div>
 </div>
 
-<a href="#services" class="scroll-arrow">↓</a>
+<div class="hero-right">
+<img src="https://images.unsplash.com/photo-1559028012-481c04fa702d" alt="Website Preview">
+</div>
 </section>
 
-<section id="services">
-<h2>Services</h2>
+<!-- SERVICES -->
+<section class="services">
+<h2 class="section-title">Our Services</h2>
 
 <div class="services-grid">
 
-  <a href="/services/business-websites/" class="service-card">
-    <h3>Business Websites</h3>
-    <p>Professional websites built to generate trust and leads.</p>
-  </a>
-
-  <a href="/services/restaurant-websites/" class="service-card">
-    <h3>Restaurant Websites</h3>
-    <p>Showcase your menu, ambience, and take online bookings.</p>
-  </a>
-
-  <a href="/services/salon-websites/" class="service-card">
-    <h3>Salon Websites</h3>
-    <p>Highlight services, pricing, and accept appointments easily.</p>
-  </a>
-
-  <a href="/services/clothing-store-sites/" class="service-card">
-    <h3>Clothing Store Sites</h3>
-    <p>Modern fashion websites built for branding and sales.</p>
-  </a>
-
-  <a href="/services/landing-pages/" class="service-card">
-    <h3>Landing Pages</h3>
-    <p>High-converting single pages for ads and campaigns.</p>
-  </a>
-
-  <a href="/services/portfolio-websites/" class="service-card">
-    <h3>Portfolio Websites</h3>
-    <p>Personal brand websites for creators and professionals.</p>
-  </a>
-
-  <a href="/services/startup-websites/" class="service-card">
-    <h3>Startup Websites</h3>
-    <p>Investor-ready websites for growing startups.</p>
-  </a>
-
-  <a href="/services/local-business-websites/" class="service-card">
-    <h3>Local Business Websites</h3>
-    <p>Optimized for Google visibility and local discovery.</p>
-  </a>
-
+<div class="service-card">
+<h3>Business Websites</h3>
+<p>Professional websites built to generate trust and leads.</p>
 </div>
 
+<div class="service-card">
+<h3>Restaurant Websites</h3>
+<p>Showcase your menu and accept reservations online.</p>
+</div>
+
+<div class="service-card">
+<h3>Salon Websites</h3>
+<p>Highlight services, pricing and booking systems.</p>
+</div>
+
+<div class="service-card">
+<h3>E-Commerce Stores</h3>
+<p>Sell products online with seamless checkout integration.</p>
+</div>
+
+<div class="service-card">
+<h3>Landing Pages</h3>
+<p>High-converting single page websites for campaigns.</p>
+</div>
+
+<div class="service-card">
+<h3>Portfolio Websites</h3>
+<p>Personal brand websites for creators and professionals.</p>
+</div>
+
+</div>
 </section>
 
-<section id="portfolio">
-<h2>Our Work</h2>
+<!-- STATS -->
+<section class="stats">
+<div class="stats-grid">
+
+<div class="stat">
+<h3>2–5</h3>
+<p>Days Delivery</p>
+</div>
+
+<div class="stat">
+<h3>100%</h3>
+<p>Mobile Optimized</p>
+</div>
+
+<div class="stat">
+<h3>Fast</h3>
+<p>Static Hosting</p>
+</div>
+
+<div class="stat">
+<h3>Full</h3>
+<p>Ownership</p>
+</div>
+
+</div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="portfolio" id="portfolio">
+<h2 class="section-title">Our Work</h2>
 
 <div class="portfolio-grid">
 
@@ -510,14 +478,15 @@ for Modern Businesses
 </div>
 </section>
 
-<section id="faq">
-<h2>FAQ</h2>
+<!-- FAQ -->
+<section class="faq-section">
+<h2 class="section-title">Frequently Asked Questions</h2>
 
 <div class="faq">
 
 <div class="faq-item">
-<h4 onclick="toggleFAQ(this)">How long does it take to build my website?</h4>
-<p>Most websites are delivered within 2-5 days.</p>
+<h4 onclick="toggleFAQ(this)">How long does it take?</h4>
+<p>Most websites are delivered within 2–5 days.</p>
 </div>
 
 <div class="faq-item">
@@ -526,60 +495,28 @@ for Modern Businesses
 </div>
 
 <div class="faq-item">
-<h4 onclick="toggleFAQ(this)">Will my website work on mobile phones?</h4>
-<p>Yes. Every site is fully responsive for phones and tablets.</p>
-</div>
-
-<div class="faq-item">
-<h4 onclick="toggleFAQ(this)">Can customers contact me from the website?</h4>
-<p>Yes. We integrate WhatsApp, contact forms, and call buttons.</p>
-</div>
-
-<div class="faq-item">
-<h4 onclick="toggleFAQ(this)">Do you add Google Maps?</h4>
-<p>Yes. Your business location can be embedded using Google Maps.</p>
-</div>
-
-<div class="faq-item">
-<h4 onclick="toggleFAQ(this)">Can I request changes later?</h4>
-<p>Yes. Small edits are usually included.</p>
-</div>
-
-<div class="faq-item">
-<h4 onclick="toggleFAQ(this)">Do I need hosting?</h4>
-<p>We can host small sites on GitHub for free.</p>
-</div>
-
-<div class="faq-item">
-<h4 onclick="toggleFAQ(this)">Can you build websites for any industry?</h4>
-<p>Yes. Restaurants, salons, stores, startups and more.</p>
-</div>
-
-<div class="faq-item">
-<h4 onclick="toggleFAQ(this)">Will my website appear on Google?</h4>
-<p>We include basic SEO so Google can index your site.</p>
-</div>
-
-<div class="faq-item">
-<h4 onclick="toggleFAQ(this)">How do I place an order?</h4>
-<p>Click Book Demo or chat via WhatsApp.</p>
+<h4 onclick="toggleFAQ(this)">Will it work on mobile?</h4>
+<p>Yes. Every site is fully responsive.</p>
 </div>
 
 </div>
 </section>
 
-<section id="contact" class="contact">
-<h2>Contact</h2>
+<!-- CONTACT -->
+<section class="contact">
+<h2>Let’s Build Your Website</h2>
 <p>Phone: +91 9167878131</p>
 <a href="https://wa.me/919167878131">Chat on WhatsApp</a>
 </section>
 
+<!-- FOOTER -->
 <footer>
+
 <div class="footer-grid">
 
 <div>
 <h4>Knovalab</h4>
-<p>Modern websites for local businesses.</p>
+<p>Premium websites for growing businesses.</p>
 </div>
 
 <div>
@@ -591,7 +528,7 @@ for Modern Businesses
 
 <div>
 <h4>Contact</h4>
-<p>Phone: +91 9167878131</p>
+<p>+91 9167878131</p>
 <p>WhatsApp Available</p>
 </div>
 
@@ -600,101 +537,35 @@ for Modern Businesses
 <div class="copyright">
 © 2026 Knovalab
 </div>
+
 </footer>
 
-<!-- CHATBOT HTML HERE -->
+<!-- CHAT -->
 <div class="chat-button" onclick="toggleChat()">Chat</div>
 
 <div class="chatbox" id="chatbox">
-  <div class="chat-header">Knovalab Assistant</div>
-
-  <div class="chat-messages" id="chatMessages">
-    <div class="bot">
-      Hi 👋 I can help you with pricing, timelines, or booking a demo.
-    </div>
-  </div>
-
-  <div class="chat-input">
-    <input type="text" id="userInput" placeholder="Type your message...">
-    <button onclick="sendMessage()">Send</button>
-  </div>
+<div class="chat-header">Knovalab Assistant</div>
+<div class="chat-messages" id="chatMessages">
+<div class="bot">Hi 👋 I can help you with pricing, timelines or booking a demo.</div>
+</div>
 </div>
 
 <script>
 fetch('/navbar.html')
 .then(res => res.text())
 .then(data => {
-  document.getElementById('navbar').innerHTML = data;
+document.getElementById('navbar').innerHTML = data;
 });
-</script>
 
-<script>
 function toggleFAQ(el){
 let p=el.nextElementSibling
 p.style.display=p.style.display==="block"?"none":"block"
 }
 
-function toggleMenu(){
-document.querySelector(".nav-links").classList.toggle("active")
-}
-</script>
-
-<script>
-
 function toggleChat(){
-  const box = document.getElementById("chatbox");
-  box.style.display = box.style.display === "flex" ? "none" : "flex";
+const box=document.getElementById("chatbox");
+box.style.display=box.style.display==="flex"?"none":"flex";
 }
-
-function sendMessage(){
-  const input = document.getElementById("userInput");
-  const messages = document.getElementById("chatMessages");
-  const text = input.value.trim().toLowerCase();
-
-  if(!text) return;
-
-  const userMsg = document.createElement("div");
-  userMsg.className = "user";
-  userMsg.innerText = input.value;
-  messages.appendChild(userMsg);
-
-  input.value = "";
-
-  const typing = document.createElement("div");
-  typing.className = "typing";
-  typing.innerText = "Typing...";
-  messages.appendChild(typing);
-
-  messages.scrollTop = messages.scrollHeight;
-
-  setTimeout(() => {
-    typing.remove();
-
-    const botMsg = document.createElement("div");
-    botMsg.className = "bot";
-
-    if(text.includes("price")){
-      botMsg.innerText = "Our pricing starts at ₹2999. Would you like to book a free demo?";
-    }
-    else if(text.includes("time") || text.includes("how long")){
-      botMsg.innerText = "Most websites are delivered within 2–5 days.";
-    }
-    else if(text.includes("own")){
-      botMsg.innerText = "Yes. You receive full ownership of the website.";
-    }
-    else if(text.includes("mobile")){
-      botMsg.innerText = "Yes. Every website is fully responsive.";
-    }
-    else{
-      botMsg.innerHTML = "I’d love to help! You can also chat with us on WhatsApp.<br><br><a href='https://wa.me/919167878131' target='_blank'>Open WhatsApp</a>";
-    }
-
-    messages.appendChild(botMsg);
-    messages.scrollTop = messages.scrollHeight;
-
-  }, 800);
-}
-
 </script>
 
 </body>
