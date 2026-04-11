@@ -57,21 +57,20 @@ transition:0.3s;
 transform:translateY(-2px);
 }
 
-/* ================= MAIN ================= */
+/* ================= MAIN CONTAINER ================= */
 
 .faq-container{
 max-width:1200px;
-margin:60px auto;
-padding:0 20px;
+margin:80px auto;
+padding:0 5%;
 }
 
 .faq-header{
-text-align:center;
-margin-bottom:50px;
+margin-bottom:40px;
 }
 
 .faq-header h1{
-font-size:36px;
+font-size:40px;
 margin-bottom:10px;
 }
 
@@ -79,25 +78,25 @@ margin-bottom:10px;
 opacity:0.6;
 }
 
-/* LAYOUT */
+/* ================= LAYOUT ================= */
 
 .faq-layout{
 display:flex;
-gap:50px;
+gap:40px;
 }
 
-/* SIDEBAR */
+/* ================= SIDEBAR ================= */
 
 .categories{
-width:240px;
+width:230px;
 }
 
 .cat-btn{
 display:block;
 padding:12px 16px;
-margin-bottom:12px;
+margin-bottom:10px;
 background:#1a1a1a;
-border-radius:30px;
+border-radius:20px;
 cursor:pointer;
 border:1px solid #222;
 width:100%;
@@ -106,27 +105,31 @@ color:white;
 transition:0.3s;
 }
 
-.cat-btn.active{
-background:var(--accent);
+.cat-btn:hover{
 border-color:var(--accent);
 }
 
-/* FAQ ITEMS */
+.cat-btn.active{
+background:var(--accent);
+color:white;
+}
+
+/* ================= FAQ AREA ================= */
 
 .faq-content{
 flex:1;
 }
 
 .faq-item{
-margin-bottom:14px;
-border-radius:12px;
+margin-bottom:15px;
+border-radius:10px;
 background:#1a1a1a;
-border:1px solid #222;
 overflow:hidden;
+border:1px solid #222;
 }
 
 .faq-question{
-padding:18px;
+padding:16px;
 cursor:pointer;
 display:flex;
 justify-content:space-between;
@@ -135,13 +138,12 @@ font-weight:500;
 
 .faq-answer{
 display:none;
-padding:18px;
+padding:16px;
 background:#141414;
-border-top:1px solid #222;
 opacity:0.85;
 }
 
-/* MOBILE */
+/* ================= MOBILE ================= */
 
 @media(max-width:900px){
 
@@ -162,10 +164,9 @@ width:auto;
 
 }
 
-/* FOOTER */
-
 .footer{
 background:#0b0b0b;
+color:white;
 text-align:center;
 padding:70px 20px;
 margin-top:80px;
@@ -178,13 +179,18 @@ margin-bottom:20px;
 }
 
 .footer-btn{
+display:inline-block;
 background:var(--accent);
 color:white;
 padding:12px 26px;
 border-radius:30px;
 text-decoration:none;
 font-weight:600;
-display:inline-block;
+transition:0.3s;
+}
+
+.footer-btn:hover{
+transform:translateY(-2px);
 }
 
 .footer-copy{
@@ -222,72 +228,111 @@ opacity:0.6;
 
 <div class="faq-content">
 
-<!-- ================================================= -->
-<!-- GENERAL (ALL 25 RESTORED) -->
-<!-- ================================================= -->
+<!-- ================= GENERAL (25) ================= -->
 
 <div class="faq-group" id="general">
 
-<!-- Paste your FULL original 25 general questions here -->
-<!-- I am not trimming anything. Use your exact block from your first file -->
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">What is Knovalab?<span>+</span></div><div class="faq-answer">Knovalab builds modern websites for local businesses.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Who are your websites for?<span>+</span></div><div class="faq-answer">Small businesses, restaurants, salons, stores and startups.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Why does my business need a website?<span>+</span></div><div class="faq-answer">A website helps customers find and trust your business.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">How long does it take to build a website?<span>+</span></div><div class="faq-answer">Most websites are completed in 2-5 days.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Do you offer consultations?<span>+</span></div><div class="faq-answer">Yes, free demos are available.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Can I request a custom design?<span>+</span></div><div class="faq-answer">Yes premium plans allow custom design.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Do you redesign existing websites?<span>+</span></div><div class="faq-answer">Yes we can redesign outdated sites.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Will my site work on phones?<span>+</span></div><div class="faq-answer">Yes every site is mobile responsive.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Can my website grow later?<span>+</span></div><div class="faq-answer">Yes new pages can be added anytime.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Do I need coding knowledge?<span>+</span></div><div class="faq-answer">No we handle the technical side.</div></div>
+
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Can I show photos on my website?<span>+</span></div><div class="faq-answer">Yes image galleries can be added.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Can customers contact me through the website?<span>+</span></div><div class="faq-answer">Yes using WhatsApp or contact forms.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Can I display business hours?<span>+</span></div><div class="faq-answer">Yes hours can be listed.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Can I show customer reviews?<span>+</span></div><div class="faq-answer">Yes testimonial sections can be added.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Can I link my Instagram?<span>+</span></div><div class="faq-answer">Yes social media links are supported.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Do you build landing pages?<span>+</span></div><div class="faq-answer">Yes landing pages are available.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Do you build portfolio websites?<span>+</span></div><div class="faq-answer">Yes portfolio sites are supported.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Can I add service lists?<span>+</span></div><div class="faq-answer">Yes services sections can be included.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Will my website load fast?<span>+</span></div><div class="faq-answer">Yes sites are optimized for speed.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">How do I start a project?<span>+</span></div><div class="faq-answer">Contact us or book a demo.</div></div>
+
+</div>
+<!-- Remaining GENERAL (21–25) -->
+
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Is Knovalab suitable for new businesses?<span>+</span></div><div class="faq-answer">Yes we specialize in helping new and growing businesses.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Do you work with local businesses only?<span>+</span></div><div class="faq-answer">We work with businesses across India.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Can I see a demo before buying?<span>+</span></div><div class="faq-answer">Yes we create demo previews before final approval.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Is there any contract?<span>+</span></div><div class="faq-answer">No long-term contracts are required.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">What makes Knovalab different?<span>+</span></div><div class="faq-answer">We build fast, clean, modern websites focused on conversions.</div></div>
 
 </div>
 
-<!-- ================================================= -->
-<!-- PRICING (ALL 25 RESTORED) -->
-<!-- ================================================= -->
+<!-- ================= PRICING (25) ================= -->
 
-<div class="faq-group" id="pricing" style="display:none">
-<!-- Paste all 25 pricing questions here exactly as before -->
+<div class="faq-group" id="pricing" style="display:none;">
+
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">How much does a website cost?<span>+</span></div><div class="faq-answer">Pricing depends on features and customization required.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Do you offer different plans?<span>+</span></div><div class="faq-answer">Yes we offer multiple website plans.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Is there a monthly fee?<span>+</span></div><div class="faq-answer">Only hosting and maintenance if chosen.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Do you require advance payment?<span>+</span></div><div class="faq-answer">Yes partial advance is required to start.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Are there hidden charges?<span>+</span></div><div class="faq-answer">No we maintain transparent pricing.</div></div>
+
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Do you offer discounts?<span>+</span></div><div class="faq-answer">Special offers may be available during consultation.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Can I upgrade later?<span>+</span></div><div class="faq-answer">Yes plans can be upgraded anytime.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Do you offer refunds?<span>+</span></div><div class="faq-answer">Refund policies are discussed before project start.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Is domain included?<span>+</span></div><div class="faq-answer">Domain can be included depending on plan.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Is hosting included?<span>+</span></div><div class="faq-answer">Hosting support is available.</div></div>
+
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Are payment gateways included?<span>+</span></div><div class="faq-answer">Payment integration depends on selected plan.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Can I pay in installments?<span>+</span></div><div class="faq-answer">Installments may be available for larger projects.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Are there maintenance charges?<span>+</span></div><div class="faq-answer">Maintenance is optional.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">What is the cheapest plan?<span>+</span></div><div class="faq-answer">We offer starter packages for small businesses.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">What is included in premium plans?<span>+</span></div><div class="faq-answer">Premium plans include advanced features and customization.</div></div>
+
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Do you provide invoices?<span>+</span></div><div class="faq-answer">Yes invoices are provided.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Are taxes included?<span>+</span></div><div class="faq-answer">Taxes are applied as per regulations.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Do you increase prices later?<span>+</span></div><div class="faq-answer">Pricing remains as agreed in contract.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Can I customize my plan?<span>+</span></div><div class="faq-answer">Yes plans can be tailored.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Do you charge for revisions?<span>+</span></div><div class="faq-answer">Limited revisions are included.</div></div>
+
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Is SEO included in pricing?<span>+</span></div><div class="faq-answer">Basic SEO is included.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Do you offer annual packages?<span>+</span></div><div class="faq-answer">Yes yearly support packages are available.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Can I pay via UPI?<span>+</span></div><div class="faq-answer">Yes multiple payment options are available.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Do you offer enterprise pricing?<span>+</span></div><div class="faq-answer">Yes for large projects.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">How do I get exact quotation?<span>+</span></div><div class="faq-answer">Book a consultation for detailed pricing.</div></div>
+
 </div>
 
-<!-- ================================================= -->
-<!-- FEATURES (ALL 25 RESTORED) -->
-<!-- ================================================= -->
+<!-- ================= FEATURES (25) ================= -->
 
-<div class="faq-group" id="features" style="display:none">
-<!-- Paste all 25 feature questions here -->
+<div class="faq-group" id="features" style="display:none;">
+
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Will my website be mobile friendly?<span>+</span></div><div class="faq-answer">Yes all sites are fully responsive.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Do you add WhatsApp integration?<span>+</span></div><div class="faq-answer">Yes WhatsApp chat buttons can be added.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Can I add a booking system?<span>+</span></div><div class="faq-answer">Yes booking forms can be integrated.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Can I sell products?<span>+</span></div><div class="faq-answer">E-commerce features are available in selected plans.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Will my website load fast?<span>+</span></div><div class="faq-answer">Yes we optimize for performance.</div></div>
+
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Do you add Google Maps?<span>+</span></div><div class="faq-answer">Yes location maps can be embedded.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Can I update content later?<span>+</span></div><div class="faq-answer">Yes content updates are possible.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Do you add photo galleries?<span>+</span></div><div class="faq-answer">Yes image sections can be added.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Can I add testimonials?<span>+</span></div><div class="faq-answer">Yes testimonials can be included.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Do you add contact forms?<span>+</span></div><div class="faq-answer">Yes contact forms are included.</div></div>
+
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Can I add multiple pages?<span>+</span></div><div class="faq-answer">Yes multi-page websites are supported.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Will my website have animations?<span>+</span></div><div class="faq-answer">Yes modern subtle animations are included.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Can I add videos?<span>+</span></div><div class="faq-answer">Yes video sections can be embedded.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Will my site be SEO optimized?<span>+</span></div><div class="faq-answer">Basic SEO structure is included.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Can I connect social media?<span>+</span></div><div class="faq-answer">Yes all major social platforms can be linked.</div></div>
+
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Do you add call buttons?<span>+</span></div><div class="faq-answer">Yes click-to-call buttons are supported.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Can I change colors later?<span>+</span></div><div class="faq-answer">Yes design updates are possible.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Can I track visitors?<span>+</span></div><div class="faq-answer">Yes analytics tools can be added.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Do you add security features?<span>+</span></div><div class="faq-answer">Yes security best practices are followed.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Can I integrate payment gateways?<span>+</span></div><div class="faq-answer">Yes supported in selected plans.</div></div>
+
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Can I add custom sections?<span>+</span></div><div class="faq-answer">Yes custom sections can be built.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Do you add FAQs on my site?<span>+</span></div><div class="faq-answer">Yes FAQ sections can be included.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Will my site be scalable?<span>+</span></div><div class="faq-answer">Yes websites can grow with your business.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Do you provide backup options?<span>+</span></div><div class="faq-answer">Yes backup solutions are available.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Can I request specific functionality?<span>+</span></div><div class="faq-answer">Yes custom functionality can be discussed.</div></div>
+
 </div>
-
-<!-- ================================================= -->
-<!-- TECHNICAL (ALL 25 RESTORED) -->
-<!-- ================================================= -->
-
-<div class="faq-group" id="technical" style="display:none">
-<!-- Paste all 25 technical questions here -->
-</div>
-
-<!-- ================================================= -->
-<!-- SUPPORT (ALL 25 RESTORED) -->
-<!-- ================================================= -->
-
-<div class="faq-group" id="support" style="display:none">
-<!-- Paste all 25 support questions here -->
-</div>
-
-</div>
-</div>
-</div>
-
-<footer class="footer">
-<h2>Ready to get your website?</h2>
-<a href="../demo/" class="footer-btn">Book Free Demo</a>
-<p class="footer-copy">© 2026 Knovalab. All rights reserved.</p>
-</footer>
-
-<script>
-function toggleFAQ(el){
-let ans=el.nextElementSibling
-ans.style.display=ans.style.display==="block"?"none":"block"
-}
-
-function showCategory(id,btn){
-document.querySelectorAll(".faq-group").forEach(g=>g.style.display="none")
-document.getElementById(id).style.display="block"
-document.querySelectorAll(".cat-btn").forEach(b=>b.classList.remove("active"))
-btn.classList.add("active")
-}
-</script>
-
-</body>
-</html>
