@@ -221,6 +221,130 @@ display:none;
 .menu-toggle{ display:block; }
 
 }
+
+@media(max-width:900px){
+
+.hero{ flex-direction:column; text-align:center; }
+
+...
+.menu-toggle{ display:block; }
+
+}
+
+
+/* ================= CTA FOOTER ================= */
+
+.cta-box{
+  background:#141414;
+  border:1px solid #222;
+  border-radius:25px;
+  padding:70px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:50px;
+  flex-wrap:wrap;
+  margin-bottom:80px;
+}
+
+.cta-left h2{
+  font-size:34px;
+  margin-bottom:15px;
+}
+
+.cta-left p{
+  max-width:480px;
+  opacity:0.7;
+  font-size:16px;
+}
+
+.cta-button{
+  background:var(--accent);
+  color:white;
+  padding:18px 35px;
+  border-radius:50px;
+  text-decoration:none;
+  font-weight:600;
+  font-size:16px;
+  transition:0.3s;
+}
+
+.cta-button:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 35px rgba(255,106,0,0.35);
+}
+
+.footer-bottom{
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:60px;
+  margin-bottom:50px;
+}
+
+.footer-brand h3{
+  margin-bottom:10px;
+}
+
+.footer-brand p{
+  opacity:0.6;
+  max-width:250px;
+}
+
+.footer-links{
+  display:flex;
+  gap:80px;
+  flex-wrap:wrap;
+}
+
+.footer-links h4{
+  margin-bottom:15px;
+}
+
+.footer-links p,
+.footer-links a{
+  display:block;
+  margin-bottom:8px;
+  opacity:0.6;
+  text-decoration:none;
+  color:white;
+  font-size:14px;
+}
+
+.footer-links a:hover{
+  color:var(--accent);
+  opacity:1;
+}
+
+.footer-credit{
+  text-align:center;
+  opacity:0.4;
+  font-size:14px;
+  border-top:1px solid #222;
+  padding-top:30px;
+}
+
+@media(max-width:900px){
+
+  .cta-box{
+    padding:40px;
+    text-align:center;
+  }
+
+  .cta-left h2{
+    font-size:26px;
+  }
+
+  .footer-bottom{
+    flex-direction:column;
+  }
+
+  .footer-links{
+    gap:40px;
+  }
+
+}
+
 </style>
 </head>
 
@@ -539,35 +663,70 @@ Chat on WhatsApp
 
 <!-- ================= FOOTER ================= -->
 
-<footer style="background:#0b0b0b;padding:70px 10%;">
-<div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:40px;">
+<!-- ================= NEW CTA FOOTER ================= -->
 
-<div>
-<h4>Knovalab</h4>
-<p style="opacity:0.6;">Premium websites for growing businesses.</p>
-</div>
+<footer style="background:#0b0b0b;padding:100px 10%;">
 
-<div>
-<h4>Founders</h4>
-<p style="opacity:0.6;">Sidharth Gaikwad</p>
-<p style="opacity:0.6;">Mohammed Kaif</p>
-<p style="opacity:0.6;">Rishi Suryawanshi</p>
-</div>
+  <!-- CTA BOX -->
+  <div class="cta-box">
 
-<div>
-<h4>Contact</h4>
-<p style="opacity:0.6;">+91 9167878131</p>
-<p style="opacity:0.6;">WhatsApp Available</p>
-</div>
+    <div class="cta-left">
+      <h2>Ready To Launch Your Website?</h2>
+      <p>
+        Get a premium, mobile-optimized website built in just 2–5 days.
+        No monthly fees. Full ownership. Built to convert visitors into customers.
+      </p>
+    </div>
 
-</div>
+    <div class="cta-right">
+      <a href="/demo/" class="cta-button">
+        Book Free Demo
+      </a>
+    </div>
 
-<div style="text-align:center;margin-top:40px;opacity:0.5;">
-© 2026 Knovalab
-</div>
+  </div>
+
+  <!-- FOOTER LINKS -->
+  <div class="footer-bottom">
+
+    <div class="footer-brand">
+      <h3>Knovalab</h3>
+      <p>Premium websites for growing businesses.</p>
+    </div>
+
+    <div class="footer-links">
+
+      <div>
+        <h4>Features</h4>
+        <p>⚡ Fast Static Hosting</p>
+        <p>📱 100% Mobile Optimized</p>
+        <p>🎯 Conversion-Focused Design</p>
+        <p>🔒 Full Website Ownership</p>
+      </div>
+
+      <div>
+        <h4>Services</h4>
+        <a href="/services/">Business Websites</a>
+        <a href="/services/">Restaurant Websites</a>
+        <a href="/services/">Salon Websites</a>
+        <a href="/services/">E-Commerce Stores</a>
+      </div>
+
+      <div>
+        <h4>Contact</h4>
+        <p>+91 9167878131</p>
+        <p>WhatsApp Available</p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="footer-credit">
+    © 2026 Knovalab. All rights reserved.
+  </div>
+
 </footer>
-
-
 <!-- ================= CHAT ================= -->
 
 <div onclick="toggleChat()"
