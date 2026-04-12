@@ -16,9 +16,7 @@ box-sizing:border-box;
 font-family:'Segoe UI',sans-serif;
 }
 
-html{
-scroll-behavior:smooth;
-}
+html{ scroll-behavior:smooth; }
 
 body{
 background:#0f0f0f;
@@ -28,18 +26,11 @@ padding-top:90px;
 overflow-x:hidden;
 }
 
-section{
-padding:110px 10%;
-}
+section{ padding:110px 10%; }
 
-h1,h2,h3{
-font-weight:700;
-letter-spacing:-0.5px;
-}
+h1,h2,h3{ font-weight:700; letter-spacing:-0.5px; }
 
-p{
-opacity:0.75;
-}
+p{ opacity:0.75; }
 
 :root{
 --accent:#ff6a00;
@@ -47,14 +38,13 @@ opacity:0.75;
 --border:#222;
 }
 
-/* ================= FADE ANIMATION ================= */
+/* ================= FADE ================= */
 
 .fade-in{
 opacity:0;
 transform:translateY(40px);
 transition:0.8s ease;
 }
-
 .fade-in.show{
 opacity:1;
 transform:translateY(0);
@@ -68,13 +58,9 @@ display:flex;
 align-items:center;
 justify-content:space-between;
 gap:60px;
-padding-top:40px;
-padding-bottom:40px;
 }
 
-.hero-left{
-flex:1;
-}
+.hero-left{ flex:1; }
 
 .hero h1{
 font-size:54px;
@@ -102,7 +88,6 @@ text-decoration:none;
 font-weight:600;
 transition:0.3s ease;
 }
-
 .btn-primary:hover{
 transform:translateY(-4px);
 box-shadow:0 10px 30px rgba(255,106,0,0.3);
@@ -116,16 +101,12 @@ border-radius:40px;
 text-decoration:none;
 transition:0.3s ease;
 }
-
 .btn-secondary:hover{
 background:#1a1a1a;
 transform:translateY(-3px);
 }
 
-.hero-right{
-flex:1;
-}
-
+.hero-right{ flex:1; }
 .hero-right img{
 width:100%;
 border-radius:20px;
@@ -134,9 +115,7 @@ box-shadow:0 20px 60px rgba(0,0,0,0.5);
 
 /* ================= SERVICES ================= */
 
-.services{
-background:#141414;
-}
+.services{ background:#141414; }
 
 .section-title{
 text-align:center;
@@ -157,7 +136,6 @@ border-radius:20px;
 border:1px solid var(--border);
 transition:0.3s ease;
 }
-
 .service-card:hover{
 transform:translateY(-6px);
 border-color:var(--accent);
@@ -165,10 +143,7 @@ border-color:var(--accent);
 
 /* ================= STATS ================= */
 
-.stats{
-background:#0f0f0f;
-text-align:center;
-}
+.stats{ text-align:center; }
 
 .stats-grid{
 display:flex;
@@ -182,16 +157,9 @@ font-size:45px;
 color:var(--accent);
 }
 
-.stat p{
-opacity:0.7;
-}
+/* ================= PORTFOLIO SLIDER ================= */
 
-/* ================= PORTFOLIO (NEW SLIDER) ================= */
-
-.portfolio{
-background:#141414;
-position:relative;
-}
+.portfolio{ background:#141414; }
 
 .slider-wrapper{
 position:relative;
@@ -200,51 +168,40 @@ overflow:hidden;
 
 .portfolio-slider{
 display:flex;
-gap:30px;
+gap:20px;
 overflow-x:auto;
 scroll-snap-type:x mandatory;
 scroll-behavior:smooth;
 padding-bottom:10px;
 cursor:grab;
 }
-
-.portfolio-slider::-webkit-scrollbar{
-display:none;
-}
+.portfolio-slider::-webkit-scrollbar{ display:none; }
 
 .port-card{
-flex:0 0 360px;
+flex:0 0 300px;
 background:var(--card);
 border-radius:20px;
 border:1px solid var(--border);
-padding:20px;
+padding:18px;
 scroll-snap-align:start;
 transition:0.3s ease;
 }
-
-.port-card:hover{
-transform:translateY(-6px);
-}
+.port-card:hover{ transform:translateY(-6px); }
 
 .preview{
 width:100%;
-height:210px;
+height:180px;
 overflow:hidden;
 border-radius:12px;
 margin-bottom:15px;
 }
-
 .preview iframe{
 width:1200px;
 height:800px;
-transform:scale(0.26);
+transform:scale(0.23);
 transform-origin:top left;
 pointer-events:none;
 border:none;
-}
-
-.port-card h3{
-margin-bottom:8px;
 }
 
 .port-card a{
@@ -255,29 +212,15 @@ font-size:14px;
 
 /* ================= FAQ ================= */
 
-.faq-section{
-background:#0f0f0f;
-}
+.faq{ max-width:900px; margin:auto; }
 
-.faq{
-max-width:900px;
-margin:auto;
-}
-
-.faq-item{
-margin-bottom:15px;
-}
+.faq-item{ margin-bottom:15px; }
 
 .faq-item h4{
 cursor:pointer;
 background:#1a1a1a;
 padding:15px;
 border-radius:10px;
-transition:0.3s;
-}
-
-.faq-item h4:hover{
-background:#222;
 }
 
 .faq-item p{
@@ -301,11 +244,6 @@ color:white;
 padding:15px 30px;
 border-radius:30px;
 text-decoration:none;
-transition:0.3s;
-}
-
-.contact a:hover{
-transform:translateY(-3px);
 }
 
 /* ================= FOOTER ================= */
@@ -322,14 +260,7 @@ flex-wrap:wrap;
 gap:40px;
 }
 
-footer h4{
-margin-bottom:15px;
-}
-
-footer p{
-opacity:0.6;
-margin:6px 0;
-}
+footer p{ opacity:0.6; margin:6px 0; }
 
 .copyright{
 text-align:center;
@@ -358,11 +289,9 @@ right:20px;
 width:300px;
 background:#1a1a1a;
 border-radius:15px;
-box-shadow:0 10px 30px rgba(0,0,0,0.5);
 display:none;
 flex-direction:column;
 z-index:3000;
-color:white;
 }
 
 .chat-header{
@@ -373,43 +302,21 @@ border-radius:15px 15px 0 0;
 
 .chat-messages{
 padding:15px;
-height:220px;
+height:200px;
 overflow-y:auto;
-}
-
-.bot{
-background:#222;
-padding:10px;
-border-radius:10px;
-margin-bottom:10px;
-font-size:14px;
 }
 
 /* ================= MOBILE ================= */
 
 @media(max-width:900px){
-
-.hero{
-flex-direction:column;
-text-align:center;
+.hero{ flex-direction:column; text-align:center; }
+.hero h1{ font-size:40px; }
+.stats-grid{ flex-direction:column; }
+.port-card{ flex:0 0 85%; }
 }
 
-.hero h1{
-font-size:40px;
-}
-
-.stats-grid{
-flex-direction:column;
-}
-
-.port-card{
-flex:0 0 85%;
-}
-
-}
 </style>
 </head>
-
 <body>
 
 <div id="navbar"></div>
@@ -417,21 +324,15 @@ flex:0 0 85%;
 <!-- HERO -->
 <section class="hero fade-in">
 <div class="hero-left">
-<h1>
-Websites Designed<br>
-To Turn Visitors<br>
-Into Customers.
-</h1>
-<p>
-We build fast, premium, mobile-first websites for businesses that want to grow.
-</p>
+<h1>Websites Designed<br>To Turn Visitors<br>Into Customers.</h1>
+<p>We build fast, premium, mobile-first websites for businesses that want to grow.</p>
 <div class="hero-buttons">
 <a href="#portfolio" class="btn-primary">View Our Work</a>
 <a href="/demo/" class="btn-secondary">Book Free Consultation</a>
 </div>
 </div>
 <div class="hero-right">
-<img src="https://images.unsplash.com/photo-1559028012-481c04fa702d" alt="Website Preview">
+<img src="https://images.unsplash.com/photo-1559028012-481c04fa702d">
 </div>
 </section>
 
@@ -440,35 +341,12 @@ We build fast, premium, mobile-first websites for businesses that want to grow.
 <h2 class="section-title">Our Services</h2>
 <div class="services-grid">
 
-<div class="service-card">
-<h3>Business Websites</h3>
-<p>Professional websites built to generate trust and leads.</p>
-</div>
-
-<div class="service-card">
-<h3>Restaurant Websites</h3>
-<p>Showcase your menu and accept reservations online.</p>
-</div>
-
-<div class="service-card">
-<h3>Salon Websites</h3>
-<p>Highlight services, pricing and booking systems.</p>
-</div>
-
-<div class="service-card">
-<h3>E-Commerce Stores</h3>
-<p>Sell products online with seamless checkout integration.</p>
-</div>
-
-<div class="service-card">
-<h3>Landing Pages</h3>
-<p>High-converting single page websites for campaigns.</p>
-</div>
-
-<div class="service-card">
-<h3>Portfolio Websites</h3>
-<p>Personal brand websites for creators and professionals.</p>
-</div>
+<div class="service-card"><h3>Business Websites</h3><p>Professional websites built to generate trust and leads.</p></div>
+<div class="service-card"><h3>Restaurant Websites</h3><p>Showcase your menu and accept reservations online.</p></div>
+<div class="service-card"><h3>Salon Websites</h3><p>Highlight services and booking systems.</p></div>
+<div class="service-card"><h3>E-Commerce Stores</h3><p>Sell products online seamlessly.</p></div>
+<div class="service-card"><h3>Landing Pages</h3><p>High-converting single page websites.</p></div>
+<div class="service-card"><h3>Portfolio Websites</h3><p>Personal brand websites for creators.</p></div>
 
 </div>
 </section>
@@ -490,7 +368,6 @@ We build fast, premium, mobile-first websites for businesses that want to grow.
 <div class="slider-wrapper">
 <div class="portfolio-slider" id="portfolioSlider">
 
-<!-- KEEP ADDING CARDS SAME WAY -->
 <div class="port-card">
 <div class="preview">
 <iframe src="https://knowbrand.github.io/thedtattoostudio"></iframe>
@@ -507,236 +384,113 @@ We build fast, premium, mobile-first websites for businesses that want to grow.
 <a href="https://knowbrand.github.io/Restaurant-Demo" target="_blank">Live Preview →</a>
 </div>
 
-<div class="port-card">
-<div class="preview">
-<iframe src="https://knowbrand.github.io/4utattoostudio/"></iframe>
-</div>
-<h3>Tattoo Studio Demo 2</h3>
-<a href="https://knowbrand.github.io/4utattoostudio/" target="_blank">Live Preview →</a>
-</div>
-
 </div>
 </div>
 </section>
-<script>
 
-<!-- ================= FAQ ================= -->
-
-<section class="faq-section">
+<!-- FAQ -->
+<section class="fade-in">
 <h2 class="section-title">Frequently Asked Questions</h2>
-
 <div class="faq">
-
 <div class="faq-item">
 <h4 onclick="toggleFAQ(this)">How long does it take?</h4>
-<p>Most websites are delivered within 2–5 days depending on scope and revisions.</p>
+<p>Most websites are delivered within 2–5 days.</p>
 </div>
-
 <div class="faq-item">
 <h4 onclick="toggleFAQ(this)">Do I own the website?</h4>
-<p>Yes. You receive full ownership of the website files and code once the project is completed.</p>
+<p>Yes. You receive full ownership.</p>
 </div>
-
 <div class="faq-item">
 <h4 onclick="toggleFAQ(this)">Will it work on mobile?</h4>
-<p>Absolutely. Every website we build is fully responsive and optimized for mobile devices.</p>
+<p>Absolutely. Fully responsive.</p>
 </div>
-
 </div>
 </section>
 
-
-
-<!-- ================= CONTACT ================= -->
-
-<section class="contact">
+<!-- CONTACT -->
+<section class="contact fade-in">
 <h2>Let’s Build Your Website</h2>
 <p>Phone: +91 9167878131</p>
 <a href="https://wa.me/919167878131">Chat on WhatsApp</a>
 </section>
 
-
-
-<!-- ================= FOOTER ================= -->
-
+<!-- FOOTER -->
 <footer>
-
 <div class="footer-grid">
-
 <div>
 <h4>Knovalab</h4>
 <p>Premium websites for growing businesses.</p>
 </div>
-
 <div>
 <h4>Founders</h4>
 <p>Sidharth Gaikwad</p>
 <p>Mohammed Kaif</p>
 <p>Rishi Suryawanshi</p>
 </div>
-
 <div>
 <h4>Contact</h4>
 <p>+91 9167878131</p>
 <p>WhatsApp Available</p>
 </div>
-
 </div>
-
-<div class="copyright">
-© 2026 Knovalab
-</div>
-
+<div class="copyright">© 2026 Knovalab</div>
 </footer>
 
-
-
-<!-- ================= CHAT WIDGET ================= -->
-
+<!-- CHAT -->
 <div class="chat-button" onclick="toggleChat()">Chat</div>
-
 <div class="chatbox" id="chatbox">
 <div class="chat-header">Knovalab Assistant</div>
-<div class="chat-messages" id="chatMessages">
-<div class="bot">Hi 👋 I can help you with pricing, timelines or booking a demo.</div>
+<div class="chat-messages">
+<div>Hi 👋 I can help you with pricing, timelines or booking a demo.</div>
 </div>
 </div>
 
-/* ================= NAVBAR LOAD ================= */
+<script>
 
-document.addEventListener("DOMContentLoaded", function() {
-
-fetch('navbar.html')
-.then(res => res.text())
-.then(data => {
-document.getElementById('navbar').innerHTML = data;
-
-/* Navbar shrink on scroll */
-const nav = document.querySelector("nav");
-
-if(nav){
-window.addEventListener("scroll", function(){
-if(window.scrollY > 50){
-nav.classList.add("shrink");
-}else{
-nav.classList.remove("shrink");
-}
-});
-}
-
-/* Mobile toggle */
-const menuToggle = document.querySelector(".menu-toggle");
-const navLinks = document.querySelector(".nav-links");
-
-if(menuToggle && navLinks){
-menuToggle.addEventListener("click", function(){
-navLinks.classList.toggle("active");
-});
-}
-
-});
-
-});
-
-
-/* ================= FAQ TOGGLE ================= */
-
+/* FAQ */
 function toggleFAQ(el){
 let p = el.nextElementSibling;
 p.style.display = p.style.display === "block" ? "none" : "block";
 }
 
-
-/* ================= CHAT TOGGLE ================= */
-
+/* Chat */
 function toggleChat(){
 const box = document.getElementById("chatbox");
 box.style.display = box.style.display === "flex" ? "none" : "flex";
 }
 
-
-/* ================= SCROLL REVEAL ================= */
-
+/* Fade animation */
 const faders = document.querySelectorAll(".fade-in");
-
-const appearOptions = {
-threshold: 0.2
-};
-
-const appearOnScroll = new IntersectionObserver(function(entries, observer){
-entries.forEach(entry => {
-if(!entry.isIntersecting) return;
+const observer = new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
 entry.target.classList.add("show");
 observer.unobserve(entry.target);
+}
 });
-}, appearOptions);
+},{threshold:0.2});
+faders.forEach(el=>observer.observe(el));
 
-faders.forEach(fader => {
-appearOnScroll.observe(fader);
-});
-
-
-/* ================= HORIZONTAL SLIDER (DRAG + SWIPE) ================= */
-
+/* Slider Drag */
 const slider = document.getElementById("portfolioSlider");
+let isDown=false,startX,scrollLeft;
 
-let isDown = false;
-let startX;
-let scrollLeft;
-
-if(slider){
-
-slider.addEventListener("mousedown", (e) => {
-isDown = true;
-slider.style.cursor = "grabbing";
-startX = e.pageX - slider.offsetLeft;
-scrollLeft = slider.scrollLeft;
+slider.addEventListener("mousedown",e=>{
+isDown=true;
+startX=e.pageX-slider.offsetLeft;
+scrollLeft=slider.scrollLeft;
 });
-
-slider.addEventListener("mouseleave", () => {
-isDown = false;
-slider.style.cursor = "grab";
-});
-
-slider.addEventListener("mouseup", () => {
-isDown = false;
-slider.style.cursor = "grab";
-});
-
-slider.addEventListener("mousemove", (e) => {
+slider.addEventListener("mouseup",()=>isDown=false);
+slider.addEventListener("mouseleave",()=>isDown=false);
+slider.addEventListener("mousemove",e=>{
 if(!isDown) return;
 e.preventDefault();
-const x = e.pageX - slider.offsetLeft;
-const walk = (x - startX) * 1.2; 
-slider.scrollLeft = scrollLeft - walk;
+const x=e.pageX-slider.offsetLeft;
+const walk=(x-startX)*1.2;
+slider.scrollLeft=scrollLeft-walk;
 });
-
-/* Touch Support */
-
-slider.addEventListener("touchstart", (e) => {
-startX = e.touches[0].pageX;
-scrollLeft = slider.scrollLeft;
-});
-
-slider.addEventListener("touchmove", (e) => {
-const x = e.touches[0].pageX;
-const walk = (x - startX) * 1.2;
-slider.scrollLeft = scrollLeft - walk;
-});
-
-}
-
-function toggleFAQ(el){
-let p = el.nextElementSibling;
-p.style.display = p.style.display === "block" ? "none" : "block";
-}
-
-function toggleChat(){
-const box = document.getElementById("chatbox");
-box.style.display = box.style.display === "flex" ? "none" : "flex";
-}
 
 </script>
 
-  </body>
+</body>
 </html>
