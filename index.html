@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Knovalab | Premium Business Websites</title>
+<title>Knovalab | Scalable Websites for Local Businesses</title>
 
 <style>
 
@@ -13,445 +13,291 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Segoe UI',sans-serif;
+font-family:'Segoe UI', sans-serif;
 }
 
-html{ scroll-behavior:smooth; }
+:root{
+--accent:#ff6a00;
+}
 
 body{
 background:#0f0f0f;
 color:white;
-line-height:1.6;
-padding-top:90px;
 overflow-x:hidden;
-}
-
-section{ padding:100px 10%; }
-
-h1,h2,h3{ font-weight:700; }
-
-p{ opacity:0.75; }
-
-:root{
---accent:#ff6a00;
---card:#1a1a1a;
---border:#222;
-}
-
-/* ================= NAVBAR ================= */
-
-.navbar{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-background:#0f0f0f;
-padding:20px 10%;
-z-index:2000;
-transition:0.3s ease;
-border-bottom:1px solid #1a1a1a;
-}
-
-.navbar.shrink{
-padding:12px 10%;
-background:#0b0b0b;
-}
-
-.nav-container{
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-
-.logo{
-font-size:20px;
-font-weight:700;
-}
-
-.nav-links{
-display:flex;
-gap:30px;
-list-style:none;
-}
-
-.nav-links a{
-color:white;
-text-decoration:none;
-opacity:0.8;
-transition:0.3s;
-}
-
-.nav-links a:hover{
-opacity:1;
-color:var(--accent);
-}
-
-.nav-cta{
-background:var(--accent);
-padding:8px 18px;
-border-radius:20px;
-}
-
-.menu-toggle{
-display:none;
-font-size:26px;
-cursor:pointer;
-}
-
-/* MOBILE NAV */
-
-@media(max-width:900px){
-
-.nav-links{
-position:absolute;
-top:70px;
-right:10%;
-background:#1a1a1a;
-flex-direction:column;
-width:200px;
-padding:20px;
-border-radius:10px;
-display:none;
-}
-
-.nav-links.active{ display:flex; }
-
-.menu-toggle{ display:block; }
-
 }
 
 /* ================= HERO ================= */
 
 .hero{
-min-height:calc(90vh - 90px);
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:60px;
+padding:140px 10% 100px;
+text-align:left;
 }
 
-.hero-left{ flex:1; }
-
 .hero h1{
-font-size:52px;
+font-size:48px;
+max-width:700px;
+line-height:1.1;
 margin-bottom:20px;
 }
 
 .hero p{
-font-size:18px;
-margin-bottom:30px;
+opacity:0.7;
+margin-bottom:35px;
 max-width:500px;
 }
 
 .hero-buttons{
 display:flex;
-gap:15px;
+gap:20px;
+flex-wrap:wrap;
 }
 
 .btn-primary{
 background:var(--accent);
 padding:14px 28px;
-border-radius:40px;
+border-radius:30px;
 text-decoration:none;
 color:white;
 font-weight:600;
 }
 
 .btn-secondary{
-border:1px solid var(--border);
-padding:14px 28px;
-border-radius:40px;
-text-decoration:none;
-color:white;
-}
-
-.hero-right{ flex:1; }
-
-.hero-right img{
-width:100%;
-border-radius:20px;
-}
-
-/* ================= SERVICES ================= */
-
-.services{ background:#141414; }
-
-.section-title{
-text-align:center;
-margin-bottom:60px;
-font-size:38px;
-}
-
-.services-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
-}
-
-.service-card{
-background:var(--card);
-padding:25px;
-border-radius:18px;
-border:1px solid var(--border);
-transition:0.3s;
-}
-
-.service-card:hover{
-transform:translateY(-5px);
-border-color:var(--accent);
-}
-
-/* ================= STATS ================= */
-
-.stats{ text-align:center; }
-
-.stats-grid{
-display:flex;
-justify-content:space-between;
-flex-wrap:wrap;
-gap:40px;
-}
-
-.stat h3{
-font-size:40px;
-color:var(--accent);
-}
-
-/* ================= PORTFOLIO ================= */
-
-.portfolio{ background:#141414; }
-
-.slider-wrapper{
-overflow:hidden;
-}
-
-.portfolio-slider{
-display:flex;
-gap:25px;
-overflow-x:auto;
-scroll-behavior:smooth;
-scroll-snap-type:x mandatory;
-padding-bottom:10px;
-}
-
-.portfolio-slider::-webkit-scrollbar{ display:none; }
-
-.port-card{
-flex:0 0 48%;
-background:var(--card);
-border-radius:18px;
-border:1px solid var(--border);
-padding:15px;
-scroll-snap-align:start;
-}
-
-.preview{
-width:100%;
-height:160px;
-overflow:hidden;
-border-radius:12px;
-margin-bottom:10px;
-}
-
-.preview iframe{
-width:1200px;
-height:800px;
-transform:scale(0.20);
-transform-origin:top left;
-pointer-events:none;
-border:none;
-}
-
-.port-card a{
-font-size:14px;
-color:var(--accent);
-text-decoration:none;
-}
-
-/* ================= FAQ ================= */
-
-.faq-section{ background:#0f0f0f; }
-
-.faq{ max-width:900px; margin:auto; }
-
-.faq-item{ margin-bottom:15px; }
-
-.faq-item h4{
-background:#1a1a1a;
-padding:15px;
-border-radius:10px;
-cursor:pointer;
-}
-
-.faq-item p{
-display:none;
-padding:12px;
-}
-
-/* ================= CONTACT ================= */
-
-.contact{
-text-align:center;
-background:#141414;
-}
-
-.contact a{
-display:inline-block;
-margin-top:20px;
-background:var(--accent);
+border:1px solid rgba(255,255,255,0.2);
 padding:14px 28px;
 border-radius:30px;
 text-decoration:none;
 color:white;
 }
 
-/* ================= FOOTER ================= */
+/* ================= DEMO SECTION ================= */
 
-footer{
-background:#0b0b0b;
-padding:70px 10%;
+.demo-section{
+padding:100px 10%;
+background:#111;
 }
 
-.footer-grid{
+.demo-section h2{
+font-size:32px;
+margin-bottom:50px;
+}
+
+.demo-wrapper{
+overflow:hidden;
+}
+
+.demo-track{
+display:flex;
+gap:25px;
+overflow-x:auto;
+scroll-snap-type:x mandatory;
+scroll-behavior:smooth;
+}
+
+.demo-track::-webkit-scrollbar{
+display:none;
+}
+
+.demo-card{
+flex:0 0 38%;
+background:#161616;
+border-radius:18px;
+overflow:hidden;
+border:1px solid #1f1f1f;
+scroll-snap-align:start;
+transition:0.3s;
+}
+
+.demo-card:hover{
+transform:translateY(-6px);
+}
+
+.demo-card iframe{
+width:100%;
+height:220px;
+border:none;
+pointer-events:none;
+}
+
+.card-content{
+padding:20px;
+}
+
+.card-content h3{
+margin-bottom:10px;
+}
+
+.preview-link{
+color:var(--accent);
+text-decoration:none;
+font-weight:600;
+font-size:14px;
+}
+
+/* ================= FAQ ================= */
+
+.faq{
+padding:100px 10%;
+}
+
+.faq h2{
+font-size:32px;
+margin-bottom:40px;
+}
+
+.faq-item{
+border-bottom:1px solid rgba(255,255,255,0.1);
+padding:20px 0;
+cursor:pointer;
+}
+
+.faq-item h4{
 display:flex;
 justify-content:space-between;
-flex-wrap:wrap;
-gap:40px;
 }
 
-.copyright{
+.faq-item p{
+display:none;
+opacity:0.7;
+margin-top:10px;
+font-size:14px;
+}
+
+/* ================= CONTACT ================= */
+
+.contact{
+background:#111;
+padding:100px 10%;
 text-align:center;
-margin-top:40px;
-opacity:0.5;
+}
+
+.contact h2{
+font-size:32px;
+margin-bottom:20px;
+}
+
+.contact p{
+opacity:0.7;
+margin-bottom:30px;
+}
+
+.contact-buttons{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+background:#0b0b0b;
+padding:60px 10%;
+text-align:center;
+border-top:1px solid rgba(255,255,255,0.05);
+}
+
+.footer h3{
+margin-bottom:10px;
+}
+
+.footer p{
+opacity:0.6;
+font-size:14px;
+margin:6px 0;
 }
 
 /* ================= CHAT ================= */
 
 .chat-button{
 position:fixed;
-bottom:20px;
-right:20px;
+bottom:30px;
+right:30px;
 background:var(--accent);
-padding:12px 18px;
+padding:16px 24px;
 border-radius:40px;
 cursor:pointer;
+font-weight:600;
 }
 
-.chatbox{
+.chat-box{
 position:fixed;
-bottom:80px;
-right:20px;
+bottom:100px;
+right:30px;
 width:300px;
 background:#1a1a1a;
-border-radius:15px;
+border-radius:20px;
 display:none;
 flex-direction:column;
+padding:20px;
 }
 
-.chat-header{
-background:var(--accent);
-padding:12px;
-border-radius:15px 15px 0 0;
+.chat-box p{
+font-size:14px;
+opacity:0.8;
 }
 
-.chat-messages{
-padding:15px;
-height:200px;
-overflow-y:auto;
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:34px;
 }
 
-/* MOBILE */
-
-@media(max-width:900px){
-
-.hero{ flex-direction:column; text-align:center; }
-
-.stats-grid{ flex-direction:column; }
-
-.port-card{ flex:0 0 85%; }
+.demo-card{
+flex:0 0 85%;
+}
 
 }
 
 </style>
 </head>
+
 <body>
 
-<nav class="navbar">
-<div class="nav-container">
-<div class="logo">Knovalab</div>
-<div class="menu-toggle">&#9776;</div>
-<ul class="nav-links">
-<li><a href="#portfolio">Work</a></li>
-<li><a href="#services">Services</a></li>
-<li><a href="#faq">FAQ</a></li>
-<li><a href="#contact" class="nav-cta">Contact</a></li>
-</ul>
-</div>
-</nav>
+<!-- Navbar Load -->
+<div id="navbar"></div>
+
 <!-- HERO -->
 <section class="hero">
-<div class="hero-left">
-<h1>Websites Designed<br>To Turn Visitors<br>Into Customers.</h1>
-<p>We build fast, premium, mobile-first websites for businesses that want to grow.</p>
+<h1>We Build Scalable Websites for Local Businesses</h1>
+<p>Modern, fast and conversion-focused websites built for growth.</p>
+
 <div class="hero-buttons">
-<a href="#portfolio" class="btn-primary">View Our Work</a>
-<a href="#contact" class="btn-secondary">Book Free Consultation</a>
-</div>
-</div>
-<div class="hero-right">
-<img src="https://images.unsplash.com/photo-1559028012-481c04fa702d">
+<a href="demo/" class="btn-primary">View Our Work</a>
+<a href="contact/" class="btn-secondary">Book Free Consultation</a>
 </div>
 </section>
 
-<!-- SERVICES -->
-<section class="services" id="services">
-<h2 class="section-title">Our Services</h2>
-<div class="services-grid">
-<div class="service-card"><h3>Business Websites</h3><p>Professional websites built to generate trust.</p></div>
-<div class="service-card"><h3>Restaurant Websites</h3><p>Showcase menu and reservations.</p></div>
-<div class="service-card"><h3>Salon Websites</h3><p>Highlight services and booking.</p></div>
-<div class="service-card"><h3>E-Commerce</h3><p>Sell products with checkout.</p></div>
-</div>
-</section>
+<!-- DEMO SLIDER -->
+<section class="demo-section">
+<h2>Our Demo Websites</h2>
 
-<!-- STATS -->
-<section class="stats">
-<div class="stats-grid">
-<div class="stat"><h3>2–5</h3><p>Days Delivery</p></div>
-<div class="stat"><h3>100%</h3><p>Mobile Optimized</p></div>
-<div class="stat"><h3>Fast</h3><p>Static Hosting</p></div>
-<div class="stat"><h3>Full</h3><p>Ownership</p></div>
-</div>
-</section>
+<div class="demo-wrapper">
+<div class="demo-track">
 
-<!-- PORTFOLIO -->
-<section class="portfolio" id="portfolio">
-<h2 class="section-title">Our Work</h2>
-<div class="slider-wrapper">
-<div class="portfolio-slider">
-
-<div class="port-card">
-<div class="preview">
-<iframe src="https://knowbrand.github.io/thedtattoostudio"></iframe>
-</div>
+<div class="demo-card">
+<iframe src="demo/"></iframe>
+<div class="card-content">
 <h3>Tattoo Studio Demo</h3>
-<a href="https://knowbrand.github.io/thedtattoostudio" target="_blank">Live Preview →</a>
+<a href="demo/" class="preview-link">Live Preview →</a>
+</div>
 </div>
 
-<div class="port-card">
-<div class="preview">
-<iframe src="https://knowbrand.github.io/Restaurant-Demo"></iframe>
-</div>
+<div class="demo-card">
+<iframe src="demo/"></iframe>
+<div class="card-content">
 <h3>Restaurant Demo</h3>
-<a href="https://knowbrand.github.io/Restaurant-Demo" target="_blank">Live Preview →</a>
+<a href="demo/" class="preview-link">Live Preview →</a>
+</div>
 </div>
 
-<div class="port-card">
-<div class="preview">
-<iframe src="https://knowbrand.github.io/4utattoostudio/"></iframe>
+<div class="demo-card">
+<iframe src="demo/"></iframe>
+<div class="card-content">
+<h3>Salon Demo</h3>
+<a href="demo/" class="preview-link">Live Preview →</a>
 </div>
-<h3>Tattoo Demo 2</h3>
-<a href="https://knowbrand.github.io/4utattoostudio/" target="_blank">Live Preview →</a>
 </div>
 
 </div>
@@ -459,88 +305,71 @@ overflow-y:auto;
 </section>
 
 <!-- FAQ -->
-<section class="faq-section" id="faq">
-<h2 class="section-title">Frequently Asked Questions</h2>
-<div class="faq">
-<div class="faq-item">
-<h4 onclick="toggleFAQ(this)">How long does it take?</h4>
-<p>Usually delivered within 2–5 days.</p>
+<section class="faq">
+<h2>Frequently Asked Questions</h2>
+
+<div class="faq-item" onclick="toggleFAQ(this)">
+<h4>How long does it take to build a website? <span>+</span></h4>
+<p>Usually 3–5 working days depending on revisions and content.</p>
 </div>
-<div class="faq-item">
-<h4 onclick="toggleFAQ(this)">Do I own the website?</h4>
-<p>Yes. Full ownership after completion.</p>
+
+<div class="faq-item" onclick="toggleFAQ(this)">
+<h4>Do you provide hosting? <span>+</span></h4>
+<p>We deploy on fast, secure platforms like GitHub Pages.</p>
 </div>
-<div class="faq-item">
-<h4 onclick="toggleFAQ(this)">Is it mobile friendly?</h4>
-<p>Yes. Fully responsive design.</p>
+
+<div class="faq-item" onclick="toggleFAQ(this)">
+<h4>Can I request changes later? <span>+</span></h4>
+<p>Yes. We offer flexible update support based on your plan.</p>
 </div>
-</div>
+
 </section>
 
 <!-- CONTACT -->
-<section class="contact" id="contact">
+<section class="contact">
 <h2>Let’s Build Your Website</h2>
-<p>Phone: +91 9167878131</p>
-<a href="https://wa.me/919167878131">Chat on WhatsApp</a>
+<p>Ready to grow your business online?</p>
+
+<div class="contact-buttons">
+<a href="tel:+919999999999" class="btn-primary">Call Now</a>
+<a href="https://wa.me/919999999999" class="btn-secondary">WhatsApp</a>
+</div>
 </section>
 
 <!-- FOOTER -->
-<footer>
-<div class="footer-grid">
-<div>
-<h4>Knovalab</h4>
-<p>Premium websites for growing businesses.</p>
-</div>
-<div>
-<h4>Founders</h4>
-<p>Sidharth Gaikwad</p>
-<p>Mohammed Kaif</p>
-<p>Rishi Suryawanshi</p>
-</div>
-<div>
-<h4>Contact</h4>
-<p>+91 9167878131</p>
-<p>WhatsApp Available</p>
-</div>
-</div>
-<div class="copyright">© 2026 Knovalab</div>
+<footer class="footer">
+<h3>Knovalab</h3>
+<p>We build scalable demo-based websites for local businesses.</p>
+<p>Founders: Rishi Suryawanshi</p>
+<p>Contact: knovalab.in</p>
+<p>© 2026 Knovalab. All rights reserved.</p>
 </footer>
 
 <!-- CHAT -->
 <div class="chat-button" onclick="toggleChat()">Chat</div>
 
-<div class="chatbox" id="chatbox">
-<div class="chat-header">Knovalab Assistant</div>
-<div class="chat-messages">
-<div>Hi 👋 I can help you with pricing or booking.</div>
+<div class="chat-box" id="chatbox">
+<p>Hi 👋 Welcome to Knovalab! How can we help you?</p>
 </div>
-</div>
+
+<!-- SCRIPTS -->
 
 <script>
-
-/* Navbar */
-const navbar = document.querySelector(".navbar");
-window.addEventListener("scroll",()=>{
-if(window.scrollY>50){navbar.classList.add("shrink")}
-else{navbar.classList.remove("shrink")}
+fetch("navbar.html")
+.then(res => res.text())
+.then(data => {
+document.getElementById("navbar").innerHTML = data;
 });
 
-document.querySelector(".menu-toggle").onclick=function(){
-document.querySelector(".nav-links").classList.toggle("active");
-};
-
-/* FAQ */
 function toggleFAQ(el){
-let p=el.nextElementSibling;
-p.style.display=p.style.display==="block"?"none":"block";
+let p = el.querySelector("p");
+p.style.display = p.style.display === "block" ? "none" : "block";
 }
 
-/* Chat */
 function toggleChat(){
-let box=document.getElementById("chatbox");
-box.style.display=box.style.display==="flex"?"none":"flex";
+const box = document.getElementById("chatbox");
+box.style.display = box.style.display === "flex" ? "none" : "flex";
 }
-
 </script>
 
 </body>
