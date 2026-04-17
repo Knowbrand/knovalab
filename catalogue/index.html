@@ -1,936 +1,1172 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pricing | Knovalab</title>
-
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:'Segoe UI',sans-serif;
-    }
-
-    :root{
-      --bg:#0b0b0b;
-      --surface:#121212;
-      --paper:#f4efe6;
-      --paper-dark:#e6ddcf;
-      --ink:#191919;
-      --muted:#5c564c;
-      --accent:#ff6a00;
-      --border:rgba(255,255,255,0.06);
-      --shadow:0 30px 90px rgba(0,0,0,0.45);
-    }
-
-    body{
-      background:
-        radial-gradient(circle at top, rgba(255,106,0,0.08), transparent 26%),
-        linear-gradient(180deg, #101010 0%, #080808 100%);
-      color:white;
-      min-height:100vh;
-      overflow-x:hidden;
-    }
-
-    nav{
-      width:100%;
-      padding:24px 8%;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      background:rgba(10,10,10,0.88);
-      border-bottom:1px solid rgba(255,255,255,0.05);
-      position:sticky;
-      top:0;
-      z-index:100;
-      backdrop-filter:blur(10px);
-    }
-
-    .logo{
-      font-size:34px;
-      font-weight:800;
-      letter-spacing:-1px;
-    }
-
-    .nav-actions{
-      display:flex;
-      gap:14px;
-      align-items:center;
-    }
-
-    .nav-link,
-    .back-btn{
-      text-decoration:none;
-      color:white;
-      font-size:14px;
-      font-weight:600;
-    }
-
-    .back-btn{
-      background:var(--accent);
-      padding:11px 22px;
-      border-radius:999px;
-      transition:0.3s;
-    }
-
-    .back-btn:hover{
-      transform:translateY(-2px);
-      box-shadow:0 10px 24px rgba(255,106,0,0.28);
-    }
-
-    .hero{
-      text-align:center;
-      padding:60px 8% 26px;
-    }
-
-    .hero span{
-      display:inline-block;
-      color:var(--accent);
-      text-transform:uppercase;
-      letter-spacing:3px;
-      font-size:12px;
-      margin-bottom:14px;
-    }
-
-    .hero h1{
-      font-size:clamp(34px,5vw,62px);
-      line-height:0.95;
-      margin-bottom:14px;
-      text-transform:uppercase;
-    }
-
-    .hero p{
-      max-width:720px;
-      margin:0 auto;
-      color:rgba(255,255,255,0.72);
-      font-size:17px;
-    }
-
-    .catalog-shell{
-      padding:26px 4% 80px;
-    }
-
-    .book-stage{
-      max-width:1380px;
-      margin:0 auto;
-      position:relative;
-      perspective:2600px;
-    }
-
-    .book-frame{
-      display:grid;
-      grid-template-columns:90px minmax(0, 1fr) 90px;
-      align-items:center;
-      gap:18px;
-    }
-
-    .turn-btn{
-      width:72px;
-      height:72px;
-      border-radius:50%;
-      border:1px solid rgba(255,255,255,0.08);
-      background:rgba(255,255,255,0.03);
-      color:white;
-      font-size:28px;
-      cursor:pointer;
-      transition:0.3s;
-      backdrop-filter:blur(8px);
-    }
-
-    .turn-btn:hover:not(:disabled){
-      transform:translateY(-3px) scale(1.03);
-      border-color:rgba(255,106,0,0.5);
-      color:var(--accent);
-    }
-
-    .turn-btn:disabled{
-      opacity:0.28;
-      cursor:not-allowed;
-    }
-
-    .book-wrap{
-      position:relative;
-      min-height:720px;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      padding:24px;
-    }
-
-    .book-shadow{
-      position:absolute;
-      inset:auto 7% 20px 7%;
-      height:60px;
-      background:radial-gradient(circle, rgba(0,0,0,0.45), transparent 72%);
-      filter:blur(16px);
-      z-index:0;
-    }
-
-    .book{
-      width:min(1120px, 100%);
-      aspect-ratio:1.56 / 1;
-      position:relative;
-      transform-style:preserve-3d;
-      z-index:1;
-    }
-
-    .spine{
-      position:absolute;
-      left:50%;
-      top:3%;
-      transform:translateX(-50%);
-      width:22px;
-      height:94%;
-      background:linear-gradient(180deg, #161616 0%, #090909 100%);
-      border-radius:14px;
-      box-shadow:
-        inset 0 0 18px rgba(255,255,255,0.05),
-        0 0 20px rgba(0,0,0,0.35);
-      z-index:8;
-    }
-
-    .spread{
-      position:absolute;
-      inset:0;
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      transform-origin:center center;
-      transition:
-        transform 1s cubic-bezier(0.22, 1, 0.36, 1),
-        opacity 0.5s ease;
-      opacity:0;
-      pointer-events:none;
-      transform:translateZ(-160px) scale(0.95);
-    }
-
-    .spread.active{
-      opacity:1;
-      pointer-events:auto;
-      transform:translateZ(0) scale(1);
-      z-index:5;
-    }
-
-    .spread.exit-left{
-      opacity:0;
-      transform:rotateY(26deg) translateX(-7%) translateZ(-120px) scale(0.94);
-      z-index:4;
-    }
-
-    .spread.exit-right{
-      opacity:0;
-      transform:rotateY(-26deg) translateX(7%) translateZ(-120px) scale(0.94);
-      z-index:4;
-    }
-
-    .page{
-      position:relative;
-      overflow:hidden;
-      background:var(--paper);
-      color:var(--ink);
-      padding:42px 38px;
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-      box-shadow:var(--shadow);
-    }
-
-    .page.left{
-      border-radius:26px 6px 6px 26px;
-      border-right:1px solid rgba(0,0,0,0.07);
-      transform-origin:right center;
-    }
-
-    .page.right{
-      border-radius:6px 26px 26px 6px;
-      border-left:1px solid rgba(0,0,0,0.07);
-      transform-origin:left center;
-      background:
-        linear-gradient(90deg, rgba(0,0,0,0.03), transparent 12%),
-        var(--paper);
-    }
-
-    .spread.flipping-next .page.left{
-      animation:flipLeftPage 0.95s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    .spread.flipping-prev .page.right{
-      animation:flipRightPage 0.95s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    @keyframes flipLeftPage{
-      0%{
-        transform:rotateY(0deg);
-        box-shadow:var(--shadow);
-      }
-      45%{
-        transform:rotateY(-24deg);
-        box-shadow:0 36px 100px rgba(0,0,0,0.35);
-      }
-      100%{
-        transform:rotateY(-12deg);
-        box-shadow:0 26px 70px rgba(0,0,0,0.2);
-      }
-    }
-
-    @keyframes flipRightPage{
-      0%{
-        transform:rotateY(0deg);
-        box-shadow:var(--shadow);
-      }
-      45%{
-        transform:rotateY(24deg);
-        box-shadow:0 36px 100px rgba(0,0,0,0.35);
-      }
-      100%{
-        transform:rotateY(12deg);
-        box-shadow:0 26px 70px rgba(0,0,0,0.2);
-      }
-    }
-
-    .page::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        radial-gradient(circle at top left, rgba(255,255,255,0.55), transparent 26%),
-        linear-gradient(180deg, rgba(255,255,255,0.16), transparent 25%);
-      pointer-events:none;
-    }
-
-    .page-number{
-      font-size:14px;
-      letter-spacing:2px;
-      text-transform:uppercase;
-      color:#7c7368;
-      position:relative;
-      z-index:2;
-    }
-
-    .intro-title{
-      font-size:clamp(40px, 5vw, 68px);
-      line-height:0.92;
-      text-transform:uppercase;
-      letter-spacing:-2px;
-      max-width:360px;
-    }
-
-    .intro-copy{
-      max-width:340px;
-      color:var(--muted);
-      font-size:15px;
-      line-height:1.8;
-    }
-
-    .accent-block{
-      width:78px;
-      height:10px;
-      background:var(--accent);
-      border-radius:999px;
-      margin-bottom:20px;
-    }
-
-    .toc{
-      display:grid;
-      gap:18px;
-      margin-top:18px;
-    }
-
-    .toc-item{
-      display:flex;
-      justify-content:space-between;
-      border-bottom:1px solid rgba(25,25,25,0.12);
-      padding-bottom:12px;
-      font-size:15px;
-      color:#312d26;
-    }
-
-    .mini-card{
-      margin-top:26px;
-      padding:18px;
-      border:1px solid rgba(25,25,25,0.08);
-      border-radius:18px;
-      background:rgba(255,255,255,0.4);
-    }
-
-    .mini-card p{
-      color:var(--muted);
-      font-size:14px;
-    }
-
-    .section-label{
-      text-transform:uppercase;
-      letter-spacing:2.6px;
-      font-size:12px;
-      color:#7c7368;
-      margin-bottom:18px;
-    }
-
-    .plan-name{
-      font-size:clamp(34px,4vw,56px);
-      line-height:0.92;
-      text-transform:uppercase;
-      margin-bottom:10px;
-      max-width:320px;
-    }
-
-    .plan-subtitle{
-      color:var(--muted);
-      font-size:15px;
-      margin-bottom:24px;
-      max-width:340px;
-    }
-
-    .price{
-      font-size:46px;
-      font-weight:800;
-      color:var(--accent);
-      line-height:1;
-      margin-bottom:18px;
-    }
-
-    .plan-meta{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-bottom:22px;
-    }
-
-    .meta-pill{
-      padding:8px 14px;
-      border-radius:999px;
-      background:#ebe2d4;
-      color:#41392f;
-      font-size:13px;
-      border:1px solid rgba(25,25,25,0.07);
-    }
-
-    .features{
-      list-style:none;
-      display:grid;
-      gap:12px;
-    }
-
-    .features li{
-      position:relative;
-      padding-left:20px;
-      color:#342f29;
-      font-size:14px;
-      line-height:1.6;
-    }
-
-    .features li::before{
-      content:"";
-      width:8px;
-      height:8px;
-      border-radius:50%;
-      background:var(--accent);
-      position:absolute;
-      left:0;
-      top:8px;
-    }
-
-    .plan-visual{
-      height:100%;
-      border-radius:24px;
-      overflow:hidden;
-      background:
-        linear-gradient(180deg, rgba(0,0,0,0.04), transparent),
-        #d9cfbf;
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-      padding:24px;
-    }
-
-    .visual-badge{
-      align-self:flex-start;
-      padding:10px 16px;
-      background:#f7f2ea;
-      border-radius:999px;
-      font-size:12px;
-      text-transform:uppercase;
-      letter-spacing:2px;
-      color:#3d362d;
-      border:1px solid rgba(25,25,25,0.06);
-    }
-
-    .visual-title{
-      font-size:34px;
-      line-height:0.94;
-      text-transform:uppercase;
-      max-width:240px;
-    }
-
-    .visual-box{
-      height:240px;
-      border-radius:20px;
-      background:
-        linear-gradient(135deg, rgba(255,106,0,0.9), rgba(255,106,0,0.2)),
-        #1e1e1e;
-      position:relative;
-      overflow:hidden;
-    }
-
-    .visual-box::before{
-      content:"";
-      position:absolute;
-      width:180px;
-      height:180px;
-      border-radius:50%;
-      background:rgba(255,255,255,0.15);
-      top:-50px;
-      right:-30px;
-    }
-
-    .visual-box::after{
-      content:"";
-      position:absolute;
-      width:220px;
-      height:220px;
-      border-radius:50%;
-      border:1px solid rgba(255,255,255,0.15);
-      bottom:-120px;
-      left:-40px;
-    }
-
-    .highlight-page{
-      background:
-        linear-gradient(180deg, rgba(255,106,0,0.06), transparent 36%),
-        var(--paper);
-    }
-
-    .contact-card{
-      margin-top:18px;
-      padding:22px;
-      border-radius:20px;
-      background:#efe6d8;
-      border:1px solid rgba(25,25,25,0.08);
-    }
-
-    .contact-card h4{
-      font-size:24px;
-      margin-bottom:8px;
-      text-transform:uppercase;
-    }
-
-    .contact-card p{
-      color:var(--muted);
-      margin-bottom:16px;
-      font-size:14px;
-      line-height:1.7;
-    }
-
-    .contact-lines{
-      display:grid;
-      gap:8px;
-      font-size:14px;
-      color:#2f2b25;
-    }
-
-    .book-footer{
-      margin-top:26px;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      gap:16px;
-      color:rgba(255,255,255,0.72);
-      font-size:14px;
-    }
-
-    .page-dots{
-      display:flex;
-      gap:8px;
-    }
-
-    .page-dots span{
-      width:10px;
-      height:10px;
-      border-radius:50%;
-      background:rgba(255,255,255,0.16);
-      transition:0.3s;
-    }
-
-    .page-dots span.active{
-      background:var(--accent);
-      transform:scale(1.15);
-    }
-
-    .footer{
-      padding:0 8% 70px;
-      text-align:center;
-    }
-
-    .footer h2{
-      font-size:30px;
-      margin-bottom:16px;
-    }
-
-    .footer p{
-      color:rgba(255,255,255,0.68);
-      margin-bottom:22px;
-    }
-
-    .footer-btn{
-      display:inline-block;
-      background:var(--accent);
-      color:white;
-      padding:14px 30px;
-      border-radius:999px;
-      text-decoration:none;
-      font-weight:700;
-      transition:0.3s;
-    }
-
-    .footer-btn:hover{
-      transform:translateY(-2px);
-      box-shadow:0 10px 28px rgba(255,106,0,0.3);
-    }
-
-    @media(max-width:1100px){
-      .book-frame{
-        grid-template-columns:70px minmax(0, 1fr) 70px;
-      }
-
-      .book-wrap{
-        min-height:620px;
-      }
-
-      .page{
-        padding:30px 24px;
-      }
-
-      .visual-box{
-        height:180px;
-      }
-    }
-
-    @media(max-width:900px){
-      .book-frame{
-        grid-template-columns:1fr;
-      }
-
-      .turn-btn{
-        display:none;
-      }
-
-      .book-wrap{
-        min-height:auto;
-        padding:0;
-      }
-
-      .book{
-        aspect-ratio:auto;
-        display:grid;
-        gap:22px;
-      }
-
-      .spine{
-        display:none;
-      }
-
-      .spread,
-      .spread.active,
-      .spread.exit-left,
-      .spread.exit-right{
-        position:relative;
-        inset:auto;
-        display:grid;
-        grid-template-columns:1fr;
-        gap:16px;
-        transform:none;
-        opacity:1;
-        pointer-events:auto;
-        margin-bottom:18px;
-      }
-
-      .page.left,
-      .page.right{
-        border-radius:24px;
-        border:none;
-      }
-
-      .book-footer{
-        margin-top:8px;
-      }
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Knovalab | Premium Business Websites</title>
+
+<style>
+/* ================= GLOBAL ================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI',sans-serif;
+}
+
+:root{
+  --accent:#ff6a00;
+  --bg:#0f0f0f;
+  --bg-soft:#141414;
+  --bg-deep:#0b0b0b;
+  --card:#1a1a1a;
+  --border:#242424;
+  --text:#ffffff;
+  --muted:rgba(255,255,255,0.72);
+  --shadow:0 18px 55px rgba(0,0,0,0.35);
+}
+
+html{ scroll-behavior:smooth; }
+
+body{
+  background:
+    radial-gradient(circle at top center, rgba(255,106,0,0.10), transparent 28%),
+    linear-gradient(180deg, #111 0%, #0b0b0b 100%);
+  color:var(--text);
+  line-height:1.6;
+  padding-top:90px;
+  overflow-x:hidden;
+}
+
+section{
+  padding:110px 10%;
+  position:relative;
+}
+
+h1,h2,h3,h4{
+  font-weight:700;
+  letter-spacing:-0.5px;
+}
+
+p{
+  color:var(--muted);
+}
+
+a{
+  color:inherit;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:18px;
+  font-size:clamp(30px, 4vw, 42px);
+}
+
+.section-subtitle{
+  text-align:center;
+  max-width:680px;
+  margin:0 auto 60px;
+  color:rgba(255,255,255,0.62);
+}
+
+/* ================= REVEAL ================= */
+
+.reveal{
+  opacity:0;
+  transform:translateY(28px);
+  transition:opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ================= NAVBAR ================= */
+
+nav{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:90px;
+  background:rgba(15,15,15,0.88);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 10%;
+  z-index:5000;
+  transition:0.3s ease;
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid transparent;
+}
+
+nav h3{
+  font-size:22px;
+}
+
+nav.shrink{
+  height:72px;
+  background:rgba(11,11,11,0.94);
+  box-shadow:0 10px 30px rgba(0,0,0,0.35);
+  border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+.nav-links{
+  display:flex;
+  gap:30px;
+}
+
+.nav-links a{
+  color:white;
+  text-decoration:none;
+  font-weight:500;
+  position:relative;
+  transition:0.3s;
+}
+
+.nav-links a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-8px;
+  width:0;
+  height:2px;
+  background:var(--accent);
+  transition:0.3s;
+}
+
+.nav-links a:hover{
+  color:var(--accent);
+}
+
+.nav-links a:hover::after{
+  width:100%;
+}
+
+.menu-toggle{
+  display:none;
+  font-size:24px;
+  cursor:pointer;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+  min-height:calc(100vh - 90px);
+  display:grid;
+  grid-template-columns:1.1fr 0.9fr;
+  align-items:center;
+  gap:70px;
+  padding-top:40px;
+  padding-bottom:60px;
+}
+
+.hero-left{
+  position:relative;
+  z-index:2;
+}
+
+.hero-kicker{
+  display:inline-block;
+  margin-bottom:18px;
+  color:var(--accent);
+  font-size:13px;
+  text-transform:uppercase;
+  letter-spacing:3px;
+}
+
+.hero h1{
+  font-size:clamp(42px, 6vw, 68px);
+  line-height:0.95;
+  margin-bottom:22px;
+  max-width:640px;
+}
+
+.hero p{
+  font-size:18px;
+  margin-bottom:35px;
+  max-width:540px;
+}
+
+.hero-buttons{
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.btn-primary,
+.btn-secondary{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:15px 30px;
+  border-radius:40px;
+  text-decoration:none;
+  font-weight:600;
+  transition:0.3s ease;
+}
+
+.btn-primary{
+  background:var(--accent);
+  color:white;
+  box-shadow:0 14px 35px rgba(255,106,0,0.22);
+}
+
+.btn-primary:hover{
+  transform:translateY(-4px);
+  box-shadow:0 18px 40px rgba(255,106,0,0.30);
+}
+
+.btn-secondary{
+  border:1px solid var(--border);
+  color:white;
+  background:rgba(255,255,255,0.02);
+}
+
+.btn-secondary:hover{
+  background:#1a1a1a;
+  transform:translateY(-3px);
+}
+
+.hero-right{
+  position:relative;
+}
+
+.hero-right::before{
+  content:"";
+  position:absolute;
+  inset:-18px;
+  background:radial-gradient(circle, rgba(255,106,0,0.16), transparent 60%);
+  filter:blur(20px);
+  z-index:0;
+}
+
+.hero-card{
+  position:relative;
+  z-index:1;
+  background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  border:1px solid rgba(255,255,255,0.06);
+  padding:14px;
+  border-radius:28px;
+  box-shadow:var(--shadow);
+  animation:floatCard 4.5s ease-in-out infinite;
+}
+
+.hero-right img{
+  width:100%;
+  display:block;
+  border-radius:20px;
+}
+
+.hero-badge{
+  position:absolute;
+  right:-18px;
+  bottom:30px;
+  background:rgba(18,18,18,0.92);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:18px;
+  padding:16px 18px;
+  box-shadow:0 16px 35px rgba(0,0,0,0.35);
+  z-index:2;
+}
+
+.hero-badge strong{
+  display:block;
+  color:var(--accent);
+  font-size:24px;
+  margin-bottom:4px;
+}
+
+.hero-badge span{
+  font-size:13px;
+  color:rgba(255,255,255,0.7);
+}
+
+@keyframes floatCard{
+  0%,100%{ transform:translateY(0); }
+  50%{ transform:translateY(-8px); }
+}
+
+/* ================= SERVICES ================= */
+
+.services{
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0)),
+    var(--bg-soft);
+}
+
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:24px;
+}
+
+.service-card{
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
+  padding:30px;
+  border-radius:22px;
+  border:1px solid var(--border);
+  transition:0.35s ease;
+  box-shadow:0 10px 25px rgba(0,0,0,0.18);
+}
+
+.service-card:hover{
+  transform:translateY(-8px);
+  border-color:rgba(255,106,0,0.55);
+  box-shadow:0 18px 40px rgba(0,0,0,0.28);
+}
+
+.service-card h3{
+  margin-bottom:12px;
+}
+
+.service-card p{
+  font-size:15px;
+}
+
+/* ================= STATS ================= */
+
+.stats{
+  text-align:center;
+}
+
+.stats-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:24px;
+}
+
+.stat{
+  background:rgba(255,255,255,0.02);
+  border:1px solid rgba(255,255,255,0.05);
+  border-radius:22px;
+  padding:30px 20px;
+  transition:0.3s ease;
+}
+
+.stat:hover{
+  transform:translateY(-6px);
+  border-color:rgba(255,106,0,0.45);
+}
+
+.stat h3{
+  font-size:42px;
+  color:var(--accent);
+  margin-bottom:8px;
+}
+
+.stat p{
+  color:rgba(255,255,255,0.66);
+}
+
+/* ================= PORTFOLIO ================= */
+
+.portfolio{
+  background:var(--bg-soft);
+}
+
+.portfolio-wrap{
+  position:relative;
+}
+
+#portfolioSlider{
+  display:flex;
+  gap:20px;
+  overflow-x:auto;
+  scroll-behavior:smooth;
+  padding-bottom:14px;
+  cursor:grab;
+  -ms-overflow-style:none;
+  scrollbar-width:none;
+}
+
+#portfolioSlider::-webkit-scrollbar{
+  display:none;
+}
+
+.portfolio-card{
+  flex:0 0 31%;
+  min-width:290px;
+  background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  border-radius:22px;
+  border:1px solid var(--border);
+  padding:18px;
+  transition:0.35s ease;
+  box-shadow:0 10px 28px rgba(0,0,0,0.18);
+}
+
+.portfolio-card:hover{
+  transform:translateY(-8px);
+  border-color:rgba(255,106,0,0.5);
+}
+
+.portfolio-preview{
+  height:170px;
+  overflow:hidden;
+  border-radius:14px;
+  margin-bottom:14px;
+  background:#111;
+}
+
+.portfolio-preview iframe{
+  width:1200px;
+  height:800px;
+  transform:scale(0.18);
+  transform-origin:top left;
+  border:none;
+  pointer-events:none;
+}
+
+.portfolio-card h3{
+  font-size:19px;
+  margin-bottom:6px;
+}
+
+.portfolio-card p{
+  font-size:14px;
+  margin-bottom:12px;
+}
+
+.portfolio-card a{
+  color:var(--accent);
+  text-decoration:none;
+  font-size:14px;
+  font-weight:600;
+}
+
+/* ================= FAQ ================= */
+
+.faq-section{
+  background:var(--bg);
+}
+
+.faq-list{
+  max-width:900px;
+  margin:auto;
+  display:grid;
+  gap:16px;
+}
+
+.faq-item{
+  border:1px solid rgba(255,255,255,0.06);
+  background:#171717;
+  border-radius:18px;
+  overflow:hidden;
+  transition:0.3s ease;
+}
+
+.faq-item:hover{
+  border-color:rgba(255,106,0,0.35);
+}
+
+.faq-question{
+  width:100%;
+  background:none;
+  color:white;
+  border:none;
+  text-align:left;
+  padding:20px 22px;
+  cursor:pointer;
+  font-size:17px;
+  font-weight:600;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.faq-question span:last-child{
+  color:var(--accent);
+  transition:0.3s ease;
+}
+
+.faq-item.active .faq-question span:last-child{
+  transform:rotate(45deg);
+}
+
+.faq-answer{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height 0.35s ease;
+}
+
+.faq-answer p{
+  padding:0 22px 22px;
+  color:rgba(255,255,255,0.7);
+}
+
+/* ================= CONTACT ================= */
+
+.contact-strip{
+  background:linear-gradient(180deg, #161616 0%, #111 100%);
+  text-align:center;
+}
+
+.contact-box{
+  max-width:760px;
+  margin:0 auto;
+  background:rgba(255,255,255,0.02);
+  border:1px solid rgba(255,255,255,0.06);
+  padding:48px 32px;
+  border-radius:26px;
+  box-shadow:var(--shadow);
+}
+
+.contact-box h2{
+  font-size:clamp(28px, 4vw, 40px);
+  margin-bottom:12px;
+}
+
+.contact-box p{
+  margin-bottom:24px;
+}
+
+.contact-btn{
+  display:inline-block;
+  margin-top:10px;
+  background:var(--accent);
+  color:white;
+  padding:15px 30px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
+  transition:0.3s;
+}
+
+.contact-btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 35px rgba(255,106,0,0.28);
+}
+
+/* ================= CTA FOOTER ================= */
+
+footer{
+  background:var(--bg-deep);
+  padding:100px 10%;
+}
+
+.cta-box{
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
+  border:1px solid #222;
+  border-radius:28px;
+  padding:70px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:50px;
+  flex-wrap:wrap;
+  margin-bottom:80px;
+  box-shadow:var(--shadow);
+}
+
+.cta-left h2{
+  font-size:34px;
+  margin-bottom:15px;
+}
+
+.cta-left p{
+  max-width:480px;
+  font-size:16px;
+}
+
+.cta-button{
+  background:var(--accent);
+  color:white;
+  padding:18px 35px;
+  border-radius:50px;
+  text-decoration:none;
+  font-weight:600;
+  font-size:16px;
+  transition:0.3s;
+  box-shadow:0 12px 30px rgba(255,106,0,0.18);
+}
+
+.cta-button:hover{
+  transform:translateY(-4px);
+  box-shadow:0 16px 38px rgba(255,106,0,0.3);
+}
+
+.footer-bottom{
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:60px;
+  margin-bottom:50px;
+}
+
+.footer-brand h3{
+  margin-bottom:10px;
+  font-size:22px;
+}
+
+.footer-brand p{
+  max-width:250px;
+  color:rgba(255,255,255,0.6);
+}
+
+.footer-links{
+  display:flex;
+  gap:80px;
+  flex-wrap:wrap;
+}
+
+.footer-links h4{
+  margin-bottom:15px;
+}
+
+.footer-links p,
+.footer-links a{
+  display:block;
+  margin-bottom:8px;
+  text-decoration:none;
+  color:rgba(255,255,255,0.62);
+  font-size:14px;
+  transition:0.3s;
+}
+
+.footer-links a:hover{
+  color:var(--accent);
+}
+
+.footer-credit{
+  text-align:center;
+  color:rgba(255,255,255,0.4);
+  font-size:14px;
+  border-top:1px solid #222;
+  padding-top:30px;
+}
+
+/* ================= CHAT ================= */
+
+.chat-toggle{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:var(--accent);
+  color:white;
+  padding:14px 18px;
+  border-radius:40px;
+  cursor:pointer;
+  z-index:3000;
+  box-shadow:0 12px 28px rgba(255,106,0,0.22);
+  transition:0.3s ease;
+}
+
+.chat-toggle:hover{
+  transform:translateY(-3px);
+}
+
+#chatbox{
+  position:fixed;
+  bottom:80px;
+  right:20px;
+  width:300px;
+  background:#1a1a1a;
+  border-radius:18px;
+  display:none;
+  flex-direction:column;
+  z-index:3000;
+  color:white;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,0.06);
+  box-shadow:var(--shadow);
+}
+
+.chat-head{
+  background:var(--accent);
+  padding:12px 14px;
+  font-weight:600;
+}
+
+.chat-body{
+  padding:15px;
+  height:200px;
+  overflow-y:auto;
+}
+
+.chat-message{
+  background:#222;
+  padding:10px;
+  border-radius:12px;
+  margin-bottom:10px;
+  font-size:14px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:980px){
+  .hero{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+
+  .hero p,
+  .hero h1{
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .hero-buttons{
+    justify-content:center;
+  }
+
+  .hero-badge{
+    position:static;
+    margin-top:16px;
+    display:inline-block;
+  }
+
+  .stats-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .nav-links{
+    position:absolute;
+    top:90px;
+    right:6%;
+    background:#141414;
+    flex-direction:column;
+    width:220px;
+    padding:20px;
+    display:none;
+    border:1px solid rgba(255,255,255,0.06);
+    border-radius:18px;
+    box-shadow:var(--shadow);
+  }
+
+  .nav-links.active{
+    display:flex;
+  }
+
+  .menu-toggle{
+    display:block;
+  }
+
+  nav,
+  section,
+  footer{
+    padding-left:6%;
+    padding-right:6%;
+  }
+}
+
+@media(max-width:768px){
+  body{
+    padding-top:80px;
+  }
+
+  nav{
+    height:80px;
+  }
+
+  .hero{
+    min-height:auto;
+    padding-top:20px;
+  }
+
+  .hero h1{
+    font-size:40px;
+  }
+
+  .stats-grid{
+    grid-template-columns:1fr;
+  }
+
+  .cta-box{
+    padding:40px;
+    text-align:center;
+  }
+
+  .footer-bottom{
+    flex-direction:column;
+  }
+
+  .footer-links{
+    gap:36px;
+  }
+
+  .contact-box{
+    padding:38px 22px;
+  }
+}
+
+@media(max-width:560px){
+  .hero-buttons{
+    flex-direction:column;
+  }
+
+  .btn-primary,
+  .btn-secondary,
+  .cta-button,
+  .contact-btn{
+    width:100%;
+  }
+
+  .portfolio-card{
+    min-width:85%;
+  }
+}
+</style>
 </head>
+
 <body>
 
-  <nav>
-    <div class="logo">Knovalab</div>
-    <div class="nav-actions">
-      <a href="../" class="nav-link">Home</a>
-      <a href="../demo/" class="back-btn">Book Free Demo</a>
-    </div>
-  </nav>
+<!-- NAVBAR -->
+<nav>
+  <h3>Knovalab</h3>
+  <div class="nav-links">
+    <a href="/portfolio/">Portfolio</a>
+    <a href="/services/">Services</a>
+    <a href="/pricing/">Pricing</a>
+    <a href="/faq/">FAQ</a>
+    <a href="/contact/">Contact</a>
+  </div>
+  <div class="menu-toggle">☰</div>
+</nav>
 
-  <section class="hero">
-    <span>Pricing Catalogue</span>
-    <h1>Choose The Right Website Package</h1>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left reveal">
+    <span class="hero-kicker">Premium Static Websites</span>
+    <h1>
+      Websites Designed<br>
+      To Turn Visitors<br>
+      Into Customers.
+    </h1>
     <p>
-      A premium catalogue-style pricing experience for brands that want clarity,
-      speed, and strong design without unnecessary complexity.
+      We build fast, premium, mobile-first websites for businesses that want to grow.
     </p>
-  </section>
+    <div class="hero-buttons">
+      <a href="#portfolio" class="btn-primary">View Our Work</a>
+      <a href="/demo/" class="btn-secondary">Book Free Consultation</a>
+    </div>
+  </div>
 
-  <section class="catalog-shell">
-    <div class="book-stage">
-      <div class="book-frame">
-        <button class="turn-btn" id="prevBtn" aria-label="Previous spread">←</button>
+  <div class="hero-right reveal">
+    <div class="hero-card">
+      <img src="https://i.pinimg.com/736x/8c/fd/a0/8cfda0a264b821b290a52f3092c00d0d.jpg" alt="Website showcase">
+    </div>
+    <div class="hero-badge">
+      <strong>2–5 Days</strong>
+      <span>Average delivery time</span>
+    </div>
+  </div>
+</section>
 
-        <div class="book-wrap">
-          <div class="book-shadow"></div>
+<!-- SERVICES -->
+<section class="services">
+  <h2 class="section-title reveal">Our Services</h2>
+  <p class="section-subtitle reveal">
+    Built for modern businesses that need strong design, clean structure, and fast delivery without unnecessary complexity.
+  </p>
 
-          <div class="book" id="book">
-            <div class="spine"></div>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <h3>Business Websites</h3>
+      <p>Professional websites built to generate trust and leads.</p>
+    </div>
 
-            <div class="spread active" data-index="0">
-              <article class="page left">
-                <div>
-                  <div class="page-number">01 / Introduction</div>
-                </div>
+    <div class="service-card reveal">
+      <h3>Restaurant Websites</h3>
+      <p>Showcase your menu, atmosphere, and reservations with a stronger digital presence.</p>
+    </div>
 
-                <div>
-                  <div class="accent-block"></div>
-                  <h2 class="intro-title">Pricing Catalogue</h2>
-                </div>
+    <div class="service-card reveal">
+      <h3>Salon Websites</h3>
+      <p>Highlight services, pricing, social proof, and booking-focused sections.</p>
+    </div>
 
-                <p class="intro-copy">
-                  Knovalab builds fast, premium static websites for service businesses.
-                  This catalogue gives you a simple way to compare packages and choose
-                  the level that fits your business stage.
-                </p>
-              </article>
+    <div class="service-card reveal">
+      <h3>Custom Business Solutions</h3>
+      <p>Tailored websites built around your business goals and growth strategy.</p>
+    </div>
 
-              <article class="page right">
-                <div>
-                  <div class="page-number">02 / Table Of Contents</div>
-                </div>
+    <div class="service-card reveal">
+      <h3>Landing Pages</h3>
+      <p>High-converting single-page websites for offers, launches, and campaigns.</p>
+    </div>
 
-                <div>
-                  <div class="section-label">Inside</div>
-                  <div class="toc">
-                    <div class="toc-item"><span>Basic Package</span><span>03</span></div>
-                    <div class="toc-item"><span>Standard Package</span><span>04</span></div>
-                    <div class="toc-item"><span>Premium Package</span><span>05</span></div>
-                    <div class="toc-item"><span>Booking & Contact</span><span>06</span></div>
-                  </div>
+    <div class="service-card reveal">
+      <h3>Portfolio Websites</h3>
+      <p>Personal brand websites for creators, professionals, and visual businesses.</p>
+    </div>
+  </div>
+</section>
 
-                  <div class="mini-card">
-                    <p>
-                      Every package is mobile responsive, conversion-focused, and built
-                      for simple GitHub Pages deployment with full ownership.
-                    </p>
-                  </div>
-                </div>
-              </article>
-            </div>
+<!-- STATS -->
+<section class="stats">
+  <div class="stats-grid">
+    <div class="stat reveal"><h3>2–5</h3><p>Days Delivery</p></div>
+    <div class="stat reveal"><h3>100%</h3><p>Mobile Optimized</p></div>
+    <div class="stat reveal"><h3>Fast</h3><p>Static Hosting</p></div>
+    <div class="stat reveal"><h3>Full</h3><p>Ownership</p></div>
+  </div>
+</section>
 
-            <div class="spread" data-index="1">
-              <article class="page left">
-                <div class="page-number">03 / Basic</div>
+<!-- PORTFOLIO -->
+<section class="portfolio" id="portfolio">
+  <h2 class="section-title reveal">Our Work</h2>
+  <p class="section-subtitle reveal">
+    A few live demos showing the design quality and style direction we build for local brands.
+  </p>
 
-                <div>
-                  <div class="section-label">Starter Package</div>
-                  <h2 class="plan-name">Basic</h2>
-                  <p class="plan-subtitle">Perfect for small businesses starting online.</p>
-                  <div class="price">₹4,999/-</div>
+  <div class="portfolio-wrap reveal">
+    <div id="portfolioSlider">
 
-                  <div class="plan-meta">
-                    <div class="meta-pill">1 Page Website</div>
-                    <div class="meta-pill">Fast Delivery</div>
-                  </div>
-
-                  <ul class="features">
-                    <li>1 page website</li>
-                    <li>Mobile responsive design</li>
-                    <li>Business information section</li>
-                    <li>Google Maps integration</li>
-                    <li>WhatsApp button</li>
-                  </ul>
-                </div>
-
-                <div class="page-number">Built For Local Businesses</div>
-              </article>
-
-              <article class="page right highlight-page">
-                <div class="page-number">04 / Standard</div>
-
-                <div class="plan-visual">
-                  <div class="visual-badge">Most Popular</div>
-                  <div class="visual-title">Standard Package</div>
-                  <div class="visual-box"></div>
-                </div>
-
-                <div style="margin-top:26px;">
-                  <h2 class="plan-name" style="font-size:42px;">₹5,999/-</h2>
-                  <p class="plan-subtitle">Best for growing businesses that need more structure and polish.</p>
-
-                  <ul class="features">
-                    <li>Everything included in Basic</li>
-                    <li>Up to 4 sections</li>
-                    <li>Photo gallery</li>
-                    <li>Animations</li>
-                    <li>Better layout and visual hierarchy</li>
-                  </ul>
-                </div>
-              </article>
-            </div>
-
-            <div class="spread" data-index="2">
-              <article class="page left">
-                <div class="page-number">05 / Premium</div>
-
-                <div>
-                  <div class="section-label">Full Custom Package</div>
-                  <h2 class="plan-name">Premium</h2>
-                  <p class="plan-subtitle">A full custom website solution for businesses that want the strongest presentation.</p>
-                  <div class="price">₹7,999/-</div>
-
-                  <div class="plan-meta">
-                    <div class="meta-pill">Multi Page</div>
-                    <div class="meta-pill">Priority Changes</div>
-                  </div>
-
-                  <ul class="features">
-                    <li>Everything included in Standard</li>
-                    <li>Multi page website</li>
-                    <li>Advanced custom design</li>
-                    <li>Unlimited sections</li>
-                    <li>Priority revisions and changes</li>
-                  </ul>
-                </div>
-
-                <div class="page-number">High Impact Presentation</div>
-              </article>
-
-              <article class="page right">
-                <div class="page-number">06 / Book Your Demo</div>
-
-                <div>
-                  <div class="section-label">Next Step</div>
-                  <h2 class="intro-title" style="font-size:50px; max-width:330px;">Ready To Get Your Website?</h2>
-
-                  <div class="contact-card">
-                    <h4>Book Free Demo</h4>
-                    <p>
-                      Tell us about your business and we’ll help you choose the right package,
-                      design direction, and structure for your site.
-                    </p>
-
-                    <div class="contact-lines">
-                      <div>Phone: +91 9167878131</div>
-                      <div>WhatsApp Available</div>
-                      <div>Delivery: 2–5 Days</div>
-                    </div>
-                  </div>
-                </div>
-
-                <div>
-                  <a href="../demo/" class="back-btn">Book Free Demo</a>
-                </div>
-              </article>
-            </div>
-          </div>
+      <div class="portfolio-card">
+        <div class="portfolio-preview">
+          <iframe src="https://knowbrand.github.io/thedtattoostudio"></iframe>
         </div>
-
-        <button class="turn-btn" id="nextBtn" aria-label="Next spread">→</button>
+        <h3>Tattoo Studio Demo</h3>
+        <p>Dark, bold, and conversion-focused for visual-first businesses.</p>
+        <a href="https://knowbrand.github.io/thedtattoostudio" target="_blank">Live Preview →</a>
       </div>
 
-      <div class="book-footer">
-        <div id="spreadLabel">Spread 1 of 3</div>
-        <div class="page-dots" id="pageDots">
-          <span class="active"></span>
-          <span></span>
-          <span></span>
+      <div class="portfolio-card">
+        <div class="portfolio-preview">
+          <iframe src="https://knowbrand.github.io/Restaurant-Demo"></iframe>
         </div>
+        <h3>Restaurant Demo</h3>
+        <p>Premium layout built to showcase food, brand atmosphere, and booking flow.</p>
+        <a href="https://knowbrand.github.io/Restaurant-Demo" target="_blank">Live Preview →</a>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="portfolio-preview">
+          <iframe src="https://knowbrand.github.io/4utattoostudio/"></iframe>
+        </div>
+        <h3>Tattoo Studio Demo 2</h3>
+        <p>Visual-first design with strong hierarchy and clean CTA placement.</p>
+        <a href="https://knowbrand.github.io/4utattoostudio/" target="_blank">Live Preview →</a>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="portfolio-preview">
+          <iframe src="https://knowbrand.github.io/thedtattoostudio"></iframe>
+        </div>
+        <h3>Studio Concept</h3>
+        <p>Another direction for service brands that need edge and credibility.</p>
+        <a href="https://knowbrand.github.io/thedtattoostudio" target="_blank">Live Preview →</a>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="portfolio-preview">
+          <iframe src="https://knowbrand.github.io/Restaurant-Demo"></iframe>
+        </div>
+        <h3>Dining Concept</h3>
+        <p>Elegant layout style for hospitality and premium local business websites.</p>
+        <a href="https://knowbrand.github.io/Restaurant-Demo" target="_blank">Live Preview →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <h2 class="section-title reveal">Frequently Asked Questions</h2>
+  <p class="section-subtitle reveal">
+    Quick answers about timelines, ownership, and how the process works.
+  </p>
+
+  <div class="faq-list">
+    <div class="faq-item reveal">
+      <button class="faq-question">
+        <span>How long does it take?</span>
+        <span>+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Most websites are delivered within 2–5 days depending on scope.</p>
       </div>
     </div>
-  </section>
 
-  <footer class="footer">
-    <h2>Ready to launch your website?</h2>
-    <p>Choose your package, book a free demo, and let’s build something premium.</p>
-    <a href="../demo/" class="footer-btn">Book Free Demo</a>
-  </footer>
+    <div class="faq-item reveal">
+      <button class="faq-question">
+        <span>Do I own the website?</span>
+        <span>+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Yes. You receive full ownership after completion.</p>
+      </div>
+    </div>
 
-  <script>
-    const spreads = Array.from(document.querySelectorAll(".spread"));
-    const prevBtn = document.getElementById("prevBtn");
-    const nextBtn = document.getElementById("nextBtn");
-    const spreadLabel = document.getElementById("spreadLabel");
-    const dots = Array.from(document.querySelectorAll("#pageDots span"));
+    <div class="faq-item reveal">
+      <button class="faq-question">
+        <span>Will it work on mobile?</span>
+        <span>+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Absolutely. All websites are fully responsive and built mobile-first.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    let current = 0;
-    let isAnimating = false;
+<!-- CONTACT -->
+<section class="contact-strip">
+  <div class="contact-box reveal">
+    <h2>Let’s Build Your Website</h2>
+    <p>Fast, premium, and built to help your business look more credible online.</p>
+    <p><strong>Phone:</strong> +91 9167878131</p>
+    <a href="https://wa.me/919167878131" class="contact-btn">Chat on WhatsApp</a>
+  </div>
+</section>
 
-    function updateButtons() {
-      prevBtn.disabled = current === 0;
-      nextBtn.disabled = current === spreads.length - 1;
-      spreadLabel.textContent = `Spread ${current + 1} of ${spreads.length}`;
+<!-- FOOTER -->
+<footer>
+  <div class="cta-box reveal">
+    <div class="cta-left">
+      <h2>Ready To Launch Your Website?</h2>
+      <p>
+        Get a premium, mobile-optimized website built in just 2–5 days.
+        No monthly fees. Full ownership. Built to convert visitors into customers.
+      </p>
+    </div>
 
-      dots.forEach((dot, index) => {
-        dot.classList.toggle("active", index === current);
-      });
-    }
+    <div class="cta-right">
+      <a href="/demo/" class="cta-button">Book Free Demo</a>
+    </div>
+  </div>
 
-    function showSpread(nextIndex, direction) {
-      if (isAnimating || nextIndex === current || nextIndex < 0 || nextIndex >= spreads.length) return;
+  <div class="footer-bottom reveal">
+    <div class="footer-brand">
+      <h3>Knovalab</h3>
+      <p>Premium websites for growing businesses.</p>
+    </div>
 
-      const currentSpread = spreads[current];
-      const nextSpread = spreads[nextIndex];
+    <div class="footer-links">
+      <div>
+        <h4>Features</h4>
+        <p>⚡ Fast Static Hosting</p>
+        <p>📱 100% Mobile Optimized</p>
+        <p>🎯 Conversion-Focused Design</p>
+        <p>🔒 Full Website Ownership</p>
+      </div>
 
-      isAnimating = true;
+      <div>
+        <h4>Services</h4>
+        <a href="/services/">Business Websites</a>
+        <a href="/services/">Restaurant Websites</a>
+        <a href="/services/">Salon Websites</a>
+        <a href="/services/">Portfolio Websites</a>
+      </div>
 
-      currentSpread.classList.remove("active", "exit-left", "exit-right", "flipping-next", "flipping-prev");
-      nextSpread.classList.remove("active", "exit-left", "exit-right", "flipping-next", "flipping-prev");
+      <div>
+        <h4>Contact</h4>
+        <p>+91 9167878131</p>
+        <p>WhatsApp Available</p>
+      </div>
+    </div>
+  </div>
 
-      if (direction === "next") {
-        currentSpread.classList.add("flipping-next", "exit-left");
-      } else {
-        currentSpread.classList.add("flipping-prev", "exit-right");
-      }
+  <div class="footer-credit">
+    © 2026 Knovalab. All rights reserved.
+  </div>
+</footer>
 
-      nextSpread.classList.add("active");
-      current = nextIndex;
-      updateButtons();
+<!-- CHAT -->
+<div class="chat-toggle" onclick="toggleChat()">Chat</div>
 
-      setTimeout(() => {
-        spreads.forEach((spread, index) => {
-          spread.classList.remove("exit-left", "exit-right", "flipping-next", "flipping-prev");
-          spread.classList.toggle("active", index === current);
-        });
-        isAnimating = false;
-      }, 980);
-    }
+<div id="chatbox">
+  <div class="chat-head">Knovalab Assistant</div>
+  <div class="chat-body">
+    <div class="chat-message">
+      Hi 👋 I can help you with pricing, timelines or booking a demo.
+    </div>
+  </div>
+</div>
 
-    nextBtn.addEventListener("click", () => showSpread(current + 1, "next"));
-    prevBtn.addEventListener("click", () => showSpread(current - 1, "prev"));
+<!-- SCRIPTS -->
+<script>
+/* Navbar shrink */
+window.addEventListener("scroll", function(){
+  const nav = document.querySelector("nav");
+  if(window.scrollY > 50){
+    nav.classList.add("shrink");
+  }else{
+    nav.classList.remove("shrink");
+  }
+});
 
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "ArrowRight") showSpread(current + 1, "next");
-      if (e.key === "ArrowLeft") showSpread(current - 1, "prev");
+/* Mobile toggle */
+document.querySelector(".menu-toggle").addEventListener("click", function(){
+  document.querySelector(".nav-links").classList.toggle("active");
+});
+
+/* FAQ toggle */
+document.querySelectorAll(".faq-question").forEach((button) => {
+  button.addEventListener("click", () => {
+    const item = button.parentElement;
+    const answer = item.querySelector(".faq-answer");
+    const isActive = item.classList.contains("active");
+
+    document.querySelectorAll(".faq-item").forEach((faq) => {
+      faq.classList.remove("active");
+      faq.querySelector(".faq-answer").style.maxHeight = null;
     });
 
-    let startX = 0;
+    if(!isActive){
+      item.classList.add("active");
+      answer.style.maxHeight = answer.scrollHeight + "px";
+    }
+  });
+});
 
-    document.getElementById("book").addEventListener("touchstart", (e) => {
-      startX = e.touches[0].clientX;
-    }, { passive: true });
+/* Chat toggle */
+function toggleChat(){
+  const box = document.getElementById("chatbox");
+  box.style.display = box.style.display === "flex" ? "none" : "flex";
+}
 
-    document.getElementById("book").addEventListener("touchend", (e) => {
-      const endX = e.changedTouches[0].clientX;
-      const delta = endX - startX;
+/* Slider drag */
+const slider = document.getElementById("portfolioSlider");
+let isDown = false;
+let startX;
+let scrollLeft;
 
-      if (Math.abs(delta) < 40) return;
-      if (delta < 0) showSpread(current + 1, "next");
-      if (delta > 0) showSpread(current - 1, "prev");
-    }, { passive: true });
+slider.addEventListener("mousedown",(e)=>{
+  isDown = true;
+  startX = e.pageX - slider.offsetLeft;
+  scrollLeft = slider.scrollLeft;
+});
 
-    updateButtons();
-  </script>
+slider.addEventListener("mouseup",()=> isDown = false);
+slider.addEventListener("mouseleave",()=> isDown = false);
+
+slider.addEventListener("mousemove",(e)=>{
+  if(!isDown) return;
+  e.preventDefault();
+  const x = e.pageX - slider.offsetLeft;
+  const walk = (x - startX) * 1.2;
+  slider.scrollLeft = scrollLeft - walk;
+});
+
+/* Touch slider */
+slider.addEventListener("touchstart",(e)=>{
+  startX = e.touches[0].pageX;
+  scrollLeft = slider.scrollLeft;
+},{ passive:true });
+
+slider.addEventListener("touchmove",(e)=>{
+  const x = e.touches[0].pageX;
+  const walk = (x - startX) * 1.2;
+  slider.scrollLeft = scrollLeft - walk;
+},{ passive:true });
+
+/* Reveal on scroll */
+const reveals = document.querySelectorAll(".reveal");
+
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+    }
+  });
+}, { threshold: 0.12 });
+
+reveals.forEach((el) => revealObserver.observe(el));
+</script>
+
 </body>
 </html>
