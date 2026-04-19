@@ -1,305 +1,478 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pricing | Knovalab</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing | Knovalab</title>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Segoe UI',sans-serif;
+    }
 
-<style>
+    :root{
+      --bg:#0b0b0b;
+      --panel:#151515;
+      --panel-2:#1c1c1c;
+      --text:#ffffff;
+      --muted:rgba(255,255,255,0.7);
+      --line:rgba(255,255,255,0.08);
+      --accent:#ff6a00;
+      --accent-2:#ff8a33;
+      --shadow:0 24px 70px rgba(0,0,0,0.35);
+    }
 
-/* ================= GLOBAL ================= */
+    body{
+      background:
+        radial-gradient(circle at top, rgba(255,106,0,0.12), transparent 24%),
+        linear-gradient(180deg, #111 0%, #090909 100%);
+      color:var(--text);
+      overflow-x:hidden;
+    }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Segoe UI', sans-serif;
-}
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
 
-:root{
---accent:#ff6a00;
-}
+    nav{
+      width:100%;
+      padding:20px 7%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      background:rgba(10,10,10,0.88);
+      border-bottom:1px solid var(--line);
+      position:sticky;
+      top:0;
+      z-index:10;
+      backdrop-filter:blur(12px);
+    }
 
-body{
-background:#0f0f0f;
-color:white;
-}
+    .logo{
+      font-size:24px;
+      font-weight:800;
+      letter-spacing:-0.8px;
+    }
 
-/* ================= NAVBAR ================= */
+    .logo span{
+      color:var(--accent);
+    }
 
-nav{
-width:100%;
-padding:25px 10%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:#111;
-border-bottom:1px solid rgba(255,255,255,0.05);
-}
+    .back-btn{
+      background:linear-gradient(135deg, var(--accent), var(--accent-2));
+      color:white;
+      padding:11px 22px;
+      border-radius:999px;
+      font-size:14px;
+      font-weight:700;
+      transition:0.3s;
+      box-shadow:var(--shadow);
+    }
 
-.logo{
-font-size:22px;
-font-weight:700;
-}
+    .back-btn:hover{
+      transform:translateY(-2px);
+    }
 
-.back-btn{
-background:var(--accent);
-color:white;
-padding:10px 22px;
-border-radius:30px;
-text-decoration:none;
-font-size:14px;
-font-weight:600;
-transition:0.3s;
-}
+    .hero{
+      width:min(100%, 1180px);
+      margin:0 auto;
+      padding:72px 20px 36px;
+      text-align:center;
+    }
 
-.back-btn:hover{
-transform:translateY(-2px);
-}
+    .hero .eyebrow{
+      display:inline-block;
+      color:var(--accent);
+      text-transform:uppercase;
+      letter-spacing:2px;
+      font-size:12px;
+      margin-bottom:16px;
+    }
 
-/* ================= HEADER ================= */
+    .hero h1{
+      font-size:clamp(38px, 6vw, 72px);
+      line-height:0.96;
+      letter-spacing:-2px;
+      margin-bottom:14px;
+    }
 
-.header{
-  margin-top:60px;
-  text-align:center;
-}
+    .hero p{
+      max-width:620px;
+      margin:0 auto;
+      color:var(--muted);
+      font-size:16px;
+      line-height:1.8;
+    }
 
-.header h1{
-font-size:40px;
-margin-bottom:8px;
-}
+    .pricing-wrap{
+      width:min(100%, 1180px);
+      margin:0 auto;
+      padding:8px 20px 80px;
+    }
 
-.header p{
-opacity:0.7;
-}
+    .pricing{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:24px;
+      align-items:stretch;
+    }
 
-/* ================= PRICING ================= */
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
+      border:1px solid var(--line);
+      border-radius:28px;
+      padding:30px;
+      transition:0.3s ease;
+      text-align:left;
+      display:flex;
+      flex-direction:column;
+      position:relative;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+    }
 
-.pricing{
-margin-top:60px;
-display:flex;
-gap:35px;
-flex-wrap:wrap;
-justify-content:center;
-padding-bottom:80px;
-}
+    .card::before{
+      content:"";
+      position:absolute;
+      width:240px;
+      height:240px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(255,106,0,0.12), transparent 70%);
+      top:-120px;
+      right:-60px;
+      pointer-events:none;
+    }
 
-/* ================= CARD ================= */
+    .card:hover{
+      transform:translateY(-8px);
+      border-color:rgba(255,106,0,0.28);
+    }
 
-.card{
-background:#1a1a1a;
-width:300px;
-padding:28px;
-border-radius:20px;
-border:1px solid #222;
-transition:0.3s;
-text-align:center;
-display:flex;
-flex-direction:column;
-justify-content:space-between;
-}
+    .highlight{
+      border:1px solid rgba(255,106,0,0.4);
+      background:linear-gradient(180deg, rgba(255,106,0,0.08), rgba(255,255,255,0.02));
+    }
 
-.card:hover{
-transform:translateY(-6px);
-border-color:#333;
-}
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.05);
+      color:rgba(255,255,255,0.84);
+      font-size:12px;
+      font-weight:700;
+      margin-bottom:18px;
+      width:max-content;
+    }
 
-/* TITLE + DESC */
+    .highlight .badge{
+      background:rgba(255,106,0,0.14);
+      color:#ffd7bf;
+    }
 
-.card h3{
-margin-bottom:6px;
-}
+    .card h3{
+      font-size:28px;
+      margin-bottom:8px;
+      letter-spacing:-0.8px;
+    }
 
-.desc{
-font-size:13px;
-opacity:0.6;
-margin-bottom:18px;
-}
+    .desc{
+      font-size:14px;
+      color:var(--muted);
+      margin-bottom:22px;
+      line-height:1.7;
+      min-height:48px;
+    }
 
-/* PRICE BOX */
+    .price-box{
+      margin-bottom:22px;
+    }
 
-.price-box{
-margin-bottom:18px;
-}
+    .price{
+      font-size:42px;
+      font-weight:800;
+      color:var(--accent);
+      letter-spacing:-1.5px;
+      margin-bottom:6px;
+    }
 
-.price{
-font-size:34px;
-font-weight:700;
-color:var(--accent);
-margin-bottom:10px;
-}
+    .price-note{
+      color:rgba(255,255,255,0.55);
+      font-size:13px;
+      margin-bottom:18px;
+    }
 
-/* BUTTON */
+    .btn{
+      display:block;
+      width:100%;
+      border:none;
+      cursor:pointer;
+      background:linear-gradient(135deg, var(--accent), var(--accent-2));
+      padding:13px;
+      border-radius:12px;
+      color:white;
+      font-size:14px;
+      font-weight:700;
+      transition:0.3s;
+      margin-bottom:10px;
+    }
 
-.btn{
-display:block;
-background:var(--accent);
-padding:10px;
-border-radius:8px;
-text-decoration:none;
-color:white;
-font-size:14px;
-font-weight:600;
-transition:0.3s;
-}
+    .btn:hover{
+      transform:translateY(-2px);
+    }
 
-.btn:hover{
-transform:translateY(-2px);
-}
+    .demo-btn{
+      display:block;
+      width:100%;
+      text-align:center;
+      padding:12px;
+      border-radius:12px;
+      color:white;
+      font-size:14px;
+      font-weight:700;
+      border:1px solid rgba(255,255,255,0.1);
+      background:rgba(255,255,255,0.02);
+      transition:0.3s;
+    }
 
-/* FEATURES */
+    .demo-btn:hover{
+      transform:translateY(-2px);
+      border-color:rgba(255,106,0,0.28);
+    }
 
-ul{
-margin-top:10px;
-list-style:none;
-text-align:left;
-}
+    ul{
+      margin-top:auto;
+      list-style:none;
+      padding-top:18px;
+      border-top:1px solid rgba(255,255,255,0.06);
+    }
 
-li{
-margin:8px 0;
-font-size:13px;
-opacity:0.8;
-}
+    li{
+      margin:10px 0;
+      font-size:14px;
+      color:rgba(255,255,255,0.84);
+      line-height:1.6;
+    }
 
-/* ================= HIGHLIGHT ================= */
+    .footer{
+      background:#0b0b0b;
+      color:white;
+      text-align:center;
+      padding:72px 20px;
+      border-top:1px solid rgba(255,255,255,0.05);
+    }
 
-.highlight{
-border:1px solid rgba(255,106,0,0.4);
-}
+    .footer h2{
+      font-size:32px;
+      margin-bottom:16px;
+      letter-spacing:-1px;
+    }
 
-.highlight h3{
-color:white;
-}
+    .footer p{
+      color:var(--muted);
+      max-width:580px;
+      margin:0 auto 22px;
+      line-height:1.8;
+    }
 
-/* ================= RESPONSIVE ================= */
+    .footer-btn{
+      display:inline-block;
+      background:linear-gradient(135deg, var(--accent), var(--accent-2));
+      color:white;
+      padding:13px 28px;
+      border-radius:999px;
+      font-weight:700;
+      transition:0.3s;
+    }
 
-@media(max-width:768px){
+    .footer-btn:hover{
+      transform:translateY(-2px);
+    }
 
-.pricing{
-flex-direction:column;
-align-items:center;
-}
+    .footer-copy{
+      margin-top:28px;
+      font-size:13px;
+      opacity:0.6;
+    }
 
-}
+    @media(max-width:980px){
+      .pricing{
+        grid-template-columns:1fr;
+        max-width:420px;
+        margin:0 auto;
+      }
+    }
 
-/* ================= FOOTER ================= */
+    @media(max-width:640px){
+      nav{
+        padding:16px 14px;
+      }
 
-.footer{
-background:#0b0b0b;
-color:white;
-text-align:center;
-padding:70px 20px;
-margin-top:60px;
-border-top:1px solid rgba(255,255,255,0.05);
-}
+      .hero{
+        padding:54px 14px 24px;
+      }
 
-.footer h2{
-font-size:28px;
-margin-bottom:20px;
-}
+      .pricing-wrap{
+        padding:8px 14px 60px;
+      }
 
-.footer-btn{
-display:inline-block;
-background:var(--accent);
-color:white;
-padding:12px 26px;
-border-radius:30px;
-text-decoration:none;
-font-weight:600;
-transition:0.3s;
-}
+      .card{
+        padding:22px;
+        border-radius:22px;
+      }
 
-.footer-btn:hover{
-transform:translateY(-2px);
-}
+      .price{
+        font-size:36px;
+      }
 
-.footer-copy{
-margin-top:25px;
-font-size:13px;
-opacity:0.6;
-}
-
-</style>
+      .footer{
+        padding:56px 14px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<nav>
-<div class="logo">Knovalab</div>
-<a href="../" class="back-btn">Home</a>
-</nav>
+  <nav>
+    <div class="logo">Knova<span>lab</span></div>
+    <a href="../" class="back-btn">Home</a>
+  </nav>
 
-<div class="header">
-<h1>Choose your plan</h1>
-<p>Flexible pricing for businesses of all sizes.</p>
-</div>
+  <section class="hero">
+    <span class="eyebrow">Pricing Plans</span>
+    <h1>Choose the right website plan for your business</h1>
+    <p>
+      Flexible packages for businesses that want a clean, modern online presence.
+      Test payments are enabled with Razorpay so you can safely try the checkout flow.
+    </p>
+  </section>
 
-<section class="pricing">
+  <section class="pricing-wrap">
+    <div class="pricing">
 
-<!-- BASIC -->
-<div class="card">
-<h3>Basic</h3>
-<p class="desc">Perfect for small businesses starting online.</p>
+      <div class="card">
+        <div class="badge">Starter Plan</div>
+        <h3>Basic</h3>
+        <p class="desc">Perfect for small businesses starting online with a focused one-page presence.</p>
 
-<div class="price-box">
-<div class="price">₹4,999/-</div>
-<a href="../demo/" class="btn">Book Free Demo</a>
-</div>
+        <div class="price-box">
+          <div class="price">₹4,999/-</div>
+          <div class="price-note">One-time website setup</div>
+          <button class="btn pay-btn" data-plan="Basic" data-amount="499900">Pay Now</button>
+          <a href="../demo/" class="demo-btn">Book Free Demo</a>
+        </div>
 
-<ul>
-<li>✔ 1 Page Website</li>
-<li>✔ Mobile Responsive</li>
-<li>✔ Business Information</li>
-<li>✔ Google Maps Integration</li>
-<li>✔ WhatsApp Button</li>
-</ul>
-</div>
+        <ul>
+          <li>✔ 1 Page Website</li>
+          <li>✔ Mobile Responsive</li>
+          <li>✔ Business Information</li>
+          <li>✔ Google Maps Integration</li>
+          <li>✔ WhatsApp Button</li>
+        </ul>
+      </div>
 
-<!-- STANDARD -->
-<div class="card highlight">
-<h3>Standard</h3>
-<p class="desc">Best for growing businesses.</p>
+      <div class="card highlight">
+        <div class="badge">Most Popular</div>
+        <h3>Standard</h3>
+        <p class="desc">Best for growing businesses that need a better layout and more room to explain their services.</p>
 
-<div class="price-box">
-<div class="price">₹5,999/-</div>
-<a href="../demo/" class="btn">Book Free Demo</a>
-</div>
+        <div class="price-box">
+          <div class="price">₹5,999/-</div>
+          <div class="price-note">One-time website setup</div>
+          <button class="btn pay-btn" data-plan="Standard" data-amount="599900">Pay Now</button>
+          <a href="../demo/" class="demo-btn">Book Free Demo</a>
+        </div>
 
-<ul>
-<li>✔ Everything in Basic</li>
-<li>✔ Up to 4 Sections</li>
-<li>✔ Photo Gallery</li>
-<li>✔ Animations</li>
-<li>✔ Better Layout</li>
-</ul>
-</div>
+        <ul>
+          <li>✔ Everything in Basic</li>
+          <li>✔ Up to 4 Sections</li>
+          <li>✔ Photo Gallery</li>
+          <li>✔ Animations</li>
+          <li>✔ Better Layout</li>
+        </ul>
+      </div>
 
-<!-- PREMIUM -->
-<div class="card">
-<h3>Premium</h3>
-<p class="desc">Full custom website solution.</p>
+      <div class="card">
+        <div class="badge">Custom Growth</div>
+        <h3>Premium</h3>
+        <p class="desc">A full custom website solution for businesses that want more pages, more flexibility, and priority support.</p>
 
-<div class="price-box">
-<div class="price">₹7,999/-</div>
-<a href="../demo/" class="btn">Book Free Demo</a>
-</div>
+        <div class="price-box">
+          <div class="price">₹7,999/-</div>
+          <div class="price-note">One-time website setup</div>
+          <button class="btn pay-btn" data-plan="Premium" data-amount="799900">Pay Now</button>
+          <a href="../demo/" class="demo-btn">Book Free Demo</a>
+        </div>
 
-<ul>
-<li>✔ Everything in Standard</li>
-<li>✔ Multi Page Website</li>
-<li>✔ Advanced Custom Design</li>
-<li>✔ Unlimited Sections</li>
-<li>✔ Priority Changes</li>
-</ul>
-</div>
+        <ul>
+          <li>✔ Everything in Standard</li>
+          <li>✔ Multi Page Website</li>
+          <li>✔ Advanced Custom Design</li>
+          <li>✔ Unlimited Sections</li>
+          <li>✔ Priority Changes</li>
+        </ul>
+      </div>
 
-</section>
+    </div>
+  </section>
 
-<footer class="footer">
-<h2>Ready to get your website?</h2>
-<a href="../demo/" class="footer-btn">Book Free Demo</a>
-<p class="footer-copy">© 2026 Knovalab. All rights reserved.</p>
-</footer>
+  <footer class="footer">
+    <h2>Ready to launch your website?</h2>
+    <p>
+      Explore the Razorpay test checkout flow or book a free demo first and we will help you choose the right plan for your business.
+    </p>
+    <a href="../demo/" class="footer-btn">Book Free Demo</a>
+    <p class="footer-copy">© 2026 Knovalab. All rights reserved.</p>
+  </footer>
 
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script>
+    const RAZORPAY_KEY_ID = "rzp_test_SfGGUtugw2QPkd";
+
+    document.querySelectorAll(".pay-btn").forEach((button) => {
+      button.addEventListener("click", function () {
+        const plan = this.dataset.plan;
+        const amount = Number(this.dataset.amount);
+
+        const options = {
+          key: RAZORPAY_KEY_ID,
+          amount: amount,
+          currency: "INR",
+          name: "Knovalab",
+          description: plan + " Plan",
+          handler: function (response) {
+            const url =
+              "./success/index.html" +
+              "?plan=" + encodeURIComponent(plan) +
+              "&amount=" + encodeURIComponent(amount / 100) +
+              "&payment_id=" + encodeURIComponent(response.razorpay_payment_id);
+
+            window.location.href = url;
+          },
+          prefill: {
+            name: "",
+            email: "",
+            contact: ""
+          },
+          notes: {
+            plan: plan,
+            source: "Knovalab Pricing Page"
+          },
+          theme: {
+            color: "#ff6a00"
+          }
+        };
+
+        const rzp = new Razorpay(options);
+        rzp.open();
+      });
+    });
+  </script>
 </body>
 </html>
