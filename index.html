@@ -345,6 +345,172 @@ display:none;
 
 }
 
+/* ================= CHAT ================= */
+
+.chat-trigger{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#ff6a00;
+color:white;
+padding:14px 18px;
+border-radius:40px;
+cursor:pointer;
+z-index:3000;
+font-weight:600;
+box-shadow:0 12px 30px rgba(255,106,0,0.28);
+transition:0.3s;
+}
+
+.chat-trigger:hover{
+transform:translateY(-2px);
+}
+
+.chatbox{
+position:fixed;
+bottom:80px;
+right:20px;
+width:360px;
+max-width:calc(100vw - 24px);
+height:520px;
+background:#1a1a1a;
+border:1px solid #2a2a2a;
+border-radius:18px;
+display:none;
+flex-direction:column;
+z-index:3000;
+color:white;
+overflow:hidden;
+box-shadow:0 24px 60px rgba(0,0,0,0.45);
+}
+
+.chatbox.open{
+display:flex;
+}
+
+.chatbox-header{
+background:#ff6a00;
+padding:14px 16px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+font-weight:700;
+}
+
+.chatbox-close{
+background:transparent;
+border:none;
+color:white;
+font-size:20px;
+cursor:pointer;
+line-height:1;
+}
+
+.chatbox-body{
+padding:14px;
+height:100%;
+overflow-y:auto;
+display:flex;
+flex-direction:column;
+gap:12px;
+background:#141414;
+}
+
+.chat-msg{
+max-width:88%;
+padding:11px 13px;
+border-radius:14px;
+font-size:14px;
+line-height:1.6;
+word-wrap:break-word;
+}
+
+.chat-msg.bot{
+background:#222;
+align-self:flex-start;
+border:1px solid #2d2d2d;
+}
+
+.chat-msg.user{
+background:#ff6a00;
+align-self:flex-end;
+color:white;
+}
+
+.chat-suggestions{
+display:flex;
+flex-wrap:wrap;
+gap:8px;
+padding:0 14px 12px;
+background:#141414;
+border-top:1px solid #222;
+}
+
+.chat-suggestion{
+background:#1f1f1f;
+color:white;
+border:1px solid #2b2b2b;
+border-radius:999px;
+padding:8px 12px;
+font-size:12px;
+cursor:pointer;
+transition:0.25s;
+}
+
+.chat-suggestion:hover{
+border-color:#ff6a00;
+color:#ff6a00;
+}
+
+.chatbox-input{
+display:flex;
+gap:10px;
+padding:14px;
+background:#1a1a1a;
+border-top:1px solid #222;
+}
+
+.chatbox-input input{
+flex:1;
+background:#111;
+color:white;
+border:1px solid #2a2a2a;
+border-radius:12px;
+padding:12px 14px;
+outline:none;
+}
+
+.chatbox-input input:focus{
+border-color:#ff6a00;
+}
+
+.chatbox-input button{
+background:#ff6a00;
+color:white;
+border:none;
+border-radius:12px;
+padding:12px 16px;
+font-weight:600;
+cursor:pointer;
+}
+
+.chatbox-input button:hover{
+opacity:0.92;
+}
+
+@media(max-width:600px){
+.chatbox{
+right:12px;
+bottom:72px;
+width:calc(100vw - 24px);
+height:70vh;
+}
+.chat-trigger{
+right:12px;
+bottom:12px;
+}
+}
+
 </style>
 </head>
 
@@ -663,11 +829,8 @@ Chat on WhatsApp
 
 <!-- ================= FOOTER ================= -->
 
-<!-- ================= NEW CTA FOOTER ================= -->
-
 <footer style="background:#0b0b0b;padding:100px 10%;">
 
-  <!-- CTA BOX -->
   <div class="cta-box">
 
     <div class="cta-left">
@@ -686,7 +849,6 @@ Chat on WhatsApp
 
   </div>
 
-  <!-- FOOTER LINKS -->
   <div class="footer-bottom">
 
     <div class="footer-brand">
@@ -727,23 +889,34 @@ Chat on WhatsApp
   </div>
 
 </footer>
+
 <!-- ================= CHAT ================= -->
 
-<div onclick="toggleChat()"
-style="position:fixed;bottom:20px;right:20px;background:#ff6a00;color:white;padding:14px 18px;border-radius:40px;cursor:pointer;z-index:3000;">
-Chat
-</div>
+<div class="chat-trigger" onclick="toggleChat()">Chat</div>
 
-<div id="chatbox"
-style="position:fixed;bottom:80px;right:20px;width:300px;background:#1a1a1a;border-radius:15px;display:none;flex-direction:column;z-index:3000;color:white;">
-<div style="background:#ff6a00;padding:12px;border-radius:15px 15px 0 0;">
-Knovalab Assistant
-</div>
-<div style="padding:15px;height:200px;overflow-y:auto;">
-<div style="background:#222;padding:10px;border-radius:10px;margin-bottom:10px;font-size:14px;">
-Hi 👋 I can help you with pricing, timelines or booking a demo.
-</div>
-</div>
+<div id="chatbox" class="chatbox" aria-live="polite">
+  <div class="chatbox-header">
+    <span>Knovalab Assistant</span>
+    <button class="chatbox-close" onclick="toggleChat()" aria-label="Close chat">×</button>
+  </div>
+
+  <div id="chatMessages" class="chatbox-body">
+    <div class="chat-msg bot">
+      Hi 👋 Ask me anything about Knovalab. I only answer based on our FAQ, like pricing, delivery time, ownership, support, features, and consultations.
+    </div>
+  </div>
+
+  <div class="chat-suggestions">
+    <button class="chat-suggestion" onclick="askSuggestion('How long does it take to build a website?')">Delivery time</button>
+    <button class="chat-suggestion" onclick="askSuggestion('Do I own the website?')">Ownership</button>
+    <button class="chat-suggestion" onclick="askSuggestion('How much does a website cost?')">Pricing</button>
+    <button class="chat-suggestion" onclick="askSuggestion('Will my website work on mobile?')">Mobile friendly</button>
+  </div>
+
+  <div class="chatbox-input">
+    <input id="chatInput" type="text" placeholder="Ask about pricing, support, features..." />
+    <button onclick="sendChat()">Send</button>
+  </div>
 </div>
 
 
@@ -775,7 +948,7 @@ p.style.display = p.style.display === "block" ? "none" : "block";
 /* Chat toggle */
 function toggleChat(){
 const box = document.getElementById("chatbox");
-box.style.display = box.style.display === "flex" ? "none" : "flex";
+box.classList.toggle("open");
 }
 
 /* Slider drag */
@@ -809,6 +982,213 @@ slider.addEventListener("touchmove",(e)=>{
 const x=e.touches[0].pageX;
 const walk=(x-startX)*1.2;
 slider.scrollLeft=scrollLeft-walk;
+});
+
+/* ================= FAQ KNOWLEDGE CHAT ================= */
+
+const faqKnowledge = [
+  { q: "what is knovalab", a: "Knovalab builds modern websites for local businesses." },
+  { q: "who are your websites for", a: "Knovalab websites are for small businesses, restaurants, salons, stores, and startups." },
+  { q: "why does my business need a website", a: "A website helps customers find and trust your business." },
+  { q: "how long does it take to build a website", a: "Most websites are completed in 2–5 days." },
+  { q: "do you offer consultations", a: "Yes, free demos are available." },
+  { q: "can i request a custom design", a: "Yes, premium plans allow custom design." },
+  { q: "do you redesign existing websites", a: "Yes, Knovalab can redesign outdated websites." },
+  { q: "will my site work on phones", a: "Yes, every site is mobile responsive." },
+  { q: "will my website work on mobile", a: "Yes, every site is mobile responsive." },
+  { q: "can my website grow later", a: "Yes, new pages can be added anytime." },
+  { q: "do i need coding knowledge", a: "No, Knovalab handles the technical side." },
+  { q: "can i show photos on my website", a: "Yes, image galleries can be added." },
+  { q: "can customers contact me through the website", a: "Yes, customers can contact you using WhatsApp or contact forms." },
+  { q: "can i display business hours", a: "Yes, business hours can be listed." },
+  { q: "can i show customer reviews", a: "Yes, testimonial sections can be added." },
+  { q: "can i link my instagram", a: "Yes, social media links are supported." },
+  { q: "do you build landing pages", a: "Yes, landing pages are available." },
+  { q: "do you build portfolio websites", a: "Yes, portfolio sites are supported." },
+  { q: "can i add service lists", a: "Yes, service sections can be included." },
+  { q: "will my website load fast", a: "Yes, sites are optimized for speed." },
+  { q: "how do i start a project", a: "You can contact Knovalab or book a demo." },
+  { q: "is knovalab suitable for new businesses", a: "Yes, Knovalab specializes in helping new and growing businesses." },
+  { q: "do you work with local businesses only", a: "Knovalab works with businesses across India." },
+  { q: "can i see a demo before buying", a: "Yes, demo previews are created before final approval." },
+  { q: "is there any contract", a: "No long-term contracts are required." },
+  { q: "what makes knovalab different", a: "Knovalab builds fast, clean, modern websites focused on conversions." },
+
+  { q: "how much does a website cost", a: "Pricing depends on the features and customization required." },
+  { q: "do you offer different plans", a: "Yes, Knovalab offers multiple website plans." },
+  { q: "is there a monthly fee", a: "Only hosting and maintenance if chosen." },
+  { q: "do you require advance payment", a: "Yes, partial advance payment is required to start." },
+  { q: "are there hidden charges", a: "No, Knovalab maintains transparent pricing." },
+  { q: "do you offer discounts", a: "Special offers may be available during consultation." },
+  { q: "can i upgrade later", a: "Yes, plans can be upgraded anytime." },
+  { q: "do you offer refunds", a: "Refund policies are discussed before the project starts." },
+  { q: "is domain included", a: "Domain can be included depending on the plan." },
+  { q: "is hosting included", a: "Hosting support is available." },
+  { q: "are payment gateways included", a: "Payment integration depends on the selected plan." },
+  { q: "can i pay in installments", a: "Installments may be available for larger projects." },
+  { q: "are there maintenance charges", a: "Maintenance is optional." },
+  { q: "what is the cheapest plan", a: "Knovalab offers starter packages for small businesses." },
+  { q: "what is included in premium plans", a: "Premium plans include advanced features and customization." },
+  { q: "do you provide invoices", a: "Yes, invoices are provided." },
+  { q: "are taxes included", a: "Taxes are applied as per regulations." },
+  { q: "do you increase prices later", a: "Pricing remains as agreed in the contract." },
+  { q: "can i customize my plan", a: "Yes, plans can be tailored." },
+  { q: "do you charge for revisions", a: "Limited revisions are included." },
+  { q: "is seo included in pricing", a: "Basic SEO is included." },
+  { q: "do you offer annual packages", a: "Yes, yearly support packages are available." },
+  { q: "can i pay via upi", a: "Yes, multiple payment options are available." },
+  { q: "do you offer enterprise pricing", a: "Yes, enterprise pricing is available for large projects." },
+  { q: "how do i get exact quotation", a: "Book a consultation for detailed pricing." },
+
+  { q: "will my website be mobile friendly", a: "Yes, all Knovalab websites are fully responsive." },
+  { q: "do you add whatsapp integration", a: "Yes, WhatsApp chat buttons can be added." },
+  { q: "can i add a booking system", a: "Yes, booking forms can be integrated." },
+  { q: "can i sell products", a: "E-commerce features are available in selected plans." },
+  { q: "do you add google maps", a: "Yes, location maps can be embedded." },
+  { q: "can i update content later", a: "Yes, content updates are possible." },
+  { q: "do you add photo galleries", a: "Yes, image sections can be added." },
+  { q: "can i add testimonials", a: "Yes, testimonials can be included." },
+  { q: "do you add contact forms", a: "Yes, contact forms are included." },
+  { q: "can i add multiple pages", a: "Yes, multi-page websites are supported." },
+  { q: "will my website have animations", a: "Yes, modern subtle animations are included." },
+  { q: "can i add videos", a: "Yes, video sections can be embedded." },
+  { q: "will my site be seo optimized", a: "Basic SEO structure is included." },
+  { q: "can i connect social media", a: "Yes, all major social platforms can be linked." },
+  { q: "do you add call buttons", a: "Yes, click-to-call buttons are supported." },
+  { q: "can i change colors later", a: "Yes, design updates are possible." },
+  { q: "can i track visitors", a: "Yes, analytics tools can be added." },
+  { q: "do you add security features", a: "Yes, security best practices are followed." },
+  { q: "can i integrate payment gateways", a: "Yes, that is supported in selected plans." },
+  { q: "can i add custom sections", a: "Yes, custom sections can be built." },
+  { q: "do you add faqs on my site", a: "Yes, FAQ sections can be included." },
+  { q: "will my site be scalable", a: "Yes, websites can grow with your business." },
+  { q: "do you provide backup options", a: "Yes, backup solutions are available." },
+  { q: "can i request specific functionality", a: "Yes, custom functionality can be discussed." },
+
+  { q: "what technology do you use", a: "Knovalab uses modern HTML, CSS, and JavaScript." },
+  { q: "do you use wordpress", a: "Knovalab builds custom coded websites for better performance." },
+  { q: "will my website be secure", a: "Yes, security best practices are followed." },
+  { q: "do you provide ssl", a: "SSL setup assistance is provided." },
+  { q: "will my site be fast", a: "Yes, optimization is a priority." },
+  { q: "do you optimize images", a: "Yes, images are compressed and optimized." },
+  { q: "can i host on my own server", a: "Yes, hosting flexibility is available." },
+  { q: "do you provide domain setup", a: "Yes, domain configuration support is included." },
+  { q: "will my site rank on google", a: "Knovalab implements SEO basics for better ranking." },
+  { q: "do you use templates", a: "Structured frameworks are used and customized for each client." },
+  { q: "can i migrate my existing site", a: "Yes, migration services are available." },
+  { q: "do you integrate apis", a: "Yes, third-party integrations are possible." },
+  { q: "is my data safe", a: "Yes, data protection practices are followed." },
+  { q: "do you provide backups", a: "Backup solutions can be configured." },
+  { q: "can you redesign my old site", a: "Yes, redesign services are available." },
+  { q: "do you optimize for mobile speed", a: "Yes, mobile performance is prioritized." },
+  { q: "can i integrate analytics", a: "Yes, Google Analytics and other tools can be added." },
+  { q: "do you use clean code", a: "Yes, structured coding practices are followed." },
+  { q: "is the code customizable", a: "Yes, future customizations are possible." },
+  { q: "do you support multilingual sites", a: "Yes, multi-language options are possible." },
+  { q: "can i add a blog", a: "Yes, blog functionality can be integrated." },
+  { q: "do you follow modern ui standards", a: "Yes, Knovalab designs with modern UX/UI trends." },
+  { q: "is my website scalable", a: "Yes, your website can grow with your business." },
+  { q: "can i request advanced features", a: "Yes, advanced custom development is available." },
+  { q: "will my website be future proof", a: "Knovalab builds using standards that support scalability." },
+
+  { q: "do you provide support after launch", a: "Yes, post-launch support is available." },
+  { q: "how long is support valid", a: "Support duration depends on the selected plan." },
+  { q: "can i request changes later", a: "Yes, revisions can be requested." },
+  { q: "how do i contact support", a: "You can contact Knovalab via WhatsApp or email." },
+  { q: "do you provide emergency support", a: "Yes, emergency assistance is available." },
+  { q: "do you offer maintenance packages", a: "Yes, maintenance plans are available." },
+  { q: "can i update content myself", a: "Yes, guidance can be provided." },
+  { q: "do you offer training", a: "Yes, basic training can be arranged." },
+  { q: "will you fix bugs after launch", a: "Yes, bug fixes are included during the support period." },
+  { q: "do you offer long term support", a: "Yes, extended support plans are available." },
+  { q: "how fast do you respond", a: "Knovalab aims to respond quickly during business hours." },
+  { q: "can i schedule updates", a: "Yes, updates can be scheduled." },
+  { q: "do you monitor uptime", a: "Monitoring options are available." },
+  { q: "can you redesign later", a: "Yes, redesign upgrades are possible." },
+  { q: "do you provide seo support", a: "Advanced SEO services can be discussed." },
+  { q: "can i cancel maintenance anytime", a: "Yes, maintenance can be canceled anytime." },
+  { q: "do you provide hosting help", a: "Yes, hosting guidance is available." },
+  { q: "will you update plugins", a: "For supported builds, updates are handled." },
+  { q: "can i transfer my website", a: "Yes, website ownership is yours." },
+  { q: "do you offer priority support", a: "Yes, premium clients get priority assistance." },
+  { q: "can i request feature updates", a: "Yes, new features can be added." },
+  { q: "will you help with domain renewal", a: "Yes, renewal assistance is available." },
+  { q: "can i pause support", a: "Yes, support plans are flexible." },
+  { q: "do you provide documentation", a: "Basic documentation can be shared." },
+  { q: "how do i start working with knovalab", a: "Book a free consultation to get started." }
+];
+
+const fallbackAnswer = "I can only answer based on Knovalab FAQ knowledge. Try asking about pricing, delivery time, ownership, mobile support, features, or consultations.";
+
+const chatMessages = document.getElementById("chatMessages");
+const chatInput = document.getElementById("chatInput");
+
+function normalizeText(text){
+  return text.toLowerCase().replace(/[^\w\s]/g, "").replace(/\s+/g, " ").trim();
+}
+
+function addChatMessage(type, text){
+  const msg = document.createElement("div");
+  msg.className = `chat-msg ${type}`;
+  msg.textContent = text;
+  chatMessages.appendChild(msg);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+function getFaqAnswer(userText){
+  const normalized = normalizeText(userText);
+  if(!normalized) return fallbackAnswer;
+
+  let bestMatch = null;
+  let bestScore = 0;
+
+  faqKnowledge.forEach(item => {
+    const question = normalizeText(item.q);
+    let score = 0;
+
+    if(normalized === question) score += 10;
+    if(normalized.includes(question)) score += 8;
+    if(question.includes(normalized)) score += 6;
+
+    const words = normalized.split(" ");
+    words.forEach(word => {
+      if(word.length > 2 && question.includes(word)) score += 1;
+    });
+
+    if(score > bestScore){
+      bestScore = score;
+      bestMatch = item;
+    }
+  });
+
+  return bestScore > 1 ? bestMatch.a : fallbackAnswer;
+}
+
+function sendChat(){
+  const text = chatInput.value.trim();
+  if(!text) return;
+
+  addChatMessage("user", text);
+  chatInput.value = "";
+
+  setTimeout(() => {
+    const answer = getFaqAnswer(text);
+    addChatMessage("bot", answer);
+  }, 250);
+}
+
+function askSuggestion(question){
+  if(!document.getElementById("chatbox").classList.contains("open")){
+    toggleChat();
+  }
+  chatInput.value = question;
+  sendChat();
+}
+
+chatInput.addEventListener("keydown", function(e){
+  if(e.key === "Enter"){
+    sendChat();
+  }
 });
 
 </script>
