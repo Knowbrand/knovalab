@@ -4,10 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Knovalab | Premium Business Websites</title>
+  <meta name="description" content="Knovalab pricing plans for premium business websites. Choose the right website plan for your business and book a free demo." />
+  <meta name="theme-color" content="#0b0b0b" />
 
-<link rel="icon" href="/favicon.png" sizes="32x32" type="image/png">
-<link rel="apple-touch-icon" href="/favicon.png">
-<link rel="shortcut icon" href="/favicon.png">
+  <link rel="icon" href="/favicon.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="/favicon.png" />
+  <link rel="shortcut icon" href="/favicon.png" />
+
   <style>
     *{
       margin:0;
@@ -21,19 +24,32 @@
       --panel:#151515;
       --panel-2:#1c1c1c;
       --text:#ffffff;
-      --muted:rgba(255,255,255,0.7);
+      --muted:rgba(255,255,255,0.72);
       --line:rgba(255,255,255,0.08);
       --accent:#ff6a00;
       --accent-2:#ff8a33;
-      --shadow:0 24px 70px rgba(0,0,0,0.35);
+      --shadow:0 18px 48px rgba(0,0,0,0.28);
+      --radius:24px;
+      --radius-sm:14px;
+      --max:1180px;
+    }
+
+    html{
+      scroll-behavior:smooth;
     }
 
     body{
       background:
-        radial-gradient(circle at top, rgba(255,106,0,0.12), transparent 24%),
+        radial-gradient(circle at top, rgba(255,106,0,0.10), transparent 24%),
         linear-gradient(180deg, #111 0%, #090909 100%);
       color:var(--text);
       overflow-x:hidden;
+      line-height:1.6;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
     }
 
     a{
@@ -41,91 +57,132 @@
       color:inherit;
     }
 
+    button{
+      font:inherit;
+    }
+
+    .container{
+      width:min(100%, var(--max));
+      margin:0 auto;
+      padding:0 20px;
+    }
+
+    /* NAV */
+
     nav{
       width:100%;
-      padding:20px 7%;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:16px;
       background:rgba(10,10,10,0.88);
       border-bottom:1px solid var(--line);
       position:sticky;
       top:0;
-      z-index:10;
+      z-index:50;
       backdrop-filter:blur(12px);
+    }
+
+    .nav-inner{
+      width:min(100%, 1240px);
+      margin:0 auto;
+      padding:18px 20px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
     }
 
     .logo{
       font-size:24px;
       font-weight:800;
       letter-spacing:-0.8px;
-      color:#ffffff;
-    }
-
-    .logo span{
-      color:inherit;
+      flex-shrink:0;
     }
 
     .nav-actions{
       display:flex;
       align-items:center;
       gap:14px;
-      flex-wrap:wrap;
     }
 
-    .currency-wrap{
+    .nav-links{
       display:flex;
       align-items:center;
-      gap:10px;
-      padding:8px 12px;
-      border:1px solid var(--line);
-      border-radius:999px;
-      background:rgba(255,255,255,0.03);
+      gap:22px;
     }
 
-    .currency-wrap label{
-      font-size:12px;
-      font-weight:700;
-      color:rgba(255,255,255,0.78);
-      text-transform:uppercase;
-      letter-spacing:1px;
-      white-space:nowrap;
-    }
-
-    .currency-select{
-      background:transparent;
-      border:none;
-      outline:none;
-      color:#ffffff;
+    .nav-links a{
       font-size:14px;
-      font-weight:700;
-      cursor:pointer;
-      min-width:96px;
+      color:rgba(255,255,255,0.82);
+      transition:0.25s;
     }
 
-    .currency-select option{
-      color:#111111;
-      background:#ffffff;
+    .nav-links a:hover{
+      color:#fff;
+    }
+
+    .back-btn,
+    .btn,
+    .footer-btn{
+      background:linear-gradient(135deg, var(--accent), var(--accent-2));
+      color:white;
+      font-weight:700;
+      transition:0.3s;
     }
 
     .back-btn{
-      background:linear-gradient(135deg, var(--accent), var(--accent-2));
-      color:white;
-      padding:11px 22px;
+      padding:11px 20px;
       border-radius:999px;
       font-size:14px;
-      font-weight:700;
-      transition:0.3s;
       box-shadow:var(--shadow);
+      white-space:nowrap;
     }
 
-    .back-btn:hover{
+    .back-btn:hover,
+    .btn:hover,
+    .footer-btn:hover{
       transform:translateY(-2px);
     }
 
+    .menu-toggle{
+      display:none;
+      width:44px;
+      height:44px;
+      border:none;
+      border-radius:12px;
+      background:rgba(255,255,255,0.05);
+      color:#fff;
+      font-size:22px;
+      cursor:pointer;
+    }
+
+    .mobile-menu{
+      display:none;
+      border-top:1px solid var(--line);
+      background:#0d0d0d;
+    }
+
+    .mobile-menu.show{
+      display:block;
+    }
+
+    .mobile-menu .container{
+      padding-top:14px;
+      padding-bottom:18px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+
+    .mobile-menu a{
+      padding:14px 16px;
+      border-radius:14px;
+      background:rgba(255,255,255,0.03);
+      color:rgba(255,255,255,0.84);
+      border:1px solid rgba(255,255,255,0.05);
+    }
+
+    /* HERO */
+
     .hero{
-      width:min(100%, 1180px);
+      width:min(100%, var(--max));
       margin:0 auto;
       padding:72px 20px 36px;
       text-align:center;
@@ -138,32 +195,37 @@
       letter-spacing:2px;
       font-size:12px;
       margin-bottom:16px;
+      font-weight:700;
     }
 
     .hero h1{
-      font-size:clamp(38px, 6vw, 72px);
-      line-height:0.96;
+      font-size:clamp(36px, 6vw, 70px);
+      line-height:0.98;
       letter-spacing:-2px;
       margin-bottom:14px;
+      text-wrap:balance;
     }
 
     .hero p{
-      max-width:620px;
+      max-width:640px;
       margin:0 auto;
       color:var(--muted);
       font-size:16px;
       line-height:1.8;
+      text-wrap:pretty;
     }
 
+    /* PRICING */
+
     .pricing-wrap{
-      width:min(100%, 1180px);
+      width:min(100%, var(--max));
       margin:0 auto;
       padding:8px 20px 80px;
     }
 
     .pricing{
       display:grid;
-      grid-template-columns:repeat(3, 1fr);
+      grid-template-columns:repeat(3, minmax(0, 1fr));
       gap:24px;
       align-items:stretch;
     }
@@ -171,27 +233,15 @@
     .card{
       background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
       border:1px solid var(--line);
-      border-radius:28px;
+      border-radius:var(--radius);
       padding:30px;
       transition:0.3s ease;
-      text-align:left;
       display:flex;
       flex-direction:column;
       position:relative;
       overflow:hidden;
       box-shadow:var(--shadow);
-    }
-
-    .card::before{
-      content:"";
-      position:absolute;
-      width:240px;
-      height:240px;
-      border-radius:50%;
-      background:radial-gradient(circle, rgba(255,106,0,0.12), transparent 70%);
-      top:-120px;
-      right:-60px;
-      pointer-events:none;
+      min-height:100%;
     }
 
     .card:hover{
@@ -201,17 +251,14 @@
 
     .highlight{
       border:1px solid rgba(255,106,0,0.4);
-      background:linear-gradient(180deg, rgba(255,106,0,0.08), rgba(255,255,255,0.02));
+      background:linear-gradient(180deg, rgba(255,106,0,0.09), rgba(255,255,255,0.02));
     }
 
     .badge{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
+      display:inline-block;
       padding:8px 14px;
       border-radius:999px;
       background:rgba(255,255,255,0.05);
-      color:rgba(255,255,255,0.84);
       font-size:12px;
       font-weight:700;
       margin-bottom:18px;
@@ -226,15 +273,13 @@
     .card h3{
       font-size:28px;
       margin-bottom:8px;
-      letter-spacing:-0.8px;
     }
 
     .desc{
       font-size:14px;
       color:var(--muted);
       margin-bottom:22px;
-      line-height:1.7;
-      min-height:48px;
+      line-height:1.75;
     }
 
     .price-box{
@@ -242,10 +287,9 @@
     }
 
     .price{
-      font-size:42px;
-      font-weight:800;
+      font-size:20px;
+      font-weight:700;
       color:var(--accent);
-      letter-spacing:-1.5px;
       margin-bottom:6px;
     }
 
@@ -253,44 +297,17 @@
       color:rgba(255,255,255,0.55);
       font-size:13px;
       margin-bottom:18px;
+      line-height:1.7;
     }
 
     .btn{
       display:block;
       width:100%;
-      border:none;
-      cursor:pointer;
-      background:linear-gradient(135deg, var(--accent), var(--accent-2));
-      padding:13px;
-      border-radius:12px;
-      color:white;
+      padding:14px 16px;
+      border-radius:var(--radius-sm);
       font-size:14px;
-      font-weight:700;
-      transition:0.3s;
-      margin-bottom:10px;
-    }
-
-    .btn:hover{
-      transform:translateY(-2px);
-    }
-
-    .demo-btn{
-      display:block;
-      width:100%;
       text-align:center;
-      padding:12px;
-      border-radius:12px;
-      color:white;
-      font-size:14px;
-      font-weight:700;
-      border:1px solid rgba(255,255,255,0.1);
-      background:rgba(255,255,255,0.02);
-      transition:0.3s;
-    }
-
-    .demo-btn:hover{
-      transform:translateY(-2px);
-      border-color:rgba(255,106,0,0.28);
+      box-shadow:none;
     }
 
     ul{
@@ -301,22 +318,23 @@
     }
 
     li{
-      margin:10px 0;
+      margin:11px 0;
       font-size:14px;
       color:rgba(255,255,255,0.84);
-      line-height:1.6;
+      line-height:1.65;
     }
+
+    /* FOOTER CTA */
 
     .footer{
       background:#0b0b0b;
-      color:white;
       text-align:center;
       padding:72px 20px;
       border-top:1px solid rgba(255,255,255,0.05);
     }
 
     .footer h2{
-      font-size:32px;
+      font-size:clamp(28px, 4vw, 40px);
       margin-bottom:16px;
       letter-spacing:-1px;
     }
@@ -330,93 +348,109 @@
 
     .footer-btn{
       display:inline-block;
-      background:linear-gradient(135deg, var(--accent), var(--accent-2));
-      color:white;
       padding:13px 28px;
       border-radius:999px;
-      font-weight:700;
-      transition:0.3s;
     }
 
-    .footer-btn:hover{
-      transform:translateY(-2px);
-    }
-
-    .footer-copy{
+    .copyright{
       margin-top:28px;
       font-size:13px;
       opacity:0.6;
     }
 
+    /* MOBILE */
+
     @media(max-width:980px){
       .pricing{
         grid-template-columns:1fr;
-        max-width:420px;
+        max-width:500px;
         margin:0 auto;
       }
     }
 
-    @media(max-width:640px){
-      nav{
-        padding:16px 14px;
+    @media(max-width:820px){
+      .nav-links,
+      .back-btn.desktop-only{
+        display:none;
       }
 
-      .nav-actions{
-        width:100%;
-        justify-content:flex-end;
-      }
-
-      .currency-wrap{
-        width:100%;
-        justify-content:space-between;
-        border-radius:14px;
-      }
-
-      .currency-select{
-        min-width:0;
-        width:100%;
-        text-align:right;
+      .menu-toggle{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
       }
 
       .hero{
-        padding:54px 14px 24px;
+        padding-top:56px;
       }
 
-      .pricing-wrap{
-        padding:8px 14px 60px;
+      .hero h1{
+        letter-spacing:-1.4px;
+      }
+    }
+
+    @media(max-width:560px){
+      .nav-inner{
+        padding:14px 16px;
+      }
+
+      .container,
+      .hero,
+      .pricing-wrap,
+      .footer{
+        padding-left:16px;
+        padding-right:16px;
       }
 
       .card{
-        padding:22px;
-        border-radius:22px;
+        padding:24px 20px;
       }
 
-      .price{
-        font-size:36px;
+      .logo{
+        font-size:22px;
       }
+    }
 
-      .footer{
-        padding:56px 14px;
+    @media (prefers-reduced-motion: reduce){
+      *{
+        scroll-behavior:auto !important;
+        transition:none !important;
       }
     }
   </style>
 </head>
+
 <body>
 
   <nav>
-    <div class="logo">Knovalab</div>
-    <div class="nav-actions">
-      <div class="currency-wrap">
-        <label for="currencySelect">Currency</label>
-        <select id="currencySelect" class="currency-select" aria-label="Select currency">
-          <option value="INR">INR</option>
-          <option value="USD">USD</option>
-          <option value="EUR">EURO</option>
-          <option value="GBP">POUNDS</option>
-          <option value="KWD">KWD</option>
-        </select>
+    <div class="nav-inner">
+      <div class="logo">Knovalab</div>
+
+      <div class="nav-actions">
+        <div class="nav-links">
+          <a href="../">Home</a>
+          <a href="../portfolio/">Portfolio</a>
+          <a href="../services/">Services</a>
+          <a href="../pricing/">Pricing</a>
+          <a href="../faq/">FAQ</a>
+        </div>
+
+        <a href="../" class="back-btn desktop-only">Home</a>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu">
+          ☰
+        </button>
       </div>
-      <a href="../" class="back-btn">Home</a>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="container">
+        <a href="../">Home</a>
+        <a href="../portfolio/">Portfolio</a>
+        <a href="../services/">Services</a>
+        <a href="../pricing/">Pricing</a>
+        <a href="../faq/">FAQ</a>
+      </div>
     </div>
   </nav>
 
@@ -424,112 +458,73 @@
     <span class="eyebrow">Pricing Plans</span>
     <h1>Choose the right website plan for your business</h1>
     <p>
-      Flexible packages for businesses that want a clean, modern online presence.
-      Test payments are enabled with Razorpay so you can safely try the checkout flow.
+      Every business is different. We create tailored website solutions based on your goals,
+      features, and growth plans, so you only pay for what actually helps your business grow.
     </p>
   </section>
 
   <section class="pricing-wrap">
     <div class="pricing">
 
-      <div class="card">
+      <article class="card">
         <div class="badge">Starter Plan</div>
         <h3>Basic</h3>
         <p class="desc">Perfect for small businesses starting online with a focused one-page presence.</p>
 
         <div class="price-box">
-          <div class="price">₹4,999/-</div>
-          <div class="price-note">One-time website setup</div>
-          <button
-            class="btn pay-btn"
-            data-plan="Basic"
-            data-price-inr="4999"
-            data-price-usd="59"
-            data-price-eur="54"
-            data-price-gbp="47"
-            data-price-kwd="18"
-            data-currency="INR"
-            data-amount="499900"
-          >
-            Pay Now
-          </button>
-          <a href="../demo/" class="demo-btn">Book Free Demo</a>
+          <div class="price">Pricing as per requirement</div>
+          <div class="price-note">Custom quote based on your business goals and content needs.</div>
+          <a href="../demo/" class="btn">Book Free Demo</a>
         </div>
 
         <ul>
           <li>✔ 1 Page Website</li>
-          <li>✔ Mobile Responsive</li>
-          <li>✔ Business Information</li>
+          <li>✔ Mobile Responsive Layout</li>
+          <li>✔ Business Information Setup</li>
           <li>✔ Google Maps Integration</li>
           <li>✔ WhatsApp Button</li>
         </ul>
-      </div>
+      </article>
 
-      <div class="card highlight">
+      <article class="card highlight">
         <div class="badge">Most Popular</div>
         <h3>Standard</h3>
-        <p class="desc">Best for growing businesses that need a better layout and more room to explain their services.</p>
+        <p class="desc">Best for growing businesses that need a better layout and more room to explain services.</p>
 
         <div class="price-box">
-          <div class="price">₹6,599/-</div>
-          <div class="price-note">One-time website setup</div>
-          <button
-            class="btn pay-btn"
-            data-plan="Standard"
-            data-price-inr="6599"
-            data-price-usd="79"
-            data-price-eur="72"
-            data-price-gbp="62"
-            data-price-kwd="24"
-            data-currency="INR"
-            data-amount="659900"
-          >
-            Pay Now
-          </button>
-          <a href="../demo/" class="demo-btn">Book Free Demo</a>
+          <div class="price">Pricing as per requirement</div>
+          <div class="price-note">Custom quote based on your business goals and feature requirements.</div>
+          <a href="../demo/" class="btn">Book Free Demo</a>
         </div>
 
         <ul>
           <li>✔ Everything in Basic</li>
-          <li>✔ Up to 4 Sections</li>
+          <li>✔ Up to 4 Core Sections</li>
           <li>✔ Photo Gallery</li>
-          <li>✔ Animations</li>
-          <li>✔ Better Layout</li>
+          <li>✔ Smooth Scroll Animations</li>
+          <li>✔ Improved Layout Structure</li>
         </ul>
-      </div>
+      </article>
 
-      <div class="card">
+      <article class="card">
         <div class="badge">Custom Growth</div>
         <h3>Premium</h3>
-        <p class="desc">A full custom website solution for businesses that want more pages, more flexibility, and priority support.</p>
+        <p class="desc">A full custom website solution for businesses that want more pages and stronger support.</p>
 
         <div class="price-box">
-          <div class="price">₹8,299/-</div>
-          <div class="price-note">One-time website setup</div>
-          <button
-            class="btn pay-btn"
-            data-plan="Premium"
-            data-price-inr="8299"
-            data-price-usd="99"
-            data-price-eur="90"
-            data-price-gbp="78"
-            data-price-kwd="30"
-            data-currency="INR"
-            data-amount="829900"
-          >
-            Pay Now
-          </button>
-          <a href="../demo/" class="demo-btn">Book Free Demo</a>
+          <div class="price">Pricing as per requirement</div>
+          <div class="price-note">Custom quote based on design scope, page count, and customization level.</div>
+          <a href="../demo/" class="btn">Book Free Demo</a>
         </div>
 
         <ul>
           <li>✔ Everything in Standard</li>
           <li>✔ Multi Page Website</li>
           <li>✔ Advanced Custom Design</li>
-          <li>✔ Unlimited Sections</li>
-          <li>✔ Priority Changes</li>
+          <li>✔ Unlimited Core Sections</li>
+          <li>✔ Priority Changes & Support</li>
         </ul>
-      </div>
+      </article>
 
     </div>
   </section>
@@ -537,142 +532,29 @@
   <footer class="footer">
     <h2>Ready to launch your website?</h2>
     <p>
-      Explore the Razorpay test checkout flow or book a free demo first and we will help you choose the right plan for your business.
+      Book a free consultation and we will recommend the best plan for your business,
+      based on what you need now and how you plan to grow.
     </p>
     <a href="../demo/" class="footer-btn">Book Free Demo</a>
-    <p class="footer-copy">© 2026 Knovalab. All rights reserved.</p>
+    <p class="copyright">© 2026 Knovalab. All rights reserved.</p>
   </footer>
 
-  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
   <script>
-    const RAZORPAY_KEY_ID = "rzp_test_SfGGUtugw2QPkd";
+    const menuToggle = document.getElementById("menuToggle");
+    const mobileMenu = document.getElementById("mobileMenu");
 
-    const currencyConfig = {
-      INR: {
-        key: "inr",
-        subunits: 100,
-        locale: "en-IN",
-        decimals: 0
-      },
-      USD: {
-        key: "usd",
-        subunits: 100,
-        locale: "en-US",
-        decimals: 0
-      },
-      EUR: {
-        key: "eur",
-        subunits: 100,
-        locale: "de-DE",
-        decimals: 0
-      },
-      GBP: {
-        key: "gbp",
-        subunits: 100,
-        locale: "en-GB",
-        decimals: 0
-      },
-      KWD: {
-        key: "kwd",
-        subunits: 1000,
-        locale: "en-KW",
-        decimals: 0
-      }
-    };
-
-    const currencyLabels = {
-      INR: "₹",
-      USD: "$",
-      EUR: "€",
-      GBP: "£",
-      KWD: "KWD "
-    };
-
-    const currencySelect = document.getElementById("currencySelect");
-    let currentCurrency = currencySelect.value;
-
-    function formatDisplayPrice(amount, currencyCode) {
-      if (currencyCode === "INR") {
-        return "₹" + new Intl.NumberFormat("en-IN", {
-          maximumFractionDigits: 0
-        }).format(amount) + "/-";
-      }
-
-      if (currencyCode === "KWD") {
-        return "KWD " + new Intl.NumberFormat("en-KW", {
-          maximumFractionDigits: 0
-        }).format(amount);
-      }
-
-      return currencyLabels[currencyCode] + new Intl.NumberFormat(currencyConfig[currencyCode].locale, {
-        maximumFractionDigits: 0
-      }).format(amount);
-    }
-
-    function updatePrices(currencyCode) {
-      currentCurrency = currencyCode;
-
-      document.querySelectorAll(".pay-btn").forEach((button) => {
-        const priceElement = button.parentElement.querySelector(".price");
-        const dataKey = "price" + currencyCode.charAt(0) + currencyCode.slice(1).toLowerCase();
-        const amount = Number(button.dataset[dataKey]);
-        const subunitAmount = Math.round(amount * currencyConfig[currencyCode].subunits);
-
-        priceElement.textContent = formatDisplayPrice(amount, currencyCode);
-        button.dataset.currency = currencyCode;
-        button.dataset.amount = String(subunitAmount);
-        button.dataset.displayAmount = String(amount);
-      });
-    }
-
-    currencySelect.addEventListener("change", function () {
-      updatePrices(this.value);
+    menuToggle.addEventListener("click", function () {
+      const isOpen = mobileMenu.classList.toggle("show");
+      menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
     });
 
-    document.querySelectorAll(".pay-btn").forEach((button) => {
-      button.addEventListener("click", function () {
-        const plan = this.dataset.plan;
-        const amount = Number(this.dataset.amount);
-        const currency = this.dataset.currency || currentCurrency;
-        const displayAmount = this.dataset.displayAmount || "0";
-
-        const options = {
-          key: RAZORPAY_KEY_ID,
-          amount: amount,
-          currency: currency,
-          name: "Knovalab",
-          description: plan + " Plan",
-          handler: function (response) {
-            const url =
-              "./success/index.html" +
-              "?plan=" + encodeURIComponent(plan) +
-              "&amount=" + encodeURIComponent(displayAmount) +
-              "&currency=" + encodeURIComponent(currency) +
-              "&payment_id=" + encodeURIComponent(response.razorpay_payment_id);
-
-            window.location.href = url;
-          },
-          prefill: {
-            name: "",
-            email: "",
-            contact: ""
-          },
-          notes: {
-            plan: plan,
-            source: "Knovalab Pricing Page",
-            currency: currency
-          },
-          theme: {
-            color: "#ff6a00"
-          }
-        };
-
-        const rzp = new Razorpay(options);
-        rzp.open();
+    mobileMenu.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.remove("show");
+        menuToggle.setAttribute("aria-expanded", "false");
       });
     });
-
-    updatePrices(currentCurrency);
   </script>
+
 </body>
 </html>
