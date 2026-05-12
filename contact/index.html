@@ -4,376 +4,675 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact | Knovalab</title>
+<meta name="description" content="Contact Knovalab for premium business websites, demos, and project enquiries.">
 
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="/favicon.png">
 
 <style>
-
-/* ================= GLOBAL ================= */
-
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Segoe UI',sans-serif;
-}
-
-body{
-background:#0f0f0f;
-color:white;
-line-height:1.6;
-padding-top:90px;
-}
-
-section{
-padding:100px 10%;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI',sans-serif;
 }
 
 :root{
---accent:#ff6a00;
---card:#1a1a1a;
---border:#222;
+  --accent:#ff6a00;
+  --accent-2:#ff8a33;
+  --bg:#0f0f0f;
+  --bg-soft:#111111;
+  --card:#1a1a1a;
+  --card-2:#181818;
+  --border:#222;
+  --text:#ffffff;
+  --muted:rgba(255,255,255,0.72);
+  --shadow:0 18px 48px rgba(0,0,0,0.28);
+  --radius:24px;
+  --radius-sm:14px;
+  --max:1180px;
 }
 
-/* ================= NAVBAR ================= */
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:
+    radial-gradient(circle at top, rgba(255,106,0,0.10), transparent 24%),
+    linear-gradient(180deg, #111 0%, #090909 100%);
+  color:var(--text);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+button,
+input,
+textarea{
+  font:inherit;
+}
+
+.container{
+  width:min(100%, var(--max));
+  margin:0 auto;
+  padding:0 20px;
+}
+
+/* NAVBAR */
 
 nav{
-position:fixed;
-top:0;
-width:100%;
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:20px 10%;
-background:#111;
-border-bottom:1px solid rgba(255,255,255,0.05);
-z-index:1000;
+  width:100%;
+  background:rgba(10,10,10,0.88);
+  border-bottom:1px solid rgba(255,255,255,0.05);
+  position:sticky;
+  top:0;
+  z-index:50;
+  backdrop-filter:blur(12px);
+}
+
+.nav-inner{
+  width:min(100%, 1240px);
+  margin:0 auto;
+  padding:18px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
 }
 
 .logo{
-font-size:20px;
-font-weight:700;
+  font-size:24px;
+  font-weight:800;
+  letter-spacing:-0.8px;
+  flex-shrink:0;
+}
+
+.nav-actions{
+  display:flex;
+  align-items:center;
+  gap:14px;
 }
 
 .nav-links{
-display:flex;
-gap:25px;
+  display:flex;
+  gap:22px;
+  align-items:center;
 }
 
 .nav-links a{
-text-decoration:none;
-color:white;
-opacity:0.8;
-font-size:14px;
-transition:0.3s;
+  color:rgba(255,255,255,0.82);
+  font-size:14px;
+  transition:0.25s ease;
 }
 
 .nav-links a:hover{
-opacity:1;
+  color:#fff;
+}
+
+.back-btn,
+.cta-button,
+.submit-btn{
+  background:linear-gradient(135deg, var(--accent), var(--accent-2));
+  color:white;
+  font-weight:700;
+  transition:0.3s;
 }
 
 .back-btn{
-background:var(--accent);
-color:white;
-padding:8px 18px;
-border-radius:30px;
-text-decoration:none;
-font-size:13px;
-font-weight:600;
+  padding:11px 20px;
+  border-radius:999px;
+  font-size:14px;
+  box-shadow:var(--shadow);
+  white-space:nowrap;
 }
 
-/* ================= HERO ================= */
+.back-btn:hover,
+.cta-button:hover,
+.submit-btn:hover{
+  transform:translateY(-2px);
+}
+
+.menu-toggle{
+  display:none;
+  width:44px;
+  height:44px;
+  border:none;
+  border-radius:12px;
+  background:rgba(255,255,255,0.05);
+  color:#fff;
+  font-size:22px;
+  cursor:pointer;
+}
+
+.mobile-menu{
+  display:none;
+  border-top:1px solid rgba(255,255,255,0.06);
+  background:#0d0d0d;
+}
+
+.mobile-menu.show{
+  display:block;
+}
+
+.mobile-menu .container{
+  padding-top:14px;
+  padding-bottom:18px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.mobile-menu a{
+  padding:14px 16px;
+  border-radius:14px;
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.05);
+  color:rgba(255,255,255,0.84);
+}
+
+/* HERO */
 
 .hero{
-text-align:center;
+  padding:72px 0 30px;
+  text-align:center;
+}
+
+.eyebrow{
+  display:inline-block;
+  color:var(--accent);
+  text-transform:uppercase;
+  letter-spacing:2px;
+  font-size:12px;
+  margin-bottom:16px;
+  font-weight:700;
 }
 
 .hero h1{
-font-size:44px;
-margin-bottom:10px;
+  font-size:clamp(36px, 6vw, 62px);
+  line-height:1;
+  letter-spacing:-1.8px;
+  margin-bottom:12px;
 }
 
 .hero p{
-opacity:0.7;
+  color:var(--muted);
+  max-width:620px;
+  margin:0 auto;
+  line-height:1.8;
+  font-size:16px;
 }
 
-/* ================= CONTACT SECTION ================= */
+/* CONTACT */
+
+.contact-wrap{
+  padding:24px 0 90px;
+}
 
 .contact-section{
-display:flex;
-gap:60px;
-flex-wrap:wrap;
-justify-content:center;
+  display:grid;
+  grid-template-columns:minmax(0, 1.1fr) minmax(280px, 0.9fr);
+  gap:28px;
+  align-items:start;
 }
 
-/* FORM */
-
 .contact-form{
-flex:1;
-min-width:320px;
-background:var(--card);
-padding:40px;
-border-radius:18px;
-border:1px solid var(--border);
+  background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
+  padding:34px;
+  border-radius:var(--radius);
+  border:1px solid rgba(255,255,255,0.08);
+  box-shadow:var(--shadow);
 }
 
 .contact-form h2{
-margin-bottom:25px;
+  margin-bottom:10px;
+  font-size:32px;
+  letter-spacing:-1px;
+}
+
+.form-copy{
+  color:var(--muted);
+  margin-bottom:24px;
+  font-size:14px;
+  line-height:1.8;
+}
+
+.form-grid{
+  display:grid;
+  gap:14px;
 }
 
 .contact-form input,
 .contact-form textarea{
-width:100%;
-padding:12px;
-margin:10px 0;
-border-radius:8px;
-border:1px solid var(--border);
-background:#111;
-color:white;
-font-size:14px;
+  width:100%;
+  padding:14px 15px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  background:#111;
+  color:white;
+  font-size:14px;
+  transition:0.25s ease;
 }
 
 .contact-form textarea{
-height:120px;
-resize:none;
+  min-height:140px;
+  resize:vertical;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder{
+  color:rgba(255,255,255,0.44);
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus{
-outline:none;
-border-color:var(--accent);
+  outline:none;
+  border-color:var(--accent);
+  box-shadow:0 0 0 3px rgba(255,106,0,0.10);
 }
 
-.contact-form button{
-margin-top:10px;
-background:var(--accent);
-color:white;
-padding:12px;
-border:none;
-border-radius:30px;
-width:100%;
-cursor:pointer;
-font-weight:600;
-transition:0.3s;
+.submit-btn{
+  margin-top:4px;
+  padding:14px 18px;
+  border:none;
+  border-radius:999px;
+  width:100%;
+  cursor:pointer;
 }
 
-.contact-form button:hover{
-transform:translateY(-2px);
+.form-note{
+  margin-top:14px;
+  color:rgba(255,255,255,0.52);
+  font-size:13px;
 }
-
-/* INFO */
 
 .contact-info{
-flex:1;
-min-width:280px;
+  display:grid;
+  gap:18px;
 }
 
-.info-box{
-margin-bottom:30px;
+.info-card{
+  background:linear-gradient(180deg, #1a1a1a 0%, #151515 100%);
+  border:1px solid rgba(255,255,255,0.07);
+  border-radius:20px;
+  padding:22px;
+  box-shadow:var(--shadow);
 }
 
-.info-box h3{
-margin-bottom:8px;
-font-size:18px;
+.info-card h3{
+  margin-bottom:8px;
+  font-size:18px;
 }
 
-.info-box p{
-opacity:0.7;
-font-size:14px;
+.info-card p,
+.info-card a{
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.8;
 }
 
-/* ================= FOOTER ================= */
+.info-highlight{
+  background:linear-gradient(180deg, rgba(255,106,0,0.10), rgba(255,255,255,0.02));
+  border-color:rgba(255,106,0,0.18);
+}
+
+/* FOOTER */
 
 footer{
-background:#0b0b0b;
-padding:70px 10%;
-margin-top:80px;
-border-top:1px solid rgba(255,255,255,0.05);
+  background:#0b0b0b;
+  padding:100px 10% 42px;
+  border-top:1px solid rgba(255,255,255,0.05);
 }
 
-.footer-grid{
-display:flex;
-justify-content:space-between;
-flex-wrap:wrap;
-gap:40px;
+.footer-inner{
+  width:min(100%, 1220px);
+  margin:0 auto;
 }
 
-footer h4{
-margin-bottom:15px;
+.cta-box{
+  background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:28px;
+  padding:54px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:40px;
+  flex-wrap:wrap;
+  margin-bottom:70px;
+  box-shadow:var(--shadow);
 }
 
-footer p{
-opacity:0.6;
-margin:6px 0;
-font-size:14px;
+.cta-left h2{
+  font-size:clamp(28px, 4vw, 40px);
+  margin-bottom:14px;
+  line-height:1.05;
+  letter-spacing:-1px;
 }
 
-.copyright{
-text-align:center;
-margin-top:40px;
-opacity:0.5;
-font-size:13px;
+.cta-left p{
+  max-width:560px;
+  color:var(--muted);
+  line-height:1.8;
 }
 
-/* ================= MOBILE ================= */
-
-@media(max-width:768px){
-
-.nav-links{
-display:none;
+.cta-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:16px 28px;
+  border-radius:999px;
+  white-space:nowrap;
+  box-shadow:var(--shadow);
 }
 
-.contact-section{
-flex-direction:column;
+.footer-bottom{
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:56px;
+  margin-bottom:44px;
 }
 
-.hero h1{
-font-size:32px;
+.footer-brand h3{
+  font-size:24px;
+  margin-bottom:10px;
 }
 
+.footer-brand p{
+  opacity:0.7;
+  max-width:260px;
+  color:var(--muted);
+  line-height:1.8;
 }
 
+.footer-links{
+  display:flex;
+  gap:72px;
+  flex-wrap:wrap;
+}
+
+.footer-links h4{
+  margin-bottom:15px;
+  font-size:16px;
+}
+
+.footer-links p,
+.footer-links a{
+  display:block;
+  margin-bottom:8px;
+  color:var(--muted);
+  font-size:14px;
+  transition:0.25s ease;
+}
+
+.footer-links a:hover{
+  color:var(--accent);
+}
+
+.footer-credit{
+  text-align:center;
+  opacity:0.5;
+  font-size:14px;
+  border-top:1px solid #222;
+  padding-top:28px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+  .contact-section{
+    grid-template-columns:1fr;
+  }
+
+  .nav-links,
+  .back-btn.desktop-only{
+    display:none;
+  }
+
+  .menu-toggle{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .cta-box{
+    padding:36px 24px;
+    text-align:center;
+  }
+
+  .cta-left p{
+    max-width:none;
+  }
+
+  .footer-bottom{
+    flex-direction:column;
+    gap:34px;
+  }
+
+  .footer-links{
+    gap:34px;
+  }
+}
+
+@media(max-width:640px){
+  .container,
+  .hero,
+  .contact-wrap{
+    padding-left:16px;
+    padding-right:16px;
+  }
+
+  .nav-inner{
+    padding:16px;
+  }
+
+  .hero{
+    padding-top:58px;
+  }
+
+  .contact-form{
+    padding:24px 18px;
+  }
+
+  footer{
+    padding:72px 16px 36px;
+  }
+
+  .cta-button{
+    width:100%;
+  }
+
+  .hero h1{
+    font-size:38px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  html{
+    scroll-behavior:auto;
+  }
+
+  .back-btn,
+  .cta-button,
+  .submit-btn{
+    transition:none;
+  }
+}
 </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-
 <nav>
-<div class="logo">Knovalab</div>
+  <div class="nav-inner">
+    <div class="logo">Knovalab</div>
 
-<div class="nav-links">
-<a href="index.html">Home</a>
-<a href="index.html#services">Services</a>
-<a href="index.html#portfolio">Work</a>
-<a href="pricing.html">Pricing</a>
-<a href="faq.html">FAQ</a>
-</div>
+    <div class="nav-actions">
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#portfolio">Work</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="faq.html">FAQ</a>
+      </div>
 
-<a href="javascript:history.back()" class="back-btn">Back</a>
+      <a href="javascript:history.back()" class="back-btn desktop-only">Back</a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu">
+        ☰
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="container">
+      <a href="index.html">Home</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#portfolio">Work</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="faq.html">FAQ</a>
+      <a href="javascript:history.back()">Back</a>
+    </div>
+  </div>
 </nav>
 
-<!-- HERO -->
-
 <section class="hero">
-<h1>Contact Us</h1>
-<p>Let’s build your website.</p>
+  <div class="container">
+    <span class="eyebrow">Let’s Build Something Good</span>
+    <h1>Contact Us</h1>
+    <p>Tell us about your business, your idea, or the kind of website you want. We’ll help you figure out the right next step.</p>
+  </div>
 </section>
 
-<!-- CONTACT -->
+<section class="contact-wrap">
+  <div class="container contact-section">
 
-<section class="contact-section">
+    <div class="contact-form">
+      <h2>Get In Touch</h2>
+      <p class="form-copy">Fill out the form and we’ll get back to you with the best way to move your project forward.</p>
 
-<div class="contact-form">
+      <form action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="688d090a-e76c-4293-96c3-e5287c4306a5">
+        <input type="hidden" name="subject" value="New Knovalab Contact Message">
 
-<h2>Get In Touch</h2>
+        <div class="form-grid">
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Email Address" required>
+          <input type="text" name="topic" placeholder="Subject">
+          <textarea name="message" placeholder="Tell us about your project"></textarea>
+          <button type="submit" class="submit-btn">Send Message</button>
+        </div>
 
-<form action="https://api.web3forms.com/submit" method="POST">
+        <p class="form-note">Prefer a faster response? You can also reach us directly on WhatsApp.</p>
+      </form>
+    </div>
 
-<input type="hidden" name="access_key" value="688d090a-e76c-4293-96c3-e5287c4306a5">
-<input type="hidden" name="subject" value="New Knovalab Contact Message">
+    <div class="contact-info">
+      <div class="info-card info-highlight">
+        <h3>Quick Response</h3>
+        <p>We usually reply fastest through WhatsApp and project enquiries.</p>
+      </div>
 
-<input type="text" name="name" placeholder="Your Name" required>
-<input type="email" name="email" placeholder="Email Address" required>
-<input type="text" name="topic" placeholder="Subject">
-<textarea name="message" placeholder="Message"></textarea>
+      <div class="info-card">
+        <h3>Phone</h3>
+        <a href="tel:+919167878131">+91 9167878131</a>
+      </div>
 
-<button type="submit">Send Message</button>
+      <div class="info-card">
+        <h3>Email</h3>
+        <a href="mailto:sidddmailbox@gmail.com">sidddmailbox@gmail.com</a>
+      </div>
 
-</form>
+      <div class="info-card">
+        <h3>WhatsApp</h3>
+        <p>Available for quick responses and business enquiries.</p>
+      </div>
 
-</div>
+      <div class="info-card">
+        <h3>Location</h3>
+        <p>Mumbai, India</p>
+      </div>
+    </div>
 
-<div class="contact-info">
-
-<div class="info-box">
-<h3>Phone</h3>
-<p>+91 9167878131</p>
-</div>
-
-<div class="info-box">
-<h3>Email</h3>
-<p>sidddmailbox@gmail.com</p>
-</div>
-
-<div class="info-box">
-<h3>WhatsApp</h3>
-<p>Available for quick responses.</p>
-</div>
-
-<div class="info-box">
-<h3>Location</h3>
-<p>Mumbai, India</p>
-</div>
-
-</div>
-
+  </div>
 </section>
 
-<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
 
-<footer style="background:#0b0b0b;padding:100px 10%;">
+    <div class="cta-box">
+      <div class="cta-left">
+        <h2>Ready To Launch Your Website?</h2>
+        <p>
+          Get a premium, mobile-optimized website built in just 2–5 days.
+          No monthly fees. Full ownership. Built to convert visitors into customers.
+        </p>
+      </div>
 
-  <div class="cta-box">
-
-    <div class="cta-left">
-      <h2>Ready To Launch Your Website?</h2>
-      <p>
-        Get a premium, mobile-optimized website built in just 2–5 days.
-        No monthly fees. Full ownership. Built to convert visitors into customers.
-      </p>
+      <div class="cta-right">
+        <a href="/demo/" class="cta-button">Book Free Demo</a>
+      </div>
     </div>
 
-    <div class="cta-right">
-      <a href="/demo/" class="cta-button">
-        Book Free Demo
-      </a>
+    <div class="footer-bottom">
+      <div class="footer-brand">
+        <h3>Knovalab</h3>
+        <p>Premium websites for growing businesses.</p>
+      </div>
+
+      <div class="footer-links">
+        <div>
+          <h4>Features</h4>
+          <p>⚡ Fast Static Hosting</p>
+          <p>📱 100% Mobile Optimized</p>
+          <p>🎯 Conversion-Focused Design</p>
+          <p>🔒 Full Website Ownership</p>
+        </div>
+
+        <div>
+          <h4>Services</h4>
+          <a href="/services/">Business Websites</a>
+          <a href="/services/">Restaurant Websites</a>
+          <a href="/services/">Salon Websites</a>
+          <a href="/services/">Portfolio Websites</a>
+        </div>
+
+        <div>
+          <h4>Contact</h4>
+          <p>+91 9167878131</p>
+          <p>WhatsApp Available</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-credit">
+      © 2026 Knovalab. All rights reserved.
     </div>
 
   </div>
-
-  <div class="footer-bottom">
-
-    <div class="footer-brand">
-      <h3>Knovalab</h3>
-      <p>Premium websites for growing businesses.</p>
-    </div>
-
-    <div class="footer-links">
-
-      <div>
-        <h4>Features</h4>
-        <p>⚡ Fast Static Hosting</p>
-        <p>📱 100% Mobile Optimized</p>
-        <p>🎯 Conversion-Focused Design</p>
-        <p>🔒 Full Website Ownership</p>
-      </div>
-
-      <div>
-        <h4>Services</h4>
-        <a href="/services/">Business Websites</a>
-        <a href="/services/">Restaurant Websites</a>
-        <a href="/services/">Salon Websites</a>
-        <a href="/services/">Portfolio Websites</a>
-      </div>
-
-      <div>
-        <h4>Contact</h4>
-        <p>+91 9167878131</p>
-        <p>WhatsApp Available</p>
-      </div>
-
-    </div>
-
-  </div>
-
-  <div class="footer-credit">
-    © 2026 Knovalab. All rights reserved.
-  </div>
-
 </footer>
+
+<script>
+const menuToggle = document.getElementById("menuToggle");
+const mobileMenu = document.getElementById("mobileMenu");
+
+menuToggle.addEventListener("click", function () {
+  const isOpen = mobileMenu.classList.toggle("show");
+  menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+});
+
+mobileMenu.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    mobileMenu.classList.remove("show");
+    menuToggle.setAttribute("aria-expanded", "false");
+  });
+});
+</script>
 
 </body>
 </html>
