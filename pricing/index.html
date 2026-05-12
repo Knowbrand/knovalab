@@ -7,8 +7,8 @@
   <meta name="description" content="Knovalab pricing plans for premium business websites. Choose the right website plan for your business and book a free demo." />
   <meta name="theme-color" content="#0b0b0b" />
 
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="apple-touch-icon" href="/favicon.png">
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="/favicon.png" />
 
   <style>
     *{
@@ -66,8 +66,6 @@
       padding:0 20px;
     }
 
-    /* NAV */
-
     nav{
       width:100%;
       background:rgba(10,10,10,0.88);
@@ -119,7 +117,7 @@
 
     .back-btn,
     .btn,
-    .footer-btn{
+    .cta-button{
       background:linear-gradient(135deg, var(--accent), var(--accent-2));
       color:white;
       font-weight:700;
@@ -136,7 +134,7 @@
 
     .back-btn:hover,
     .btn:hover,
-    .footer-btn:hover{
+    .cta-button:hover{
       transform:translateY(-2px);
     }
 
@@ -178,8 +176,6 @@
       border:1px solid rgba(255,255,255,0.05);
     }
 
-    /* HERO */
-
     .hero{
       width:min(100%, var(--max));
       margin:0 auto;
@@ -213,8 +209,6 @@
       line-height:1.8;
       text-wrap:pretty;
     }
-
-    /* PRICING */
 
     .pricing-wrap{
       width:min(100%, var(--max));
@@ -323,41 +317,105 @@
       line-height:1.65;
     }
 
-    /* FOOTER CTA */
-
-    .footer{
+    footer{
       background:#0b0b0b;
-      text-align:center;
-      padding:72px 20px;
+      padding:100px 10% 42px;
       border-top:1px solid rgba(255,255,255,0.05);
     }
 
-    .footer h2{
+    .footer-inner{
+      width:min(100%, 1220px);
+      margin:0 auto;
+    }
+
+    .cta-box{
+      background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:28px;
+      padding:54px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:40px;
+      flex-wrap:wrap;
+      margin-bottom:70px;
+      box-shadow:var(--shadow);
+    }
+
+    .cta-left h2{
       font-size:clamp(28px, 4vw, 40px);
-      margin-bottom:16px;
+      margin-bottom:14px;
+      line-height:1.05;
       letter-spacing:-1px;
     }
 
-    .footer p{
+    .cta-left p{
+      max-width:560px;
       color:var(--muted);
-      max-width:580px;
-      margin:0 auto 22px;
       line-height:1.8;
     }
 
-    .footer-btn{
-      display:inline-block;
-      padding:13px 28px;
+    .cta-button{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:16px 28px;
       border-radius:999px;
+      white-space:nowrap;
+      box-shadow:var(--shadow);
     }
 
-    .copyright{
-      margin-top:28px;
-      font-size:13px;
-      opacity:0.6;
+    .footer-bottom{
+      display:flex;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:56px;
+      margin-bottom:44px;
     }
 
-    /* MOBILE */
+    .footer-brand h3{
+      font-size:24px;
+      margin-bottom:10px;
+    }
+
+    .footer-brand p{
+      opacity:0.7;
+      max-width:260px;
+      color:var(--muted);
+      line-height:1.8;
+    }
+
+    .footer-links{
+      display:flex;
+      gap:72px;
+      flex-wrap:wrap;
+    }
+
+    .footer-links h4{
+      margin-bottom:15px;
+      font-size:16px;
+    }
+
+    .footer-links p,
+    .footer-links a{
+      display:block;
+      margin-bottom:8px;
+      color:var(--muted);
+      font-size:14px;
+      transition:0.25s ease;
+    }
+
+    .footer-links a:hover{
+      color:var(--accent);
+    }
+
+    .footer-credit{
+      text-align:center;
+      opacity:0.5;
+      font-size:14px;
+      border-top:1px solid #222;
+      padding-top:28px;
+    }
 
     @media(max-width:980px){
       .pricing{
@@ -386,6 +444,24 @@
       .hero h1{
         letter-spacing:-1.4px;
       }
+
+      .cta-box{
+        padding:36px 24px;
+        text-align:center;
+      }
+
+      .cta-left p{
+        max-width:none;
+      }
+
+      .footer-bottom{
+        flex-direction:column;
+        gap:34px;
+      }
+
+      .footer-links{
+        gap:34px;
+      }
     }
 
     @media(max-width:560px){
@@ -395,10 +471,13 @@
 
       .container,
       .hero,
-      .pricing-wrap,
-      .footer{
+      .pricing-wrap{
         padding-left:16px;
         padding-right:16px;
+      }
+
+      footer{
+        padding:72px 16px 36px;
       }
 
       .card{
@@ -407,6 +486,10 @@
 
       .logo{
         font-size:22px;
+      }
+
+      .cta-button{
+        width:100%;
       }
     }
 
@@ -528,66 +611,60 @@
     </div>
   </section>
 
-<footer style="background:#0b0b0b;padding:100px 10%;">
+  <footer>
+    <div class="footer-inner">
 
-  <div class="cta-box">
+      <div class="cta-box">
+        <div class="cta-left">
+          <h2>Ready To Launch Your Website?</h2>
+          <p>
+            Get a premium, mobile-optimized website built in just 2–5 days.
+            No monthly fees. Full ownership. Built to convert visitors into customers.
+          </p>
+        </div>
 
-    <div class="cta-left">
-      <h2>Ready To Launch Your Website?</h2>
-      <p>
-        Get a premium, mobile-optimized website built in just 2–5 days.
-        No monthly fees. Full ownership. Built to convert visitors into customers.
-      </p>
-    </div>
-
-    <div class="cta-right">
-      <a href="/demo/" class="cta-button">
-        Book Free Demo
-      </a>
-    </div>
-
-  </div>
-
-  <div class="footer-bottom">
-
-    <div class="footer-brand">
-      <h3>Knovalab</h3>
-      <p>Premium websites for growing businesses.</p>
-    </div>
-
-    <div class="footer-links">
-
-      <div>
-        <h4>Features</h4>
-        <p>⚡ Fast Static Hosting</p>
-        <p>📱 100% Mobile Optimized</p>
-        <p>🎯 Conversion-Focused Design</p>
-        <p>🔒 Full Website Ownership</p>
+        <div class="cta-right">
+          <a href="/demo/" class="cta-button">Book Free Demo</a>
+        </div>
       </div>
 
-      <div>
-        <h4>Services</h4>
-        <a href="/services/">Business Websites</a>
-        <a href="/services/">Restaurant Websites</a>
-        <a href="/services/">Salon Websites</a>
-        <a href="/services/">Portfolio Websites</a>
+      <div class="footer-bottom">
+        <div class="footer-brand">
+          <h3>Knovalab</h3>
+          <p>Premium websites for growing businesses.</p>
+        </div>
+
+        <div class="footer-links">
+          <div>
+            <h4>Features</h4>
+            <p>⚡ Fast Static Hosting</p>
+            <p>📱 100% Mobile Optimized</p>
+            <p>🎯 Conversion-Focused Design</p>
+            <p>🔒 Full Website Ownership</p>
+          </div>
+
+          <div>
+            <h4>Services</h4>
+            <a href="/services/">Business Websites</a>
+            <a href="/services/">Restaurant Websites</a>
+            <a href="/services/">Salon Websites</a>
+            <a href="/services/">Portfolio Websites</a>
+          </div>
+
+          <div>
+            <h4>Contact</h4>
+            <p>+91 9167878131</p>
+            <p>WhatsApp Available</p>
+          </div>
+        </div>
       </div>
 
-      <div>
-        <h4>Contact</h4>
-        <p>+91 9167878131</p>
-        <p>WhatsApp Available</p>
+      <div class="footer-credit">
+        © 2026 Knovalab. All rights reserved.
       </div>
 
     </div>
-
-  </div>
-
-  <div class="footer-credit">
-    © 2026 Knovalab. All rights reserved.
-  </div>
-
-</footer>
+  </footer>
 
   <script>
     const menuToggle = document.getElementById("menuToggle");
