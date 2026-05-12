@@ -5,230 +5,451 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Book a Demo | Knovalab</title>
+<meta name="description" content="Book a free website demo with Knovalab and explore the right website strategy for your business.">
 
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="/favicon.png">
 
 <style>
-
-/* ================= GLOBAL ================= */
-
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Segoe UI',sans-serif;
-}
-
-body{
-background:#0f0f0f;
-color:white;
-line-height:1.6;
-padding-top:90px;
-}
-
-section{
-padding:100px 10%;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI',sans-serif;
 }
 
 :root{
---accent:#ff6a00;
---card:#1a1a1a;
---border:#222;
+  --accent:#ff6a00;
+  --accent-2:#ff8a33;
+  --bg:#0f0f0f;
+  --bg-soft:#111111;
+  --card:#1a1a1a;
+  --card-2:#181818;
+  --border:#222;
+  --text:#ffffff;
+  --muted:rgba(255,255,255,0.72);
+  --shadow:0 18px 48px rgba(0,0,0,0.28);
+  --radius:24px;
+  --radius-sm:14px;
+  --max:1180px;
 }
 
-/* ================= NAVBAR ================= */
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:
+    radial-gradient(circle at top, rgba(255,106,0,0.10), transparent 24%),
+    linear-gradient(180deg, #111 0%, #090909 100%);
+  color:var(--text);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+.container{
+  width:min(100%, var(--max));
+  margin:0 auto;
+  padding:0 20px;
+}
+
+/* NAVBAR */
 
 nav{
-position:fixed;
-top:0;
-width:100%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 10%;
-background:#111;
-border-bottom:1px solid rgba(255,255,255,0.05);
-z-index:1000;
+  width:100%;
+  background:rgba(10,10,10,0.88);
+  border-bottom:1px solid rgba(255,255,255,0.05);
+  position:sticky;
+  top:0;
+  z-index:50;
+  backdrop-filter:blur(12px);
+}
+
+.nav-inner{
+  width:min(100%, 1240px);
+  margin:0 auto;
+  padding:18px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
 }
 
 .logo{
-font-size:20px;
-font-weight:700;
+  font-size:24px;
+  font-weight:800;
+  letter-spacing:-0.8px;
+}
+
+.back-btn,
+.cta-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg, var(--accent), var(--accent-2));
+  color:white;
+  font-weight:700;
+  transition:0.3s;
 }
 
 .back-btn{
-text-decoration:none;
-background:var(--accent);
-color:white;
-padding:8px 20px;
-border-radius:30px;
-font-size:13px;
-font-weight:600;
+  padding:11px 20px;
+  border-radius:999px;
+  font-size:14px;
+  box-shadow:var(--shadow);
+  white-space:nowrap;
 }
 
-/* ================= HERO ================= */
+.back-btn:hover,
+.cta-button:hover{
+  transform:translateY(-2px);
+}
+
+/* HERO */
+
+.hero-wrap{
+  padding:72px 0 26px;
+}
 
 .hero{
-text-align:center;
-max-width:900px;
-margin:auto;
+  text-align:center;
+  max-width:900px;
+  margin:auto;
+}
+
+.eyebrow{
+  display:inline-block;
+  color:var(--accent);
+  text-transform:uppercase;
+  letter-spacing:2px;
+  font-size:12px;
+  margin-bottom:16px;
+  font-weight:700;
 }
 
 .hero h1{
-font-size:44px;
-margin-bottom:20px;
+  font-size:clamp(36px, 6vw, 62px);
+  margin-bottom:18px;
+  line-height:1.02;
+  letter-spacing:-1.6px;
 }
 
 .hero p{
-opacity:0.7;
-margin-bottom:50px;
-font-size:18px;
+  color:var(--muted);
+  margin:0 auto 44px;
+  font-size:17px;
+  max-width:700px;
+  line-height:1.85;
 }
 
-/* ================= BENEFITS ================= */
+/* BENEFITS */
 
 .benefits{
-display:flex;
-justify-content:center;
-gap:30px;
-flex-wrap:wrap;
-margin-bottom:70px;
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0, 1fr));
+  gap:22px;
+  margin-top:14px;
 }
 
 .benefit{
-background:var(--card);
-padding:30px;
-border-radius:18px;
-width:260px;
-border:1px solid var(--border);
-transition:0.3s ease;
+  background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
+  padding:28px;
+  border-radius:20px;
+  border:1px solid rgba(255,255,255,0.08);
+  transition:0.3s ease;
+  box-shadow:var(--shadow);
+  text-align:left;
 }
 
 .benefit:hover{
-transform:translateY(-6px);
-border-color:var(--accent);
+  transform:translateY(-6px);
+  border-color:rgba(255,106,0,0.35);
 }
 
 .benefit h3{
-margin-bottom:10px;
-font-size:18px;
+  margin-bottom:10px;
+  font-size:18px;
 }
 
 .benefit p{
-opacity:0.7;
-font-size:14px;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.75;
 }
 
-/* ================= CALENDAR ================= */
+/* CALENDAR */
+
+.calendar-wrap{
+  padding:22px 0 100px;
+}
+
+.calendar-shell{
+  width:min(100%, 1180px);
+  margin:auto;
+  padding:0 20px;
+}
+
+.calendar-header{
+  text-align:center;
+  margin-bottom:28px;
+}
+
+.calendar-header h2{
+  font-size:clamp(28px, 4vw, 40px);
+  margin-bottom:10px;
+  letter-spacing:-1px;
+}
+
+.calendar-header p{
+  color:var(--muted);
+  max-width:620px;
+  margin:0 auto;
+  line-height:1.8;
+}
 
 .calendar{
-max-width:1000px;
-margin:auto;
-margin-bottom:100px;
-border-radius:18px;
-overflow:hidden;
-border:1px solid var(--border);
+  border-radius:24px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,0.08);
+  background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
+  box-shadow:var(--shadow);
+  padding:8px;
 }
 
-/* ================= FOOTER ================= */
+/* FOOTER */
 
 footer{
-background:#0b0b0b;
-padding:70px 10%;
-border-top:1px solid rgba(255,255,255,0.05);
-text-align:center;
+  background:#0b0b0b;
+  padding:100px 10% 42px;
+  border-top:1px solid rgba(255,255,255,0.05);
 }
 
-footer h3{
-margin-bottom:10px;
+.footer-inner{
+  width:min(100%, 1220px);
+  margin:0 auto;
 }
 
-footer p{
-opacity:0.6;
-margin:6px 0;
-font-size:14px;
+.cta-box{
+  background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:28px;
+  padding:54px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:40px;
+  flex-wrap:wrap;
+  margin-bottom:70px;
+  box-shadow:var(--shadow);
 }
 
-/* ================= MOBILE ================= */
-
-@media(max-width:768px){
-
-.hero h1{
-font-size:32px;
+.cta-left h2{
+  font-size:clamp(28px, 4vw, 40px);
+  margin-bottom:14px;
+  line-height:1.05;
+  letter-spacing:-1px;
 }
 
-.benefits{
-gap:20px;
+.cta-left p{
+  max-width:560px;
+  color:var(--muted);
+  line-height:1.8;
 }
 
-.benefit{
-width:100%;
+.cta-button{
+  padding:16px 28px;
+  border-radius:999px;
+  white-space:nowrap;
+  box-shadow:var(--shadow);
 }
 
+.footer-bottom{
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:56px;
+  margin-bottom:44px;
 }
 
+.footer-brand h3{
+  font-size:24px;
+  margin-bottom:10px;
+}
+
+.footer-brand p{
+  opacity:0.7;
+  max-width:260px;
+  color:var(--muted);
+  line-height:1.8;
+}
+
+.footer-links{
+  display:flex;
+  gap:72px;
+  flex-wrap:wrap;
+}
+
+.footer-links h4{
+  margin-bottom:15px;
+  font-size:16px;
+}
+
+.footer-links p,
+.footer-links a{
+  display:block;
+  margin-bottom:8px;
+  color:var(--muted);
+  font-size:14px;
+  transition:0.25s ease;
+}
+
+.footer-links a:hover{
+  color:var(--accent);
+}
+
+.footer-credit{
+  text-align:center;
+  opacity:0.5;
+  font-size:14px;
+  border-top:1px solid #222;
+  padding-top:28px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+  .benefits{
+    grid-template-columns:1fr;
+  }
+
+  .cta-box{
+    padding:36px 24px;
+    text-align:center;
+  }
+
+  .cta-left p{
+    max-width:none;
+  }
+
+  .footer-bottom{
+    flex-direction:column;
+    gap:34px;
+  }
+
+  .footer-links{
+    gap:34px;
+  }
+}
+
+@media(max-width:640px){
+  .container,
+  .calendar-shell{
+    padding-left:16px;
+    padding-right:16px;
+  }
+
+  .nav-inner{
+    padding:16px;
+  }
+
+  .hero-wrap{
+    padding-top:58px;
+  }
+
+  .hero h1{
+    font-size:38px;
+  }
+
+  footer{
+    padding:72px 16px 36px;
+  }
+
+  .cta-button{
+    width:100%;
+  }
+
+  .calendar{
+    padding:0;
+    border-radius:18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  html{
+    scroll-behavior:auto;
+  }
+
+  .benefit,
+  .back-btn,
+  .cta-button{
+    transition:none;
+  }
+}
 </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-
 <nav>
-<div class="logo">Knovalab</div>
-<a href="/" class="btn">Go to Home</a>
+  <div class="nav-inner">
+    <div class="logo">Knovalab</div>
+    <a href="/" class="back-btn">Go to Home</a>
+  </div>
 </nav>
 
-<!-- HERO -->
+<section class="hero-wrap">
+  <div class="container hero">
+    <span class="eyebrow">Free Consultation</span>
+    <h1>Book a Free Website Demo</h1>
+    <p>
+      See how a premium, modern website can grow your business.
+      Schedule a quick 15-minute call and we’ll walk you through everything clearly.
+    </p>
 
-<section class="hero">
+    <div class="benefits">
+      <div class="benefit">
+        <h3>Live Website Demo</h3>
+        <p>See a real demo website built for businesses like yours and understand what’s possible for your brand.</p>
+      </div>
 
-<h1>Book a Free Website Demo</h1>
+      <div class="benefit">
+        <h3>Business Advice</h3>
+        <p>We’ll suggest the best website direction, structure, and strategy based on your business goals.</p>
+      </div>
 
-<p>
-See how a premium, modern website can grow your business.
-Schedule a quick 15-minute call and we’ll walk you through everything.
-</p>
-
-<div class="benefits">
-
-<div class="benefit">
-<h3>Live Website Demo</h3>
-<p>See a real demo website built for businesses like yours.</p>
-</div>
-
-<div class="benefit">
-<h3>Business Advice</h3>
-<p>We’ll suggest the best website strategy for your business.</p>
-</div>
-
-<div class="benefit">
-<h3>Pricing Breakdown</h3>
-<p>Understand exactly what each plan includes.</p>
-</div>
-
-</div>
-
+      <div class="benefit">
+        <h3>Pricing Breakdown</h3>
+        <p>Understand exactly what each plan includes and which option makes the most sense for you.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- CALENDLY -->
+<section class="calendar-wrap">
+  <div class="calendar-shell">
+    <div class="calendar-header">
+      <h2>Choose Your Time</h2>
+      <p>Select a time that works for you and book your free demo directly through the calendar below.</p>
+    </div>
 
-<section class="calendar">
-
-<div class="calendly-inline-widget" 
-data-url="https://calendly.com/gsidharth644/30min"
-style="min-width:320px;height:700px;">
-</div>
+    <div class="calendar">
+      <div
+        class="calendly-inline-widget"
+        data-url="https://calendly.com/gsidharth644/30min"
+        style="min-width:320px;height:700px;">
+      </div>
+    </div>
+  </div>
+</section>
 
 <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
-</section>
-
-<!-- FOOTER -->
-
-
-<footer class="footer-shell">
+<footer>
   <div class="footer-inner">
 
     <div class="cta-box">
