@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Knovalab industry selection onboarding." />
+<title>Knovalab | Industry Selection</title>
+
+<style>
+:root{
+  --orange:#FF6A00;
+  --orange-soft:rgba(255,106,0,0.22);
+  --black:#070707;
+  --panel:rgba(255,255,255,0.055);
+  --text:#fff;
+  --muted:rgba(255,255,255,0.66);
+  --line:rgba(255,255,255,0.09);
+  --shadow:0 26px 90px rgba(0,0,0,0.55);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  min-height:100vh;
+  font-family:"Segoe UI",system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 20% -10%, rgba(255,106,0,0.23), transparent 31%),
+    radial-gradient(circle at 88% 10%, rgba(255,106,0,0.08), transparent 28%),
+    linear-gradient(180deg,#101010 0%,#050505 100%);
+  overflow-x:hidden;
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size:72px 72px;
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,0.62),transparent 72%);
+}
+
+button{
+  font:inherit;
+}
+
+button:focus-visible,
+.industry-card:focus-visible{
+  outline:2px solid var(--orange);
+  outline-offset:4px;
+}
+
+.page-shell{
+  min-height:100vh;
+  animation:fadeUp 0.75s ease both;
+}
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(18px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+  position:sticky;
+  top:0;
+  z-index:100;
+  height:82px;
+  padding:0 clamp(20px,7vw,104px);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:rgba(7,7,7,0.7);
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+}
+
+.logo{
+  font-size:25px;
+  line-height:1;
+  font-weight:760;
+  letter-spacing:-0.9px;
+}
+
+.back-btn{
+  min-width:92px;
+  min-height:44px;
+  border:0;
+  border-radius:999px;
+  color:#fff;
+  cursor:pointer;
+  background:rgba(255,255,255,0.07);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,0.08);
+  transition:transform 0.28s ease, background 0.28s ease, box-shadow 0.28s ease, color 0.28s ease;
+}
+
+.back-btn:hover{
+  transform:translateY(-1px);
+  color:#fff;
+  background:rgba(255,106,0,0.13);
+  box-shadow:inset 0 0 0 1px rgba(255,106,0,0.32), 0 14px 36px rgba(255,106,0,0.12);
+}
+
+/* ================= CONTENT ================= */
+
+.onboarding{
+  width:min(1180px,calc(100% - 40px));
+  margin:0 auto;
+  padding:74px 0 86px;
+}
+
+.intro{
+  max-width:760px;
+  margin:0 auto 48px;
+  text-align:center;
+}
+
+.step{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:34px;
+  padding:0 14px;
+  margin-bottom:22px;
+  border-radius:999px;
+  color:#ffb174;
+  background:rgba(255,106,0,0.12);
+  box-shadow:inset 0 0 0 1px rgba(255,106,0,0.22);
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:1.4px;
+  text-transform:uppercase;
+}
+
+.intro h1{
+  font-size:clamp(42px,7vw,82px);
+  line-height:0.95;
+  letter-spacing:-3.2px;
+  margin-bottom:20px;
+}
+
+.intro p{
+  color:var(--muted);
+  font-size:clamp(16px,2vw,19px);
+  line-height:1.7;
+}
+
+/* ================= INDUSTRY GRID ================= */
+
+.industry-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px;
+}
+
+.industry-card{
+  --image:url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=85");
+  position:relative;
+  min-height:330px;
+  border:0;
+  border-radius:30px;
+  overflow:hidden;
+  isolation:isolate;
+  cursor:pointer;
+  text-align:left;
+  color:#fff;
+  background:
+    linear-gradient(180deg,rgba(0,0,0,0.12),rgba(0,0,0,0.78)),
+    var(--image) center/cover;
+  box-shadow:0 18px 70px rgba(0,0,0,0.34);
+  transition:transform 0.42s cubic-bezier(.2,.8,.2,1), box-shadow 0.42s ease, filter 0.42s ease;
+}
+
+.industry-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background:
+    radial-gradient(circle at 28% 12%, rgba(255,255,255,0.22), transparent 28%),
+    linear-gradient(135deg,rgba(255,106,0,0.2),transparent 45%);
+  opacity:0;
+  transition:opacity 0.42s ease;
+}
+
+.industry-card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(180deg,transparent 20%,rgba(0,0,0,0.24) 48%,rgba(0,0,0,0.84) 100%),
+    linear-gradient(135deg,rgba(0,0,0,0.2),transparent 50%);
+  z-index:-1;
+}
+
+.industry-card:hover{
+  transform:translateY(-9px) scale(1.01);
+  box-shadow:0 28px 90px rgba(0,0,0,0.52), 0 0 42px rgba(255,106,0,0.18);
+  filter:saturate(1.08);
+}
+
+.industry-card:hover::before{
+  opacity:1;
+}
+
+.card-content{
+  position:absolute;
+  left:24px;
+  right:24px;
+  bottom:24px;
+  z-index:2;
+}
+
+.card-kicker{
+  display:inline-flex;
+  align-items:center;
+  min-height:28px;
+  padding:0 10px;
+  margin-bottom:14px;
+  border-radius:999px;
+  color:rgba(255,255,255,0.86);
+  background:rgba(255,255,255,0.12);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,0.12);
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+
+.industry-card h2{
+  font-size:clamp(27px,3vw,38px);
+  line-height:1;
+  letter-spacing:-1.5px;
+  text-wrap:balance;
+}
+
+.restaurant{--image:url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=85");}
+.tattoo{--image:url("https://images.unsplash.com/photo-1562962230-16e4623d36e6?auto=format&fit=crop&w=1200&q=85");}
+.salon{--image:url("https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85");}
+.startup{--image:url("https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=85");}
+.personal{--image:url("https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1200&q=85");}
+.other{--image:url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=85");}
+
+/* ================= MODAL ================= */
+
+.modal-overlay{
+  position:fixed;
+  inset:0;
+  z-index:500;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:22px;
+  background:rgba(0,0,0,0.68);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+}
+
+.modal-overlay.show{
+  display:flex;
+}
+
+.modal{
+  width:min(440px,100%);
+  padding:32px;
+  border-radius:28px;
+  text-align:center;
+  background:linear-gradient(180deg,rgba(28,28,28,0.92),rgba(12,12,12,0.92));
+  box-shadow:var(--shadow), inset 0 0 0 1px rgba(255,255,255,0.09);
+  animation:modalIn 0.24s ease both;
+}
+
+@keyframes modalIn{
+  from{
+    opacity:0;
+    transform:translateY(12px) scale(0.98);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+}
+
+.modal h2{
+  font-size:30px;
+  line-height:1.12;
+  letter-spacing:-1px;
+  margin-bottom:24px;
+}
+
+.modal-actions{
+  display:flex;
+  gap:12px;
+}
+
+.modal-actions button{
+  flex:1;
+  min-height:48px;
+  border:0;
+  border-radius:999px;
+  cursor:pointer;
+  font-weight:800;
+  transition:transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.stay-btn{
+  color:#fff;
+  background:rgba(255,255,255,0.08);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,0.09);
+}
+
+.exit-btn{
+  color:#111;
+  background:linear-gradient(135deg,#FF6A00,#ff9f37);
+  box-shadow:0 16px 38px rgba(255,106,0,0.24);
+}
+
+.modal-actions button:hover{
+  transform:translateY(-2px);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:980px){
+  .industry-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .industry-card{
+    min-height:300px;
+  }
+}
+
+@media(max-width:640px){
+  .navbar{
+    height:74px;
+    padding:0 18px;
+  }
+
+  .logo{
+    font-size:22px;
+  }
+
+  .back-btn{
+    min-width:84px;
+    min-height:40px;
+  }
+
+  .onboarding{
+    width:min(100% - 28px,1180px);
+    padding:48px 0 56px;
+  }
+
+  .intro{
+    margin-bottom:32px;
+  }
+
+  .intro h1{
+    letter-spacing:-2px;
+  }
+
+  .industry-grid{
+    grid-template-columns:1fr;
+    gap:14px;
+  }
+
+  .industry-card{
+    min-height:245px;
+    border-radius:24px;
+  }
+
+  .card-content{
+    left:20px;
+    right:20px;
+    bottom:20px;
+  }
+
+  .modal{
+    padding:26px 20px;
+    border-radius:24px;
+  }
+
+  .modal h2{
+    font-size:26px;
+  }
+
+  .modal-actions{
+    flex-direction:column;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  *,
+  *::before,
+  *::after{
+    animation-duration:0.01ms !important;
+    scroll-behavior:auto !important;
+    transition-duration:0.01ms !important;
+  }
+}
+</style>
+</head>
+
+<body>
+<div class="page-shell">
+  <nav class="navbar">
+    <div class="logo">Knovalab</div>
+    <button class="back-btn" id="backButton" type="button">Back</button>
+  </nav>
+
+  <main class="onboarding">
+    <section class="intro" aria-labelledby="pageTitle">
+      <div class="step">Step 1 of 4</div>
+      <h1 id="pageTitle">What industry are you from?</h1>
+      <p>This helps us personalize your demo experience.</p>
+    </section>
+
+    <section class="industry-grid" aria-label="Choose your industry">
+      <button class="industry-card restaurant" type="button" data-industry="Restaurant" data-url="https://knovalab.in/industry/restaurant/index.html">
+        <span class="card-content">
+          <span class="card-kicker">Hospitality</span>
+          <h2>Restaurant</h2>
+        </span>
+      </button>
+
+      <button class="industry-card tattoo" type="button" data-industry="Tattoo Studio" data-url="https://knovalab.in/industry/tattoo/index.html">
+        <span class="card-content">
+          <span class="card-kicker">Creative Studio</span>
+          <h2>Tattoo Studio</h2>
+        </span>
+      </button>
+
+      <button class="industry-card salon" type="button" data-industry="Salon" data-url="https://knovalab.in/industry/salon/index.html">
+        <span class="card-content">
+          <span class="card-kicker">Beauty</span>
+          <h2>Salon</h2>
+        </span>
+      </button>
+
+      <button class="industry-card startup" type="button" data-industry="Startup" data-url="https://knovalab.in/industry/startup/index.html">
+        <span class="card-content">
+          <span class="card-kicker">SaaS & Growth</span>
+          <h2>Startup</h2>
+        </span>
+      </button>
+
+      <button class="industry-card personal" type="button" data-industry="Personal Brand" data-url="https://knovalab.in/industry/personal-brand/index.html">
+        <span class="card-content">
+          <span class="card-kicker">Creator</span>
+          <h2>Personal Brand</h2>
+        </span>
+      </button>
+
+      <button class="industry-card other" type="button" data-industry="Other Business" data-url="https://knovalab.in/industry/other/index.html">
+        <span class="card-content">
+          <span class="card-kicker">Custom</span>
+          <h2>Other Business</h2>
+        </span>
+      </button>
+    </section>
+  </main>
+</div>
+
+<div class="modal-overlay" id="exitModal" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <h2 id="modalTitle">Are you sure you want to exit setup?</h2>
+    <div class="modal-actions">
+      <button class="stay-btn" id="stayButton" type="button">Stay Here</button>
+      <button class="exit-btn" id="exitButton" type="button">Exit Setup</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const industryCards = document.querySelectorAll(".industry-card");
+const backButton = document.getElementById("backButton");
+const modal = document.getElementById("exitModal");
+const stayButton = document.getElementById("stayButton");
+const exitButton = document.getElementById("exitButton");
+let lastFocusedElement = null;
+
+industryCards.forEach(function(card){
+  card.addEventListener("click", function(){
+    const industry = card.dataset.industry;
+    const url = card.dataset.url;
+
+    localStorage.setItem("industry", industry);
+    window.location.href = url;
+  });
+});
+
+function openModal(){
+  lastFocusedElement = document.activeElement;
+  modal.classList.add("show");
+  modal.setAttribute("aria-hidden", "false");
+  stayButton.focus();
+}
+
+function closeModal(){
+  modal.classList.remove("show");
+  modal.setAttribute("aria-hidden", "true");
+
+  if(lastFocusedElement){
+    lastFocusedElement.focus();
+  }
+}
+
+function trapModalFocus(event){
+  if(!modal.classList.contains("show") || event.key !== "Tab"){
+    return;
+  }
+
+  const focusable = [stayButton, exitButton];
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+
+  if(event.shiftKey && document.activeElement === first){
+    event.preventDefault();
+    last.focus();
+  }
+
+  if(!event.shiftKey && document.activeElement === last){
+    event.preventDefault();
+    first.focus();
+  }
+}
+
+backButton.addEventListener("click", openModal);
+stayButton.addEventListener("click", closeModal);
+
+exitButton.addEventListener("click", function(){
+  window.location.href = "https://knovalab.in";
+});
+
+modal.addEventListener("click", function(event){
+  if(event.target === modal){
+    closeModal();
+  }
+});
+
+document.addEventListener("keydown", function(event){
+  if(event.key === "Escape" && modal.classList.contains("show")){
+    closeModal();
+  }
+
+  trapModalFocus(event);
+});
+</script>
+</body>
+</html>
