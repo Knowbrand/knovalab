@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 <title>Knovalab | Industry Selection</title>
 
 <style>
@@ -10,9 +11,9 @@
   --orange:#FF6A00;
   --orange2:#ff9d35;
   --bg:#050505;
-  --text:#fff;
-  --muted:rgba(255,255,255,.64);
-  --line:rgba(255,255,255,.09);
+  --text:#ffffff;
+  --muted:rgba(255,255,255,0.66);
+  --line:rgba(255,255,255,0.09);
 }
 
 *{
@@ -21,23 +22,25 @@
   box-sizing:border-box;
 }
 
+html{
+  scroll-behavior:smooth;
+}
+
 body{
   min-height:100vh;
   font-family:"Segoe UI",system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
   color:var(--text);
   background:
-    radial-gradient(circle at 8% 0%,rgba(255,106,0,.22),transparent 28%),
-    radial-gradient(circle at 92% 5%,rgba(255,106,0,.11),transparent 25%),
+    radial-gradient(circle at 8% 0%,rgba(255,106,0,0.22),transparent 28%),
+    radial-gradient(circle at 92% 5%,rgba(255,106,0,0.11),transparent 25%),
     linear-gradient(180deg,#120b07 0%,#050505 46%,#050505 100%);
   overflow-x:hidden;
 }
 
-button,a,summary{
+button,
+a,
+summary{
   font:inherit;
-}
-
-a{
-  color:inherit;
 }
 
 button:focus-visible,
@@ -48,12 +51,18 @@ summary:focus-visible{
 }
 
 .page{
-  animation:fadeIn .75s ease both;
+  animation:fadeIn 0.75s ease both;
 }
 
 @keyframes fadeIn{
-  from{opacity:0;transform:translateY(14px);}
-  to{opacity:1;transform:translateY(0);}
+  from{
+    opacity:0;
+    transform:translateY(14px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
 }
 
 /* NAVBAR */
@@ -67,15 +76,15 @@ nav{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  background:rgba(5,5,5,.72);
-  border-bottom:1px solid rgba(255,255,255,.06);
+  background:rgba(5,5,5,0.72);
+  border-bottom:1px solid rgba(255,255,255,0.06);
   backdrop-filter:blur(18px);
 }
 
 .logo{
   font-size:25px;
   font-weight:800;
-  letter-spacing:-.9px;
+  letter-spacing:-0.9px;
 }
 
 .back-btn{
@@ -85,18 +94,20 @@ nav{
   border-radius:999px;
   color:#fff;
   cursor:pointer;
-  background:rgba(255,255,255,.08);
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);
-  transition:.25s ease;
+  background:rgba(255,255,255,0.08);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,0.08);
+  transition:0.25s ease;
 }
 
 .back-btn:hover{
   transform:translateY(-1px);
-  background:rgba(255,106,0,.14);
-  box-shadow:inset 0 0 0 1px rgba(255,106,0,.35),0 14px 36px rgba(255,106,0,.12);
+  background:rgba(255,106,0,0.14);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,106,0,0.35),
+    0 14px 36px rgba(255,106,0,0.12);
 }
 
-/* HERO */
+/* MAIN */
 
 main{
   width:min(1160px,calc(100% - 48px));
@@ -104,9 +115,10 @@ main{
   padding:34px 0 56px;
 }
 
-.intro{
+.section-heading{
+  max-width:780px;
+  margin:0 auto;
   text-align:center;
-  margin-bottom:26px;
 }
 
 .step{
@@ -118,29 +130,40 @@ main{
   margin-bottom:16px;
   border-radius:999px;
   color:#ffb174;
-  background:rgba(255,106,0,.13);
-  box-shadow:inset 0 0 0 1px rgba(255,106,0,.28);
+  background:rgba(255,106,0,0.13);
+  box-shadow:inset 0 0 0 1px rgba(255,106,0,0.28);
   font-size:12px;
   font-weight:900;
   letter-spacing:1.3px;
   text-transform:uppercase;
 }
 
-.intro h1{
+.section-heading h1,
+.section-heading h2{
+  line-height:0.98;
+  letter-spacing:-2.2px;
+}
+
+.section-heading h1{
   font-size:clamp(38px,5.3vw,58px);
-  line-height:.96;
-  letter-spacing:-2.4px;
   margin-bottom:14px;
 }
 
-.intro p{
-  color:var(--muted);
-  font-size:17px;
+.section-heading h2{
+  font-size:clamp(34px,4.5vw,50px);
+  margin-bottom:14px;
 }
 
-/* CARDS */
+.section-heading p{
+  color:var(--muted);
+  font-size:17px;
+  line-height:1.65;
+}
+
+/* INDUSTRY GRID */
 
 .industry-grid{
+  margin-top:26px;
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:16px;
@@ -157,34 +180,36 @@ main{
   text-align:left;
   color:#fff;
   background:var(--img) center/cover;
-  box-shadow:0 18px 58px rgba(0,0,0,.34);
-  transition:transform .35s ease,box-shadow .35s ease,filter .35s ease;
+  box-shadow:0 18px 58px rgba(0,0,0,0.34);
+  transition:transform 0.35s ease,box-shadow 0.35s ease,filter 0.35s ease;
 }
 
 .industry-card::before{
   content:"";
   position:absolute;
   inset:0;
-  background:
-    linear-gradient(180deg,rgba(0,0,0,.16),rgba(0,0,0,.84)),
-    linear-gradient(135deg,rgba(255,106,0,.12),transparent 45%);
   z-index:1;
+  background:
+    linear-gradient(180deg,rgba(0,0,0,0.14),rgba(0,0,0,0.84)),
+    linear-gradient(135deg,rgba(255,106,0,0.12),transparent 45%);
 }
 
 .industry-card::after{
   content:"";
   position:absolute;
   inset:0;
-  background:radial-gradient(circle at 20% 0%,rgba(255,106,0,.28),transparent 34%);
-  opacity:0;
-  transition:.35s ease;
   z-index:2;
+  background:radial-gradient(circle at 20% 0%,rgba(255,106,0,0.28),transparent 34%);
+  opacity:0;
+  transition:0.35s ease;
 }
 
 .industry-card:hover{
   transform:translateY(-7px);
   filter:saturate(1.08);
-  box-shadow:0 28px 78px rgba(0,0,0,.56),0 0 36px rgba(255,106,0,.2);
+  box-shadow:
+    0 28px 78px rgba(0,0,0,0.56),
+    0 0 36px rgba(255,106,0,0.2);
 }
 
 .industry-card:hover::after{
@@ -206,12 +231,12 @@ main{
   padding:0 10px;
   margin-bottom:10px;
   border-radius:999px;
-  background:rgba(255,255,255,.16);
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);
+  background:rgba(255,255,255,0.16);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,0.12);
   backdrop-filter:blur(10px);
   font-size:10.5px;
   font-weight:900;
-  letter-spacing:.8px;
+  letter-spacing:0.8px;
   text-transform:uppercase;
 }
 
@@ -221,44 +246,47 @@ main{
   letter-spacing:-1.3px;
 }
 
-.restaurant{--img:url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=85");}
-.tattoo{--img:url("https://images.unsplash.com/photo-1562962230-16e4623d36e6?auto=format&fit=crop&w=1200&q=85");}
-.salon{--img:url("https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85");}
-.startup{--img:url("https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=85");}
-.personal{--img:url("https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1200&q=85");}
-.other{--img:url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=85");}
-
-/* QNA */
-
-.qna{
-  margin-top:56px;
-  display:grid;
-  grid-template-columns:.8fr 1.2fr;
-  gap:36px;
-  align-items:start;
+.restaurant{
+  --img:url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=85");
 }
 
-.qna-copy h2{
-  font-size:clamp(32px,4vw,48px);
-  line-height:1;
-  letter-spacing:-1.6px;
-  margin-bottom:14px;
+.tattoo{
+  --img:url("https://images.unsplash.com/photo-1562962230-16e4623d36e6?auto=format&fit=crop&w=1200&q=85");
 }
 
-.qna-copy p{
-  color:var(--muted);
-  line-height:1.7;
+.salon{
+  --img:url("https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85");
+}
+
+.startup{
+  --img:url("https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=85");
+}
+
+.personal{
+  --img:url("https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1200&q=85");
+}
+
+.other{
+  --img:url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=85");
+}
+
+/* FAQ */
+
+.faq-section{
+  margin-top:64px;
 }
 
 .faq-list{
+  max-width:860px;
+  margin:30px auto 0;
   display:grid;
   gap:12px;
 }
 
 .faq-list details{
   border-radius:18px;
-  background:rgba(255,255,255,.055);
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);
+  background:rgba(255,255,255,0.055);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,0.08);
   backdrop-filter:blur(14px);
   overflow:hidden;
 }
@@ -281,6 +309,7 @@ main{
 
 .faq-list summary::after{
   content:"+";
+  flex:0 0 auto;
   color:var(--orange2);
   font-size:24px;
   line-height:1;
@@ -312,9 +341,11 @@ footer{
   padding:32px;
   border-radius:28px;
   background:
-    linear-gradient(135deg,rgba(255,106,0,.24),rgba(255,255,255,.055) 45%,rgba(255,255,255,.03)),
-    rgba(255,255,255,.045);
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.09),0 26px 80px rgba(0,0,0,.38);
+    linear-gradient(135deg,rgba(255,106,0,0.24),rgba(255,255,255,0.055) 45%,rgba(255,255,255,0.03)),
+    rgba(255,255,255,0.045);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.09),
+    0 26px 80px rgba(0,0,0,0.38);
   backdrop-filter:blur(18px);
 }
 
@@ -343,32 +374,32 @@ footer{
   white-space:nowrap;
   font-weight:900;
   background:linear-gradient(135deg,var(--orange),var(--orange2));
-  box-shadow:0 18px 44px rgba(255,106,0,.28);
-  transition:.25s ease;
+  box-shadow:0 18px 44px rgba(255,106,0,0.28);
+  transition:0.25s ease;
 }
 
 .cta-button:hover{
   transform:translateY(-2px);
-  box-shadow:0 24px 58px rgba(255,106,0,.34);
+  box-shadow:0 24px 58px rgba(255,106,0,0.34);
 }
 
 .footer-bottom{
   display:grid;
-  grid-template-columns:minmax(220px,.8fr) minmax(0,1.8fr);
+  grid-template-columns:minmax(220px,0.8fr) minmax(0,1.8fr);
   gap:50px;
   padding:46px 4px 30px;
 }
 
 .footer-brand h3{
   font-size:26px;
-  letter-spacing:-.8px;
+  letter-spacing:-0.8px;
   margin-bottom:10px;
 }
 
 .footer-brand p,
 .footer-links p,
 .footer-links a{
-  color:rgba(255,255,255,.58);
+  color:rgba(255,255,255,0.58);
   font-size:14px;
   line-height:1.8;
 }
@@ -389,7 +420,7 @@ footer{
 .footer-links a{
   display:block;
   text-decoration:none;
-  transition:.22s ease;
+  transition:0.22s ease;
 }
 
 .footer-links a:hover{
@@ -399,8 +430,8 @@ footer{
 
 .footer-credit{
   padding-top:22px;
-  border-top:1px solid rgba(255,255,255,.08);
-  color:rgba(255,255,255,.42);
+  border-top:1px solid rgba(255,255,255,0.08);
+  color:rgba(255,255,255,0.42);
   font-size:13px;
   text-align:center;
 }
@@ -415,7 +446,7 @@ footer{
   align-items:center;
   justify-content:center;
   padding:22px;
-  background:rgba(0,0,0,.68);
+  background:rgba(0,0,0,0.68);
   backdrop-filter:blur(14px);
 }
 
@@ -428,14 +459,22 @@ footer{
   padding:32px;
   border-radius:28px;
   text-align:center;
-  background:linear-gradient(180deg,rgba(28,28,28,.94),rgba(12,12,12,.94));
-  box-shadow:0 24px 80px rgba(0,0,0,.55),inset 0 0 0 1px rgba(255,255,255,.09);
-  animation:modalIn .24s ease both;
+  background:linear-gradient(180deg,rgba(28,28,28,0.94),rgba(12,12,12,0.94));
+  box-shadow:
+    0 24px 80px rgba(0,0,0,0.55),
+    inset 0 0 0 1px rgba(255,255,255,0.09);
+  animation:modalIn 0.24s ease both;
 }
 
 @keyframes modalIn{
-  from{opacity:0;transform:translateY(12px) scale(.98);}
-  to{opacity:1;transform:translateY(0) scale(1);}
+  from{
+    opacity:0;
+    transform:translateY(12px) scale(0.98);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
 }
 
 .modal h2{
@@ -457,19 +496,19 @@ footer{
   border-radius:999px;
   cursor:pointer;
   font-weight:900;
-  transition:.25s ease;
+  transition:0.25s ease;
 }
 
 .stay-btn{
   color:#fff;
-  background:rgba(255,255,255,.08);
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.09);
+  background:rgba(255,255,255,0.08);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,0.09);
 }
 
 .exit-btn{
   color:#111;
   background:linear-gradient(135deg,var(--orange),var(--orange2));
-  box-shadow:0 16px 38px rgba(255,106,0,.24);
+  box-shadow:0 16px 38px rgba(255,106,0,0.24);
 }
 
 .modal-actions button:hover{
@@ -479,11 +518,21 @@ footer{
 /* RESPONSIVE */
 
 @media(max-height:820px) and (min-width:981px){
-  nav{height:68px;}
-  main{padding:22px 0 44px;}
-  .intro{margin-bottom:20px;}
-  .intro h1{font-size:50px;}
-  .industry-card{min-height:176px;}
+  nav{
+    height:68px;
+  }
+
+  main{
+    padding:22px 0 44px;
+  }
+
+  .section-heading h1{
+    font-size:50px;
+  }
+
+  .industry-card{
+    min-height:176px;
+  }
 }
 
 @media(max-width:980px){
@@ -491,7 +540,7 @@ footer{
     grid-template-columns:repeat(2,1fr);
   }
 
-  .qna{
+  .footer-bottom{
     grid-template-columns:1fr;
   }
 }
@@ -515,9 +564,18 @@ footer{
     padding:34px 0 44px;
   }
 
-  .intro h1{
+  .section-heading h1{
     font-size:42px;
     letter-spacing:-1.8px;
+  }
+
+  .section-heading h2{
+    font-size:36px;
+    letter-spacing:-1.4px;
+  }
+
+  .section-heading p{
+    font-size:15.5px;
   }
 
   .industry-grid{
@@ -534,9 +592,22 @@ footer{
     font-size:28px;
   }
 
-  .qna{
-    margin-top:44px;
-    gap:24px;
+  .faq-section{
+    margin-top:48px;
+  }
+
+  .faq-list{
+    margin-top:24px;
+  }
+
+  .faq-list summary{
+    min-height:auto;
+    padding:18px;
+    align-items:flex-start;
+  }
+
+  .faq-list details p{
+    padding:0 18px 18px;
   }
 
   .cta-box{
@@ -548,11 +619,6 @@ footer{
   .cta-right,
   .cta-button{
     width:100%;
-  }
-
-  .footer-bottom{
-    grid-template-columns:1fr;
-    gap:30px;
   }
 
   .footer-links{
@@ -571,159 +637,195 @@ footer{
 
 <div class="page">
 
-<nav>
-  <div class="logo">Knovalab</div>
-  <button class="back-btn" id="backButton" type="button">Back</button>
-</nav>
+  <nav>
+    <div class="logo">Knovalab</div>
+    <button class="back-btn" id="backButton" type="button">Back</button>
+  </nav>
 
-<main>
-  <section class="intro">
-    <div class="step">Step 1 of 4</div>
-    <h1>What industry are you from?</h1>
-    <p>This helps us personalize your demo experience.</p>
-  </section>
+  <main>
 
-  <section class="industry-grid" aria-label="Choose your industry">
-    <button class="industry-card restaurant" type="button" data-industry="Restaurant" data-url="https://knovalab.in/industry/restaurant/index.html">
-      <span class="card-content">
-        <span class="card-kicker">Hospitality</span>
-        <h2>Restaurant</h2>
-      </span>
-    </button>
+    <section class="section-heading">
+      <div class="step">Step 1 of 4</div>
+      <h1>What industry are you from?</h1>
+      <p>This helps us personalize your demo experience.</p>
+    </section>
 
-    <button class="industry-card tattoo" type="button" data-industry="Tattoo Studio" data-url="https://knovalab.in/industry/tattoo/index.html">
-      <span class="card-content">
-        <span class="card-kicker">Creative Studio</span>
-        <h2>Tattoo Studio</h2>
-      </span>
-    </button>
+    <section class="industry-grid" aria-label="Choose your industry">
 
-    <button class="industry-card salon" type="button" data-industry="Salon" data-url="https://knovalab.in/industry/salon/index.html">
-      <span class="card-content">
-        <span class="card-kicker">Beauty</span>
-        <h2>Salon</h2>
-      </span>
-    </button>
+      <button class="industry-card restaurant" type="button" data-industry="Restaurant" data-url="https://knovalab.in/industry/restaurant/index.html">
+        <span class="card-content">
+          <span class="card-kicker">Hospitality</span>
+          <h2>Restaurant</h2>
+        </span>
+      </button>
 
-    <button class="industry-card startup" type="button" data-industry="Startup" data-url="https://knovalab.in/industry/startup/index.html">
-      <span class="card-content">
-        <span class="card-kicker">SaaS & Growth</span>
-        <h2>Startup</h2>
-      </span>
-    </button>
+      <button class="industry-card tattoo" type="button" data-industry="Tattoo Studio" data-url="https://knovalab.in/industry/tattoo/index.html">
+        <span class="card-content">
+          <span class="card-kicker">Creative Studio</span>
+          <h2>Tattoo Studio</h2>
+        </span>
+      </button>
 
-    <button class="industry-card personal" type="button" data-industry="Personal Brand" data-url="https://knovalab.in/industry/personal-brand/index.html">
-      <span class="card-content">
-        <span class="card-kicker">Creator</span>
-        <h2>Personal Brand</h2>
-      </span>
-    </button>
+      <button class="industry-card salon" type="button" data-industry="Salon" data-url="https://knovalab.in/industry/salon/index.html">
+        <span class="card-content">
+          <span class="card-kicker">Beauty</span>
+          <h2>Salon</h2>
+        </span>
+      </button>
 
-    <button class="industry-card other" type="button" data-industry="Other Business" data-url="https://knovalab.in/industry/other/index.html">
-      <span class="card-content">
-        <span class="card-kicker">Custom</span>
-        <h2>Other Business</h2>
-      </span>
-    </button>
-  </section>
+      <button class="industry-card startup" type="button" data-industry="Startup" data-url="https://knovalab.in/industry/startup/index.html">
+        <span class="card-content">
+          <span class="card-kicker">SaaS & Growth</span>
+          <h2>Startup</h2>
+        </span>
+      </button>
 
-  <section class="qna">
-    <div class="qna-copy">
-      <h2>Common Questions</h2>
-      <p>Quick answers about how Knovalab builds premium websites for growing businesses.</p>
-    </div>
+      <button class="industry-card personal" type="button" data-industry="Personal Brand" data-url="https://knovalab.in/industry/personal-brand/index.html">
+        <span class="card-content">
+          <span class="card-kicker">Creator</span>
+          <h2>Personal Brand</h2>
+        </span>
+      </button>
 
-    <div class="faq-list">
-      <details open>
-        <summary>How fast can Knovalab launch my website?</summary>
-        <p>Most websites are completed in 2-5 days depending on the number of pages, content readiness, and required features.</p>
-      </details>
+      <button class="industry-card other" type="button" data-industry="Other Business" data-url="https://knovalab.in/industry/other/index.html">
+        <span class="card-content">
+          <span class="card-kicker">Custom</span>
+          <h2>Other Business</h2>
+        </span>
+      </button>
 
-      <details>
-        <summary>Do I fully own the website?</summary>
-        <p>Yes. Knovalab builds websites with full ownership, so you are not locked into monthly website platform fees.</p>
-      </details>
+    </section>
 
-      <details>
-        <summary>Will my website work well on mobile?</summary>
-        <p>Yes. Every Knovalab website is designed mobile-first and optimized for phones, tablets, and desktop screens.</p>
-      </details>
+    <section class="faq-section">
 
-      <details>
-        <summary>Can the design match my industry?</summary>
-        <p>Yes. Your selected industry helps Knovalab personalize the layout, sections, visuals, and conversion strategy.</p>
-      </details>
-
-      <details>
-        <summary>What happens after I choose an industry?</summary>
-        <p>Your selection is saved and you are taken to the relevant industry demo path for a more focused website experience.</p>
-      </details>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <div class="cta-box">
-    <div class="cta-left">
-      <h2>Ready To Launch Your Website?</h2>
-      <p>
-        Get a premium, mobile-optimized website built in just 2-5 days.
-        No monthly fees. Full ownership. Built to convert visitors into customers.
-      </p>
-    </div>
-
-    <div class="cta-right">
-      <a href="/demo/" class="cta-button">Book Free Demo</a>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <div class="footer-brand">
-      <h3>Knovalab</h3>
-      <p>Premium websites for growing businesses.</p>
-    </div>
-
-    <div class="footer-links">
-      <div>
-        <h4>Features</h4>
-        <p>Fast Static Hosting</p>
-        <p>100% Mobile Optimized</p>
-        <p>Conversion-Focused Design</p>
-        <p>Full Website Ownership</p>
+      <div class="section-heading">
+        <h2>Common Questions</h2>
+        <p>
+          Quick answers about how Knovalab builds premium, mobile-optimized
+          websites for growing businesses.
+        </p>
       </div>
 
-      <div>
-        <h4>Services</h4>
-        <a href="/services/">Business Websites</a>
-        <a href="/services/">Restaurant Websites</a>
-        <a href="/services/">Salon Websites</a>
-        <a href="/services/">Portfolio Websites</a>
+      <div class="faq-list">
+
+        <details open>
+          <summary>How fast can Knovalab launch my website?</summary>
+          <p>
+            Most websites are completed in 2-5 days depending on the number of
+            pages, content readiness, and required features.
+          </p>
+        </details>
+
+        <details>
+          <summary>Do I fully own the website?</summary>
+          <p>
+            Yes. Knovalab builds websites with full ownership, so you are not
+            locked into monthly website platform fees.
+          </p>
+        </details>
+
+        <details>
+          <summary>Will my website work well on mobile?</summary>
+          <p>
+            Yes. Every Knovalab website is designed mobile-first and optimized
+            for phones, tablets, and desktop screens.
+          </p>
+        </details>
+
+        <details>
+          <summary>Can the design match my industry?</summary>
+          <p>
+            Yes. Your selected industry helps Knovalab personalize the layout,
+            sections, visuals, and conversion strategy.
+          </p>
+        </details>
+
+        <details>
+          <summary>What happens after I choose an industry?</summary>
+          <p>
+            Your selection is saved and you are taken to the relevant industry
+            demo path for a more focused website experience.
+          </p>
+        </details>
+
       </div>
 
-      <div>
-        <h4>Contact</h4>
-        <p>+91 9167878131</p>
-        <p>WhatsApp Available</p>
+    </section>
+
+  </main>
+
+  <footer>
+
+    <div class="cta-box">
+      <div class="cta-left">
+        <h2>Ready To Launch Your Website?</h2>
+        <p>
+          Get a premium, mobile-optimized website built in just 2-5 days.
+          No monthly fees. Full ownership. Built to convert visitors into customers.
+        </p>
+      </div>
+
+      <div class="cta-right">
+        <a href="/demo/" class="cta-button">Book Free Demo</a>
       </div>
     </div>
-  </div>
 
-  <div class="footer-credit">
-    © 2026 Knovalab. All rights reserved.
-  </div>
-</footer>
+    <div class="footer-bottom">
+
+      <div class="footer-brand">
+        <h3>Knovalab</h3>
+        <p>Premium websites for growing businesses.</p>
+      </div>
+
+      <div class="footer-links">
+
+        <div>
+          <h4>Features</h4>
+          <p>Fast Static Hosting</p>
+          <p>100% Mobile Optimized</p>
+          <p>Conversion-Focused Design</p>
+          <p>Full Website Ownership</p>
+        </div>
+
+        <div>
+          <h4>Services</h4>
+          <a href="/services/">Business Websites</a>
+          <a href="/services/">Restaurant Websites</a>
+          <a href="/services/">Salon Websites</a>
+          <a href="/services/">Portfolio Websites</a>
+        </div>
+
+        <div>
+          <h4>Contact</h4>
+          <p>+91 9167878131</p>
+          <p>WhatsApp Available</p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="footer-credit">
+      © 2026 Knovalab. All rights reserved.
+    </div>
+
+  </footer>
 
 </div>
 
 <div class="modal-overlay" id="exitModal" aria-hidden="true">
+
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+
     <h2 id="modalTitle">Are you sure you want to exit setup?</h2>
 
     <div class="modal-actions">
       <button class="stay-btn" id="stayButton" type="button">Stay Here</button>
       <button class="exit-btn" id="exitButton" type="button">Exit Setup</button>
     </div>
+
   </div>
+
 </div>
 
 <script>
@@ -759,7 +861,9 @@ function closeModal(){
 }
 
 function trapFocus(event){
-  if(!modal.classList.contains("show") || event.key !== "Tab") return;
+  if(!modal.classList.contains("show") || event.key !== "Tab"){
+    return;
+  }
 
   const focusable = [stayButton, exitButton];
   const first = focusable[0];
