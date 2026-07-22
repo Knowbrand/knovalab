@@ -1,508 +1,336 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Book a Demo | Knovalab</title>
-<meta name="description" content="Book a free website demo with Knovalab and explore the right website strategy for your business.">
-
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="apple-touch-icon" href="/favicon.png">
-
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Segoe UI',sans-serif;
-}
-
-:root{
-  --accent:#ff6a00;
-  --accent-2:#ff8a33;
-  --bg:#0f0f0f;
-  --bg-soft:#111111;
-  --card:#1a1a1a;
-  --card-2:#181818;
-  --border:#222;
-  --text:#ffffff;
-  --muted:rgba(255,255,255,0.72);
-  --shadow:0 18px 48px rgba(0,0,0,0.28);
-  --radius:24px;
-  --radius-sm:14px;
-  --max:1180px;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  background:
-    radial-gradient(circle at top, rgba(255,106,0,0.10), transparent 24%),
-    linear-gradient(180deg, #111 0%, #090909 100%);
-  color:var(--text);
-  line-height:1.6;
-  overflow-x:hidden;
-}
-
-a{
-  text-decoration:none;
-  color:inherit;
-}
-
-.container{
-  width:min(100%, var(--max));
-  margin:0 auto;
-  padding:0 20px;
-}
-
-/* NAVBAR */
-
-nav{
-  width:100%;
-  background:rgba(10,10,10,0.88);
-  border-bottom:1px solid rgba(255,255,255,0.05);
-  position:sticky;
-  top:0;
-  z-index:50;
-  backdrop-filter:blur(12px);
-}
-
-.nav-inner{
-  width:min(100%, 1240px);
-  margin:0 auto;
-  padding:18px 20px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:20px;
-}
-
-.logo{
-  font-size:24px;
-  font-weight:800;
-  letter-spacing:-0.8px;
-}
-
-.back-btn,
-.cta-button{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  background:linear-gradient(135deg, var(--accent), var(--accent-2));
-  color:white;
-  font-weight:700;
-  transition:0.3s;
-}
-
-.back-btn{
-  padding:11px 20px;
-  border-radius:999px;
-  font-size:14px;
-  box-shadow:var(--shadow);
-  white-space:nowrap;
-}
-
-.back-btn:hover,
-.cta-button:hover{
-  transform:translateY(-2px);
-}
-
-/* HERO */
-
-.hero-wrap{
-  padding:72px 0 26px;
-}
-
-.hero{
-  text-align:center;
-  max-width:900px;
-  margin:auto;
-}
-
-.eyebrow{
-  display:inline-block;
-  color:var(--accent);
-  text-transform:uppercase;
-  letter-spacing:2px;
-  font-size:12px;
-  margin-bottom:16px;
-  font-weight:700;
-}
-
-.hero h1{
-  font-size:clamp(36px, 6vw, 62px);
-  margin-bottom:18px;
-  line-height:1.02;
-  letter-spacing:-1.6px;
-}
-
-.hero p{
-  color:var(--muted);
-  margin:0 auto 44px;
-  font-size:17px;
-  max-width:700px;
-  line-height:1.85;
-}
-
-/* BENEFITS */
-
-.benefits{
-  display:grid;
-  grid-template-columns:repeat(3, minmax(0, 1fr));
-  gap:22px;
-  margin-top:14px;
-}
-
-.benefit{
-  background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
-  padding:28px;
-  border-radius:20px;
-  border:1px solid rgba(255,255,255,0.08);
-  transition:0.3s ease;
-  box-shadow:var(--shadow);
-  text-align:left;
-}
-
-.benefit:hover{
-  transform:translateY(-6px);
-  border-color:rgba(255,106,0,0.35);
-}
-
-.benefit h3{
-  margin-bottom:10px;
-  font-size:18px;
-}
-
-.benefit p{
-  color:var(--muted);
-  font-size:14px;
-  line-height:1.75;
-}
-
-/* CALENDAR */
-
-.calendar-wrap{
-  padding:22px 0 100px;
-}
-
-.calendar-shell{
-  width:min(100%, 1180px);
-  margin:auto;
-  padding:0 20px;
-}
-
-.calendar-header{
-  text-align:center;
-  margin-bottom:28px;
-}
-
-.calendar-header h2{
-  font-size:clamp(28px, 4vw, 40px);
-  margin-bottom:10px;
-  letter-spacing:-1px;
-}
-
-.calendar-header p{
-  color:var(--muted);
-  max-width:620px;
-  margin:0 auto;
-  line-height:1.8;
-}
-
-.calendar{
-  border-radius:24px;
-  overflow:hidden;
-  border:1px solid rgba(255,255,255,0.08);
-  background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
-  box-shadow:var(--shadow);
-  padding:8px;
-}
-
-/* FOOTER */
-
-footer{
-  background:#0b0b0b;
-  padding:100px 10% 42px;
-  border-top:1px solid rgba(255,255,255,0.05);
-}
-
-.footer-inner{
-  width:min(100%, 1220px);
-  margin:0 auto;
-}
-
-.cta-box{
-  background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
-  border:1px solid rgba(255,255,255,0.08);
-  border-radius:28px;
-  padding:54px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:40px;
-  flex-wrap:wrap;
-  margin-bottom:70px;
-  box-shadow:var(--shadow);
-}
-
-.cta-left h2{
-  font-size:clamp(28px, 4vw, 40px);
-  margin-bottom:14px;
-  line-height:1.05;
-  letter-spacing:-1px;
-}
-
-.cta-left p{
-  max-width:560px;
-  color:var(--muted);
-  line-height:1.8;
-}
-
-.cta-button{
-  padding:16px 28px;
-  border-radius:999px;
-  white-space:nowrap;
-  box-shadow:var(--shadow);
-}
-
-.footer-bottom{
-  display:flex;
-  justify-content:space-between;
-  flex-wrap:wrap;
-  gap:56px;
-  margin-bottom:44px;
-}
-
-.footer-brand h3{
-  font-size:24px;
-  margin-bottom:10px;
-}
-
-.footer-brand p{
-  opacity:0.7;
-  max-width:260px;
-  color:var(--muted);
-  line-height:1.8;
-}
-
-.footer-links{
-  display:flex;
-  gap:72px;
-  flex-wrap:wrap;
-}
-
-.footer-links h4{
-  margin-bottom:15px;
-  font-size:16px;
-}
-
-.footer-links p,
-.footer-links a{
-  display:block;
-  margin-bottom:8px;
-  color:var(--muted);
-  font-size:14px;
-  transition:0.25s ease;
-}
-
-.footer-links a:hover{
-  color:var(--accent);
-}
-
-.footer-credit{
-  text-align:center;
-  opacity:0.5;
-  font-size:14px;
-  border-top:1px solid #222;
-  padding-top:28px;
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
-  .benefits{
-    grid-template-columns:1fr;
-  }
-
-  .cta-box{
-    padding:36px 24px;
-    text-align:center;
-  }
-
-  .cta-left p{
-    max-width:none;
-  }
-
-  .footer-bottom{
-    flex-direction:column;
-    gap:34px;
-  }
-
-  .footer-links{
-    gap:34px;
-  }
-}
-
-@media(max-width:640px){
-  .container,
-  .calendar-shell{
-    padding-left:16px;
-    padding-right:16px;
-  }
-
-  .nav-inner{
-    padding:16px;
-  }
-
-  .hero-wrap{
-    padding-top:58px;
-  }
-
-  .hero h1{
-    font-size:38px;
-  }
-
-  footer{
-    padding:72px 16px 36px;
-  }
-
-  .cta-button{
-    width:100%;
-  }
-
-  .calendar{
-    padding:0;
-    border-radius:18px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce){
-  html{
-    scroll-behavior:auto;
-  }
-
-  .benefit,
-  .back-btn,
-  .cta-button{
-    transition:none;
-  }
-}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Request a Custom Website Quote | Knovalab</title>
+  <meta name="description" content="Tell Knovalab about your project and receive a personalised quotation for your website, redesign, e-commerce, branding, SEO, or custom development requirements.">
+  <meta name="theme-color" content="#0f0f0f">
+  <link rel="canonical" href="https://knovalab.in/quote/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Request a Custom Website Quote | Knovalab">
+  <meta property="og:description" content="Share your goals and receive a personalised quotation from Knovalab.">
+  <meta property="og:url" content="https://knovalab.in/quote/">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/favicon.png">
+  <style>
+:root{--accent:#ff6a00;--accent-soft:#ff8a38;--bg:#0f0f0f;--surface:#151515;--surface-2:#1b1b1b;--border:#2a2a2a;--text:#fff;--muted:#aaa;--error:#ff7b72;--success:#54d18b;--radius:20px;--shadow:0 24px 70px rgba(0,0,0,.35)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:"Segoe UI",system-ui,-apple-system,sans-serif;line-height:1.6;padding-top:90px;overflow-x:hidden}button,input,select,textarea{font:inherit}a{color:inherit}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.skip-link{position:fixed;top:8px;left:8px;z-index:9999;background:#fff;color:#111;padding:10px 16px;transform:translateY(-150%);border-radius:8px}.skip-link:focus{transform:none}.site-nav{position:fixed;inset:0 0 auto;height:90px;padding:0 10%;display:flex;align-items:center;justify-content:space-between;background:rgba(15,15,15,.94);backdrop-filter:blur(14px);z-index:1000;border-bottom:1px solid transparent;transition:.3s}.site-nav.shrink{height:70px;background:rgba(11,11,11,.97);border-color:#202020;box-shadow:0 10px 30px rgba(0,0,0,.35)}.brand{text-decoration:none;font-weight:750;font-size:1.2rem}.nav-links{display:flex;gap:30px}.nav-links a{text-decoration:none;font-weight:550;transition:.2s}.nav-links a:hover{color:var(--accent)}.menu-toggle{display:none;background:transparent;border:0;color:#fff;font-size:1.5rem;padding:10px;cursor:pointer}.quote-hero{min-height:610px;display:grid;place-items:center;position:relative;isolation:isolate;overflow:hidden;padding:100px 10% 150px}.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:48px 48px;mask-image:linear-gradient(to bottom,#000 30%,transparent)}.hero-orb{position:absolute;border-radius:50%;filter:blur(2px);z-index:-1}.orb-one{width:440px;height:440px;background:radial-gradient(circle,rgba(255,106,0,.22),transparent 68%);top:-80px;right:8%}.orb-two{width:260px;height:260px;border:1px solid rgba(255,106,0,.18);bottom:50px;left:-80px}.hero-inner{text-align:center;max-width:940px}.eyebrow{margin:0 0 16px;color:var(--accent-soft);font-size:.78rem;text-transform:uppercase;letter-spacing:.22em;font-weight:750}.quote-hero h1{font-size:clamp(3rem,7vw,6.6rem);line-height:.96;letter-spacing:-.065em;margin:0 0 32px}.quote-hero h1 span{color:var(--accent)}.hero-copy{max-width:690px;margin:0 auto 26px;color:#c8c8c8;font-size:clamp(1rem,2vw,1.2rem)}.trust-list{list-style:none;padding:0;margin:0;display:flex;justify-content:center;flex-wrap:wrap;gap:12px 26px;color:#929292;font-size:.9rem}.trust-list li:before{content:"âœ“";color:var(--accent);margin-right:8px;font-weight:bold}.form-wrap{width:min(1180px,calc(100% - 40px));margin:-72px auto 110px;position:relative;z-index:2}.form-intro{display:flex;align-items:end;justify-content:space-between;gap:30px;padding:32px 38px;background:#101010;border:1px solid var(--border);border-radius:var(--radius) var(--radius) 0 0}.form-intro h2{margin:0;font-size:clamp(1.6rem,3vw,2.25rem);letter-spacing:-.035em}.progress-copy{width:min(280px,100%);font-size:.82rem;color:var(--muted);text-align:right}.progress-track{height:5px;margin-top:8px;background:#292929;border-radius:999px;overflow:hidden}.progress-track span{display:block;width:0;height:100%;background:var(--accent);transition:width .3s}#quote-form{border:1px solid var(--border);border-top:0;background:var(--surface);border-radius:0 0 var(--radius) var(--radius);box-shadow:var(--shadow);overflow:hidden}.form-section{margin:0;border:0;border-bottom:1px solid var(--border);padding:52px 38px}.form-section>legend,.section-legend{display:flex;align-items:center;gap:16px;font-size:1.35rem;font-weight:720;margin-bottom:28px;padding:0}.section-number{display:inline-grid;place-items:center;min-width:42px;height:42px;border:1px solid rgba(255,106,0,.45);border-radius:50%;color:var(--accent);font-size:.75rem;letter-spacing:.08em}.section-heading-row,.label-row{display:flex;justify-content:space-between;gap:16px}.section-help,.selection-count{margin:-12px 0 20px;color:var(--muted);font-size:.9rem}.selection-count{color:var(--accent-soft)}.choice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.choice-card{position:relative;display:flex;align-items:center;gap:12px;min-height:68px;padding:16px 18px;border:1px solid var(--border);border-radius:14px;background:var(--surface-2);cursor:pointer;color:#d8d8d8;font-weight:600;transition:border-color .2s,background .2s,transform .2s}.choice-card:hover{border-color:#555;transform:translateY(-1px)}.choice-card input{position:absolute;opacity:0;pointer-events:none}.choice-card:has(input:focus-visible){outline:3px solid rgba(255,106,0,.4);outline-offset:2px}.choice-card:has(input:checked){border-color:var(--accent);background:rgba(255,106,0,.09);color:#fff}.choice-check{display:grid;place-items:center;width:23px;height:23px;border:1px solid #555;border-radius:7px;color:transparent;font-size:.78rem;flex:0 0 auto}.choice-card:has(input:checked) .choice-check{background:var(--accent);border-color:var(--accent);color:#fff}.conditional{display:none;margin-top:20px}.conditional.is-visible{display:block;animation:reveal .25s ease}.conditional-grid.is-visible{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.reassurance{padding:16px 18px;margin:0;border-left:3px solid var(--accent);background:rgba(255,106,0,.07);color:#ddd;border-radius:0 10px 10px 0}.field-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}.field{min-width:0}.field label,.nested-fieldset legend{display:block;margin-bottom:9px;font-size:.91rem;font-weight:650;color:#e7e7e7}.optional{font-weight:400;color:#777;font-size:.78rem;margin-left:6px}.field input,.field select,.field textarea,.phone-row select,.phone-row input{width:100%;border:1px solid #333;border-radius:11px;background:#101010;color:#fff;padding:14px 15px;outline:none;transition:.2s}.field textarea{resize:vertical;min-height:160px}.field input:focus,.field select:focus,.field textarea:focus,.phone-row select:focus,.phone-row input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(255,106,0,.12)}.field input[aria-invalid="true"],.field textarea[aria-invalid="true"]{border-color:var(--error)}select{color-scheme:dark}.phone-row{display:grid;grid-template-columns:120px 1fr;gap:8px}.nested-fieldset{border:0;padding:0;margin:36px 0 0}.compact-grid{grid-template-columns:repeat(3,1fr)}.radio-card{min-height:60px}.radio-mark{width:20px;height:20px;border:1px solid #666;border-radius:50%;flex:0 0 auto}.radio-card:has(input:checked) .radio-mark{border:6px solid var(--accent);background:#fff}.field-error{min-height:1.2em;margin:7px 0 0;color:var(--error);font-size:.82rem}.field-note{margin:7px 0 0;color:#777;font-size:.82rem}.label-row span{color:#777;font-size:.8rem}.submit-section{padding:42px 38px;background:#111}.consent{display:flex;align-items:flex-start;gap:12px;cursor:pointer;max-width:760px}.consent input{position:absolute;opacity:0}.consent-box{display:grid;place-items:center;width:23px;height:23px;flex:0 0 auto;border:1px solid #555;border-radius:6px;color:transparent}.consent:has(input:checked) .consent-box{background:var(--accent);border-color:var(--accent);color:#fff}.consent:has(input:focus-visible) .consent-box{outline:3px solid rgba(255,106,0,.4);outline-offset:2px}.consent small{display:block;color:#888;margin-top:3px}.submit-row{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:28px}.submit-button,.secondary-button,.clear-button{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:15px 26px;text-decoration:none;font-weight:700;cursor:pointer;transition:.2s}.submit-button{border:0;background:var(--accent);color:#fff;min-width:245px}.submit-button:hover{transform:translateY(-2px);box-shadow:0 12px 35px rgba(255,106,0,.28)}.submit-button:focus-visible,.secondary-button:focus-visible,.clear-button:focus-visible{outline:3px solid rgba(255,106,0,.45);outline-offset:3px}.submit-button:disabled{opacity:.55;cursor:not-allowed;transform:none;box-shadow:none}.clear-button{background:transparent;border:0;color:#888;padding-left:0}.clear-button:hover{color:#fff}.spinner{display:none;width:18px;height:18px;border:2px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite}.submit-button.is-loading .spinner{display:block}.submit-button.is-loading .button-label{display:none}.form-status{margin-top:16px;min-height:24px;color:var(--error)}.success-panel{display:none;text-align:center;padding:76px 30px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow)}.success-panel.is-visible{display:block}.success-panel h2{font-size:clamp(2rem,4vw,3.2rem);margin:5px 0 18px}.success-panel p{color:#aaa}.success-panel strong{color:#fff}.success-icon{display:grid;place-items:center;width:66px;height:66px;margin:0 auto 22px;border-radius:50%;background:rgba(84,209,139,.12);border:1px solid var(--success);color:var(--success);font-size:1.5rem}.success-actions{display:flex;justify-content:center;gap:12px;margin-top:28px;flex-wrap:wrap}.secondary-button{border:1px solid #3a3a3a;background:#1a1a1a}.site-footer{background:#0b0b0b;padding:90px 10% 35px}.footer-cta{display:flex;align-items:center;justify-content:space-between;gap:30px;padding:46px;border:1px solid #242424;border-radius:var(--radius);background:#121212;margin-bottom:70px}.footer-cta h2{font-size:clamp(1.7rem,3vw,2.5rem);margin:0 0 8px}.footer-cta p,.footer-bottom p{margin:0;color:#888}.footer-bottom{display:flex;justify-content:space-between;gap:50px}.footer-bottom h3{margin:0 0 8px}.footer-links{display:flex;gap:80px}.footer-links h4{margin:0 0 12px}.footer-links a{display:block;color:#888;text-decoration:none;margin:7px 0}.footer-links a:hover{color:var(--accent)}.footer-credit{text-align:center;color:#555;border-top:1px solid #222;padding-top:28px;margin:55px 0 0}.honeypot{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important}.has-error{border-color:var(--error)!important}@keyframes spin{to{transform:rotate(360deg)}}@keyframes reveal{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+@media(max-width:900px){body{padding-top:78px}.site-nav{height:78px;padding:0 6%}.menu-toggle{display:block}.nav-links{display:none;position:absolute;top:100%;right:4%;width:230px;padding:18px;flex-direction:column;gap:6px;border:1px solid var(--border);border-radius:14px;background:#151515;box-shadow:var(--shadow)}.nav-links.active{display:flex}.nav-links a{padding:9px}.quote-hero{padding:90px 6% 130px;min-height:550px}.form-wrap{width:min(100% - 28px,1180px)}.choice-grid,.compact-grid{grid-template-columns:repeat(2,1fr)}.form-intro{align-items:flex-start;flex-direction:column}.progress-copy{text-align:left}.footer-cta,.footer-bottom{align-items:flex-start;flex-direction:column}}
+@media(max-width:600px){.quote-hero{min-height:500px;padding-inline:20px}.quote-hero h1{font-size:clamp(2.7rem,15vw,4.2rem)}.trust-list{align-items:flex-start;flex-direction:column;display:inline-flex}.form-wrap{width:100%;margin-top:-50px}.form-intro,#quote-form{border-left:0;border-right:0;border-radius:0}.form-intro,.form-section,.submit-section{padding:34px 20px}.form-section>legend,.section-legend{font-size:1.1rem}.choice-grid,.compact-grid,.field-grid,.conditional-grid.is-visible{grid-template-columns:1fr}.choice-card{min-height:60px}.phone-row{grid-template-columns:105px 1fr}.submit-row{align-items:stretch;flex-direction:column-reverse}.submit-button{width:100%}.clear-button{padding:10px}.site-footer{padding:65px 20px 28px}.footer-cta{padding:30px 24px}.footer-links{flex-direction:column;gap:28px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+  </style>
 </head>
-
-<body>
-
-<nav>
-  <div class="nav-inner">
-    <div class="logo">Knovalab</div>
-    <a href="/" class="back-btn">Go to Home</a>
-  </div>
-</nav>
-
-<section class="hero-wrap">
-  <div class="container hero">
-    <span class="eyebrow">Free Consultation</span>
-    <h1>Book a Free Website Demo</h1>
-    <p>
-      See how a premium, modern website can grow your business.
-      Schedule a quick 15-minute call and we’ll walk you through everything clearly.
-    </p>
-
-    <div class="benefits">
-      <div class="benefit">
-        <h3>Live Website Demo</h3>
-        <p>See a real demo website built for businesses like yours and understand what’s possible for your brand.</p>
-      </div>
-
-      <div class="benefit">
-        <h3>Business Advice</h3>
-        <p>We’ll suggest the best website direction, structure, and strategy based on your business goals.</p>
-      </div>
-
-      <div class="benefit">
-        <h3>Pricing Breakdown</h3>
-        <p>Understand exactly what each plan includes and which option makes the most sense for you.</p>
-      </div>
+<body class="quote-page">
+  <a class="skip-link" href="#quote-form">Skip to quote form</a>
+  <nav class="site-nav" aria-label="Main navigation">
+    <a class="brand" href="/" aria-label="Knovalab home">Knovalab</a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links"><span class="sr-only">Open menu</span><span aria-hidden="true">â˜°</span></button>
+    <div class="nav-links" id="nav-links">
+      <a href="/portfolio/">Portfolio</a><a href="/services/">Services</a><a href="/pricing/">Pricing</a><a href="/faq/">FAQ</a><a href="/contact/">Contact</a><a href="/blogs/">Blogs</a>
     </div>
-  </div>
-</section>
+  </nav>
 
-<section class="calendar-wrap">
-  <div class="calendar-shell">
-    <div class="calendar-header">
-      <h2>Choose Your Time</h2>
-      <p>Select a time that works for you and book your free demo directly through the calendar below.</p>
-    </div>
-
-    <div class="calendar">
-      <div
-        class="calendly-inline-widget"
-        data-url="https://calendly.com/gsidharth644/30min"
-        style="min-width:320px;height:700px;">
+  <main>
+    <header class="quote-hero">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-orb orb-one" aria-hidden="true"></div><div class="hero-orb orb-two" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <p class="eyebrow">Build something great</p>
+        <h1>Tell Us What<br><span>Youâ€™re Planning.</span></h1>
+        <p class="hero-copy">Select the services you need, share a few project details, and our team will prepare a personalised quotation for you.</p>
+        <ul class="trust-list" aria-label="Quote request benefits"><li>No obligation</li><li>Personalised response</li><li>Usually within 24 hours</li></ul>
       </div>
-    </div>
-  </div>
-</section>
+    </header>
 
-<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
-
-<footer>
-  <div class="footer-inner">
-
-    <div class="cta-box">
-      <div class="cta-left">
-        <h2>Ready To Launch Your Website?</h2>
-        <p>
-          Get a premium, mobile-optimized website built in just 2–5 days.
-          No monthly fees. Full ownership. Built to convert visitors into customers.
-        </p>
+    <section class="form-wrap" aria-labelledby="form-title">
+      <div class="form-intro">
+        <div><p class="eyebrow">Project brief</p><h2 id="form-title">A few details. A clearer quote.</h2></div>
+        <div class="progress-copy"><span id="progressText">0% complete</span><div class="progress-track" aria-hidden="true"><span id="progressBar"></span></div></div>
       </div>
 
-      <div class="cta-right">
-        <a href="/demo/" class="cta-button">Book Free Demo</a>
-      </div>
-    </div>
+      <form id="quote-form" novalidate>
+        <input class="honeypot" type="text" name="company_website_confirm" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input type="hidden" name="submissionId" id="submissionId"><input type="hidden" name="submissionDateTime" id="submissionDateTime"><input type="hidden" name="sourcePage" value="Knovalab Custom Quote"><input type="hidden" name="phoneNumber" id="completePhone"><input type="hidden" name="selectedServices" id="selectedServices">
 
-    <div class="footer-bottom">
-      <div class="footer-brand">
-        <h3>Knovalab</h3>
-        <p>Premium websites for growing businesses.</p>
-      </div>
+        <fieldset class="form-section" data-section="services">
+          <legend><span class="section-number">01</span><span>What can we help you with?</span></legend>
+          <div class="section-heading-row"><p class="section-help">Choose as many as you need.</p><p class="selection-count" id="serviceCount" aria-live="polite">0 selected</p></div>
+          <div class="choice-grid service-grid" id="serviceGrid">
+            <label class="choice-card"><input type="checkbox" name="services" value="Business Website"><span class="choice-check" aria-hidden="true">âœ“</span><span>Business Website</span></label>
+            <label class="choice-card"><input type="checkbox" name="services" value="Landing Page"><span class="choice-check" aria-hidden="true">âœ“</span><span>Landing Page</span></label>
+            <label class="choice-card"><input type="checkbox" name="services" value="Website Redesign"><span class="choice-check" aria-hidden="true">âœ“</span><span>Website Redesign</span></label>
+            <label class="choice-card"><input type="checkbox" name="services" value="E-Commerce Website"><span class="choice-check" aria-hidden="true">âœ“</span><span>E-Commerce Website</span></label>
+            <label class="choice-card"><input type="checkbox" name="services" value="School or Institute Website"><span class="choice-check" aria-hidden="true">âœ“</span><span>School or Institute</span></label>
+            <label class="choice-card"><input type="checkbox" name="services" value="Portfolio Website"><span class="choice-check" aria-hidden="true">âœ“</span><span>Portfolio Website</span></label>
+            <label class="choice-card"><input type="checkbox" name="services" value="Booking Website"><span class="choice-check" aria-hidden="true">âœ“</span><span>Booking Website</span></label>
+            <label class="choice-card"><input type="checkbox" name="services" value="Blog or News Website"><span class="choice-check" aria-hidden="true">âœ“</span><span>Blog or News</span></label>
+            <label class="choice-card"><input type="checkbox" name="services" value="Website Maintenance"><span class="choice-check" aria-hidden="true">âœ“</span><span>Website Maintenance</span></label>
+            <label class="choice-card"><input type="checkbox" name="services" value="SEO Setup"><span class="choice-check" aria-hidden="true">âœ“</span><span>SEO Setup</span></label>
+            <label class="choice-card"><input type="checkbox" name="services" value="Branding and Visual Design"><span class="choice-check" aria-hidden="true">âœ“</span><span>Branding &amp; Visual Design</span></label>
+            <label class="choice-card"><input type="checkbox" name="services" value="Custom Development"><span class="choice-check" aria-hidden="true">âœ“</span><span>Custom Development</span></label>
+            <label class="choice-card"><input type="checkbox" name="services" value="Not Sure Yet"><span class="choice-check" aria-hidden="true">âœ“</span><span>Not Sure Yet</span></label>
+          </div>
+          <p class="field-error" id="services-error" role="alert"></p>
+          <div class="conditional" id="notSureFields"><p class="reassurance">Thatâ€™s completely fine. Tell us your goal and weâ€™ll recommend the right solution.</p></div>
+          <div class="conditional conditional-grid" id="ecommerceFields">
+            <div class="field"><label for="productCount">Approximate number of products</label><input id="productCount" name="ecommerceProductCount" inputmode="numeric" maxlength="6" placeholder="e.g. 50"></div>
+            <div class="field"><label for="paymentMethod">Preferred payment method</label><input id="paymentMethod" name="ecommercePaymentMethod" maxlength="80" placeholder="e.g. Razorpay, UPI, cards"></div>
+            <div class="field"><label for="productDataReady">Is the product data ready?</label><select id="productDataReady" name="ecommerceProductDataReady"><option value="">Select</option><option>Yes</option><option>Partly</option><option>No</option></select></div>
+          </div>
+          <div class="conditional conditional-grid" id="redesignFields">
+            <div class="field"><label for="redesignUrl">Current website URL</label><input id="redesignUrl" name="redesignCurrentWebsite" type="url" maxlength="200" placeholder="https://"></div>
+            <div class="field"><label for="redesignReason">Main reason for redesign</label><input id="redesignReason" name="redesignReason" maxlength="160" placeholder="What needs to improve?"></div>
+          </div>
+          <div class="conditional conditional-grid" id="maintenanceFields">
+            <div class="field"><label for="platform">Existing platform</label><input id="platform" name="maintenancePlatform" maxlength="80" placeholder="e.g. WordPress, Shopify, custom"></div>
+            <div class="field"><label for="supportType">Support required</label><input id="supportType" name="maintenanceSupportType" maxlength="160" placeholder="Updates, fixes, content, monitoringâ€¦"></div>
+          </div>
+        </fieldset>
 
-      <div class="footer-links">
-        <div>
-          <h4>Features</h4>
-          <p>Fast Static Hosting</p>
-          <p>100% Mobile Optimized</p>
-          <p>Conversion-Focused Design</p>
-          <p>Full Website Ownership</p>
-        </div>
+        <section class="form-section" aria-labelledby="business-title">
+          <div class="section-legend" id="business-title"><span class="section-number">02</span><span>Business and scope</span></div>
+          <div class="field-grid">
+            <div class="field"><label for="businessCategory">What type of business is this for?</label><select id="businessCategory" name="businessCategory"><option value="">Select a category</option><option>Local Business</option><option>School or Education</option><option>Restaurant or CafÃ©</option><option>Salon or Beauty</option><option>Healthcare</option><option>Real Estate</option><option>Automotive</option><option>Creative Professional</option><option>Startup</option><option>E-Commerce</option><option>Non-Profit</option><option>Personal Brand</option><option>Other</option></select></div>
+            <div class="field conditional" id="otherCategoryField"><label for="otherCategory">Other business category</label><input id="otherCategory" name="otherBusinessCategory" maxlength="100"></div>
+          </div>
+          <fieldset class="nested-fieldset"><legend>What budget range are you considering? <span aria-hidden="true">*</span></legend><div class="choice-grid compact-grid" id="budgetGrid"></div><p class="field-error" id="budget-error" role="alert"></p></fieldset>
+          <fieldset class="nested-fieldset"><legend>When would you like to begin?</legend><div class="choice-grid compact-grid">
+            <label class="choice-card radio-card"><input type="radio" name="projectTimeline" value="As Soon as Possible"><span class="radio-mark" aria-hidden="true"></span><span>As Soon as Possible</span></label>
+            <label class="choice-card radio-card"><input type="radio" name="projectTimeline" value="Within 2 Weeks"><span class="radio-mark" aria-hidden="true"></span><span>Within 2 Weeks</span></label>
+            <label class="choice-card radio-card"><input type="radio" name="projectTimeline" value="Within 1 Month"><span class="radio-mark" aria-hidden="true"></span><span>Within 1 Month</span></label>
+            <label class="choice-card radio-card"><input type="radio" name="projectTimeline" value="Within 2â€“3 Months"><span class="radio-mark" aria-hidden="true"></span><span>Within 2â€“3 Months</span></label>
+            <label class="choice-card radio-card"><input type="radio" name="projectTimeline" value="Just Exploring"><span class="radio-mark" aria-hidden="true"></span><span>Just Exploring</span></label>
+          </div></fieldset>
+        </section>
 
-        <div>
-          <h4>Services</h4>
-          <a href="/services/">Business Websites</a>
-          <a href="/services/">Restaurant Websites</a>
-          <a href="/services/">Salon Websites</a>
-          <a href="/services/">Portfolio Websites</a>
-        </div>
+        <section class="form-section" aria-labelledby="contact-title"><div class="section-legend" id="contact-title"><span class="section-number">03</span><span>How can we reach you?</span></div>
+          <div class="field-grid">
+            <div class="field"><label for="fullName">Full name <span aria-hidden="true">*</span></label><input id="fullName" name="fullName" autocomplete="name" maxlength="100" required><p class="field-error" id="fullName-error" role="alert"></p></div>
+            <div class="field"><label for="businessName">Business or brand name <span class="optional">Optional</span></label><input id="businessName" name="businessName" autocomplete="organization" maxlength="100"></div>
+            <div class="field"><label for="email">Email address <span aria-hidden="true">*</span></label><input id="email" name="email" type="email" autocomplete="email" maxlength="150" required><p class="field-error" id="email-error" role="alert"></p></div>
+            <div class="field"><label for="phone">Phone number <span aria-hidden="true">*</span></label><div class="phone-row"><select id="countryCode" name="countryCode" aria-label="Country code"><option value="+91">+91 India</option><option value="+1">+1 US/CA</option><option value="+44">+44 UK</option><option value="+61">+61 AU</option><option value="+971">+971 UAE</option><option value="other">Other</option></select><input id="phone" name="phoneLocal" type="tel" inputmode="tel" autocomplete="tel-national" maxlength="20" placeholder="98765 43210" required></div><p class="field-error" id="phone-error" role="alert"></p></div>
+            <div class="field"><label for="location">City or country</label><input id="location" name="cityOrCountry" autocomplete="address-level2" maxlength="100"></div>
+            <div class="field"><label for="contactMethod">Preferred contact method</label><select id="contactMethod" name="preferredContactMethod"><option value="">No preference</option><option>Phone Call</option><option>WhatsApp</option><option>Email</option></select></div>
+          </div>
+        </section>
 
-        <div>
-          <h4>Contact</h4>
-          <p>+91 9167878131</p>
-          <p>WhatsApp Available</p>
-        </div>
-      </div>
-    </div>
+        <section class="form-section" aria-labelledby="details-title"><div class="section-legend" id="details-title"><span class="section-number">04</span><span>Tell us about the project</span></div>
+          <div class="field"><div class="label-row"><label for="projectDescription">Project description <span aria-hidden="true">*</span></label><span id="descriptionCount">0 / 2000</span></div><textarea id="projectDescription" name="projectDescription" rows="7" maxlength="2000" required placeholder="Tell us what your business does, what you want the website to achieve, pages or features you need, and any examples you like."></textarea><p class="field-error" id="projectDescription-error" role="alert"></p></div>
+          <div class="field-grid"><div class="field"><label for="existingWebsite">Existing website URL <span class="optional">Optional</span></label><input id="existingWebsite" name="existingWebsite" type="url" maxlength="200" placeholder="https://"></div><div class="field"><label for="referenceWebsite">Reference website URL <span class="optional">Optional</span></label><input id="referenceWebsite" name="referenceWebsite" type="url" maxlength="200" placeholder="https://"></div></div>
+          <div class="field"><label for="referenceFileLink">Google Drive or Dropbox link <span class="optional">Optional</span></label><input id="referenceFileLink" name="referenceFileLink" type="url" maxlength="300" placeholder="https://"><p class="field-note">Share a logo, brief, brand document, or reference image. You can also send files after we reply.</p></div>
+        </section>
 
-    <div class="footer-credit">
-      © 2026 Knovalab. All rights reserved.
-    </div>
+        <section class="submit-section">
+          <label class="consent"><input id="consent" name="consentStatus" type="checkbox" value="Agreed" required><span class="consent-box" aria-hidden="true">âœ“</span><span>I agree that Knovalab may contact me regarding this enquiry. <small>Your information will only be used to respond to your request.</small></span></label><p class="field-error" id="consent-error" role="alert"></p>
+          <div class="submit-row"><button class="clear-button" id="clearDraft" type="button">Clear form</button><button class="submit-button" id="submitButton" type="submit"><span class="button-label">Request My Custom Quote</span><span class="spinner" aria-hidden="true"></span></button></div>
+          <div class="form-status" id="formStatus" aria-live="polite"></div>
+        </section>
+      </form>
 
-  </div>
-</footer>
+      <section class="success-panel" id="successPanel" tabindex="-1" aria-labelledby="successTitle"><span class="success-icon" aria-hidden="true">âœ“</span><p class="eyebrow">Request received</p><h2 id="successTitle">Your request has been received.</h2><p>Reference: <strong id="successReference"></strong></p><p>Our team will review your requirements and contact you with the next steps, usually within 24 hours.</p><div class="success-actions"><a class="submit-button" href="/">Return home</a><a class="secondary-button" href="https://wa.me/919167878131">Chat on WhatsApp</a></div></section>
+    </section>
+  </main>
 
+  <footer class="site-footer"><div class="footer-cta"><div><h2>Ready to shape your next idea?</h2><p>A clear brief is the first step toward a website built to perform.</p></div><a class="submit-button" href="#quote-form">Start your request</a></div><div class="footer-bottom"><div><h3>Knovalab</h3><p>Premium websites for growing businesses.</p></div><div class="footer-links"><div><h4>Explore</h4><a href="/services/">Services</a><a href="/pricing/">Pricing</a><a href="/portfolio/">Portfolio</a></div><div><h4>Contact</h4><a href="tel:+919167878131">+91 91678 78131</a><a href="https://wa.me/919167878131">WhatsApp available</a></div></div></div><p class="footer-credit">Â© 2026 Knovalab. All rights reserved.</p></footer>
+  <script>
+(() => {
+  'use strict';
+
+  // Configuration: edit these values in one place.
+  const CONFIG = {
+    submissionEndpoint: 'https://script.google.com/macros/s/AKfycbzIO-gQ--Fc0feb6gLnRRQct91q-CUdlYlQhW63AUCY48XshSsM1piT1ZliCjq4CEWPMA/exec', // Paste the deployed Google Apps Script web-app URL here.
+    sourcePage: 'Knovalab Custom Quote',
+    expectedReplyHours: 24,
+    minimumCompletionMs: 3000,
+    draftKey: 'knovalab_quote_draft_v1',
+    budgets: ['Under â‚¹10,000', 'â‚¹10,000 â€“ â‚¹25,000', 'â‚¹25,000 â€“ â‚¹50,000', 'â‚¹50,000 â€“ â‚¹1,00,000', 'â‚¹1,00,000+', 'I Need Guidance']
+  };
+
+  const form = document.getElementById('quote-form');
+  const startedAt = Date.now();
+  const $ = (selector, root = document) => root.querySelector(selector);
+  const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
+  let submitting = false;
+  let draftTimer;
+
+  function renderBudgets() {
+    $('#budgetGrid').innerHTML = CONFIG.budgets.map(value => `<label class="choice-card radio-card"><input type="radio" name="budgetRange" value="${value}"><span class="radio-mark" aria-hidden="true"></span><span>${value}</span></label>`).join('');
+  }
+
+  function toggleConditional(id, visible) {
+    const panel = document.getElementById(id);
+    panel.classList.toggle('is-visible', visible);
+    $$('input, select, textarea', panel).forEach(field => { field.disabled = !visible; });
+  }
+
+  function updateConditionals() {
+    const services = selectedServiceValues();
+    toggleConditional('ecommerceFields', services.includes('E-Commerce Website'));
+    toggleConditional('redesignFields', services.includes('Website Redesign'));
+    toggleConditional('maintenanceFields', services.includes('Website Maintenance'));
+    toggleConditional('notSureFields', services.includes('Not Sure Yet'));
+    toggleConditional('otherCategoryField', $('#businessCategory').value === 'Other');
+  }
+
+  function selectedServiceValues() { return $$('input[name="services"]:checked', form).map(input => input.value); }
+
+  function updateServiceCount() {
+    const count = selectedServiceValues().length;
+    $('#serviceCount').textContent = `${count} selected`;
+    $('#selectedServices').value = selectedServiceValues().join(', ');
+  }
+
+  function errorFor(name, message) {
+    const target = document.getElementById(`${name}-error`);
+    if (target) target.textContent = message || '';
+    const field = document.getElementById(name);
+    if (field) field.setAttribute('aria-invalid', message ? 'true' : 'false');
+    if (name === 'services') $('#serviceGrid').classList.toggle('has-error', Boolean(message));
+    if (name === 'budget') $('#budgetGrid').classList.toggle('has-error', Boolean(message));
+  }
+
+  function isValidEmail(value) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i.test(value); }
+  function phoneDigits() { return $('#phone').value.replace(/\D/g, ''); }
+
+  function validate() {
+    const checks = [];
+    const servicesOk = selectedServiceValues().length > 0;
+    errorFor('services', servicesOk ? '' : 'Select at least one service.'); checks.push([servicesOk, $('#serviceGrid')]);
+    const budgetOk = Boolean($('input[name="budgetRange"]:checked', form));
+    errorFor('budget', budgetOk ? '' : 'Choose a budget range.'); checks.push([budgetOk, $('#budgetGrid')]);
+    const nameOk = $('#fullName').value.trim().length >= 2;
+    errorFor('fullName', nameOk ? '' : 'Enter your full name.'); checks.push([nameOk, $('#fullName')]);
+    const emailOk = isValidEmail($('#email').value.trim());
+    errorFor('email', emailOk ? '' : 'Enter a valid email address.'); checks.push([emailOk, $('#email')]);
+    const phoneOk = phoneDigits().length >= 7 && phoneDigits().length <= 15;
+    errorFor('phone', phoneOk ? '' : 'Enter a valid phone number (7â€“15 digits).'); checks.push([phoneOk, $('#phone')]);
+    const descriptionOk = $('#projectDescription').value.trim().length >= 20;
+    errorFor('projectDescription', descriptionOk ? '' : 'Please share at least 20 characters about your project.'); checks.push([descriptionOk, $('#projectDescription')]);
+    const consentOk = $('#consent').checked;
+    errorFor('consent', consentOk ? '' : 'Please agree so we can respond to your enquiry.'); checks.push([consentOk, $('#consent')]);
+    const firstInvalid = checks.find(([ok]) => !ok);
+    return { valid: !firstInvalid, firstInvalid: firstInvalid?.[1] };
+  }
+
+  function generateId() {
+    const now = new Date();
+    const date = `${now.getFullYear()}${String(now.getMonth()+1).padStart(2,'0')}${String(now.getDate()).padStart(2,'0')}`;
+    const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+    const random = Array.from(crypto.getRandomValues(new Uint8Array(4)), n => chars[n % chars.length]).join('');
+    return `KQ-${date}-${random}`;
+  }
+
+  function trimTextFields() { $$('input[type="text"], input[type="email"], input[type="url"], input[type="tel"], textarea', form).forEach(field => { field.value = field.value.trim(); }); }
+
+  function serialize() {
+    trimTextFields();
+    const id = generateId();
+    const now = new Date().toISOString();
+    $('#submissionId').value = id; $('#submissionDateTime').value = now;
+    const code = $('#countryCode').value === 'other' ? '' : $('#countryCode').value;
+    $('#completePhone').value = `${code}${phoneDigits()}`;
+    $('#selectedServices').value = selectedServiceValues().join(', ');
+    const data = Object.fromEntries(new FormData(form).entries());
+    data.services = selectedServiceValues();
+    data.selectedServices = selectedServiceValues().join(', ');
+    data.sourcePage = CONFIG.sourcePage;
+    return data;
+  }
+
+  function setLoading(loading) {
+    submitting = loading;
+    $('#submitButton').disabled = loading;
+    $('#submitButton').classList.toggle('is-loading', loading);
+    $('#formStatus').textContent = loading ? 'Sending your requestâ€¦' : '';
+  }
+
+  async function submitForm(event) {
+    event.preventDefault();
+    if (submitting) return;
+    const validation = validate();
+    if (!validation.valid) {
+      $('#formStatus').textContent = 'Please correct the highlighted fields.';
+      validation.firstInvalid.focus?.();
+      validation.firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+    if (form.elements.company_website_confirm.value || Date.now() - startedAt < CONFIG.minimumCompletionMs) {
+      $('#formStatus').textContent = 'Please wait a moment and try again.'; return;
+    }
+    if (!CONFIG.submissionEndpoint) {
+      $('#formStatus').textContent = 'Quote requests are not connected yet. Please contact Knovalab by WhatsApp while the form endpoint is being configured.';
+      return;
+    }
+    const payload = serialize();
+    setLoading(true);
+    try {
+      const response = await fetch(CONFIG.submissionEndpoint, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(payload), redirect: 'follow' });
+      if (!response.ok) throw new Error('Request failed');
+      let result = {};
+      try { result = await response.json(); } catch (_) { result = { success: true }; }
+      if (result.success === false) throw new Error(result.error || 'Request failed');
+      localStorage.removeItem(CONFIG.draftKey);
+      form.hidden = true; $('.form-intro').hidden = true;
+      $('#successReference').textContent = payload.submissionId;
+      $('#successPanel').classList.add('is-visible');
+      $('#successPanel').focus();
+    } catch (_) {
+      $('#formStatus').textContent = 'We could not send your request. Your entries are saved in this browserâ€”please try again or contact us on WhatsApp.';
+    } finally { setLoading(false); }
+  }
+
+  function draftData() {
+    const data = {};
+    const privateFields = new Set([
+      'fullName', 'businessName', 'email', 'phoneLocal', 'phoneNumber',
+      'cityOrCountry', 'projectDescription', 'existingWebsite', 'referenceWebsite',
+      'referenceFileLink', 'redesignCurrentWebsite', 'company_website_confirm'
+    ]);
+    $$('input, select, textarea', form).forEach(field => {
+      if (!field.name || privateFields.has(field.name) || field.type === 'hidden') return;
+      if (field.type === 'checkbox' || field.type === 'radio') data[field.name] = data[field.name] || [];
+      if ((field.type === 'checkbox' || field.type === 'radio') && field.checked) data[field.name].push(field.value);
+      else if (!['checkbox','radio'].includes(field.type)) data[field.name] = field.value;
+    });
+    return data;
+  }
+
+  function saveDraft() { try { localStorage.setItem(CONFIG.draftKey, JSON.stringify(draftData())); } catch (_) {} }
+  function restoreDraft() {
+    try {
+      const data = JSON.parse(localStorage.getItem(CONFIG.draftKey)); if (!data) return;
+      Object.entries(data).forEach(([name, value]) => {
+        const fields = $$(`[name="${CSS.escape(name)}"]`, form);
+        fields.forEach(field => { if (Array.isArray(value)) field.checked = value.includes(field.value); else field.value = value; });
+      });
+    } catch (_) { localStorage.removeItem(CONFIG.draftKey); }
+  }
+
+  function updateProgress() {
+    const milestones = [selectedServiceValues().length, $('input[name="budgetRange"]:checked'), $('#fullName').value.trim(), isValidEmail($('#email').value.trim()), phoneDigits().length >= 7, $('#projectDescription').value.trim().length >= 20, $('#consent').checked];
+    const percent = Math.round(milestones.filter(Boolean).length / milestones.length * 100);
+    $('#progressText').textContent = `${percent}% complete`; $('#progressBar').style.width = `${percent}%`;
+  }
+
+  function onChange(event) {
+    if (event.target.name === 'services') { updateServiceCount(); errorFor('services', ''); }
+    if (event.target.name === 'budgetRange') errorFor('budget', '');
+    if (event.target.id === 'businessCategory' || event.target.name === 'services') updateConditionals();
+    if (event.target.id === 'projectDescription') $('#descriptionCount').textContent = `${event.target.value.length} / 2000`;
+    if (event.target.id && ['fullName','email','phone','projectDescription','consent'].includes(event.target.id)) errorFor(event.target.id, '');
+    updateProgress(); clearTimeout(draftTimer); draftTimer = setTimeout(saveDraft, 350);
+  }
+
+  renderBudgets(); restoreDraft(); updateConditionals(); updateServiceCount(); updateProgress();
+  $('#descriptionCount').textContent = `${$('#projectDescription').value.length} / 2000`;
+  form.addEventListener('input', onChange); form.addEventListener('change', onChange); form.addEventListener('submit', submitForm);
+  $('#clearDraft').addEventListener('click', () => { if (!confirm('Clear all entered quote details?')) return; form.reset(); localStorage.removeItem(CONFIG.draftKey); updateConditionals(); updateServiceCount(); updateProgress(); $$('.field-error').forEach(el => el.textContent = ''); });
+  $('.menu-toggle').addEventListener('click', event => { const open = $('.nav-links').classList.toggle('active'); event.currentTarget.setAttribute('aria-expanded', String(open)); });
+  window.addEventListener('scroll', () => $('.site-nav').classList.toggle('shrink', window.scrollY > 50), { passive: true });
+})();
+
+  </script>
 </body>
 </html>
