@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>KnowBrand</title>
+
+<style>
+
+/* GLOBAL */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:#0b0b0b;
+color:white;
+}
+
+/* NAVBAR */
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 10%;
+background:rgba(0,0,0,0.5);
+backdrop-filter:blur(10px);
+z-index:1000;
+}
+
+.logo{
+font-size:22px;
+font-weight:bold;
+letter-spacing:2px;
+}
+
+.buy-btn{
+background:white;
+color:black;
+padding:10px 20px;
+border-radius:30px;
+text-decoration:none;
+font-weight:bold;
+}
+
+/* HERO */
+
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+.hero h1{
+font-size:48px;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:18px;
+opacity:0.8;
+margin-bottom:30px;
+}
+
+.hero-btn{
+background:white;
+color:black;
+padding:14px 28px;
+border-radius:30px;
+text-decoration:none;
+font-weight:bold;
+}
+
+/* WORK SECTION */
+
+#work{
+padding:120px 10%;
+text-align:center;
+}
+
+.work-container{
+margin-top:50px;
+display:flex;
+gap:30px;
+justify-content:center;
+flex-wrap:wrap;
+}
+
+.work-card{
+width:320px;
+padding:20px;
+border-radius:20px;
+
+background:rgba(255,255,255,0.06);
+backdrop-filter:blur(10px);
+}
+
+.work-card img{
+width:100%;
+border-radius:10px;
+}
+
+.work-card h3{
+margin-top:15px;
+}
+
+.work-card a{
+display:inline-block;
+margin-top:10px;
+color:white;
+text-decoration:none;
+border-bottom:1px solid white;
+}
+
+/* PRICING */
+
+#pricing{
+padding:120px 10%;
+text-align:center;
+}
+
+.pricing-container{
+margin-top:50px;
+display:flex;
+gap:30px;
+justify-content:center;
+flex-wrap:wrap;
+}
+
+.card{
+width:280px;
+padding:30px;
+border-radius:20px;
+
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(12px);
+
+box-shadow:0 10px 40px rgba(0,0,0,0.5);
+
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.card h3{
+font-size:26px;
+margin-bottom:20px;
+}
+
+.card ul{
+list-style:none;
+text-align:left;
+}
+
+.card ul li{
+margin:10px 0;
+}
+
+.price{
+font-size:32px;
+margin-top:20px;
+font-weight:bold;
+}
+
+.popular{
+border:2px solid white;
+}
+
+/* CTA */
+
+.cta{
+padding:120px 20px;
+text-align:center;
+}
+
+.cta h2{
+font-size:36px;
+margin-bottom:20px;
+}
+
+.cta-btn{
+background:white;
+color:black;
+padding:15px 30px;
+border-radius:30px;
+text-decoration:none;
+font-weight:bold;
+}
+
+/* FOOTER */
+
+footer{
+background:black;
+padding:80px 10%;
+}
+
+.footer-container{
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
+gap:40px;
+}
+
+.footer-column h3{
+margin-bottom:15px;
+}
+
+.footer-column p{
+opacity:0.7;
+margin:5px 0;
+}
+
+.copyright{
+text-align:center;
+margin-top:40px;
+opacity:0.6;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+.hero h1{
+font-size:34px;
+}
+
+nav{
+padding:20px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+<div class="logo">KnowBrand</div>
+
+<a href="#pricing" class="buy-btn">BUY NOW</a>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+<h1>Websites For Local Businesses</h1>
+
+<p>Modern websites that help your business get more customers.</p>
+
+<a href="#pricing" class="hero-btn">VIEW PRICING</a>
+
+</section>
+
+
+<!-- OUR WORK -->
+
+<section id="work">
+
+<h2>Our Work</h2>
+
+<div class="work-container">
+
+<div class="work-card">
+<img src="demo1.jpg">
+<h3>Restaurant Website</h3>
+<a href="#">View Demo</a>
+</div>
+
+<div class="work-card">
+<img src="demo2.jpg">
+<h3>Salon Website</h3>
+<a href="#">View Demo</a>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PRICING -->
+
+<section id="pricing">
+
+<h2>Pricing</h2>
+
+<div class="pricing-container">
+
+<div class="card">
+
+<h3>BASIC</h3>
+
+<ul>
+<li>✔ 1 Page Website</li>
+<li>✔ Business Info</li>
+<li>✔ Google Maps</li>
+<li>✔ WhatsApp Contact</li>
+<li>✔ Mobile Responsive</li>
+</ul>
+
+<div class="price">₹2999</div>
+
+</div>
+
+
+<div class="card popular">
+
+<h3>STANDARD</h3>
+
+<ul>
+<li>✔ Everything in Basic</li>
+<li>✔ Better Design</li>
+<li>✔ Photo Gallery</li>
+<li>✔ Menu / Services</li>
+<li>✔ Domain Setup</li>
+<li>✔ Basic SEO</li>
+</ul>
+
+<div class="price">₹4999</div>
+
+</div>
+
+
+<div class="card">
+
+<h3>PREMIUM</h3>
+
+<ul>
+<li>✔ Everything in Standard</li>
+<li>✔ 3-4 Pages</li>
+<li>✔ Faster Performance</li>
+<li>✔ Priority Updates</li>
+<li>✔ 3 Months Support</li>
+</ul>
+
+<div class="price">₹5999</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="cta">
+
+<h2>Ready To Get Your Business Online?</h2>
+
+<a href="#contact" class="cta-btn">BOOK NOW</a>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer id="contact">
+
+<div class="footer-container">
+
+<div class="footer-column">
+
+<h3>About</h3>
+
+<p>KnowBrand builds modern websites for local businesses at affordable prices.</p>
+
+</div>
+
+
+<div class="footer-column">
+
+<h3>Founders</h3>
+
+<p>Sidharth Gaikwad</p>
+<p>Co-Founder</p>
+
+</div>
+
+
+<div class="footer-column">
+
+<h3>Contact</h3>
+
+<p>Email: contact@knowbrand.in</p>
+<p>Phone: +91 XXXXXXXX</p>
+
+</div>
+
+</div>
+
+<p class="copyright">
+
+© 2026 KnowBrand. All Rights Reserved
+
+</p>
+
+</footer>
+
+
+</body>
+</html>
