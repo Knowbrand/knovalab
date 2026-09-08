@@ -7,6 +7,89 @@
 body.menu-open{overflow:hidden}.nav{height:100px;position:sticky;top:0;z-index:20;background:rgba(0,0,0,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.nav .wrap{height:100%;display:grid;grid-template-columns:1fr auto 1fr;align-items:center}.brand{font:700 1.45rem Outfit}.links{gap:44px;color:#999;font-size:.9rem}.start{padding:14px 24px;border-radius:9px;font-size:14px;font-weight:600}.menu{font-size:1.6rem}@media(max-width:760px){.nav{height:82px}.nav.open .links{top:82px;padding:28px;background:#050505;border-bottom:1px solid var(--line)}.nav .wrap{grid-template-columns:1fr auto}}
 /* Main-page CTA and footer treatment, kept inside this page. */
 .cta{padding:140px 0;background:#050505;text-align:center}.cta .wrap{width:min(calc(100% - 40px),920px);min-height:420px;padding:80px 35px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#141414;border:1px solid rgba(255,255,255,.075);border-radius:25px}.cta .eyebrow{font-size:13px;margin-bottom:20px}.cta h2{font-size:44px;margin:0}.cta p{max-width:600px;font-size:16px;line-height:1.65;margin:16px auto 0}.cta .buttons{margin-top:28px}.footer{padding:95px 0 30px;background:#000;border-top:1px solid rgba(255,255,255,.075)}.footgrid{grid-template-columns:2.2fr 1fr 1fr 1fr;gap:70px}.footer .brand{font:700 1.45rem Outfit}.footgrid h3{font:600 12px Outfit;letter-spacing:0;text-transform:uppercase;margin-bottom:12px}.footgrid p,.footgrid a{font-size:12px;line-height:1.6;margin:10px 0}.copy{margin-top:70px;padding-top:27px;font-size:12px}@media(max-width:760px){.cta{padding:88px 0}.cta .wrap{min-height:340px;padding:55px 22px}.cta h2{font-size:38px}.footgrid{grid-template-columns:1fr 1fr;gap:35px}}@media(max-width:450px){.footgrid{grid-template-columns:1fr}.cta .wrap{width:calc(100% - 32px)}}
+/* Get Started Button - Responsive Fix */
+
+@media (max-width:760px){
+
+  /* Hide Get Started on mobile */
+  .start{
+    display:none !important;
+  }
+
+  /* Mobile navbar */
+  .nav .wrap{
+    grid-template-columns:1fr auto !important;
+  }
+
+  /* Show menu button */
+  .menu{
+    display:block !important;
+    cursor:pointer;
+  }
+}
+
+@media (min-width:761px){
+
+  /* Show Get Started on desktop/tablet */
+  .start{
+    display:block !important;
+  }
+
+  /* Hide hamburger on desktop */
+  .menu{
+    display:none !important;
+  }
+}
+/* Get Started - Tablet & Mobile Fix */
+
+@media (max-width:1100px){
+
+  .start{
+    display:none !important;
+  }
+
+  .nav .wrap{
+    grid-template-columns:1fr auto !important;
+  }
+
+  .menu{
+    display:block !important;
+    cursor:pointer;
+  }
+
+  .links{
+    display:none !important;
+  }
+
+  .nav.open .links{
+    display:flex !important;
+    position:absolute;
+    top:100px;
+    left:0;
+    right:0;
+    z-index:10;
+    background:#050505;
+    flex-direction:column;
+    padding:28px 20px;
+    gap:20px;
+    border-bottom:1px solid var(--line);
+  }
+}
+
+@media (min-width:1101px){
+
+  .start{
+    display:block !important;
+  }
+
+  .menu{
+    display:none !important;
+  }
+
+  .links{
+    display:flex !important;
+  }
+}
 </style><script>document.addEventListener('DOMContentLoaded',()=>{document.querySelector('.cta').innerHTML='<div class="wrap"><div class="eyebrow">Next Steps</div><h2>Ready to Build Your Digital System?</h2><p>Whether it is local digital signage, responsive smart menu displays, or a premium static business website — let us engineer technology that works robustly for your business.</p><div class="buttons"><a class="button primary" href="mailto:hello@knovalab.com">Start a Project →</a><a class="button" href="https://wa.me/919167878131">Chat on WhatsApp (+91 9167878131)</a></div></div>';document.querySelector('.footer').innerHTML='<div class="wrap"><div class="footgrid"><div><a class="brand" href="index.html">Knovalab</a><p>Developing dedicated communication systems, custom signage, interactive menus, and fast static business websites. Real systems for real business environments.</p></div><div><h3>Solutions</h3><a href="#top">Digital Signage</a><a href="index.html#systems">Smart Menu Boards</a><a href="#top">Local Media Networks</a></div><div><h3>Services</h3><a href="index.html#cases">Custom Web Development</a><a href="index.html#solutions">Design Engineering</a><a href="#contact">Hardware Sourcing</a></div><div><h3>Contact</h3><a href="mailto:hello@knovalab.com">hello@knovalab.com</a><a href="#contact">Sales Hotline</a><a href="#contact">Office Location</a></div></div><div class="copy"><span>© 2026 Knovalab Technologies. All rights reserved.</span><span>Privacy Policy &nbsp;&nbsp; Terms of Service</span></div></div>'})</script></head><body>
 <header class="nav"><div class="wrap"><a class="brand" href="index.html">Knovalab</a><nav class="links" id="navlinks" aria-label="Main navigation"><a href="index.html#solutions">Solutions</a><a href="#top">Digital Signage</a><a href="index.html#systems">Digital Menus</a><a href="index.html#cases">Web Services</a><a href="index.html#cases">Portfolio</a><a href="#contact">Contact</a></nav><a class="start" href="#contact">Get Started</a><button class="menu" aria-label="Toggle navigation" aria-expanded="false">☰</button></div></header><main id="top">
 <section class="hero"><div class="wrap hero-grid"><div><div class="eyebrow">Product / On-Prem Digital Signage</div><h1>Your Screens. Your Network. Your Control.</h1><p>Manage content across multiple screens centrally without repeating the tedious USB-drive routine. Local media distribution with absolute stability, no cloud dependencies, and zero monthly fees.</p><div class="buttons"><a class="button primary" href="#contact">Request a Demo</a><a class="button" href="#operations">See How It Works</a></div></div><div class="network"><div class="server">▣<br>Windows CMS</div><div class="line"></div><div><div class="screen">▣ Display 01</div><div class="screen">▣ Display 02</div><div class="screen">▣ Display 03</div></div></div></div></section>
@@ -18,4 +101,44 @@ body.menu-open{overflow:hidden}.nav{height:100px;position:sticky;top:0;z-index:2
 <section class="section"><div class="wrap"><div class="section-head"><div class="eyebrow">The Player Hardware</div><h2>Resilient Android Display Player</h2><p>Our HDMI smart-players connect reliably to your network with high-performance synchronized media loops.</p></div><div class="player"><article class="player-card"><h3>Player Specifications &amp; Actions</h3><p>Each display utilizes a secure, compact Android-based HDMI media box. Built strictly for digital signage, it runs our Knovalab network Player software.</p><ul><li>Pairs securely with the local Windows CMS application</li><li>Automated startup-on-display HDMI power on</li><li>Automatic storage checks and cleaning scripts</li><li>Intelligent local fallback playback if network drops</li></ul></article><article class="player-card tv"><div><div class="tv-screen"></div><small>HDMI Plug and Play Receiver<br>Hidden Behind Every Screen</small></div></article></div></div></section>
 <section class="section"><div class="wrap"><div class="section-head"><div class="eyebrow">Comparison</div><h2>Designed for Ultimate Convenience</h2><p>We contrast traditional manual content methods against our locally managed network setup.</p></div><table class="table"><thead><tr><th>FEATURE</th><th>TRADITIONAL USB WORKFLOW</th><th>KNOVALAB ON-PREM</th></tr></thead><tbody><tr><td>Content updates</td><td>Manual copy per device</td><td>Central broadcast from CMS</td></tr><tr><td>Physical access</td><td>Required for every update</td><td>Reduced for routine updates</td></tr><tr><td>Multiple screens</td><td>Repeat step sequentially</td><td>Central multi-target queue</td></tr><tr><td>Content management</td><td>No central coordination</td><td>Unified dashboard overview</td></tr><tr><td>Internet dependency</td><td>None</td><td>None (internal LAN only)</td></tr></tbody></table></div></section>
 <section class="section" id="environments"><div class="wrap"><div class="section-head"><div class="eyebrow">Use Cases</div><h2>Ideal Environments for Knovalab On-Prem</h2><p>Our reliable, on-prem digital system integrates seamlessly within countless operational settings.</p></div><div class="env"><article><h3>Restaurants</h3><p>Guarantee digital counter menus and menu displays launch correctly.</p></article><article><h3>Retail Stores</h3><p>Keep high-value product marketing videos stable without remote delays.</p></article><article><h3>Offices &amp; Atriums</h3><p>Dynamic communication, schedules, and floor maps across corridors.</p></article><article><h3>Schools &amp; Colleges</h3><p>Distribute emergency alarms and campus timelines centrally.</p></article><article><h3>Clinics</h3><p>Keep visitors updated with healthy lifestyle feeds in waiting rooms.</p></article><article><h3>Hotel Lobbies</h3><p>Welcome guests with elegant scrolling travel options and local information.</p></article></div></div></section>
-</main><section class="cta" id="contact"><div class="wrap"><div class="eyebrow">Next Steps</div><h2>Ready to Build Your Digital System?</h2><p>We build modern, reliable infrastructure engineered around your daily business operations. Let’s design a custom solution together.</p><div class="buttons"><a class="button primary" href="mailto:hello@knovalab.com">Get Started</a><a class="button" href="mailto:hello@knovalab.com">Schedule Call</a></div></div></section><footer class="footer"><div class="wrap"><div class="footgrid"><div><a class="brand" href="index.html">▣ Knovalab</a><p>Digital systems built around how businesses actually work. Signage, secure, and built for local network control.</p></div><div><h3>Solutions</h3><a href="#top">On-Prem Signage</a><a href="index.html#systems">Digital Menus</a><a href="index.html#cases">Web Presence</a></div><div><h3>Resources</h3><a href="#faq">Documentation</a><a href="#operations">Hardware Guide</a><a href="#faq">API Reference</a></div><div><h3>Company</h3><a href="index.html">About Us</a><a href="#contact">Contact</a><a href="#environments">Partners</a></div></div><div class="copy"><span>© 2026 Knovalab. All rights reserved.</span><span>Privacy Policy &nbsp; Terms of Service</span></div></div></footer><script>document.querySelector('.menu').onclick=()=>document.querySelector('.nav').classList.toggle('open')</script></body></html>
+
+</main><section class="cta" id="contact"><div class="wrap"><div class="eyebrow">Next Steps</div><h2>Ready to Build Your Digital System?</h2><p>We build modern, reliable infrastructure engineered around your daily business operations. Let’s design a custom solution together.</p><div class="buttons"><a class="button primary" href="mailto:business@knovalab.in">Get Started</a><a class="button" href="mailto:business@knovalab.in">Schedule Call</a></div></div></section><footer class="footer"><div class="wrap"><div class="footgrid"><div><a class="brand" href="index.html">▣ Knovalab</a><p>Digital systems built around how businesses actually work. Signage, secure, and built for local network control.</p></div><div><h3>Solutions</h3><a href="#top">On-Prem Signage</a><a href="index.html#systems">Digital Menus</a><a href="index.html#cases">Web Presence</a></div><div><h3>Resources</h3><a href="#faq">Documentation</a><a href="#operations">Hardware Guide</a><a href="#faq">API Reference</a></div><div><h3>Company</h3><a href="index.html">About Us</a><a href="#contact">Contact</a><a href="#environments">Partners</a></div></div><div class="copy"><span>© 2026 Knovalab. All rights reserved.</span><span>Privacy Policy &nbsp; Terms of Service</span></div></div></footer><script>document.querySelector('.menu').onclick=()=>document.querySelector('.nav').classList.toggle('open')</script>
+<script>
+/* Update Knovalab business email everywhere */
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('*').forEach(function (element) {
+    if (element.children.length === 0) {
+      element.textContent = element.textContent.replace(
+        /hello@knovalab\.com/g,
+        'business@knovalab.in'
+      );
+    }
+  });
+
+  document.querySelectorAll('a[href*="hello@knovalab.com"]').forEach(function (link) {
+    link.href = 'mailto:business@knovalab.in';
+  });
+});
+</script>
+<script>
+/* Remove personal phone number and WhatsApp links */
+document.addEventListener('DOMContentLoaded', function () {
+
+  // Remove any phone number text
+  document.querySelectorAll('body *').forEach(function (element) {
+    if (element.children.length === 0) {
+      element.textContent = element.textContent
+        .replace(/\+91\s?\d{10}/g, 'business@knovalab.in')
+        .replace(/\b\d{10}\b/g, 'business@knovalab.in');
+    }
+  });
+
+  // Remove WhatsApp links
+  document.querySelectorAll('a[href*="wa.me"]').forEach(function (link) {
+    link.href = 'mailto:business@knovalab.in';
+    link.textContent = 'business@knovalab.in';
+  });
+
+});
+</script>
+</body></html>
