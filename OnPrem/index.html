@@ -480,4 +480,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  /* ===== MOBILE MENU FIX ===== */
+  const nav = document.querySelector(".nav");
+  const menu = document.querySelector(".menu");
+
+  if (nav && menu) {
+    menu.addEventListener("click", function () {
+      nav.classList.toggle("open");
+    });
+  }
+
+  /* ===== CONTACT NUMBER → EMAIL ===== */
+  document.querySelectorAll("a").forEach(function (link) {
+    const text = link.textContent.trim();
+
+    if (
+      text.includes("9167878131") ||
+      text.includes("+91 9167878131")
+    ) {
+      link.textContent = "business@knovalab.in";
+      link.href = "mailto:business@knovalab.in";
+    }
+  });
+
+});
+</script>
 </body></html>
