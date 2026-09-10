@@ -138,7 +138,287 @@ document.addEventListener('DOMContentLoaded', function () {
     link.href = 'mailto:business@knovalab.in';
     link.textContent = 'business@knovalab.in';
   });
+});
+</script>
+<script>
+/* ================================
+   Knovalab Social Media Links
+   ================================ */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  /* Social media styling */
+  const style = document.createElement("style");
+
+  style.innerHTML = `
+    .social-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .social-links h3 {
+      margin-bottom: 5px;
+    }
+
+    .social-links a {
+      color: #999;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .social-links a:hover {
+      color: #fff;
+    }
+  `;
+
+  document.head.appendChild(style);
+
+
+  /* Create Social section */
+  const footgrid = document.querySelector(".footgrid");
+
+  if (footgrid && !document.querySelector(".social-links")) {
+
+    const social = document.createElement("div");
+
+    social.className = "social-links";
+
+    social.innerHTML = `
+      <h3>Social</h3>
+
+      <a
+        href="https://www.linkedin.com/company/knovalab/"
+        target="_blank"
+        rel="noopener noreferrer">
+        LinkedIn
+      </a>
+
+      <a
+        href="https://www.instagram.com/knovalab"
+        target="_blank"
+        rel="noopener noreferrer">
+        Instagram
+      </a>
+
+      <a
+        href="https://www.threads.com/@knovalab"
+        target="_blank"
+        rel="noopener noreferrer">
+        Threads
+      </a>
+    `;
+
+    footgrid.appendChild(social);
+  }
 
 });
 </script>
+<script>
+/* ==========================================
+   Fix Footer Links - Knovalab On-Prem Page
+   ========================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  /* Solutions */
+  document.querySelectorAll('.footgrid a').forEach(function (link) {
+
+    const text = link.textContent.trim();
+
+    if (text === "On-Prem Signage" || text === "Digital Signage") {
+      link.href = "knovalab-on-prem-digital-signage.html";
+    }
+
+    if (text === "Digital Menus" || text === "Smart Menu Boards") {
+      link.href = "index.html#systems";
+    }
+
+    if (text === "Web Presence" || text === "Web Services") {
+      link.href = "index.html#cases";
+    }
+
+    if (text === "Local Media Networks") {
+      link.href = "#operations";
+    }
+
+    /* Services */
+    if (text === "Custom Web Development") {
+      link.href = "index.html#cases";
+    }
+
+    if (text === "Design Engineering") {
+      link.href = "index.html#solutions";
+    }
+
+    if (text === "Hardware Sourcing") {
+      link.href = "#environments";
+    }
+
+    /* Resources */
+    if (text === "Hardware Guide") {
+      link.href = "#operations";
+    }
+
+    /* Company */
+    if (text === "About Us") {
+      link.href = "index.html";
+    }
+
+    if (text === "Partners") {
+      link.href = "#environments";
+    }
+
+  });
+
+});
+</script>
+<script>
+/* ==========================================
+   Fix Navbar Links - Knovalab On-Prem Page
+   ========================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const navLinks = document.querySelectorAll(".nav .links a");
+
+  navLinks.forEach(function (link) {
+
+    const text = link.textContent.trim();
+
+    /* Solutions */
+    if (text === "Solutions") {
+      link.href = "index.html#solutions";
+    }
+
+    /* Digital Signage */
+    if (text === "Digital Signage") {
+      link.href = "knovalab-on-prem-digital-signage.html";
+    }
+
+    /* Digital Menus */
+    if (text === "Digital Menus") {
+      link.href = "index.html#systems";
+    }
+
+    /* Web Services */
+    if (text === "Web Services") {
+      link.href = "index.html#cases";
+    }
+
+    /* Portfolio */
+    if (text === "Portfolio") {
+      link.href = "index.html#cases";
+    }
+
+    /* Contact */
+    if (text === "Contact") {
+      link.href = "#contact";
+    }
+
+  });
+
+
+  /* Get Started button */
+
+  const startButton = document.querySelector(".nav .start");
+
+  if (startButton) {
+    startButton.href = "#contact";
+  }
+
+});
+</script>
+<script>
+/* ==========================================
+   Fix All Page Buttons & CTA Links
+   ========================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  document.querySelectorAll("a").forEach(function (link) {
+
+    const text = link.textContent.trim();
+
+    /* Hero Buttons */
+    if (text === "Request a Demo") {
+      link.href = "#contact";
+    }
+
+    if (text === "See How It Works") {
+      link.href = "#operations";
+    }
+
+
+    /* CTA Buttons */
+    if (text === "Start a Project" ||
+        text === "Start a Project →" ||
+        text === "Get Started" ||
+        text === "Schedule a Call") {
+      link.href = "#contact";
+    }
+
+
+    /* WhatsApp button → Business Email */
+    if (text.includes("Chat on WhatsApp")) {
+      link.href = "mailto:business@knovalab.in";
+      link.textContent = "Email Knovalab";
+    }
+
+  });
+
+});
+</script>
+<script>
+/* ==========================================
+   Mobile Navbar - Final Fix
+   ========================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const nav = document.querySelector(".nav");
+  const menu = document.querySelector(".menu");
+  const links = document.querySelectorAll(".nav .links a");
+
+  if (!nav || !menu) return;
+
+  /* Fix menu button */
+  menu.onclick = function () {
+    const isOpen = nav.classList.toggle("open");
+
+    menu.setAttribute(
+      "aria-expanded",
+      isOpen ? "true" : "false"
+    );
+  };
+
+  /* Close menu after clicking any navbar link */
+  links.forEach(function (link) {
+    link.addEventListener("click", function () {
+      nav.classList.remove("open");
+      menu.setAttribute("aria-expanded", "false");
+    });
+  });
+
+});
+</script>
+<style>
+/* ==========================================
+   Mobile & Tablet Navbar Position Fix
+   ========================================== */
+
+/* Mobile */
+@media (max-width: 760px) {
+  .nav.open .links {
+    top: 82px !important;
+  }
+}
+
+/* Tablet */
+@media (min-width: 761px) and (max-width: 1100px) {
+  .nav.open .links {
+    top: 100px !important;
+  }
+}
+</style>
 </body></html>
