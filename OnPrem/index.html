@@ -447,4 +447,37 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const walker = document.createTreeWalker(
+    document.body,
+    NodeFilter.SHOW_TEXT
+  );
+
+  const nodes = [];
+
+  while (walker.nextNode()) {
+    nodes.push(walker.currentNode);
+  }
+
+  nodes.forEach(function (node) {
+    node.nodeValue = node.nodeValue
+      .replace(/hello@knovalab\.com/g, "business@knovalab.in")
+      .replace(/\+91\s?9167878131/g, "business@knovalab.in")
+      .replace(/\b9167878131\b/g, "business@knovalab.in");
+  });
+
+  document.querySelectorAll("a[href]").forEach(function (link) {
+    if (
+      link.href.includes("hello@knovalab.com") ||
+      link.href.includes("wa.me/919167878131")
+    ) {
+      link.href = "mailto:business@knovalab.in";
+      link.textContent = "Email Knovalab";
+    }
+  });
+
+});
+</script>
 </body></html>
