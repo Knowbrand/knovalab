@@ -421,4 +421,30 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 }
 </style>
+<script>
+/* ==========================================
+   Final Contact Information Safety Fix
+   ========================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  /* Replace old email everywhere */
+  document.body.innerHTML = document.body.innerHTML
+    .replace(/hello@knovalab\.com/g, "business@knovalab.in")
+    .replace(/\+91\s?9167878131/g, "business@knovalab.in")
+    .replace(/9167878131/g, "business@knovalab.in");
+
+  /* Fix all mail links */
+  document.querySelectorAll('a[href^="mailto:"]').forEach(function (link) {
+    link.href = "mailto:business@knovalab.in";
+  });
+
+  /* Remove old WhatsApp links */
+  document.querySelectorAll('a[href*="wa.me"]').forEach(function (link) {
+    link.href = "mailto:business@knovalab.in";
+    link.textContent = "Email Knovalab";
+  });
+
+});
+</script>
 </body></html>
