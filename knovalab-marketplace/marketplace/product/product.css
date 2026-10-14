@@ -1,0 +1,10 @@
+.pd{padding-top:40px}.crumbs{font-size:.85rem;color:#777;margin-bottom:24px}.crumbs a:hover{color:#fff}
+.pd-top{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:start}
+.gal-main{aspect-ratio:4/3;background:#0d0d0d;border-radius:16px;border:1px solid var(--line);overflow:hidden}.gal-main img{width:100%;height:100%;object-fit:contain;display:block}
+.thumbs{display:flex;gap:10px;margin-top:10px}.thumbs button{width:84px;aspect-ratio:4/3;padding:0;border:1px solid var(--line);border-radius:9px;background:#0d0d0d;overflow:hidden;cursor:pointer}.thumbs button.on{border-color:var(--orange)}.thumbs img{width:100%;height:100%;object-fit:cover}
+.pd h1{font-size:clamp(2rem,4vw,2.8rem)}.pd .price{font:700 2rem Outfit;color:var(--orange);margin:12px 0 4px}.pd label{display:block;font-size:.78rem;color:#888;letter-spacing:.06em;text-transform:uppercase;margin:20px 0 7px}
+.pd .acts{display:flex;gap:12px;flex-wrap:wrap;margin:22px 0}.pd .acts .btn{flex:1;min-width:160px}
+.pd h2{font-size:1.5rem;margin:56px 0 18px}table{width:100%;border-collapse:collapse}td{padding:13px 0;border-bottom:1px solid var(--line);font-size:.93rem}td:first-child{color:#888;width:42%}.todo{color:#777}
+.rel{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}.rel a{padding:18px;display:block}.rel a:hover{border-color:rgba(255,255,255,.16)}.rel small{color:var(--orange)}
+.reviews{padding:34px;text-align:center}
+@media(max-width:850px){.pd-top{grid-template-columns:1fr}}
