@@ -35,5 +35,6 @@
     document.querySelectorAll('.filter').forEach(button=>button.onclick=()=>{document.querySelectorAll('.filter').forEach(b=>b.classList.remove('active'));button.classList.add('active');document.querySelectorAll('.post').forEach(post=>post.classList.toggle('hidden',button.dataset.filter!=='all'&&post.dataset.category!==button.dataset.filter))});
     window.setTimeout(()=>document.querySelectorAll('.hero-card').forEach(card=>card.classList.add('landed')),1600);
   </script>
+  <script src="/knovalab-enhance.js"></script>
 </body>
 </html>
