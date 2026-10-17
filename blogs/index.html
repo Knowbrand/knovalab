@@ -663,31 +663,32 @@
     };
 
 
-    /* The six floating cards in the hero. Each URL points to a real article
-       HTML file inside the blogs/ directory. */
+    /* The six floating cards in the hero. Every URL uses the exact filename
+       from the GitHub blogs/ folder. Keep the blogs/ prefix. */
     const HERO_CARDS = [
-      { url: 'blogs/why-businesses-move-beyond-usb.html', category: 'signage', title: 'Why Businesses Are Moving Beyond USB', excerpt: 'How local media distribution makes operations dependable.' },
-      { url: 'blogs/local-signage.html', category: 'signage', title: 'How Local Digital Signage Actually Works', excerpt: 'A clear breakdown of a local network architecture.' },
-      { url: 'blogs/digital-menus.html', category: 'menus', title: 'Digital Menus vs Traditional Menu Boards', excerpt: 'Comparing cost, flexibility, and performance.' },
-      { url: 'blogs/before-installing.html', category: 'systems', title: 'What Businesses Should Know Before Installing Digital Signage', excerpt: 'Key decisions around hardware, placement, and content.' },
-      { url: 'blogs/websites-more-than-brochures.html', category: 'web', title: 'Why Your Website Is More Than Just a Brochure', excerpt: 'How a well-built website functions as a business system.' },
-      { url: 'blogs/cloud-vs-local.html', category: 'technology', title: 'Cloud vs Local: Choosing the Right Architecture', excerpt: 'Understanding structural trade-offs.' }
+      { url: 'blogs/why-businesses-move-beyond-usb', category: 'signage', title: 'Why Businesses Are Moving Beyond USB', excerpt: 'How local media distribution makes operations dependable.' },
+      { url: 'blogs/local-signage', category: 'signage', title: 'How Local Digital Signage Actually Works', excerpt: 'A clear breakdown of a local network architecture.' },
+      { url: 'blogs/digital-menus', category: 'menus', title: 'Digital Menus vs Traditional Menu Boards', excerpt: 'Comparing cost, flexibility, and performance.' },
+      { url: 'blogs/before-installing', category: 'systems', title: 'What Businesses Should Know Before Installing Digital Signage', excerpt: 'Key decisions around hardware, placement, and content.' },
+      { url: 'blogs/websites-more-than-brochures', category: 'web', title: 'Why Your Website Is More Than Just a Brochure', excerpt: 'How a well-built website functions as a business system.' },
+      { url: 'blogs/cloud-vs-local', category: 'technology', title: 'Cloud vs Local: Choosing the Right Architecture', excerpt: 'Understanding structural trade-offs.' }
     ];
 
-    /* All 12 published blog pages appear in the article grid below. */
+    /* All 12 published blog pages appear in the article grid below. URLs match
+       the exact filenames in the GitHub blogs/ folder. */
     const ARTICLES = [
-      { url: 'blogs/why-businesses-move-beyond-usb.html', category: 'signage', title: 'Why Businesses Are Moving Beyond USB', excerpt: 'How local media distribution makes operations dependable.' },
-      { url: 'blogs/local-signage.html', category: 'signage', title: 'How Local Digital Signage Actually Works', excerpt: 'A clear breakdown of a local network architecture.' },
-      { url: 'blogs/digital-menus.html', category: 'menus', title: 'Digital Menus vs Traditional Menu Boards', excerpt: 'Comparing cost, flexibility, and performance.' },
-      { url: 'blogs/before-installing.html', category: 'systems', title: 'What Businesses Should Know Before Installing Digital Signage', excerpt: 'Key decisions around hardware, placement, and content.' },
-      { url: 'blogs/websites-more-than-brochures.html', category: 'web', title: 'Why Your Website Is More Than Just a Brochure', excerpt: 'How a well-built website functions as a business system.' },
-      { url: 'blogs/cloud-vs-local.html', category: 'technology', title: 'Cloud vs Local: Choosing the Right Architecture', excerpt: 'Understanding structural trade-offs.' },
-      { url: 'blogs/scheduling-content.html', category: 'signage', title: 'Scheduling Content Without the Cloud', excerpt: 'Plan and publish signage content while keeping playback dependable.' },
-      { url: 'blogs/rebuild-vs-patch.html', category: 'web', title: 'When to Rebuild vs Patch Your Website', excerpt: 'A practical guide to deciding when a site needs maintenance or a rebuild.' },
-      { url: 'blogs/qr-signage.html', category: 'technology', title: 'How QR Codes Actually Work in Signage', excerpt: 'Design QR experiences that are easy to notice, scan, and use.' },
-      { url: 'blogs/free-signage-cost.html', category: 'systems', title: 'The Real Cost of Free Signage Software', excerpt: 'Evaluate the trade-offs behind free tools before they become operational costs.' },
-      { url: 'blogs/menu-engineering.html', category: 'menus', title: 'Menu Engineering for Digital Boards', excerpt: 'Use visual hierarchy to make menus easier to scan and understand.' },
-      { url: 'blogs/conversion-failure.html', category: 'web', title: 'Why Many Websites Fail to Convert Visitors', excerpt: 'Common friction points that stop visitors from taking the next step.' }
+      { url: 'blogs/why-businesses-move-beyond-usb', category: 'signage', title: 'Why Businesses Are Moving Beyond USB', excerpt: 'How local media distribution makes operations dependable.' },
+      { url: 'blogs/local-signage', category: 'signage', title: 'How Local Digital Signage Actually Works', excerpt: 'A clear breakdown of a local network architecture.' },
+      { url: 'blogs/digital-menus', category: 'menus', title: 'Digital Menus vs Traditional Menu Boards', excerpt: 'Comparing cost, flexibility, and performance.' },
+      { url: 'blogs/before-installing', category: 'systems', title: 'What Businesses Should Know Before Installing Digital Signage', excerpt: 'Key decisions around hardware, placement, and content.' },
+      { url: 'blogs/websites-more-than-brochures', category: 'web', title: 'Why Your Website Is More Than Just a Brochure', excerpt: 'How a well-built website functions as a business system.' },
+      { url: 'blogs/cloud-vs-local', category: 'technology', title: 'Cloud vs Local: Choosing the Right Architecture', excerpt: 'Understanding structural trade-offs.' },
+      { url: 'blogs/scheduling-content', category: 'signage', title: 'Scheduling Content Without the Cloud', excerpt: 'Plan and publish signage content while keeping playback dependable.' },
+      { url: 'blogs/rebuild-vs-patch', category: 'web', title: 'When to Rebuild vs Patch Your Website', excerpt: 'A practical guide to deciding when a site needs maintenance or a rebuild.' },
+      { url: 'blogs/qr-signage', category: 'technology', title: 'How QR Codes Actually Work in Signage', excerpt: 'Design QR experiences that are easy to notice, scan, and use.' },
+      { url: 'blogs/free-signage-cost', category: 'systems', title: 'The Real Cost of Free Signage Software', excerpt: 'Evaluate the trade-offs behind free tools before they become operational costs.' },
+      { url: 'blogs/menu-engineering', category: 'menus', title: 'Menu Engineering for Digital Boards', excerpt: 'Use visual hierarchy to make menus easier to scan and understand.' },
+      { url: 'blogs/conversion-failure', category: 'web', title: 'Why Many Websites Fail to Convert Visitors', excerpt: 'Common friction points that stop visitors from taking the next step.' }
     ];
 
 
