@@ -1,0 +1,34 @@
+/* menus.css — styles used only on the Digital Menu System page */
+
+/* Hero mock-up of a menu board */
+.menu-board { padding: 20px; background: var(--panel); border: 1px solid #242428; border-radius: 6px; box-shadow: 0 0 0 10px #090909; }
+.menu-board__in { min-height: 200px; padding: 18px; border: 2px solid #8b3d05; }
+.menu-board__title { display: flex; justify-content: space-between; font: 600 14px var(--font-head); }
+.menu-board__title span { color: var(--orange); font-size: 12px; }
+.dish { display: grid; grid-template-columns: 1fr auto; gap: 10px; padding: 14px 0; border-bottom: 1px solid #363135; font-size: 14px; }
+.dish:last-child { border-bottom: 0; }
+.dish small { display: block; color: var(--muted); font-size: 12px; }
+.price { color: var(--orange); font-weight: 600; }
+
+/* "Built for" environment cards */
+.envs .card { font-weight: 600; }
+.envs .card::before { content: "▣"; padding-right: 9px; color: var(--orange); }
+
+/* CMS dashboard mock-up */
+.dash-top { padding: 11px 15px; border-bottom: 1px solid #2a2a2d; color: #aaa; font-size: 12px; }
+.dash-top b { float: right; color: var(--orange); }
+.dash { display: grid; grid-template-columns: 160px 1fr; min-height: 260px; }
+.dash-nav { padding: 15px; background: #0b0b0d; color: #9e9ea3; font-size: 12px; line-height: 2; }
+.dash-main { padding: 18px; }
+.dash-main h3 { margin-bottom: 12px; font: 600 18px var(--font-head); letter-spacing: 0; }
+.row { display: grid; grid-template-columns: 1fr 120px 80px; gap: 10px; margin: 7px 0; padding: 10px; border: 1px solid #28282d; background: #101012; font-size: 14px; }
+.row b { color: #ddd; }
+.row span:last-child { color: #13a277; text-align: right; }
+
+@media (max-width: 850px) {
+  .dash { grid-template-columns: 120px 1fr; }
+}
+@media (max-width: 520px) {
+  .row { grid-template-columns: 1fr 75px; }
+  .row span:last-child { grid-column: 2; }
+}

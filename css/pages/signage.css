@@ -1,0 +1,43 @@
+/* signage.css — styles used only on the On-Prem Digital Signage page */
+
+.hero-visual { height: 260px; }
+.dashboard { height: 270px; }
+
+/* Server → LAN → devices diagram */
+.diagram {
+  display: grid;
+  grid-template-columns: 155px 1fr 150px;
+  align-items: center;
+  gap: 30px;
+  margin: 38px auto 0;
+  padding: 28px;
+  background: var(--panel);
+  border: 1px solid #242428;
+  border-radius: 5px;
+}
+.server-box { padding: 20px; border: 1px solid #6c3205; border-radius: 5px; text-align: center; font-size: 12px; }
+.server-box b { display: block; margin-bottom: 5px; color: var(--orange); font-size: 29px; font-weight: 400; }
+.lan { position: relative; height: 2px; background: var(--orange); }
+.lan::before {
+  content: attr(data-label);
+  position: absolute; left: 35%; top: -19px;
+  color: var(--orange); font-size: 10px; white-space: nowrap;
+}
+.device { margin: 8px 0; padding: 12px; background: #0a0a0c; border: 1px solid #242428; border-radius: 3px; font-size: 12px; }
+.device::before { content: "▣"; padding-right: 8px; color: var(--orange); }
+
+/* Player specs + image */
+.player { display: grid; grid-template-columns: 1.35fr .65fr; gap: 16px; margin-top: 35px; }
+.player ul { color: #c8c8cc; }
+
+@media (min-width: 851px) {
+  .hero-visual { height: 340px; }
+}
+
+@media (max-width: 800px) {
+  .diagram { grid-template-columns: 1fr; gap: 20px; }
+  .lan { width: 2px; height: 35px; margin: auto; }
+  .lan::before { left: 13px; top: 10px; }
+  .player { grid-template-columns: 1fr; }
+  .player .visual { height: 260px; }
+}

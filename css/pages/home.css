@@ -1,0 +1,190 @@
+/* ==========================================================================
+   home.css — everything specific to the home page. Loaded after base.css and
+   components.css (not sections.css: the home page has its own roomier scale).
+   ========================================================================== */
+
+.home { font-size: 17px; }
+.home .wrap { width: min(calc(100% - clamp(32px, 8vw, 200px)), 1560px); }
+
+.home h1 { max-width: 900px; margin-bottom: 34px; font-size: clamp(2.9rem, 4.4vw, 5rem); }
+.home h2 { margin-bottom: 26px; font-size: clamp(2.1rem, 3.2vw, 3.6rem); }
+.home h3 { font-size: 1.35rem; }
+.home p { color: var(--muted); }
+.home .eyebrow { margin-bottom: 28px; font-size: .74rem; letter-spacing: .06em; }
+.home .btns { margin-top: 40px; gap: 15px; }
+.home .btn { min-height: 56px; padding: 0 29px; }
+.home .btn.secondary { border-color: rgba(255, 255, 255, .56); }
+
+.home .section { padding: clamp(88px, 9vw, 150px) 0; border-top: 1px solid var(--line); }
+.lead { max-width: 900px; font-size: 1.08rem; line-height: 1.75; }
+
+/* ---------- Grids + cards ---------- */
+.grid { display: grid; gap: 26px; }
+.g2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.g3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.g4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.mt { margin-top: 60px; }
+
+.card {
+  padding: clamp(24px, 2.3vw, 38px);
+  background: var(--card);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  transition: transform .2s, border-color .2s;
+}
+.card:hover { transform: translateY(-3px); border-color: rgba(255, 255, 255, .14); }
+.card p:last-child { margin-bottom: 0; }
+
+/* Heading left, intro right */
+.section-head {
+  display: grid;
+  grid-template-columns: minmax(0, 800px) minmax(380px, 620px);
+  justify-content: space-between;
+  align-items: end;
+  gap: 80px;
+  margin-bottom: 65px;
+}
+.section-head p { margin-bottom: 0; }
+
+/* ---------- Hero ---------- */
+.hero { min-height: clamp(700px, 90vh, 900px); display: flex; align-items: center; overflow: hidden; }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr); gap: clamp(48px, 6vw, 120px); align-items: center; }
+.hero-copy p { max-width: 830px; font-size: 1.1rem; }
+.hero-visual {
+  position: relative; height: clamp(300px, 36vw, 620px);
+  border: 1px solid var(--line); border-radius: 24px; background: #101010; overflow: hidden;
+}
+.img-fill { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+/* ---------- Stats ---------- */
+.stats { margin-top: 64px; }
+.stat { min-height: 190px; }
+.stat strong { display: block; margin-bottom: 15px; color: var(--orange); font: 700 2.7rem var(--font-head); }
+.stat b { font-family: var(--font-head); }
+.stat p { font-size: .88rem; }
+
+/* ---------- Industries ---------- */
+.icon { width: 46px; height: 46px; display: grid; place-items: center; margin-bottom: 52px; border-radius: 11px; background: #281205; color: var(--orange); }
+.industry { min-height: 255px; }
+.industry p { font-size: .92rem; }
+
+/* ---------- Core solutions ---------- */
+.solutions { margin-top: 54px; }
+.solution { position: relative; min-height: 360px; padding: clamp(28px, 3vw, 46px); }
+.solution .number { position: absolute; top: 26px; right: 35px; color: #2d1608; font: 700 4rem var(--font-head); }
+.solution h3 { margin-top: 65px; font-size: 1.55rem; }
+.solution a { display: inline-block; margin-top: 28px; color: var(--orange); font-size: .86rem; font-weight: 600; }
+
+/* ---------- Why choose us ---------- */
+.why-grid { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); gap: clamp(48px, 7vw, 110px); align-items: start; margin-top: 60px; }
+.why-copy h3 { max-width: 600px; margin: 0 0 30px; font-size: 2.1rem; line-height: 1.2; }
+.note, .combine {
+  margin-top: 36px; padding: 26px; border-radius: 12px;
+  background: #271508; border: 1px solid rgba(255, 106, 0, .16);
+  color: var(--orange); font-weight: 600;
+}
+.benefit-list { display: grid; gap: 18px; }
+.benefit {
+  min-height: 110px; display: grid; grid-template-columns: 46px 1fr; gap: 20px; align-items: center;
+  padding: 27px 30px; background: var(--card); border: 1px solid var(--line-soft); border-radius: 14px;
+}
+.benefit span { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 50%; background: #281205; color: var(--orange); }
+.benefit h3 { margin: 0 0 5px; font-size: 1rem; }
+.benefit p { margin: 0; font-size: .86rem; }
+
+/* ---------- Digital signage ---------- */
+.product-intro { max-width: 1120px; }
+.workflow { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 60px; border: 1px solid var(--line-soft); border-radius: var(--radius); overflow: hidden; }
+.step { min-height: 220px; padding: 36px; background: var(--card); border-right: 1px solid var(--line-soft); }
+.step:last-child { border-right: 0; }
+.step small, .choice small { color: var(--orange); font-weight: 600; }
+.step h3 { margin-top: 42px; }
+.features { margin-top: 62px; }
+.feature { padding-top: 28px; border-top: 1px solid var(--line-soft); }
+.feature h3 { font-size: 1.05rem; }
+.feature p { font-size: .88rem; }
+
+/* ---------- Digital menus ---------- */
+.menu-grid { display: grid; grid-template-columns: minmax(0, .75fr) minmax(0, 1.25fr); gap: clamp(40px, 6vw, 100px); align-items: center; }
+.menu-scene { height: clamp(290px, 28vw, 540px); border: 1px solid var(--line-soft); border-radius: 22px; overflow: hidden; }
+.mini-cards { margin-top: 60px; }
+
+/* ---------- Websites / portfolio ---------- */
+.portfolio { margin-top: 58px; }
+.project { padding: 0; overflow: hidden; }
+.project-art { height: 250px; background: #1b1b1b; }
+.project-body { padding: 26px; }
+.project a { color: var(--orange); font-size: .84rem; font-weight: 600; }
+
+.metrics { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 55px; background: #090909; border: 1px solid var(--line-soft); border-radius: var(--radius); overflow: hidden; }
+.metric { padding: 34px; border-right: 1px solid var(--line-soft); }
+.metric:last-child { border-right: 0; }
+.metric strong { display: block; color: var(--orange); font: 700 2.1rem var(--font-head); }
+.metric small { color: #777; }
+
+/* ---------- Comparison cards ---------- */
+.compare-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px; margin-top: 60px; }
+.compare-card { padding: 40px; background: var(--card); border: 1px solid var(--line-soft); border-radius: var(--radius); }
+.compare-card.accent { background: #120b07; border-color: rgba(255, 106, 0, .26); }
+.flow-list { margin: 28px 0 0; padding: 0; list-style: none; }
+.flow-list li { padding: 12px 0; border-bottom: 1px solid var(--line-soft); color: #999; }
+.flow-list li:not(:last-child)::after { content: "↓"; float: right; color: #555; }
+
+.tag-row { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 25px; }
+.tag { padding: 7px 10px; border: 1px solid var(--line-soft); border-radius: 999px; background: #0a0a0a; color: #aaa; font-size: .72rem; }
+
+/* ---------- Capabilities / principles / custom ---------- */
+.capability-grid, .principles { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(48px, 7vw, 105px); align-items: start; }
+.capabilities { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 30px; }
+.capability { padding: 25px 0; border-top: 1px solid var(--line-soft); }
+.capability h3 { margin-bottom: 7px; font-size: 1rem; }
+.capability p { margin: 0; font-size: .85rem; }
+
+.principle { padding: 30px 0; border-top: 1px solid var(--line-soft); }
+.principle span { display: block; margin-bottom: 13px; color: var(--orange); font-size: .72rem; font-weight: 600; }
+.principle p { margin: 0; }
+
+.choice-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 58px; border: 1px solid var(--line-soft); border-radius: var(--radius); overflow: hidden; }
+.choice { padding: 40px; background: var(--card); border-right: 1px solid var(--line-soft); }
+.choice:last-child { border-right: 0; }
+.choice ul { padding-left: 18px; color: #999; }
+.combine { margin-top: 22px; padding: 25px; border-color: rgba(255, 106, 0, .18); }
+
+.custom-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 100px); align-items: center; }
+
+/* ---------- Scroll reveal (js/pages/home.js) ---------- */
+.scroll-reveal { opacity: 0; transform: translateY(42px); transition: opacity .72s cubic-bezier(.2, .75, .25, 1), transform .72s cubic-bezier(.2, .75, .25, 1); will-change: opacity, transform; }
+.scroll-reveal.from-left { transform: translateX(-44px); }
+.scroll-reveal.from-right { transform: translateX(44px); }
+.scroll-reveal.in-view { opacity: 1; transform: none; }
+.scroll-reveal.delay-1 { transition-delay: .08s; }
+.scroll-reveal.delay-2 { transition-delay: .16s; }
+.scroll-reveal.delay-3 { transition-delay: .24s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal, .scroll-reveal.from-left, .scroll-reveal.from-right { opacity: 1; transform: none; transition: none; }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1100px) {
+  .home .wrap { width: calc(100% - 48px); }
+  .hero { min-height: auto; padding: 90px 0 120px; }
+  .hero-grid, .why-grid, .menu-grid, .capability-grid, .principles, .custom-grid, .section-head { grid-template-columns: 1fr; }
+  .section-head { gap: 18px; }
+  .hero-visual { max-width: 700px; }
+  .g4 { grid-template-columns: repeat(2, 1fr); }
+  .capability-grid, .principles { gap: 55px; }
+}
+@media (max-width: 800px) {
+  .home { font-size: 15px; }
+  .stats, .g3, .workflow, .metrics, .compare-grid, .choice-grid, .capabilities { grid-template-columns: 1fr; }
+  .step, .metric, .choice { border-right: 0; border-bottom: 1px solid var(--line-soft); }
+  .step:last-child, .metric:last-child, .choice:last-child { border-bottom: 0; }
+  .compare-card, .choice { padding: 28px; }
+}
+@media (max-width: 520px) {
+  .home .wrap { width: calc(100% - 32px); }
+  .g4, .g2 { grid-template-columns: 1fr; }
+  .industry, .solution { min-height: auto; }
+  .project-art { height: 210px; }
+}
