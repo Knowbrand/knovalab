@@ -21,6 +21,11 @@
   <style>
     .project-logo{width:56px;height:56px;margin-bottom:18px;border-radius:12px;background:#281205;display:grid;place-items:center;overflow:hidden}
     .project-logo img{display:block;width:100%;height:100%;object-fit:contain}
+
+    /* Whole card is clickable: the "View Project" link stretches over the card */
+    .project{position:relative;cursor:pointer}
+    .project > a::after{content:"";position:absolute;inset:0;z-index:2}
+    .project:focus-within{outline:3px solid rgba(255,106,0,.48);outline-offset:3px}
   </style>
 </head>
 
@@ -89,6 +94,18 @@
 
   <div data-include="cta"></div>
   <div data-include="footer"></div>
+
+  <!-- Clicking anywhere on a project card opens that card's link -->
+  <script>
+    document.querySelectorAll('.project').forEach(function (card) {
+      var link = card.querySelector('a[href]');
+      if (!link) return;
+      card.addEventListener('click', function (e) {
+        if (e.target.closest('a')) return;            // the link handles its own click
+        window.open(link.href, '_blank', 'noopener');
+      });
+    });
+  </script>
 
   <script src="/js/main.js" defer></script>
   <script src="/js/include.js" defer></script>
