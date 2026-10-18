@@ -1,0 +1,40 @@
+/* portfolio.css — styles used only on the Portfolio page */
+
+.filters { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: 42px; }
+.filter { padding: 9px 15px; border-radius: 999px; background: #141416; color: #aaa; font-size: 13px; font-weight: 600; }
+.filter.active { background: var(--orange); color: #fff; }
+
+.projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+
+.project {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 400px;
+  padding: 30px;
+  border: 1px solid #252529;
+  border-radius: 6px;
+  background: var(--panel);
+}
+.project small { display: flex; justify-content: space-between; color: var(--orange); font: 600 13px var(--font-head); text-transform: uppercase; }
+.project small span { color: #85858b; font: 400 12px var(--font-body); text-transform: none; }
+.project h3 { margin-top: 12px; font-size: 24px; }
+.project p { margin-top: 10px; color: var(--muted); }
+.project a { margin-top: 20px; font-size: 14px; font-weight: 600; }
+.project a b { color: var(--orange); }
+
+.quote { padding: 120px 20px; text-align: center; border-bottom: 1px solid var(--line); }
+.quote b { display: block; color: var(--orange); font-size: 40px; line-height: .6; }
+.quote h2 { max-width: 760px; margin: 25px auto 0; font-size: 32px; }
+.quote p { margin-top: 24px; color: var(--muted); font-size: 14px; }
+
+.conversation { padding: 100px 20px; text-align: center; background: #141416; }
+.conversation .eyebrow { justify-content: center; }
+.conversation h2 { font-size: 32px; }
+.conversation p { max-width: 620px; margin: 14px auto 0; color: var(--muted); }
+.conversation .btns { justify-content: center; }
+
+@media (max-width: 800px) {
+  .projects { grid-template-columns: 1fr; }
+  .project { min-height: 340px; }
+}
