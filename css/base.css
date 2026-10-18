@@ -1,0 +1,143 @@
+/* ==========================================================================
+   base.css — design tokens, reset, typography, layout helpers, buttons.
+   Loaded first on every page. Change a colour or font here, it changes everywhere.
+
+   Breakpoints used across the whole site (CSS can't read variables inside
+   @media, so keep these three numbers consistent):
+     1100px  tablet  (navbar collapses to hamburger)
+      800px  phone
+      520px  small phone
+   ========================================================================== */
+
+:root {
+  /* Colour */
+  --bg: #000;
+  --panel: #121214;
+  --card: #141414;
+  --line: #202024;
+  --line-soft: rgba(255, 255, 255, .075);
+  --text: #f5f5f6;
+  --muted: #909095;
+  --orange: #ff6a00;
+  --orange-hover: #ff7b1c;
+
+  /* Type */
+  --font-body: Geist, Arial, sans-serif;
+  --font-head: Outfit, Arial, sans-serif;
+
+  /* Layout */
+  --max: 1180px;
+  --max-wide: 1480px;
+  --gutter: 48px;
+  --nav-top: 28px;   /* gap above the floating navbar */
+  --nav-h: 76px;     /* gap + pill height: how much hero sections must clear */
+  --radius: 18px;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-h) + 24px);
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 400 16px/1.6 var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+body.menu-open { overflow: hidden; }
+
+h1, h2, h3, h4, p { margin: 0; }
+
+h1, h2, h3, h4 {
+  font-family: var(--font-head);
+  line-height: 1.08;
+  letter-spacing: -.035em;
+}
+
+a { color: inherit; text-decoration: none; }
+
+img { max-width: 100%; }
+
+/* Make the hidden attribute always win over component display rules */
+[hidden] { display: none !important; }
+
+/* ---------- Layout helpers ---------- */
+
+.wrap {
+  width: min(calc(100% - var(--gutter)), var(--max));
+  margin-inline: auto;
+}
+
+.wrap--wide { width: min(calc(100% - var(--gutter)), var(--max-wide)); }
+
+.section {
+  padding: 82px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 17px;
+  color: var(--orange);
+  font: 600 13px var(--font-head);
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--orange);
+}
+
+/* ---------- Buttons ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 22px;
+  border: 1px solid #39393d;
+  border-radius: 9px;
+  background: transparent;
+  color: #fff;
+  font: 600 14px var(--font-body);
+  cursor: pointer;
+  transition: background .2s, border-color .2s, transform .2s;
+}
+
+.btn.primary { background: var(--orange); border-color: var(--orange); }
+.btn.primary:hover { background: var(--orange-hover); transform: translateY(-2px); }
+.btn.secondary:hover { background: #111; border-color: #fff; }
+
+.btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+
+/* ---------- Accessibility ---------- */
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid rgba(255, 106, 0, .55);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; animation: none !important; }
+}
+
+/* ---------- Shared responsive rules ---------- */
+
+@media (max-width: 520px) {
+  :root { --gutter: 32px; --nav-top: 16px; --nav-h: 64px; }
+}
