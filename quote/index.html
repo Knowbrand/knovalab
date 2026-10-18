@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Request a Custom Quote | Knovalab</title>
+  <meta name="description" content="Tell Knovalab about your project — websites, digital signage CMS, digital menus, social media — and receive a personalised quotation.">
+  <meta name="theme-color" content="#000000">
+  <link rel="canonical" href="https://knovalab.in/quote/">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/pages/quote.css">
+</head>
+
+<body data-page="quote">
+
+  <div data-include="navbar"></div>
+
+  <main>
+
+    <section class="hero">
+      <div class="wrap">
+        <div class="eyebrow">Build something great</div>
+        <h1><span>Tell us what you're planning.</span></h1>
+        <p>Websites, signage CMS, digital menus or social media — choose what you need, share a few details, and we'll prepare a personalised quotation.</p>
+        <ul class="trust"><li>No obligation</li><li>Personalised response</li><li>Usually within 24 hours</li></ul>
+      </div>
+    </section>
+
+    <section class="wrap formbox">
+
+      <div class="head" id="head">
+        <div>
+          <div class="eyebrow">Project brief</div>
+          <h2>A few details. A clearer quote.</h2>
+        </div>
+        <div class="prog"><span id="pt">0% complete</span><div class="bar"><i id="pb"></i></div></div>
+      </div>
+
+      <form id="quote-form" novalidate>
+        <!-- Spam trap + hidden fields filled by quote.js -->
+        <input class="hp" type="text" name="company_website_confirm" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input type="hidden" name="submissionId" id="sid">
+        <input type="hidden" name="submissionDateTime" id="sdt">
+        <input type="hidden" name="sourcePage" value="Knovalab Custom Quote">
+        <input type="hidden" name="phoneNumber" id="fullPhone">
+        <input type="hidden" name="selectedServices" id="selSv">
+
+        <!-- 01 Services -->
+        <fieldset class="sec" style="margin:0">
+          <legend class="st"><span class="num">01</span>What can we help you with?</legend>
+          <p class="cnt" id="cnt" aria-live="polite">0 selected</p>
+          <div id="svc"></div>
+          <p class="err" id="e-svc" role="alert"></p>
+          <div id="panels"></div>
+        </fieldset>
+
+        <!-- 02 Business -->
+        <section class="sec">
+          <div class="st"><span class="num">02</span>Your business</div>
+          <div class="fg">
+            <div class="fld">
+              <label class="l" for="industry">Industry <span aria-hidden="true">*</span></label>
+              <select id="industry" name="industry"><option value="">Select your industry</option></select>
+              <p class="err" id="e-industry" role="alert"></p>
+            </div>
+            <div class="fld" id="otherInd" hidden>
+              <label class="l" for="otherIndustry">Your industry</label>
+              <input id="otherIndustry" name="otherIndustry" maxlength="100">
+            </div>
+          </div>
+          <fieldset>
+            <legend>Budget range <span aria-hidden="true">*</span></legend>
+            <div class="grid" id="budget"></div>
+            <p class="err" id="e-budget" role="alert"></p>
+          </fieldset>
+          <fieldset>
+            <legend>When would you like to begin?</legend>
+            <div class="grid" id="timeline"></div>
+          </fieldset>
+        </section>
+
+        <!-- 03 Contact details -->
+        <section class="sec">
+          <div class="st"><span class="num">03</span>How can we reach you?</div>
+          <div class="fg">
+            <div class="fld"><label class="l" for="fullName">Full name <span aria-hidden="true">*</span></label><input id="fullName" name="fullName" autocomplete="name" maxlength="100"><p class="err" id="e-fullName"></p></div>
+            <div class="fld"><label class="l" for="businessName">Business / brand name <span class="opt">Optional</span></label><input id="businessName" name="businessName" autocomplete="organization" maxlength="100"></div>
+            <div class="fld"><label class="l" for="email">Email <span aria-hidden="true">*</span></label><input id="email" name="email" type="email" autocomplete="email" maxlength="150"><p class="err" id="e-email"></p></div>
+            <div class="fld">
+              <label class="l" for="phone">Phone <span aria-hidden="true">*</span></label>
+              <div class="ph">
+                <select id="cc" name="countryCode" aria-label="Country code">
+                  <option value="+91">+91 India</option><option value="+1">+1 US/CA</option><option value="+44">+44 UK</option><option value="+61">+61 AU</option><option value="+971">+971 UAE</option><option value="">Other</option>
+                </select>
+                <input id="phone" name="phoneLocal" type="tel" inputmode="tel" autocomplete="tel-national" maxlength="20" placeholder="98765 43210">
+              </div>
+              <p class="err" id="e-phone"></p>
+            </div>
+            <div class="fld"><label class="l" for="city">City / country</label><input id="city" name="cityOrCountry" autocomplete="address-level2" maxlength="100"></div>
+            <div class="fld">
+              <label class="l" for="cm">Preferred contact method</label>
+              <select id="cm" name="preferredContactMethod"><option value="">No preference</option><option>Phone Call</option><option>WhatsApp</option><option>Email</option></select>
+            </div>
+          </div>
+        </section>
+
+        <!-- 04 Description -->
+        <section class="sec">
+          <div class="st"><span class="num">04</span>Anything else we should know?</div>
+          <div class="fld">
+            <label class="l" for="desc">Project description <span aria-hidden="true">*</span> <span class="opt" id="dc">0 / 2000</span></label>
+            <textarea id="desc" name="projectDescription" maxlength="2000" placeholder="Tell us about your business, what you want to achieve, features or pages you need, and any examples you like."></textarea>
+            <p class="err" id="e-desc"></p>
+          </div>
+          <div class="fld w" style="margin-top:14px">
+            <label class="l" for="link">Reference or file link <span class="opt">Optional</span></label>
+            <input id="link" name="referenceFileLink" type="url" maxlength="300" placeholder="https://  (website, Google Drive, Dropbox)">
+          </div>
+        </section>
+
+        <!-- Consent + submit -->
+        <section class="sub">
+          <label class="con">
+            <input id="consent" type="checkbox" name="consentStatus" value="Agreed">
+            <span class="cb" aria-hidden="true">✓</span>
+            <span>I agree that Knovalab may contact me about this inquiry. <small>Your information is only used to respond to your request.</small></span>
+          </label>
+          <p class="err" id="e-consent"></p>
+          <div class="row">
+            <button class="lnk" id="clr" type="button">Clear form</button>
+            <button class="btn primary" id="go" type="submit">Request My Custom Quote</button>
+          </div>
+          <div class="stat" id="stat" aria-live="polite"></div>
+        </section>
+      </form>
+
+      <!-- Thank-you state -->
+      <section class="done" id="done" tabindex="-1">
+        <div class="tick">✓</div>
+        <div class="eyebrow">Request received</div>
+        <h2>Your request has been received.</h2>
+        <p>Reference: <strong id="ref"></strong></p>
+        <p>Our team will review your requirements and contact you with the next steps, usually within 24 hours.</p>
+        <div class="acts">
+          <a class="btn primary" href="/">Return home</a>
+          <a class="btn secondary" href="mailto:business@knovalab.in">Email Knovalab</a>
+        </div>
+      </section>
+
+    </section>
+  </main>
+
+  <div data-include="footer"></div>
+
+  <script src="/js/main.js" defer></script>
+  <script src="/js/include.js" defer></script>
+  <script src="/js/pages/quote.js" defer></script>
+  <script src="/knovalab-enhance.js"></script>
+</body>
+</html>
