@@ -1,0 +1,128 @@
+/* insights.css — styles used only on the Insights (blog index) page */
+
+/* ---------- Hero + floating card stack ---------- */
+.hero { overflow: hidden; padding: 95px 0 54px; border-bottom: 1px solid var(--line); }
+.hero h1 { max-width: 850px; font-size: 56px; }
+.hero p { max-width: 620px; margin-top: 18px; color: var(--muted); font-size: 18px; }
+
+.stack { position: relative; height: 390px; margin-top: 48px; perspective: 1300px; }
+
+.hero-card {
+  position: absolute;
+  width: 250px; height: 265px; padding: 20px;
+  border: 1px solid #38383c; border-radius: 8px;
+  background: linear-gradient(135deg, #1b1b1e, #09090b);
+  box-shadow: 0 24px 50px #000;
+  transform-style: preserve-3d;
+  opacity: 0;
+  animation: fall-left .85s cubic-bezier(.19, .85, .3, 1) forwards;
+}
+
+/* Thumbnail strip. --thumb is filled in by insights.js when the linked page has an image. */
+.hero-card::before {
+  content: ""; display: block; height: 92px; margin: -20px -20px 18px; border-radius: 7px 7px 0 0;
+  background: var(--thumb, none) center / cover no-repeat, linear-gradient(135deg, #39535b, #0c161a 60%, #ff6a00);
+}
+
+.hero-card small, .post small { color: var(--orange); font: 600 12px var(--font-head); text-transform: uppercase; }
+.hero-card h3 { margin-top: 10px; font-size: 18px; }
+.hero-card p { margin-top: 7px; font-size: 14px; }
+.hero-card a, .post .more { display: block; margin-top: 16px; color: var(--orange); font-size: 14px; font-weight: 600; }
+
+/* Position + resting tilt for each of the six cards (add .cN rules if you add more) */
+.c1 { left: 2%;  top: 42px;  animation-delay: .05s; transform: rotateY(-18deg) rotateZ(-4deg); }
+.c2 { left: 17%; top: 75px;  animation-delay: .16s; transform: rotateY(-15deg) rotateZ(2deg); }
+.c3 { left: 33%; top: 46px;  animation-delay: .27s; transform: rotateY(-12deg) rotateZ(-3deg); }
+.c4 { left: 49%; top: 95px;  animation-delay: .38s; transform: rotateY(-18deg) rotateZ(3deg); }
+.c5 { left: 65%; top: 62px;  animation-delay: .49s; transform: rotateY(-12deg) rotateZ(-2deg); }
+.c6 { left: 80%; top: 105px; animation-delay: .6s;  transform: rotateY(-20deg) rotateZ(4deg); }
+
+@keyframes fall-left {
+  from { opacity: 0; transform: translate(420px, -260px) rotateY(-45deg) rotateZ(12deg); }
+  to { opacity: 1; }
+}
+
+/* After the entrance animation, JS adds .landed so hover can take over */
+.hero-card:not(.landed) { pointer-events: none; }
+.hero-card.landed { animation: none; opacity: 1; }
+.hero-card.c1.landed { transform: rotateY(-18deg) rotateZ(-4deg); }
+.hero-card.c2.landed { transform: rotateY(-15deg) rotateZ(2deg); }
+.hero-card.c3.landed { transform: rotateY(-12deg) rotateZ(-3deg); }
+.hero-card.c4.landed { transform: rotateY(-18deg) rotateZ(3deg); }
+.hero-card.c5.landed { transform: rotateY(-12deg) rotateZ(-2deg); }
+.hero-card.c6.landed { transform: rotateY(-20deg) rotateZ(4deg); }
+.hero-card.landed:hover { z-index: 9 !important; transform: translateY(-16px) rotateX(0) rotateY(0) rotateZ(0) !important; scale: 1.08; }
+
+/* ---------- Filters + article grid ---------- */
+.head h2 { font-size: 32px; }
+
+.filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 34px; }
+.filter { padding: 9px 14px; border: 0; border-radius: 999px; background: #151517; color: #aaa; font: 600 12px var(--font-body); cursor: pointer; }
+.filter.active { background: var(--orange); color: #fff; }
+
+.posts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+.post {
+  display: flex; flex-direction: column; min-height: 360px; padding: 18px;
+  border: 1px solid #252529; border-radius: 7px; background: var(--panel);
+  transform: perspective(900px) rotateX(4deg) rotateY(-4deg);
+  transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+}
+.post:hover {
+  z-index: 2; border-color: #5c5c62; box-shadow: 0 20px 45px rgba(0, 0, 0, .45);
+  transform: perspective(900px) rotateX(0) rotateY(0) translateY(-9px) scale(1.025);
+}
+.post.hidden { display: none; }
+
+/* Card image: the gradient is the placeholder; --thumb is filled in by insights.js */
+.art {
+  height: 170px; margin: -18px -18px 18px; border-radius: 6px 6px 0 0;
+  background: var(--thumb, none) center / cover no-repeat, var(--art, linear-gradient(135deg, #d9f2f5, #78b9cf 40%, #101f27));
+}
+/* Placeholder gradients cycle every 7 cards, so new cards always get one */
+.post:nth-child(7n+1) .art { --art: linear-gradient(135deg, #d9f2f5, #78b9cf 40%, #101f27); }
+.post:nth-child(7n+2) .art { --art: linear-gradient(135deg, #062d2d, #101219 65%, #6d8791); }
+.post:nth-child(7n+3) .art { --art: linear-gradient(135deg, #0a5e97, #133047, #e1b46b); }
+.post:nth-child(7n+4) .art { --art: linear-gradient(135deg, #122036, #7d1217, #d83b2a); }
+.post:nth-child(7n+5) .art { --art: linear-gradient(135deg, #555, #0b0b0c, #dedede); }
+.post:nth-child(7n+6) .art { --art: linear-gradient(135deg, #0e845a, #02252d, #aaff50); }
+.post:nth-child(7n+7) .art { --art: linear-gradient(135deg, #141d47, #1c335d, #8af5cf); }
+
+.post h3 { margin-top: 10px; font-size: 24px; }
+.post p { margin-top: 9px; color: var(--muted); }
+.post .more { margin-top: auto; padding-top: 15px; }
+
+/* ---------- Newsletter ---------- */
+.subscribe { padding: 100px 20px; text-align: center; background: #101012; }
+.subscribe .eyebrow { justify-content: center; }
+.subscribe h2 { font-size: 32px; }
+.subscribe p { color: var(--muted); }
+.form { display: flex; justify-content: center; gap: 8px; margin-top: 22px; }
+.form input { width: 280px; padding: 13px; border: 1px solid #303034; border-radius: 4px; background: #080809; color: #fff; font: 14px var(--font-body); }
+.form .btn { border-radius: 5px; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 800px) {
+  .hero h1 { font-size: 44px; }
+  .stack { width: 125%; margin-bottom: -65px; transform: scale(.8); transform-origin: left top; }
+  .posts { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 520px) {
+  .hero { padding-top: 70px; }
+  .hero h1 { font-size: 38px; }
+  .stack { height: 520px; width: 150%; margin-bottom: -130px; transform: scale(.68); }
+  .hero-card { width: 220px; }
+  .c1 { left: 0; }
+  .c2 { left: 23%; top: 95px; }
+  .c3 { left: 47%; top: 45px; }
+  .c4 { left: 8%;  top: 275px; }
+  .c5 { left: 32%; top: 250px; }
+  .c6 { left: 57%; top: 290px; }
+  .posts { grid-template-columns: 1fr; }
+  .form { flex-direction: column; align-items: center; }
+  .form input, .form .btn { width: min(100%, 300px); height: 46px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-card { animation: none; opacity: 1; }
+}
