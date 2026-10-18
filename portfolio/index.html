@@ -16,6 +16,12 @@
   <link rel="stylesheet" href="/css/components.css">
   <link rel="stylesheet" href="/css/sections.css">
   <link rel="stylesheet" href="/css/pages/portfolio.css">
+
+  <!-- Logo box shown at the top of each project card -->
+  <style>
+    .project-logo{width:56px;height:56px;margin-bottom:18px;border-radius:12px;background:#281205;display:grid;place-items:center;overflow:hidden}
+    .project-logo img{display:block;width:100%;height:100%;object-fit:contain}
+  </style>
 </head>
 
 <body data-page="portfolio">
@@ -42,28 +48,31 @@
           <span class="filter">Experiments</span>
         </div>
 
+        <!-- ==========================================================
+             PROJECT CARDS
+             To add another project, copy one <article> below, change the
+             logo image, text and link, and paste it under the last one.
+             ========================================================== -->
         <div class="projects">
-          <article class="project"><small>Restaurant <span>Digital Menu System</span></small><h3>Harbor Restaurant</h3><p>Replaced vulnerable cloud menu boards with a redundant local menu sync. Instant pricing updates and dayparting management across 15 counter screens.</p><a href="/quote/">View Project <b>→</b></a></article>
-          <article class="project"><small>Education <span>On-Prem Signage</span></small><h3>Vertex Academy</h3><p>Installed a campus-wide digital notice network running completely offline. Staff push emergency notices and schedules safely via isolated campus subnets.</p><a href="/quote/">View Project <b>→</b></a></article>
-          <article class="project"><small>Fitness <span>Website + Booking</span></small><h3>Peak Fitness</h3><p>Built a high-performance custom booking engine free of third-party templates. Member scan-in and scheduling load in under 300ms.</p><a href="/quote/">View Project <b>→</b></a></article>
-          <article class="project"><small>Healthcare <span>Digital Signage Network</span></small><h3>Metropolitan Dental</h3><p>Calming patient screen networks deployed in lobbies and waiting zones. Delivers real-time office announcements and educational content.</p><a href="/quote/">View Project <b>→</b></a></article>
-          <article class="project"><small>Food &amp; Beverage <span>Digital Menu + Signage</span></small><h3>Artisan Bakery Co</h3><p>Dynamic menu synchronizer that automatically shifts layouts based on baked goods inventory. Keeps screens aligned with kitchen output.</p><a href="/quote/">View Project <b>→</b></a></article>
-          <article class="project"><small>Hospitality <span>Website</span></small><h3>Greenfield Hotels</h3><p>Clean, bespoke online presence engineered around booking conversion and property presentation. No generic frameworks, with rapid response.</p><a href="/quote/">View Project <b>→</b></a></article>
+
+          <article class="project">
+            <div class="project-logo"><img src="https://i.pinimg.com/736x/56/b0/07/56b007965b04f8920b2009bb08ad35e5.jpg" alt="ICONIC logo" loading="lazy"></div>
+            <small>Photography <span>Website</span></small>
+            <h3>ICONIC</h3>
+            <p>Website for a luxury wedding photography and cinematic film studio, with a contact page that routes client enquiries.</p>
+            <a href="https://business.knovalab.in/iconic/" target="_blank" rel="noopener">View Project <b>→</b></a>
+          </article>
+
+          <article class="project">
+            <div class="project-logo"><img src="https://i.pinimg.com/736x/f0/e2/e9/f0e2e9a99e4c9d566f665c32e6b5e83e.jpg" alt="The Brave Lion Pre-Primary School logo" loading="lazy"></div>
+            <small>Education <span>Website</span></small>
+            <h3>The Brave Lion Pre-Primary School</h3>
+            <p>A six-page website for a pre-primary school covering its programs, activities, admissions and an enquiry page for parents.</p>
+            <a href="https://thebravelion.in" target="_blank" rel="noopener">View Project <b>→</b></a>
+          </article>
+
         </div>
       </div>
-    </section>
-
-    <section class="stats">
-      <div class="stat"><strong>40+</strong><span>Projects Delivered</span></div>
-      <div class="stat"><strong>12</strong><span>Industries Served</span></div>
-      <div class="stat"><strong>3</strong><span>System Types</span></div>
-      <div class="stat"><strong>98%</strong><span>Client Retention</span></div>
-    </section>
-
-    <section class="quote">
-      <b>“</b>
-      <h2>Knovalab understood what our business actually needed — not what looked impressive in a pitch deck.</h2>
-      <p>— Operations Manager, Harbor Restaurant</p>
     </section>
 
     <section class="conversation">
