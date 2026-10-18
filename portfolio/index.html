@@ -60,7 +60,7 @@
              ========================================================== -->
         <div class="projects">
 
-          <article class="project">
+          <article class="project" data-url="https://business.knovalab.in/iconic/">
             <div class="project-logo"><img src="https://i.pinimg.com/736x/56/b0/07/56b007965b04f8920b2009bb08ad35e5.jpg" alt="ICONIC logo" loading="lazy"></div>
             <small>Photography <span>Website</span></small>
             <h3>ICONIC</h3>
@@ -68,7 +68,7 @@
             <a href="https://business.knovalab.in/iconic/" target="_blank" rel="noopener">View Project <b>→</b></a>
           </article>
 
-          <article class="project">
+          <article class="project" data-url="https://thebravelion.in">
             <div class="project-logo"><img src="https://i.pinimg.com/736x/f0/e2/e9/f0e2e9a99e4c9d566f665c32e6b5e83e.jpg" alt="The Brave Lion Pre-Primary School logo" loading="lazy"></div>
             <small>Education <span>Website</span></small>
             <h3>The Brave Lion Pre-Primary School</h3>
@@ -95,16 +95,31 @@
   <div data-include="cta"></div>
   <div data-include="footer"></div>
 
-  <!-- Clicking anywhere on a project card opens that card's link -->
+  <!-- Project cards: each card keeps its real address in data-url.
+       1) Clicking anywhere on a card opens that address (runs first, so no other script can redirect it).
+       2) If another script rewrites a card's link (e.g. to "#top"), it is put straight back. -->
   <script>
-    document.querySelectorAll('.project').forEach(function (card) {
-      var link = card.querySelector('a[href]');
-      if (!link) return;
-      card.addEventListener('click', function (e) {
-        if (e.target.closest('a')) return;            // the link handles its own click
-        window.open(link.href, '_blank', 'noopener');
-      });
-    });
+    (function () {
+      var cards = document.querySelectorAll('.project[data-url]');
+
+      function restore() {
+        cards.forEach(function (card) {
+          var a = card.querySelector('a');
+          if (a && a.getAttribute('href') !== card.dataset.url) a.setAttribute('href', card.dataset.url);
+        });
+      }
+      restore();
+      new MutationObserver(restore).observe(document.body, { attributes: true, subtree: true, attributeFilter: ['href'] });
+
+      window.addEventListener('click', function (e) {
+        if (e.button !== 0 || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
+        var card = e.target.closest && e.target.closest('.project');
+        if (!card || !card.dataset.url) return;
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        window.open(card.dataset.url, '_blank', 'noopener');
+      }, true);
+    })();
   </script>
 
   <script src="/js/main.js" defer></script>
