@@ -154,14 +154,18 @@
     })
       .then(function (r) { return r.json().catch(function () { return {}; }).then(function (d) { return { ok: r.ok, d: d }; }); })
       .then(function (res) {
-        if (!res.ok || res.d.success === 'false') throw new Error('send failed');
+        if (!res.ok || res.d.success === 'false' || res.d.success === false) {
+          var m = new Error((res.d && res.d.message) || 'HTTP error'); m.fromServer = true; throw m;
+        }
         $('ref').textContent = id;
         form.hidden = true;
         var done = $('done'); done.hidden = false; done.focus();
         done.scrollIntoView({ behavior: 'smooth', block: 'start' });
       })
-      .catch(function () {
-        status('Something went wrong. Please try again, or email us at knovalab.inquiry@gmail.com.', true);
+      .catch(function (err) {
+        console.error('Feedback submit failed:', err);
+        var why = err && err.fromServer ? ' (' + err.message + ')' : '';
+        status('Something went wrong' + why + '. Please try again, or email us at knovalab.inquiry@gmail.com.', true);
         go.disabled = false;
       });
   });
