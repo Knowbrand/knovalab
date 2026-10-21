@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Client Feedback | Knovalab</title>
+  <meta name="description" content="Worked with Knovalab? Share your experience — your feedback helps us improve and helps other businesses know what to expect.">
+  <meta name="theme-color" content="#000000">
+  <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/pages/feedback.css">
+</head>
+
+<body data-page="feedback">
+
+  <main>
+
+    <section class="fb-hero">
+      <div class="wrap">
+        <h1><span>Knovalab Client Feedback</span></h1>
+        <p>Thank you for trusting Knovalab. We'd love to hear about your experience working with us.</p>
+      </div>
+    </section>
+
+    <section class="wrap fb-box">
+
+      <form id="feedback-form" novalidate>
+        <!-- Spam trap + hidden fields (FormSubmit) -->
+        <input class="fb-hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input type="hidden" name="_subject" value="New Client Feedback - Knovalab">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="sourcePage" value="Knovalab Client Feedback">
+        <input type="hidden" name="submissionId" id="sid">
+        <input type="hidden" name="submissionDateTime" id="sdt">
+
+        <!-- 01 About you -->
+        <section class="fb-sec">
+          <div class="fb-st"><span class="num">01</span>About you</div>
+          <div class="fb-fg">
+            <div class="fld">
+              <label class="l" for="fullName">Your full name <span aria-hidden="true">*</span></label>
+              <input id="fullName" name="fullName" autocomplete="name" maxlength="100">
+              <p class="err" id="e-fullName" role="alert"></p>
+            </div>
+            <div class="fld">
+              <label class="l" for="businessName">Business name <span aria-hidden="true">*</span></label>
+              <input id="businessName" name="businessName" autocomplete="organization" maxlength="100">
+              <p class="err" id="e-businessName" role="alert"></p>
+            </div>
+            <div class="fld">
+              <label class="l" for="email">Email <span class="opt">Optional</span></label>
+              <input id="email" name="email" type="email" autocomplete="email" maxlength="150" placeholder="So we can follow up if needed">
+              <p class="err" id="e-email" role="alert"></p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 02 Project -->
+        <section class="fb-sec">
+          <div class="fb-st"><span class="num">02</span>About the project</div>
+
+          <fieldset class="fb-q">
+            <legend>What service did we provide? <span aria-hidden="true">*</span></legend>
+            <div class="fb-opts" id="svc"></div>
+            <p class="err" id="e-service" role="alert"></p>
+          </fieldset>
+
+          <fieldset class="fb-q">
+            <legend>Your experience with the overall procedure <span aria-hidden="true">*</span></legend>
+            <div class="fb-opts" id="proc"></div>
+            <p class="err" id="e-procedure" role="alert"></p>
+          </fieldset>
+
+          <fieldset class="fb-q">
+            <legend>Would you recommend Knovalab to another business? <span aria-hidden="true">*</span></legend>
+            <div class="fb-opts" id="rec"></div>
+            <p class="err" id="e-recommend" role="alert"></p>
+          </fieldset>
+        </section>
+
+        <!-- 03 Rating + paragraph -->
+        <section class="fb-sec">
+          <div class="fb-st"><span class="num">03</span>Rate us &amp; tell us more</div>
+
+          <fieldset class="fb-q">
+            <legend>Overall rating <span aria-hidden="true">*</span></legend>
+            <div class="fb-stars" id="stars" role="radiogroup" aria-label="Overall rating out of 5"></div>
+            <p class="fb-starlabel" id="starLabel" aria-live="polite">Tap a star to rate</p>
+            <input type="hidden" name="rating" id="rating">
+            <p class="err" id="e-rating" role="alert"></p>
+          </fieldset>
+
+          <div class="fld">
+            <label class="l" for="testimonial">Your testimonial <span aria-hidden="true">*</span> <span class="opt" id="tc">0 / 1500</span></label>
+            <textarea id="testimonial" name="testimonial" maxlength="1500" placeholder="How was your experience working with Knovalab? What did we do well, and what could we do better?"></textarea>
+            <p class="err" id="e-testimonial" role="alert"></p>
+          </div>
+        </section>
+
+        <!-- 04 Permission -->
+        <section class="fb-sec">
+          <div class="fb-st"><span class="num">04</span>Permission to feature your feedback</div>
+
+          <fieldset class="fb-q">
+            <legend>How may we credit you? <span aria-hidden="true">*</span></legend>
+            <div class="fb-opts" id="credit"></div>
+            <p class="err" id="e-credit" role="alert"></p>
+          </fieldset>
+
+          <label class="con">
+            <input id="consent" type="checkbox" name="publishPermission" value="Agreed">
+            <span class="cb" aria-hidden="true">✓</span>
+            <span>I give Knovalab permission to publish my feedback and use it in marketing materials (website, social media and presentations). <small>You can ask us to remove it at any time.</small></span>
+          </label>
+          <p class="err" id="e-consent" role="alert"></p>
+
+          <div class="fb-row">
+            <button class="lnk" id="clr" type="button">Clear form</button>
+            <button class="btn primary" id="go" type="submit">Submit My Feedback</button>
+          </div>
+          <div class="fb-stat" id="stat" aria-live="polite"></div>
+        </section>
+      </form>
+
+      <!-- Thank-you state -->
+      <section class="fb-done" id="done" tabindex="-1" hidden>
+        <div class="tick">✓</div>
+        <div class="eyebrow">Feedback received</div>
+        <h2>Thank you — it means a lot.</h2>
+        <p>Reference: <strong id="ref"></strong></p>
+        <p>We read every response and use it to keep improving.</p>
+        <div class="acts">
+          <a class="btn primary" href="/">Return home</a>
+          <a class="btn secondary" href="/quote/">Request a quote</a>
+        </div>
+      </section>
+
+    </section>
+  </main>
+
+  <script src="/js/pages/feedback.js" defer></script>
+</body>
+</html>
